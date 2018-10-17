@@ -1,5 +1,5 @@
 //
-//  MyCollectionViewCell.swift
+//  ColorPickerDatasource.swift
 //  AdorableAvatars
 //
 //  Created by Elias Paulino on 17/10/18.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ColorCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var checkImage: UIImageView!
+protocol ColorPickerDatasource {
+    func imageForSelectColor(colorPicker: ColorPicker) -> UIImage?
 }

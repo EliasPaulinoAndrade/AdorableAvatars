@@ -1,5 +1,5 @@
 //
-//  MyCollectionViewCell.swift
+//  ColorPickerDelegate.swift
 //  AdorableAvatars
 //
 //  Created by Elias Paulino on 17/10/18.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ColorCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var checkImage: UIImageView!
+protocol ColorPickerDelegate {
+    func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int)
 }

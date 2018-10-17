@@ -31,6 +31,9 @@
 		E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05232177858A00B80D74 /* ColorPicker.swift */; };
 		E3AB05272177872D00B80D74 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05252177872D00B80D74 /* ColorCollectionViewCell.swift */; };
 		E3AB05282177872D00B80D74 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */; };
+		E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052921779C2300B80D74 /* BaseZibView.swift */; };
+		E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */; };
+		E3AB052E2177A17B00B80D74 /* ColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		E3AB05232177858A00B80D74 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		E3AB05252177872D00B80D74 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		E3AB052921779C2300B80D74 /* BaseZibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseZibView.swift; sourceTree = "<group>"; };
+		E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDatasource.swift; sourceTree = "<group>"; };
+		E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,7 @@
 			children = (
 				E3AB0520217781DB00B80D74 /* ColorPicker */,
 				E3AB0503217611C200B80D74 /* AvatarPicker */,
+				E3AB052921779C2300B80D74 /* BaseZibView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -220,6 +227,8 @@
 				E3AB05232177858A00B80D74 /* ColorPicker.swift */,
 				E3AB05252177872D00B80D74 /* ColorCollectionViewCell.swift */,
 				E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */,
+				E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */,
+				E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -359,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3AB052E2177A17B00B80D74 /* ColorPickerDelegate.swift in Sources */,
 				E3AB0511217633F700B80D74 /* AvatarPickerDatasource.swift in Sources */,
 				E3AB05132176410D00B80D74 /* AvatarComponents.swift in Sources */,
 				E3AB04D32176072E00B80D74 /* ViewController.swift in Sources */,
@@ -366,7 +376,9 @@
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E3AB050221760E1000B80D74 /* AvatarPicker.swift in Sources */,
+				E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */,
 				E3AB050A21761C2400B80D74 /* ADWrapper.swift in Sources */,
+				E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */,
 				E3AB051D2177749B00B80D74 /* PlistReader.swift in Sources */,
 				E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */,
 				E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */,

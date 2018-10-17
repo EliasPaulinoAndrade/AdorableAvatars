@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var picker: AvatarPicker!
-    @IBOutlet weak var colorPicker: UICollectionView!
+    @IBOutlet weak var colorPicker: ColorPicker!
     
     private var adorableAvatars = ADWrapper()
     private var avatar = ADAvatar.init()
@@ -29,14 +29,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         picker.delegate = self
         picker.datasource = self
         adorableAvatars.delegate = self
         view.addSubview(loadIndicator)
         loadIndicator.startAnimating()
+        colorPicker.colors = plistReader.colors
         adorableAvatars.findTypes()
-        colorPicker.dataSource = self
-        colorPicker.delegate = self
+        colorPicker.datasource = self
     }
 }
 
@@ -56,6 +57,7 @@ extension ViewController: ADDelegate {
     }
     
     func didLoadAvatarTypes(wrapper: ADWrapper) {
+        
         if let eye = wrapper.components?.eyesNumbers.first, let nose = wrapper.components?.noseNumbers.first, let month = wrapper.components?.mouthsNumbers.first {
             avatar.eye = eye
             avatar.month = month
@@ -123,22 +125,12 @@ extension ViewController: AvatarPickerDatasource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return plistReader.colors.count
+extension ViewController: ColorPickerDatasource, ColorPickerDelegate {
+    func imageForSelectColor(colorPicker: ColorPicker) -> UIImage? {
+        return UIImage.init(named: "checked")
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath)
-        
-        cell.backgroundColor = plistReader.colors[indexPath.row]
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let height = collectionView.frame.size.height
-        return CGSize.init(width: height, height: height)
+    
+    func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int) {
+        print(44)
     }
 }
-
