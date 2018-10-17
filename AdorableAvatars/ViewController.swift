@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         colorPicker.colors = plistReader.colors
         adorableAvatars.findTypes()
         colorPicker.datasource = self
+        colorPicker.delegate = self
     }
 }
 
@@ -131,6 +132,9 @@ extension ViewController: ColorPickerDatasource, ColorPickerDelegate {
     }
     
     func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int) {
-        print(44)
+        self.avatar.color = plistReader.colors[position]
+        picker.startLoading()
+        adorableAvatars.getImage(for: avatar)
     }
 }
+

@@ -14,7 +14,7 @@ class ColorPicker: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var datasource: ColorPickerDatasource?
-
+    var delegate: ColorPickerDelegate?
     var colors: [UIColor]?
     
     override func layoutSubviews() {
@@ -72,8 +72,7 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
             
             colorCell.checkImage.isHidden = false
             colorCell.checkImage.image = datasource?.imageForSelectColor(colorPicker: self)
-            
-            print("eo")
+            delegate?.colorWasSelected(self, atPosition: indexPath.row)
         }
     }
     

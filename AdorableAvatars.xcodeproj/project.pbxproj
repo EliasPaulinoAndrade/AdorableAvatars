@@ -34,6 +34,7 @@
 		E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052921779C2300B80D74 /* BaseZibView.swift */; };
 		E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */; };
 		E3AB052E2177A17B00B80D74 /* ColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */; };
+		E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		E3AB052921779C2300B80D74 /* BaseZibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseZibView.swift; sourceTree = "<group>"; };
 		E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDatasource.swift; sourceTree = "<group>"; };
 		E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDelegate.swift; sourceTree = "<group>"; };
+		E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexa.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				E3AB050C217623A400B80D74 /* ADFaceComponents.swift */,
 				E3AB0516217659F700B80D74 /* ADAvatar.swift */,
 				E3AB05182176687700B80D74 /* String+sub.swift */,
+				E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */,
 				E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */,
 				E3AB05272177872D00B80D74 /* ColorCollectionViewCell.swift in Sources */,
+				E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */,
 				E3AB05152176457600B80D74 /* Avatar.swift in Sources */,
 				E3AB050D217623A400B80D74 /* ADFaceComponents.swift in Sources */,
 				E3AB050F2176310800B80D74 /* ADDelegate.swift in Sources */,
