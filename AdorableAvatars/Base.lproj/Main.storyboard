@@ -29,10 +29,23 @@
                                     <constraint firstAttribute="height" constant="70" id="TZH-nI-wZ9"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-SG-jlZ">
+                                <rect key="frame" x="10" y="387" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AB2-kJ-R3t"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hv5-kZ-Kbj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iiq-SG-jlZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="0gT-de-lKp"/>
+                            <constraint firstItem="iiq-SG-jlZ" firstAttribute="top" secondItem="j2o-hU-kIU" secondAttribute="bottom" constant="30" id="4qj-Ha-Cdx"/>
                             <constraint firstItem="j2o-hU-kIU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="EQr-JZ-uAq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iiq-SG-jlZ" secondAttribute="trailing" constant="10" id="IQK-BB-10L"/>
                             <constraint firstItem="hml-8Z-7oC" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="MK9-Q6-1GV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j2o-hU-kIU" secondAttribute="trailing" constant="10" id="TN9-nx-vFQ"/>
                             <constraint firstItem="j2o-hU-kIU" firstAttribute="top" secondItem="hml-8Z-7oC" secondAttribute="bottom" id="ZLb-HP-QOd"/>
@@ -45,6 +58,7 @@
                     <connections>
                         <outlet property="colorPicker" destination="j2o-hU-kIU" id="aZn-FO-x27"/>
                         <outlet property="picker" destination="hml-8Z-7oC" id="0Xt-0N-8C8"/>
+                        <outlet property="saveButton" destination="iiq-SG-jlZ" id="VPn-DF-630"/>
                     </connections>
                 </viewController>
             </objects>

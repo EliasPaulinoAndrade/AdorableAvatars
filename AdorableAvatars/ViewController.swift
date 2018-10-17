@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var picker: AvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    private var currentAvatarImage: UIImage?
     
     private var adorableAvatars = ADWrapper()
     private var avatar = ADAvatar.init()
@@ -40,12 +43,19 @@ class ViewController: UIViewController {
         colorPicker.datasource = self
         colorPicker.delegate = self
     }
+    
+    @IBAction func saveTapped(_ sender: Any) {
+        if let image = self.currentAvatarImage{
+            FileManager.default.saveAvatar(image, withName: "teste3")
+        }
+    }
 }
 
 extension ViewController: ADDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
         
         self.picker.image.image = image
+        self.currentAvatarImage = image
         picker.stopLoading()
     }
     
