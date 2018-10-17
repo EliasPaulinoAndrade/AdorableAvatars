@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     private var adorableAvatars = ADWrapper()
     private var avatar = ADAvatar.init()
+    private var plistReader = PlistReader.init()
     
     lazy var loadIndicator: UIActivityIndicatorView = {
         let loadIndicator = UIActivityIndicatorView.init()
@@ -34,6 +35,8 @@ class ViewController: UIViewController {
         view.addSubview(loadIndicator)
         loadIndicator.startAnimating()
         adorableAvatars.findTypes()
+        colorPicker.dataSource = self
+        colorPicker.delegate = self
     }
 }
 
@@ -120,16 +123,22 @@ extension ViewController: AvatarPickerDatasource {
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return
+        
+        return plistReader.colors.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath)
+        
+        cell.backgroundColor = plistReader.colors[indexPath.row]
+        return cell
     }
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let height = collectionView.frame.size.height
+        return CGSize.init(width: height, height: height)
+    }
 }
 
