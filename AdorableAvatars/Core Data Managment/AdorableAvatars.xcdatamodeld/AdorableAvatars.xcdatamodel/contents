@@ -3,8 +3,13 @@
     <entity name="Avatar" representedClassName="Avatar" syncable="YES" codeGenerationType="class">
         <attribute name="isFave" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Avatar" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Avatar" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

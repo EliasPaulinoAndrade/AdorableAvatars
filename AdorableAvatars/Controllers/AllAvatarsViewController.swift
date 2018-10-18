@@ -12,7 +12,7 @@ class AllAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
-    private var avatars: [UIImage] = FileManager.default.getAvatars()
+    private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController.init(searchResultsController: nil)
@@ -39,21 +39,31 @@ class AllAvatarsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         avatarsCollectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if let navigationController = segue.destination as? UINavigationController {
+            if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
+                createAvatarController.delegate = self
+            }
+        }
+    }
 }
 
 
 extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return avatars.count
+        return avatars?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
-        let avatar = avatars[indexPath.row]
-        
-        if let avatarCell = cell as? AvatarCollectionViewCell {
-            avatarCell.avatarImage.image = avatar
-            avatarCell.avatarName.text = "teste"
+       
+        if let avatarCell = cell as? AvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
+            let image = FileManager.default.getAvatar(withName: avatarName)
+            avatarCell.avatarImage.image = image
+            avatarCell.avatarName.text = avatarName
         }
         
         return cell
@@ -63,8 +73,13 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         
         let width = collectionView.frame.size.width/2 - 10
         let height = 1.35 * width
+        
         let size = CGSize.init(width: width, height: height)
         return size
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        
     }
 }
 
@@ -73,3 +88,20 @@ extension AllAvatarsViewController: UISearchResultsUpdating {
         print("UPDATE")
     }
 }
+
+extension AllAvatarsViewController: CreateAvatarDelegate {
+    func avatarWasCreated(controller: CreateAvatarViewController, avatar: Avatar) {
+        
+        if let avatars = self.avatars{
+            let lastPosition = IndexPath.init(item: avatars.count - 1, section: 0)
+            self.avatarsCollectionView.scrollToItem(at: lastPosition, at: .bottom, animated: false)
+            
+            let avatarPosition = IndexPath.init(row: avatars.count, section: 0)
+            self.avatars?.append(avatar)
+            self.avatarsCollectionView.insertItems(at: [avatarPosition])
+            
+            self.avatarsCollectionView.scrollToItem(at: avatarPosition, at: .bottom, animated: true)
+        }
+    }
+}
+

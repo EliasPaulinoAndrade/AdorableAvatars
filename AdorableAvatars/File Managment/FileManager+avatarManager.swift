@@ -19,6 +19,20 @@ extension FileManager {
         }
     }
     
+    public func getAvatar(withName name: String) -> UIImage? {
+        var avatar: UIImage?
+        
+        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false){
+            
+            let imageURL = documentsURL.appendingPathComponent("\(name).png")
+            if let imageData = try? Data.init(contentsOf: imageURL){
+                avatar = UIImage.init(data: imageData)
+            }
+        }
+        
+        return avatar
+    }
+    
     public func getAvatars() -> [UIImage] {
         
         var avatars: [UIImage] = []

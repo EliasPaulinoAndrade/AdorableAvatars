@@ -18,6 +18,8 @@ class CreateAvatarViewController: UIViewController {
     private var avatar = ADAvatar.init()
     private var plistReader = PlistReader.init()
     
+    public var delegate: CreateAvatarDelegate?
+    
     private lazy var loadIndicator: UIActivityIndicatorView = {
         let loadIndicator = UIActivityIndicatorView.init()
         loadIndicator.frame.size = view.frame.size
@@ -72,10 +74,16 @@ class CreateAvatarViewController: UIViewController {
     }
     
     private func saveAvatar(image: UIImage, withName name: String) {
-        print("ei")
-        //FileManager.default.saveAvatar(image, withName: "teste3")
+      
+        FileManager.default.saveAvatar(image, withName: name)
+        
+        let avatar = Avatar.init(name: name, isFave: false)
+        CoreDataStack.saveContext()
+        
+        dismiss(animated: true) {
+            self.delegate?.avatarWasCreated(controller: self, avatar: avatar)
+        }
     }
-    
 }
 
 extension CreateAvatarViewController: ADDelegate {

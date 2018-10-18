@@ -142,7 +142,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh4-Ff-AAh">
                             <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="HWw-Sl-dVl" kind="presentation" id="It7-43-ugh"/>
+                                <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

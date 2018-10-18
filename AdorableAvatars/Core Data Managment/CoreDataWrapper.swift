@@ -7,7 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class CoreDataWrapper {
-    
+    public static func getAllAvatars() throws -> [Avatar] {
+        let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
+        
+        return try CoreDataStack.persistentContainer.viewContext.fetch(request)
+    }
 }
