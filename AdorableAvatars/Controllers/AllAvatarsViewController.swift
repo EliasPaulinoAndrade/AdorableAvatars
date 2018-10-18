@@ -52,7 +52,15 @@ class AllAvatarsViewController: UIViewController {
 }
 
 
-extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AvatarCollectionViewCellDelegate{
+    func avatarWasFavorite(_ cell: AvatarCollectionViewCell) {
+        if let avatarIndex = self.avatarsCollectionView.indexPath(for: cell)?.row, let avatars = self.avatars {
+            let avatar = avatars[avatarIndex]
+            avatar.isFave = !avatar.isFave
+            CoreDataStack.saveContext()
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return avatars?.count ?? 0
     }
@@ -64,6 +72,9 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             let image = FileManager.default.getAvatar(withName: avatarName)
             avatarCell.avatarImage.image = image
             avatarCell.avatarName.text = avatarName
+            
+            avatarCell.isFaved = avatar.isFave
+            avatarCell.delegate = self
         }
         
         return cell
@@ -76,10 +87,6 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         
         let size = CGSize.init(width: width, height: height)
         return size
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        
     }
 }
 

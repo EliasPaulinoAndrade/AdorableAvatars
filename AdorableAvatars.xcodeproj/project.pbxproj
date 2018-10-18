@@ -44,6 +44,7 @@
 		E3AB05452178E49600B80D74 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05442178E49600B80D74 /* CoreDataStack.swift */; };
 		E3AB054A2178F2F400B80D74 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05492178F2F400B80D74 /* Avatar.swift */; };
 		E3AB054D2179060300B80D74 /* CreateAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB054C2179060300B80D74 /* CreateAvatarDelegate.swift */; };
+		E3AB054F2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		E3AB05442178E49600B80D74 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E3AB05492178F2F400B80D74 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Avatar.swift; path = "AdorableAvatars/Core Data Managment/Avatar.swift"; sourceTree = SOURCE_ROOT; };
 		E3AB054C2179060300B80D74 /* CreateAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarDelegate.swift; sourceTree = "<group>"; };
+		E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 			children = (
 				E3AB05372178A80F00B80D74 /* AvatarCollectionViewCell.swift */,
 				E3AB05382178A80F00B80D74 /* AvatarCollectionViewCell.xib */,
+				E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */,
 			);
 			path = AvatarCell;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */,
 				E3AB05352177E75A00B80D74 /* FileManager+avatarManager.swift in Sources */,
 				E3AB051D2177749B00B80D74 /* PlistReader.swift in Sources */,
+				E3AB054F2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift in Sources */,
 				E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */,
 				E3AB054A2178F2F400B80D74 /* Avatar.swift in Sources */,
 				E3AB053D2178AA7200B80D74 /* AllAvatarsViewController.swift in Sources */,
