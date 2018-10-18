@@ -11,7 +11,6 @@ import UIKit
 class CreateAvatarViewController: UIViewController {
     @IBOutlet weak var picker: AvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
-    @IBOutlet weak var saveButton: UIButton!
     
     private var currentAvatarImage: UIImage?
     

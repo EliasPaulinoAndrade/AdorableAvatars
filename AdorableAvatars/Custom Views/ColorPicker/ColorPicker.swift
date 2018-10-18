@@ -54,7 +54,8 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     
         if let colorCell = cell as? ColorCollectionViewCell, let color = colors?[indexPath.row] {
             
-            colorCell.backgroundColor = color
+            //colorCell.backgroundColor = color
+            colorCell.setColor(color: color)
         }
         
         return cell
