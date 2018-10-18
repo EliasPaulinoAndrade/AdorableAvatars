@@ -9,7 +9,7 @@
 import UIKit
 
 class CreateAvatarViewController: UIViewController {
-    @IBOutlet weak var picker: AvatarPicker!
+    @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
     
     private var currentAvatarImage: UIImage?
@@ -18,7 +18,7 @@ class CreateAvatarViewController: UIViewController {
     private var avatar = ADAvatar.init()
     private var plistReader = PlistReader.init()
     
-    lazy var loadIndicator: UIActivityIndicatorView = {
+    private lazy var loadIndicator: UIActivityIndicatorView = {
         let loadIndicator = UIActivityIndicatorView.init()
         loadIndicator.frame.size = view.frame.size
         loadIndicator.center = self.view.center
@@ -27,6 +27,23 @@ class CreateAvatarViewController: UIViewController {
         loadIndicator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         
         return loadIndicator
+    }()
+    
+    private lazy var saveAlertController: UIAlertController = {
+        let alert = UIAlertController.init(title: "Saving", message: "Whats is him name? ", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
+            if let image = self.currentAvatarImage, let name = alert.textFields?.first?.text{
+                self.saveAvatar(image: image, withName: name)
+            }
+        }))
+        
+        alert.addTextField(configurationHandler: { (textField) in
+            
+        })
+        return alert
     }()
     
     override func viewDidLoad() {
@@ -44,8 +61,8 @@ class CreateAvatarViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        if let image = self.currentAvatarImage{
-            FileManager.default.saveAvatar(image, withName: "teste3")
+        if let _ = self.currentAvatarImage{
+            present(saveAlertController, animated: true, completion: nil)
         }
     }
     
@@ -53,6 +70,12 @@ class CreateAvatarViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
+    
+    private func saveAvatar(image: UIImage, withName name: String) {
+        print("ei")
+        //FileManager.default.saveAvatar(image, withName: "teste3")
+    }
+    
 }
 
 extension CreateAvatarViewController: ADDelegate {
@@ -83,8 +106,8 @@ extension CreateAvatarViewController: ADDelegate {
     }
 }
 
-extension CreateAvatarViewController: AvatarPickerDelegate {
-    func nextTapped(_ picker: AvatarPicker, inPart avatarComponent: AvatarComponents, toNumber number: Int) {
+extension CreateAvatarViewController: APAvatarPickerDelegate {
+    func nextTapped(_ picker: UIAvatarPicker, inPart avatarComponent: APAvatarComponents, toNumber number: Int) {
         switch avatarComponent {
         case .eye:
             if let eye = adorableAvatars.components?.eyesNumbers[number] {
@@ -103,7 +126,7 @@ extension CreateAvatarViewController: AvatarPickerDelegate {
         adorableAvatars.getImage(for: avatar)
     }
     
-    func prevTapped(_ picker: AvatarPicker, inPart avatarComponent: AvatarComponents, toNumber number: Int) {
+    func prevTapped(_ picker: UIAvatarPicker, inPart avatarComponent: APAvatarComponents, toNumber number: Int) {
         switch avatarComponent {
         case .eye:
             if let eye = adorableAvatars.components?.eyesNumbers[number] {
@@ -123,12 +146,12 @@ extension CreateAvatarViewController: AvatarPickerDelegate {
     }
 }
 
-extension CreateAvatarViewController: AvatarPickerDatasource {
-    func initialValue(picker: AvatarPicker, forComponent component: AvatarComponents) -> Int {
+extension CreateAvatarViewController: APAvatarPickerDatasource {
+    func initialValue(picker: UIAvatarPicker, forComponent component: APAvatarComponents) -> Int {
         return 0
     }
     
-    func numberOfTypes(picker: AvatarPicker, forComponent component: AvatarComponents) -> Int {
+    func numberOfTypes(picker: UIAvatarPicker, forComponent component: APAvatarComponents) -> Int {
         switch component {
         case .eye:
             return self.adorableAvatars.components?.eyes.count ?? 0

@@ -8,12 +8,12 @@
 
 import UIKit
 
-struct Avatar {
+struct APAvatar {
     var eye: Int
     var nose: Int
     var month: Int
     
-    public func value(for component: AvatarComponents) -> Int{
+    public func value(for component: APAvatarComponents) -> Int{
         switch component {
         case .eye:
             return self.eye

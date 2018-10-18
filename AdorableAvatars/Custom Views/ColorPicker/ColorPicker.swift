@@ -53,8 +53,12 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath)
     
         if let colorCell = cell as? ColorCollectionViewCell, let color = colors?[indexPath.row] {
+            if colorCell.isSelected {
+                applySelection(cell: colorCell, atPosition: indexPath.row)
+            } else {
+                removeSelection(cell: colorCell, atPosition: indexPath.row)
+            }
             
-            //colorCell.backgroundColor = color
             colorCell.setColor(color: color)
         }
         
@@ -70,18 +74,26 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         if let colorCell = cell as? ColorCollectionViewCell{
-            
-            colorCell.checkImage.isHidden = false
-            colorCell.checkImage.image = datasource?.imageForSelectColor(colorPicker: self)
-            delegate?.colorWasSelected(self, atPosition: indexPath.row)
+            applySelection(cell: colorCell, atPosition: indexPath.row)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         if let colorCell = cell as? ColorCollectionViewCell{
-            colorCell.checkImage.isHidden = true
+            removeSelection(cell: colorCell, atPosition: indexPath.row)
         }
+    }
+    
+    func applySelection(cell: ColorCollectionViewCell, atPosition position: Int) {
+        cell.checkImage.isHidden = false
+        cell.checkImage.image = datasource?.imageForSelectColor(colorPicker: self)
+        delegate?.colorWasSelected(self, atPosition: position)
+    }
+    
+    func removeSelection(cell: ColorCollectionViewCell, atPosition position: Int) {
+        cell.checkImage.isHidden = true
+        cell.checkImage.image = nil
     }
 }
 

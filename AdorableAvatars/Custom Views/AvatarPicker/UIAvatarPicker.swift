@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AvatarPicker: UIView {
+class UIAvatarPicker: UIView {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var image: UIImageView!
     
@@ -20,9 +20,9 @@ class AvatarPicker: UIView {
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var prevNoseButton: UIButton!
     
-    var delegate: AvatarPickerDelegate?
-    var datasource: AvatarPickerDatasource?
-    var currentAvatar = Avatar.init(eye: 0, nose: 0, month: 0)
+    var delegate: APAvatarPickerDelegate?
+    var datasource: APAvatarPickerDatasource?
+    var currentAvatar = APAvatar.init(eye: 0, nose: 0, month: 0)
     
     private lazy var loadIndicator: UIActivityIndicatorView = {
         let loadIndicator = UIActivityIndicatorView.init()
@@ -61,7 +61,7 @@ class AvatarPicker: UIView {
         loadIndicator.stopAnimating()
     }
     
-    private func applyTopLimit(for nextbutton: UIButton, and prevButton: UIButton, inComponent component: AvatarComponents, completion: () -> ()) {
+    private func applyTopLimit(for nextbutton: UIButton, and prevButton: UIButton, inComponent component: APAvatarComponents, completion: () -> ()) {
         guard let datasource = self.datasource else {
             return
         }
@@ -76,7 +76,7 @@ class AvatarPicker: UIView {
         
     }
     
-    private func applyBottomLimit(for nextButton: UIButton, and prevButton: UIButton, inComponent component: AvatarComponents, completion: () -> ()) {
+    private func applyBottomLimit(for nextButton: UIButton, and prevButton: UIButton, inComponent component: APAvatarComponents, completion: () -> ()) {
         guard let datasource = self.datasource else {
             return
         }
@@ -91,42 +91,42 @@ class AvatarPicker: UIView {
     }
    
     @IBAction func nextEyesTapped(_ sender: UIButton) {
-        applyTopLimit(for: sender, and: prevEyeButton, inComponent: AvatarComponents.eye){
+        applyTopLimit(for: sender, and: prevEyeButton, inComponent: APAvatarComponents.eye){
             self.currentAvatar.eye += 1
-            delegate?.nextTapped(self, inPart: AvatarComponents.eye, toNumber: self.currentAvatar.eye)
+            delegate?.nextTapped(self, inPart: APAvatarComponents.eye, toNumber: self.currentAvatar.eye)
         }
     }
     
     @IBAction func nextNoseTapped(_ sender: UIButton) {
-        applyTopLimit(for: sender, and: prevNoseButton, inComponent: AvatarComponents.nose){
+        applyTopLimit(for: sender, and: prevNoseButton, inComponent: APAvatarComponents.nose){
             self.currentAvatar.nose += 1
-            delegate?.nextTapped(self, inPart: AvatarComponents.nose, toNumber: self.currentAvatar.nose)
+            delegate?.nextTapped(self, inPart: APAvatarComponents.nose, toNumber: self.currentAvatar.nose)
         }
     }
     
     @IBAction func nextMonthButton(_ sender: UIButton) {
-        applyTopLimit(for: sender, and: prevMonthButton, inComponent: AvatarComponents.month){
+        applyTopLimit(for: sender, and: prevMonthButton, inComponent: APAvatarComponents.month){
             self.currentAvatar.month += 1
-            delegate?.nextTapped(self, inPart: AvatarComponents.month, toNumber: self.currentAvatar.month)
+            delegate?.nextTapped(self, inPart: APAvatarComponents.month, toNumber: self.currentAvatar.month)
         }
     }
     
     @IBAction func prevEyeTapped(_ sender: UIButton) {
-        applyBottomLimit(for: nextEyeButton, and: sender, inComponent: AvatarComponents.eye){
+        applyBottomLimit(for: nextEyeButton, and: sender, inComponent: APAvatarComponents.eye){
             self.currentAvatar.eye -= 1
-            delegate?.prevTapped(self, inPart: AvatarComponents.eye, toNumber: currentAvatar.eye)
+            delegate?.prevTapped(self, inPart: APAvatarComponents.eye, toNumber: currentAvatar.eye)
         }
     }
     @IBAction func prevNoseTapped(_ sender: UIButton) {
-        applyBottomLimit(for: nextNoseButton, and: sender, inComponent: AvatarComponents.nose){
+        applyBottomLimit(for: nextNoseButton, and: sender, inComponent: APAvatarComponents.nose){
             self.currentAvatar.nose -= 1
-            delegate?.prevTapped(self, inPart: AvatarComponents.nose, toNumber: currentAvatar.nose)
+            delegate?.prevTapped(self, inPart: APAvatarComponents.nose, toNumber: currentAvatar.nose)
         }
     }
     @IBAction func prevMonthTapped(_ sender: UIButton) {
-        applyBottomLimit(for: nextMonthButton, and: sender, inComponent: AvatarComponents.month){
+        applyBottomLimit(for: nextMonthButton, and: sender, inComponent: APAvatarComponents.month){
             self.currentAvatar.month -= 1
-            delegate?.prevTapped(self, inPart: AvatarComponents.month, toNumber: currentAvatar.month)
+            delegate?.prevTapped(self, inPart: APAvatarComponents.month, toNumber: currentAvatar.month)
         }
     }
 }

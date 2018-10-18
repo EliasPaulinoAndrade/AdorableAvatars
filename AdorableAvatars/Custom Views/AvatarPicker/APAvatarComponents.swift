@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AvatarComponents: CaseIterable {
+enum APAvatarComponents: CaseIterable {
     case eye
     case nose
     case month

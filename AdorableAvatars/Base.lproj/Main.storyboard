@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hml-8Z-7oC" customClass="AvatarPicker" customModule="AdorableAvatars" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hml-8Z-7oC" customClass="UIAvatarPicker" customModule="AdorableAvatars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="375" height="233.5"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtq-ci-ovp">
@@ -71,7 +71,11 @@
                                 <action selector="cancelTapped:" destination="BYZ-38-t0r" id="fd4-wD-LaT"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="save" id="Oyy-u3-LvB"/>
+                        <barButtonItem key="rightBarButtonItem" title="save" id="Oyy-u3-LvB">
+                            <connections>
+                                <action selector="saveTapped:" destination="BYZ-38-t0r" id="2Pt-lt-txO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="colorPicker" destination="j2o-hU-kIU" id="aZn-FO-x27"/>
