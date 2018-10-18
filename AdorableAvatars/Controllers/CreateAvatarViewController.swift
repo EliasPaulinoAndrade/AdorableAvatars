@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CreateAvatarViewController: UIViewController {
     @IBOutlet weak var picker: AvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
     @IBOutlet weak var saveButton: UIButton!
@@ -49,9 +49,14 @@ class ViewController: UIViewController {
             FileManager.default.saveAvatar(image, withName: "teste3")
         }
     }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
+    }
 }
 
-extension ViewController: ADDelegate {
+extension CreateAvatarViewController: ADDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
         
         self.picker.image.image = image
@@ -79,7 +84,7 @@ extension ViewController: ADDelegate {
     }
 }
 
-extension ViewController: AvatarPickerDelegate {
+extension CreateAvatarViewController: AvatarPickerDelegate {
     func nextTapped(_ picker: AvatarPicker, inPart avatarComponent: AvatarComponents, toNumber number: Int) {
         switch avatarComponent {
         case .eye:
@@ -119,7 +124,7 @@ extension ViewController: AvatarPickerDelegate {
     }
 }
 
-extension ViewController: AvatarPickerDatasource {
+extension CreateAvatarViewController: AvatarPickerDatasource {
     func initialValue(picker: AvatarPicker, forComponent component: AvatarComponents) -> Int {
         return 0
     }
@@ -136,7 +141,7 @@ extension ViewController: AvatarPickerDatasource {
     }
 }
 
-extension ViewController: ColorPickerDatasource, ColorPickerDelegate {
+extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate {
     func imageForSelectColor(colorPicker: ColorPicker) -> UIImage? {
         return UIImage.init(named: "checked")
     }

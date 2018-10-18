@@ -22,7 +22,6 @@ extension FileManager {
     public func getAvatars() -> [UIImage] {
         
         var avatars: [UIImage] = []
-        print("ph")
         
         if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
            let documentsContent = try? FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil) {

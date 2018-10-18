@@ -27,5 +27,20 @@
         <string>152</string>
         <string>0</string>
     </array>
+    <array>
+        <string>70</string>
+        <string>130</string>
+        <string>180</string>
+    </array>
+    <array>
+        <string>75</string>
+        <string>0</string>
+        <string>130</string>
+    </array>
+    <array>
+        <string>255</string>
+        <string>0</string>
+        <string>255</string>
+    </array>
 </array>
 </plist>

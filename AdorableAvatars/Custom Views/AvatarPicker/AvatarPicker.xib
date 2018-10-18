@@ -51,7 +51,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="QnY-Ds-9VJ" firstAttribute="leading" secondItem="o1J-nC-Zrq" secondAttribute="leading" id="0yy-26-cqG"/>
                         <constraint firstItem="f62-Db-Ab3" firstAttribute="top" secondItem="o1J-nC-Zrq" secondAttribute="top" id="9Vm-R1-DHv"/>
@@ -97,7 +96,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="4m3-kI-4sG" firstAttribute="top" secondItem="tnq-fH-kM6" secondAttribute="top" id="1Sl-Ti-Qmo"/>
                         <constraint firstAttribute="trailing" secondItem="nVd-4O-wdb" secondAttribute="trailing" id="6ZF-LB-1M3"/>
