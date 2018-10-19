@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Foundation
 
 class ADWrapper {
     
     public var components: ADFaceComponents?
     public var delegate: ADDelegate?
+    private var imageCache: NSCache<NSString, UIImage> = NSCache.init()
     
     public func findTypes() {
         
@@ -56,6 +58,11 @@ class ADWrapper {
             return
         }
         
+        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString)  {
+            
+            self.delegate?.didLoadAvatarImage(wrapper: self, image: cachedImage)
+        }
+        
         URLSession.shared.downloadTask(with: url) { (location, response, error) in
             if let _ = error {
                 DispatchQueue.main.async {
@@ -73,6 +80,7 @@ class ADWrapper {
                 let data = try Data.init(contentsOf: location)
                 if let image = UIImage.init(data: data){
                     DispatchQueue.main.async {
+                        self.imageCache.setObject(image, forKey: url.absoluteString as NSString)
                         self.delegate?.didLoadAvatarImage(wrapper: self, image: image)
                     }
                 }

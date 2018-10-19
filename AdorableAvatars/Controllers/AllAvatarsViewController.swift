@@ -132,16 +132,17 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
             return nil
         }
-        
-        let data = DataToPreviewController.init(image: cell.avatarImage.image)
+        guard let avatar = self.avatars?[indexPath.row] else {
+            return nil
+        }
+        let data = DataToPreviewController.init(image: cell.avatarImage.image, avatar: avatar)
         
         let width = self.avatarsCollectionView.frame.width
         let height = width
         
-        
-        
         previewController.dataReceived = data
         previewController.preferredContentSize = CGSize.init(width: width, height: height)
+        previewController.delegate = self
         
         return previewController
      }
@@ -151,4 +152,19 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
     }
 }
 
+extension AllAvatarsViewController: AvatarSharedDelegate{
+    
+    func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
+        let activityController: UIActivityViewController = {
+            
+            let activityController = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
+            activityController.popoverPresentationController?.sourceView = self.view
+            
+            return activityController
+        }()
+        
+        self.present(activityController, animated: true, completion: nil)
+    }
+    
+}
 

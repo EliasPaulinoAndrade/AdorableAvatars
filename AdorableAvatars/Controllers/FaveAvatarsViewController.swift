@@ -23,6 +23,7 @@ class FaveAvatarsViewController: UIViewController {
         self.avatarsCollectionView.delegate = self
         self.avatarsCollectionView.dataSource = self
         
+        registerForPreviewing(with: self, sourceView: avatarsCollectionView)
         
         if let navigationController = self.tabBarController?.viewControllers?.first as? UINavigationController {
             if let allAvatarsController = navigationController.viewControllers.first as? AllAvatarsViewController {
@@ -74,4 +75,53 @@ extension FaveAvatarsViewController: FavoriteAvatarDelegate {
             self.avatarsCollectionView.reloadData()
         }
     }
+}
+
+extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.avatarsCollectionView.indexPathForItem(at: location) else {
+            return nil
+        }
+        guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? AvatarCollectionViewCell else {
+            return nil
+        }
+        guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
+            return nil
+        }
+        guard let avatar = self.avatars?[indexPath.row] else {
+            return nil
+        }
+        let data = DataToPreviewController.init(image: cell.avatarImage.image, avatar: avatar)
+        
+        let width = self.avatarsCollectionView.frame.width
+        let height = width
+        
+        
+        
+        previewController.dataReceived = data
+        previewController.preferredContentSize = CGSize.init(width: width, height: height)
+        previewController.delegate = self
+        
+        return previewController
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        //showDetailViewController(viewControllerToCommit, sender: self)
+    }
+}
+
+extension FaveAvatarsViewController: AvatarSharedDelegate{
+    
+    func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
+        let activityController: UIActivityViewController = {
+         
+            let activityController = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
+            activityController.popoverPresentationController?.sourceView = self.view
+            
+            return activityController
+        }()
+        
+        self.present(activityController, animated: true, completion: nil)
+    }
+    
 }
