@@ -64,6 +64,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             
             if avatar.isFave{
                 delegate?.avatarWasFavorite(avatar: avatar)
+                
             } else {
                 delegate?.avatarWasDesfavorite(avatar: avatar)
             }
@@ -152,7 +153,45 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
     }
 }
 
-extension AllAvatarsViewController: AvatarSharedDelegate{
+extension AllAvatarsViewController: AvatarPreviewDelegate{
+    func avatarWasDesfavorite(_ avatar: Avatar) {
+        
+        avatar.isFave = !avatar.isFave
+        CoreDataStack.saveContext()
+        
+        if let avatarIndex = self.avatars?.firstIndex(of: avatar) {
+            let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
+            if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
+                avatarCell.isFaved = avatar.isFave
+                if avatar.isFave{
+                    delegate?.avatarWasFavorite(avatar: avatar)
+                    
+                } else {
+                    delegate?.avatarWasDesfavorite(avatar: avatar)
+                }
+            }
+        }
+    }
+    
+    func avatarWasFavorite(_ avatar: Avatar) {
+        
+        avatar.isFave = !avatar.isFave
+        CoreDataStack.saveContext()
+        
+        if let avatarIndex = self.avatars?.firstIndex(of: avatar) {
+            let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
+            if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
+                avatarCell.isFaved = avatar.isFave
+                if avatar.isFave{
+                    delegate?.avatarWasFavorite(avatar: avatar)
+                    
+                } else {
+                    delegate?.avatarWasDesfavorite(avatar: avatar)
+                }
+            }
+        }
+    }
+    
     
     func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
         let activityController: UIActivityViewController = {

@@ -110,7 +110,16 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
     }
 }
 
-extension FaveAvatarsViewController: AvatarSharedDelegate{
+extension FaveAvatarsViewController: AvatarPreviewDelegate{
+    
+    func avatarWasDesfavorite(_ avatar: Avatar) {
+        
+    }
+    
+    func avatarWasFavorite(_ avatar: Avatar) {
+        
+    }
+    
     
     func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
         let activityController: UIActivityViewController = {

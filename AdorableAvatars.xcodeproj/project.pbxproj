@@ -48,7 +48,7 @@
 		E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB055021791EB500B80D74 /* FaveAvatarsViewController.swift */; };
 		E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */; };
 		E3AB0555217929E300B80D74 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0554217929E300B80D74 /* PreviewViewController.swift */; };
-		E3AB0558217A07F100B80D74 /* AvatarSharedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0557217A07F100B80D74 /* AvatarSharedDelegate.swift */; };
+		E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +116,7 @@
 		E3AB055021791EB500B80D74 /* FaveAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveAvatarsViewController.swift; sourceTree = "<group>"; };
 		E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAvatarDelegate.swift; sourceTree = "<group>"; };
 		E3AB0554217929E300B80D74 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		E3AB0557217A07F100B80D74 /* AvatarSharedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSharedDelegate.swift; sourceTree = "<group>"; };
+		E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPreviewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,7 +321,7 @@
 			children = (
 				E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */,
 				E3AB054C2179060300B80D74 /* CreateAvatarDelegate.swift */,
-				E3AB0557217A07F100B80D74 /* AvatarSharedDelegate.swift */,
+				E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -468,7 +468,7 @@
 				E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */,
 				E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */,
 				E3AB05392178A80F00B80D74 /* AvatarCollectionViewCell.swift in Sources */,
-				E3AB0558217A07F100B80D74 /* AvatarSharedDelegate.swift in Sources */,
+				E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */,
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,

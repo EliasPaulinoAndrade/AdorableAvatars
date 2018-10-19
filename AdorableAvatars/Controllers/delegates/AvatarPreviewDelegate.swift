@@ -8,6 +8,8 @@
 
 import UIKit
 
-protocol AvatarSharedDelegate {
+protocol AvatarPreviewDelegate {
     func avatarShared(_ avatar: Avatar, withImage image: UIImage)
+    func avatarWasFavorite(_ avatar: Avatar)
+    func avatarWasDesfavorite(_ avatar: Avatar)
 }

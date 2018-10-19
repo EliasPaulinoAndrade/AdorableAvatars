@@ -12,20 +12,31 @@ class PreviewViewController: UIViewController {
     @IBOutlet weak var previewImageView: UIImageView!
     
     public var dataReceived: DataToPreviewController?
-    public var delegate: AvatarSharedDelegate?
+    public var delegate: AvatarPreviewDelegate?
     
     private var avatar: Avatar?
     
     lazy override var previewActionItems: [UIPreviewActionItem] = {
+        guard let avatar = self.avatar else {
+            return []
+        }
         
-            let shareAction = UIPreviewAction.init(title: "share", style: .default) { (action, controller) in
-                
-                if let avatar = self.avatar, let image = self.previewImageView.image {
-                    
-                    self.delegate?.avatarShared(avatar, withImage: image)
-                }
+        let shareAction = UIPreviewAction.init(title: "Share Avatar", style: .default) { (action, controller) in
+            if let image = self.previewImageView.image {
+                self.delegate?.avatarShared(avatar, withImage: image)
             }
-            return [shareAction]
+        }
+    
+        let faveAction = UIPreviewAction.init(title: avatar.isFave ? "It`s NOT My Favorite" : "Its My Favorite", style: .default) { (action, controller) in
+            
+            if avatar.isFave {
+                self.delegate?.avatarWasDesfavorite(avatar)
+            } else {
+                self.delegate?.avatarWasFavorite(avatar)
+            }
+        }
+        
+        return [shareAction, faveAction]
     }()
     
     override func viewDidLoad() {
