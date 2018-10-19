@@ -15,4 +15,14 @@ class CoreDataWrapper {
         
         return try CoreDataStack.persistentContainer.viewContext.fetch(request)
     }
+    
+    public static func getAllFavoriteAvatars() throws -> [Avatar] {
+        let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
+        let sort = NSSortDescriptor.init(key: "name", ascending: true)
+        
+        request.predicate = NSPredicate.init(format: "isFave == true")
+        request.sortDescriptors = [sort]
+        
+        return try CoreDataStack.persistentContainer.viewContext.fetch(request)
+    }
 }

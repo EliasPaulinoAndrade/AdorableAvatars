@@ -88,18 +88,78 @@
         <!--Fave Avatars-->
         <scene sceneID="XMR-hO-YRH">
             <objects>
-                <viewController id="eH0-5b-2O8" sceneMemberID="viewController">
+                <viewController id="eH0-5b-2O8" customClass="FaveAvatarsViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zqe-Lm-Y9e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C5j-8b-6Nx">
+                                <rect key="frame" x="10" y="126" width="355" height="482"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xTc-gX-UOE">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Shf-i9-QYE">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="C5j-8b-6Nx" firstAttribute="leading" secondItem="J8s-CC-zYS" secondAttribute="leading" constant="10" id="Ds5-3B-Yjc"/>
+                            <constraint firstItem="C5j-8b-6Nx" firstAttribute="top" secondItem="J8s-CC-zYS" secondAttribute="top" constant="10" id="WrL-BD-xAe"/>
+                            <constraint firstItem="J8s-CC-zYS" firstAttribute="trailing" secondItem="C5j-8b-6Nx" secondAttribute="trailing" constant="10" id="cqz-1r-xdQ"/>
+                            <constraint firstItem="J8s-CC-zYS" firstAttribute="bottom" secondItem="C5j-8b-6Nx" secondAttribute="bottom" constant="10" id="daP-iM-fhk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="J8s-CC-zYS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fave Avatars" id="uug-6T-cTr"/>
+                    <connections>
+                        <outlet property="avatarsCollectionView" destination="C5j-8b-6Nx" id="LcK-Bs-mWk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXI-bh-8lQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2744.8000000000002" y="-403.44827586206901"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="Ymq-a4-OrX">
+            <objects>
+                <viewController storyboardIdentifier="previewController" id="88o-I0-1II" customClass="PreviewViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OF9-fJ-lTy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zru-Gs-Pvt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JAU-eq-DAW" firstAttribute="trailing" secondItem="zru-Gs-Pvt" secondAttribute="trailing" id="3LG-e8-HDm"/>
+                            <constraint firstItem="JAU-eq-DAW" firstAttribute="bottom" secondItem="zru-Gs-Pvt" secondAttribute="bottom" id="4BY-8b-OIV"/>
+                            <constraint firstItem="zru-Gs-Pvt" firstAttribute="leading" secondItem="JAU-eq-DAW" secondAttribute="leading" id="ckL-X2-fZH"/>
+                            <constraint firstItem="zru-Gs-Pvt" firstAttribute="top" secondItem="OF9-fJ-lTy" secondAttribute="top" id="uLk-wX-qfY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JAU-eq-DAW"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewImageView" destination="zru-Gs-Pvt" id="EPs-Ga-n18"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dv5-IQ-dJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3658.4000000000001" y="-408.84557721139436"/>
         </scene>
         <!--Your Avatars-->
         <scene sceneID="ghH-FS-hzH">

@@ -14,6 +14,8 @@ class AllAvatarsViewController: UIViewController {
     
     private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
     
+    public var delegate: FavoriteAvatarDelegate?
+    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController.init(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -26,14 +28,15 @@ class AllAvatarsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         avatarsCollectionView.register(UINib.init(nibName: "AvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
         
         avatarsCollectionView.dataSource = self
         avatarsCollectionView.delegate = self
+    
+        registerForPreviewing(with: self, sourceView: avatarsCollectionView)
         
         navigationItem.searchController = searchController
-
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,6 +61,12 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             let avatar = avatars[avatarIndex]
             avatar.isFave = !avatar.isFave
             CoreDataStack.saveContext()
+            
+            if avatar.isFave{
+                delegate?.avatarWasFavorite(avatar: avatar)
+            } else {
+                delegate?.avatarWasDesfavorite(avatar: avatar)
+            }
         }
     }
     
@@ -111,4 +120,35 @@ extension AllAvatarsViewController: CreateAvatarDelegate {
         }
     }
 }
+
+extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.avatarsCollectionView.indexPathForItem(at: location) else {
+            return nil
+        }
+        guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? AvatarCollectionViewCell else {
+            return nil
+        }
+        guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
+            return nil
+        }
+        
+        let data = DataToPreviewController.init(image: cell.avatarImage.image)
+        
+        let width = self.avatarsCollectionView.frame.width
+        let height = width
+        
+        
+        
+        previewController.dataReceived = data
+        previewController.preferredContentSize = CGSize.init(width: width, height: height)
+        
+        return previewController
+     }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        //showDetailViewController(viewControllerToCommit, sender: self)
+    }
+}
+
 

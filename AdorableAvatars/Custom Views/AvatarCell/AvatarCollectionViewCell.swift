@@ -41,7 +41,11 @@ class AvatarCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func faveTapped(_ sender: UIImageView){
-        self.isFaved = true
+        if let isFaved = self.isFaved{
+            self.isFaved = !isFaved
+        }
+        
+        
         delegate?.avatarWasFavorite(self)
     }
     
