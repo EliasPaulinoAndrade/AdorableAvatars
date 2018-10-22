@@ -15,10 +15,11 @@ struct ADAvatar {
     var color: UIColor?
     
     var url: URL? {
-        if let eye = eye, let nose = nose, let month = month {
-            return URL.init(string: "https://api.adorable.io/avatars/face/eyes\(eye)/nose\(nose)/mouth\(month)/\(color?.hexa() ?? UIColor.red.hexa())")
+        if let eye = eye, let nose = nose, let month = month, let color = color {
+            return URL.init(string: "https://api.adorable.io/avatars/face/eyes\(eye)/nose\(nose)/mouth\(month)/\(color.hexa())")
         } else {
             return nil
         }
     }
+    
 }

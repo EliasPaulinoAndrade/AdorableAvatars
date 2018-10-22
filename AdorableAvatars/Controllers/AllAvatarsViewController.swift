@@ -13,7 +13,6 @@ class AllAvatarsViewController: UIViewController {
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
     public var delegate: FavoriteAvatarDelegate?
-    
     private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
     
     private var isEditing_ = false {
@@ -33,6 +32,7 @@ class AllAvatarsViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Avatars"
         searchController.definesPresentationContext = true
+        searchController.delegate = self
     
         return searchController
     }()
@@ -67,30 +67,52 @@ class AllAvatarsViewController: UIViewController {
         }
     }
     
+    private func alertRemoveAvatar(sucess: @escaping () -> ()) -> UIAlertController {
+        let alertRemoveAvatar = UIAlertController.init(title: "Remove Avatar", message: "Do You Want Remove It? ", preferredStyle: .alert)
+        alertRemoveAvatar.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
+            sucess()
+        }))
+        alertRemoveAvatar.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
+        return alertRemoveAvatar
+    }
+    
+    private func alertError(withDescription description: String) -> UIAlertController {
+        let alertError = UIAlertController.init(title: "Error", message: description, preferredStyle: .actionSheet)
+        
+        alertError.addAction(UIAlertAction.init(title: "OK", style: .cancel, handler: nil))
+        
+        return alertError
+    }
+    
     @IBAction func editTapped(_ sender: Any) {
         self.isEditing_ = !self.isEditing_
         self.avatarsCollectionView.reloadData()
     }
 }
 
-
 extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AvatarCollectionViewCellDelegate{
     func avatarWasClosed(_ cell: AvatarCollectionViewCell) {
         guard let indexPath = self.avatarsCollectionView.indexPath(for: cell) else {
             return
         }
-        
         if let avatar = self.avatars?[indexPath.row] {
-            let coreDataContext = CoreDataStack.persistentContainer.viewContext
             
-            self.avatars?.remove(at: indexPath.row)
-            self.avatarsCollectionView.deleteItems(at: [indexPath])
-            if avatar.isFave {
-                delegate?.avatarWasDesfavorite(avatar: avatar)
-            }
-            coreDataContext.delete(avatar)
-            try? coreDataContext.save()
+            present(alertRemoveAvatar {
+                self.removeAvatar(avatar: avatar, alIndexPath: indexPath)
+            }, animated: true, completion: nil)
         }
+    }
+    
+    func removeAvatar(avatar: Avatar, alIndexPath indexPath: IndexPath) {
+        let coreDataContext = CoreDataStack.persistentContainer.viewContext
+        
+        self.avatars?.remove(at: indexPath.row)
+        self.avatarsCollectionView.deleteItems(at: [indexPath])
+        if avatar.isFave {
+            delegate?.avatarWasDesfavorite(avatar: avatar)
+        }
+        coreDataContext.delete(avatar)
+        try? coreDataContext.save()
     }
     
     func avatarWasFavorite(_ cell: AvatarCollectionViewCell) {
@@ -135,9 +157,30 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
     }
 }
 
-extension AllAvatarsViewController: UISearchResultsUpdating {
+extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        print("UPDATE")
+        
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        guard !text.isEmpty else {
+            let avatars = try? CoreDataWrapper.getAllAvatars()
+            self.avatars = avatars
+            self.avatarsCollectionView.reloadData()
+            return
+        }
+        do {
+            let avatars = try CoreDataWrapper.findAvatars(byName: text)
+            self.avatars = avatars
+            self.avatarsCollectionView.reloadData()
+            
+        } catch {
+            present(alertError(withDescription: "Error While Removing Avatar"), animated: true, completion: nil)
+        }
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        self.isEditing_ = false
     }
 }
 

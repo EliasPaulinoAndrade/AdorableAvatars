@@ -51,7 +51,6 @@ class AvatarCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         self.layer.cornerRadius = 5
         closeImage.layer.masksToBounds = false
@@ -84,7 +83,6 @@ class AvatarCollectionViewCell: UICollectionViewCell {
         if let isFaved = self.isFaved{
             self.isFaved = !isFaved
         }
-        
         delegate?.avatarWasFavorite(self)
     }
     

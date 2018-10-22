@@ -14,6 +14,18 @@ class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var shadowColorView: UIView!
     
+    public var isSelected_ = false {
+        didSet {
+            if isSelected_ {
+                checkImage.isHidden = false
+//                checkImage.image = datasource?.imageForSelectColor(colorPicker: self)
+                
+            } else {
+                checkImage.isHidden = true
+            }
+        }
+    }
+    
     func setColor(color: UIColor){
         self.mainColorView.backgroundColor = color
         self.shadowColorView.backgroundColor = color

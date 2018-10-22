@@ -17,8 +17,11 @@ class ColorPicker: UIView {
     var delegate: ColorPickerDelegate?
     var colors: [UIColor]?
     
+    private var firstColorWasSet = false
+    
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -53,16 +56,27 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath)
     
         if let colorCell = cell as? ColorCollectionViewCell, let color = colors?[indexPath.row] {
-            if colorCell.isSelected {
-                applySelection(cell: colorCell, atPosition: indexPath.row)
-            } else {
-                removeSelection(cell: colorCell, atPosition: indexPath.row)
-            }
+        
+            colorCell.isSelected_ = colorCell.isSelected
             
             colorCell.setColor(color: color)
+            colorCell.checkImage.image = datasource?.imageForSelectColor(colorPicker: self)
         }
         
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if let initialColor = self.datasource?.initialColor(colorPicker: self), !firstColorWasSet, initialColor == indexPath.row {
+            self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+            
+            if let colorCell = cell as? ColorCollectionViewCell {
+                colorCell.isSelected_ = true
+            }
+    
+            firstColorWasSet = true
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -74,26 +88,17 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         if let colorCell = cell as? ColorCollectionViewCell{
-            applySelection(cell: colorCell, atPosition: indexPath.row)
+            colorCell.isSelected_ = colorCell.isSelected
+            delegate?.colorWasSelected(self, atPosition: indexPath.row)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         if let colorCell = cell as? ColorCollectionViewCell{
-            removeSelection(cell: colorCell, atPosition: indexPath.row)
+            colorCell.isSelected_ = colorCell.isSelected
         }
     }
-    
-    func applySelection(cell: ColorCollectionViewCell, atPosition position: Int) {
-        cell.checkImage.isHidden = false
-        cell.checkImage.image = datasource?.imageForSelectColor(colorPicker: self)
-        delegate?.colorWasSelected(self, atPosition: position)
-    }
-    
-    func removeSelection(cell: ColorCollectionViewCell, atPosition position: Int) {
-        cell.checkImage.isHidden = true
-        cell.checkImage.image = nil
-    }
+
 }
 

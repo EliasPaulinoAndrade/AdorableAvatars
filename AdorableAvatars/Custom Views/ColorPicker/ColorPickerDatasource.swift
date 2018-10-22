@@ -10,4 +10,5 @@ import UIKit
 
 protocol ColorPickerDatasource {
     func imageForSelectColor(colorPicker: ColorPicker) -> UIImage?
+    func initialColor(colorPicker: ColorPicker) -> Int
 }

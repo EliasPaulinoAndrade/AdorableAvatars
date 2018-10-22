@@ -15,8 +15,8 @@ class CreateAvatarViewController: UIViewController {
     private var currentAvatarImage: UIImage?
     
     private var adorableAvatars = ADWrapper()
-    private var avatar = ADAvatar.init()
     private var plistReader = PlistReader.init()
+    private var avatar = ADAvatar.init()
     
     public var delegate: CreateAvatarDelegate?
     
@@ -74,7 +74,6 @@ class CreateAvatarViewController: UIViewController {
     }
     
     private func saveAvatar(image: UIImage, withName name: String) {
-      
         FileManager.default.saveAvatar(image, withName: name)
         
         let avatar = Avatar.init(name: name, isFave: false)
@@ -88,7 +87,6 @@ class CreateAvatarViewController: UIViewController {
 
 extension CreateAvatarViewController: ADDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
-        
         self.picker.image.image = image
         self.currentAvatarImage = image
         picker.stopLoading()
@@ -108,6 +106,8 @@ extension CreateAvatarViewController: ADDelegate {
             avatar.eye = eye
             avatar.month = month
             avatar.nose = nose
+            avatar.color = plistReader.colors[0]
+            picker.startLoading()
             adorableAvatars.getImage(for: avatar)
         }
         loadIndicator.stopAnimating()
@@ -172,6 +172,10 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
 }
 
 extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate {
+    func initialColor(colorPicker: ColorPicker) -> Int {
+        return 0
+    }
+    
     func imageForSelectColor(colorPicker: ColorPicker) -> UIImage? {
         return UIImage.init(named: "checked")
     }
