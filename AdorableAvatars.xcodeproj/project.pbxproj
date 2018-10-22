@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 		E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */; };
+		E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE37217E5393009A8BF7 /* NotificationService.swift */; };
+		E386AE3C217E5393009A8BF7 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E386AE35217E5393009A8BF7 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E386AE42217E6386009A8BF7 /* ADFaceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050C217623A400B80D74 /* ADFaceComponents.swift */; };
+		E386AE43217E6386009A8BF7 /* ADAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0516217659F700B80D74 /* ADAvatar.swift */; };
+		E386AE44217E6386009A8BF7 /* String+sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05182176687700B80D74 /* String+sub.swift */; };
+		E386AE45217E6386009A8BF7 /* UIColor+hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */; };
+		E386AE46217E6386009A8BF7 /* ADWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050921761C2400B80D74 /* ADWrapper.swift */; };
+		E386AE47217E6386009A8BF7 /* ADDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050E2176310800B80D74 /* ADDelegate.swift */; };
+		E386AE48217E68CE009A8BF7 /* FileManager+avatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -54,6 +63,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E386AE3A217E5393009A8BF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3AB04C52176072E00B80D74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E386AE34217E5393009A8BF7;
+			remoteInfo = NotificationService;
+		};
 		E3AB04E22176073000B80D74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E3AB04C52176072E00B80D74 /* Project object */;
@@ -70,10 +86,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E386AE40217E5393009A8BF7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E386AE3C217E5393009A8BF7 /* NotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E386AE2B217E351D009A8BF7 /* AlertManagment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagment.swift; sourceTree = "<group>"; };
 		E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdorableAvatars.entitlements; sourceTree = "<group>"; };
 		E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E386AE35217E5393009A8BF7 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E386AE37217E5393009A8BF7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		E386AE39217E5393009A8BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +158,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E386AE32217E5393009A8BF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3AB04CA2176072E00B80D74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,12 +205,22 @@
 			path = "Notification Managment";
 			sourceTree = "<group>";
 		};
+		E386AE36217E5393009A8BF7 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				E386AE37217E5393009A8BF7 /* NotificationService.swift */,
+				E386AE39217E5393009A8BF7 /* Info.plist */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
 		E3AB04C42176072E00B80D74 = {
 			isa = PBXGroup;
 			children = (
 				E3AB04CF2176072E00B80D74 /* AdorableAvatars */,
 				E3AB04E42176073000B80D74 /* AdorableAvatarsTests */,
 				E3AB04EF2176073000B80D74 /* AdorableAvatarsUITests */,
+				E386AE36217E5393009A8BF7 /* NotificationService */,
 				E3AB04CE2176072E00B80D74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -181,6 +231,7 @@
 				E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */,
 				E3AB04E12176073000B80D74 /* AdorableAvatarsTests.xctest */,
 				E3AB04EC2176073000B80D74 /* AdorableAvatarsUITests.xctest */,
+				E386AE35217E5393009A8BF7 /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,6 +404,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E386AE34217E5393009A8BF7 /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E386AE3D217E5393009A8BF7 /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				E386AE31217E5393009A8BF7 /* Sources */,
+				E386AE32217E5393009A8BF7 /* Frameworks */,
+				E386AE33217E5393009A8BF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = E386AE35217E5393009A8BF7 /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E3AB04CC2176072E00B80D74 /* AdorableAvatars */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3AB04F52176073000B80D74 /* Build configuration list for PBXNativeTarget "AdorableAvatars" */;
@@ -360,10 +428,12 @@
 				E3AB04C92176072E00B80D74 /* Sources */,
 				E3AB04CA2176072E00B80D74 /* Frameworks */,
 				E3AB04CB2176072E00B80D74 /* Resources */,
+				E386AE40217E5393009A8BF7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E386AE3B217E5393009A8BF7 /* PBXTargetDependency */,
 			);
 			name = AdorableAvatars;
 			productName = AdorableAvatars;
@@ -416,6 +486,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Elias Paulino";
 				TargetAttributes = {
+					E386AE34217E5393009A8BF7 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					E3AB04CC2176072E00B80D74 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -453,11 +526,19 @@
 				E3AB04CC2176072E00B80D74 /* AdorableAvatars */,
 				E3AB04E02176073000B80D74 /* AdorableAvatarsTests */,
 				E3AB04EB2176073000B80D74 /* AdorableAvatarsUITests */,
+				E386AE34217E5393009A8BF7 /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E386AE33217E5393009A8BF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3AB04CB2176072E00B80D74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,6 +571,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E386AE31217E5393009A8BF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E386AE46217E6386009A8BF7 /* ADWrapper.swift in Sources */,
+				E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */,
+				E386AE48217E68CE009A8BF7 /* FileManager+avatarManager.swift in Sources */,
+				E386AE42217E6386009A8BF7 /* ADFaceComponents.swift in Sources */,
+				E386AE45217E6386009A8BF7 /* UIColor+hexa.swift in Sources */,
+				E386AE43217E6386009A8BF7 /* ADAvatar.swift in Sources */,
+				E386AE47217E6386009A8BF7 /* ADDelegate.swift in Sources */,
+				E386AE44217E6386009A8BF7 /* String+sub.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3AB04C92176072E00B80D74 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +646,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E386AE3B217E5393009A8BF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E386AE34217E5393009A8BF7 /* NotificationService */;
+			targetProxy = E386AE3A217E5393009A8BF7 /* PBXContainerItemProxy */;
+		};
 		E3AB04E32176073000B80D74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E3AB04CC2176072E00B80D74 /* AdorableAvatars */;
@@ -582,6 +683,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E386AE3E217E5393009A8BF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableAvatars.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E386AE3F217E5393009A8BF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableAvatars.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E3AB04F32176073000B80D74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,6 +840,7 @@
 		E3AB04F62176073000B80D74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AdorableAvatars/AdorableAvatars.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -720,6 +860,7 @@
 		E3AB04F72176073000B80D74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AdorableAvatars/AdorableAvatars.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -821,6 +962,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E386AE3D217E5393009A8BF7 /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E386AE3E217E5393009A8BF7 /* Debug */,
+				E386AE3F217E5393009A8BF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E3AB04C82176072E00B80D74 /* Build configuration list for PBXProject "AdorableAvatars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

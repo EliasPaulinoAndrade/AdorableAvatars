@@ -18,8 +18,6 @@ class ADWrapper {
     
     private lazy var urlSession: URLSession = {
         let configuration = URLSessionConfiguration.init()
-//        configuration.timeoutIntervalForRequest = 10
-//        configuration.timeoutIntervalForResource = 10
         return URLSession.init(configuration: configuration)
     }()
     
@@ -62,7 +60,6 @@ class ADWrapper {
     }
     
     public func getImage(for avatar: ADAvatar) {
-        
         guard let url = avatar.url else {
             delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
             return

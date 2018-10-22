@@ -9,14 +9,34 @@
 import UIKit
 
 extension FileManager {
-    public func saveAvatar(_ image: UIImage, withName name: String) {
+    @discardableResult
+    public func saveAvatarImage(_ image: UIImage, withName name: String) -> URL?{
         if let data = image.pngData(),
            let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
             
             let imageURL = documentsURL.appendingPathComponent("\(name).png")
             
             try? data.write(to: imageURL)
+            
+            return imageURL
         }
+        return nil
+    }
+    @discardableResult
+    public func saveTemporaryAvatarImage(image: UIImage) -> URL? {
+        let tempDirectory = NSTemporaryDirectory()
+        
+        let tmpFile = "file://".appending(tempDirectory).appending("notification_image.png")
+        guard let tempURL = URL(string: tmpFile) else {
+            return nil
+        }
+        guard let imageData = image.pngData() else {
+            return nil
+        }
+        
+        try? imageData.write(to: tempURL)
+        
+        return tempURL
     }
     
     public func getAvatar(withName name: String) -> UIImage? {

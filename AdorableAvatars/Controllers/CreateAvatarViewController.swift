@@ -74,7 +74,7 @@ class CreateAvatarViewController: UIViewController {
     }
     
     private func saveAvatar(image: UIImage, withName name: String) {
-        FileManager.default.saveAvatar(image, withName: name)
+        FileManager.default.saveAvatarImage(image, withName: name)
         
         let avatar = Avatar.init(name: name, isFave: false)
         CoreDataStack.saveContext()
