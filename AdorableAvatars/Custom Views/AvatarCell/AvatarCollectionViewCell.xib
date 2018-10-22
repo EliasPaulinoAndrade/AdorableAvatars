@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AvatarCollectionViewCell" customModule="AdorableAvatars" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AvatarCollectionViewCell" customModule="AdorableAvatars" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="153" height="199"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -40,12 +40,22 @@
                             <constraint firstAttribute="width" constant="30" id="cKA-wb-h3G"/>
                         </constraints>
                     </imageView>
+                    <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="m2I-EA-lf7">
+                        <rect key="frame" x="118" y="-5" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="4aK-ok-rih"/>
+                            <constraint firstAttribute="width" constant="30" id="zh5-FZ-02C"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.16862745098039217" green="0.18431372549019609" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <color key="tintColor" red="0.1998429000377655" green="0.20380347967147827" blue="0.21209442615509033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7u1-vg-WVM" firstAttribute="trailing" secondItem="Zry-4B-YAQ" secondAttribute="trailing" id="3AI-fC-dbf"/>
+                <constraint firstItem="m2I-EA-lf7" firstAttribute="top" secondItem="Zry-4B-YAQ" secondAttribute="top" constant="-15" id="9pS-Tz-Kdq"/>
+                <constraint firstItem="m2I-EA-lf7" firstAttribute="trailing" secondItem="Zry-4B-YAQ" secondAttribute="trailing" constant="5" id="DBl-o2-EtH"/>
                 <constraint firstItem="Zry-4B-YAQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="MCv-7S-GSU"/>
                 <constraint firstItem="Zry-4B-YAQ" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" constant="-20" id="MMJ-5K-Ri4"/>
                 <constraint firstItem="7u1-vg-WVM" firstAttribute="centerY" secondItem="4s4-mN-Scg" secondAttribute="centerY" id="W7c-7W-UZS"/>
@@ -58,12 +68,14 @@
             <connections>
                 <outlet property="avatarImage" destination="Zry-4B-YAQ" id="Qd7-ts-dAQ"/>
                 <outlet property="avatarName" destination="4s4-mN-Scg" id="3Hm-d6-Bc6"/>
+                <outlet property="closeImage" destination="m2I-EA-lf7" id="dRk-sB-JIk"/>
                 <outlet property="faveImage" destination="7u1-vg-WVM" id="dtm-c7-DA1"/>
             </connections>
             <point key="canvasLocation" x="220" y="221.73913043478262"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="close" width="50" height="50"/>
         <image name="star" width="100" height="95"/>
     </resources>
 </document>

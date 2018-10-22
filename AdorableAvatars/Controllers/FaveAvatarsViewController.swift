@@ -12,6 +12,8 @@ class FaveAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
+    public var delegate: FavoriteAvatarDelegate?
+    
     private var avatars: [Avatar]?
     
     override func viewDidLoad() {
@@ -97,7 +99,6 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
         let height = width
         
         
-        
         previewController.dataReceived = data
         previewController.preferredContentSize = CGSize.init(width: width, height: height)
         previewController.delegate = self
@@ -105,21 +106,23 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
         return previewController
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        //showDetailViewController(viewControllerToCommit, sender: self)
-    }
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) { }
 }
 
 extension FaveAvatarsViewController: AvatarPreviewDelegate{
     
     func avatarWasDesfavorite(_ avatar: Avatar) {
+        avatar.isFave = !avatar.isFave
+        CoreDataStack.saveContext()
         
+        if let avatarIndex = self.avatars?.firstIndex(of: avatar) {
+            
+            let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
+            self.avatars?.remove(at: avatarIndex)
+            self.avatarsCollectionView.deleteItems(at: [avatarIndexPath])
+            delegate?.avatarWasDesfavorite(avatar: avatar)
+        }
     }
-    
-    func avatarWasFavorite(_ avatar: Avatar) {
-        
-    }
-    
     
     func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
         let activityController: UIActivityViewController = {

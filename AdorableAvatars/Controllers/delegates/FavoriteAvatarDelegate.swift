@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FavoriteAvatarDelegate {
-    func avatarWasFavorite(avatar: Avatar)
+@objc protocol FavoriteAvatarDelegate {
+    @objc optional func avatarWasFavorite(avatar: Avatar)
     func avatarWasDesfavorite(avatar: Avatar)
 }

@@ -11,7 +11,7 @@ import UIKit
 extension FileManager {
     public func saveAvatar(_ image: UIImage, withName name: String) {
         if let data = image.pngData(),
-           let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false){
+           let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
             
             let imageURL = documentsURL.appendingPathComponent("\(name).png")
             

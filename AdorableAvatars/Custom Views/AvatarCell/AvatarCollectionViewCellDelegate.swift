@@ -10,4 +10,5 @@ import Foundation
 
 protocol AvatarCollectionViewCellDelegate {
     func avatarWasFavorite(_ cell: AvatarCollectionViewCell)
+    func avatarWasClosed(_ cell: AvatarCollectionViewCell)
 }

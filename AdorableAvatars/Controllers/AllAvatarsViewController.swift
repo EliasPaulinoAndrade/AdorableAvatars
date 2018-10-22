@@ -13,6 +13,7 @@ class AllAvatarsViewController: UIViewController {
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
     private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
+    private var isEditing_ = false
     
     public var delegate: FavoriteAvatarDelegate?
     
@@ -32,30 +33,63 @@ class AllAvatarsViewController: UIViewController {
         
         avatarsCollectionView.dataSource = self
         avatarsCollectionView.delegate = self
-    
+        avatarsCollectionView.allowsMultipleSelection = true
+        
         registerForPreviewing(with: self, sourceView: avatarsCollectionView)
         
         navigationItem.searchController = searchController
         
+        if let navigationController = self.tabBarController?.viewControllers?[1] as? UINavigationController {
+            if let faveAvatarsController = navigationController.viewControllers.first as? FaveAvatarsViewController {
+                faveAvatarsController.delegate = self
+            }
+        }
     }
     
-    override func viewDidLayoutSubviews() {
-        avatarsCollectionView.reloadData()
-    }
+//    override func viewDidLayoutSubviews() {
+//        avatarsCollectionView.reloadData()
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         if let navigationController = segue.destination as? UINavigationController {
             if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
                 createAvatarController.delegate = self
             }
         }
     }
+    
+    @IBAction func editTapped(_ sender: Any) {
+        self.isEditing_ = !self.isEditing_
+        self.avatarsCollectionView.reloadData()
+        
+        if self.isEditing_ {
+            self.navigationItem.rightBarButtonItems?[1].title = "Cancel"
+        } else {
+            self.navigationItem.rightBarButtonItems?[1].title = "Edit"
+        }
+    }
 }
 
 
 extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AvatarCollectionViewCellDelegate{
+    func avatarWasClosed(_ cell: AvatarCollectionViewCell) {
+        guard let indexPath = self.avatarsCollectionView.indexPath(for: cell) else {
+            return
+        }
+        
+        if let avatar = self.avatars?[indexPath.row] {
+            let coreDataContext = CoreDataStack.persistentContainer.viewContext
+            
+            self.avatars?.remove(at: indexPath.row)
+            self.avatarsCollectionView.deleteItems(at: [indexPath])
+            if avatar.isFave {
+                delegate?.avatarWasDesfavorite(avatar: avatar)
+            }
+            coreDataContext.delete(avatar)
+            try? coreDataContext.save()
+        }
+    }
+    
     func avatarWasFavorite(_ cell: AvatarCollectionViewCell) {
         if let avatarIndex = self.avatarsCollectionView.indexPath(for: cell)?.row, let avatars = self.avatars {
             let avatar = avatars[avatarIndex]
@@ -63,7 +97,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             CoreDataStack.saveContext()
             
             if avatar.isFave{
-                delegate?.avatarWasFavorite(avatar: avatar)
+                delegate?.avatarWasFavorite?(avatar: avatar)
                 
             } else {
                 delegate?.avatarWasDesfavorite(avatar: avatar)
@@ -80,10 +114,8 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
        
         if let avatarCell = cell as? AvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
             let image = FileManager.default.getAvatar(withName: avatarName)
-            avatarCell.avatarImage.image = image
-            avatarCell.avatarName.text = avatarName
             
-            avatarCell.isFaved = avatar.isFave
+            avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: self.isEditing_)
             avatarCell.delegate = self
         }
         
@@ -163,12 +195,8 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
             let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
             if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
                 avatarCell.isFaved = avatar.isFave
-                if avatar.isFave{
-                    delegate?.avatarWasFavorite(avatar: avatar)
-                    
-                } else {
-                    delegate?.avatarWasDesfavorite(avatar: avatar)
-                }
+                
+                delegate?.avatarWasDesfavorite(avatar: avatar)
             }
         }
     }
@@ -182,12 +210,8 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
             let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
             if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
                 avatarCell.isFaved = avatar.isFave
-                if avatar.isFave{
-                    delegate?.avatarWasFavorite(avatar: avatar)
-                    
-                } else {
-                    delegate?.avatarWasDesfavorite(avatar: avatar)
-                }
+                
+                delegate?.avatarWasFavorite?(avatar: avatar)
             }
         }
     }
@@ -204,6 +228,18 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
         
         self.present(activityController, animated: true, completion: nil)
     }
-    
 }
 
+extension AllAvatarsViewController: FavoriteAvatarDelegate{
+    
+    func avatarWasDesfavorite(avatar: Avatar){
+        guard let avatarIndex = self.avatars?.firstIndex(of: avatar) else {
+            return
+        }
+        guard let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? AvatarCollectionViewCell else {
+            return
+        }
+        
+        avatarCell.isFaved = false
+    }
+}

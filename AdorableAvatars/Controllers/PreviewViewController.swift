@@ -23,7 +23,7 @@ class PreviewViewController: UIViewController {
         
         let shareAction = UIPreviewAction.init(title: "Share Avatar", style: .default) { (action, controller) in
             if let image = self.previewImageView.image {
-                self.delegate?.avatarShared(avatar, withImage: image)
+                self.delegate?.avatarShared?(avatar, withImage: image)
             }
         }
     
@@ -32,7 +32,7 @@ class PreviewViewController: UIViewController {
             if avatar.isFave {
                 self.delegate?.avatarWasDesfavorite(avatar)
             } else {
-                self.delegate?.avatarWasFavorite(avatar)
+                self.delegate?.avatarWasFavorite?(avatar)
             }
         }
         
