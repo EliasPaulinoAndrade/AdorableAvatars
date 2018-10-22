@@ -67,23 +67,6 @@ class AllAvatarsViewController: UIViewController {
         }
     }
     
-    private func alertRemoveAvatar(sucess: @escaping () -> ()) -> UIAlertController {
-        let alertRemoveAvatar = UIAlertController.init(title: "Remove Avatar", message: "Do You Want Remove It? ", preferredStyle: .alert)
-        alertRemoveAvatar.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
-            sucess()
-        }))
-        alertRemoveAvatar.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
-        return alertRemoveAvatar
-    }
-    
-    private func alertError(withDescription description: String) -> UIAlertController {
-        let alertError = UIAlertController.init(title: "Error", message: description, preferredStyle: .actionSheet)
-        
-        alertError.addAction(UIAlertAction.init(title: "OK", style: .cancel, handler: nil))
-        
-        return alertError
-    }
-    
     @IBAction func editTapped(_ sender: Any) {
         self.isEditing_ = !self.isEditing_
         self.avatarsCollectionView.reloadData()
@@ -97,7 +80,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         }
         if let avatar = self.avatars?[indexPath.row] {
             
-            present(alertRemoveAvatar {
+            present(AlertManagment.alertRemoveAvatar {
                 self.removeAvatar(avatar: avatar, alIndexPath: indexPath)
             }, animated: true, completion: nil)
         }
@@ -175,7 +158,7 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
             self.avatarsCollectionView.reloadData()
             
         } catch {
-            present(alertError(withDescription: "Error While Removing Avatar"), animated: true, completion: nil)
+            present(AlertManagment.genericErrorAlert(withDescription: "Error While Removing Avatar"), animated: true, completion: nil)
         }
     }
     

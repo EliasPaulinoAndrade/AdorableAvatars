@@ -93,11 +93,14 @@ extension CreateAvatarViewController: ADDelegate {
     }
     
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) {
-        print("erro")
+       
+        self.present(AlertManagment.networkErrorAlert(), animated: true, completion: nil)
+        self.picker.stopLoading()
     }
     
     func avatarTypesLoadDidFail(wrapper: ADWrapper) {
-        print("erro")
+        self.present(AlertManagment.networkErrorAlert(), animated: true, completion: nil)
+        self.picker.stopLoading()
     }
     
     func didLoadAvatarTypes(wrapper: ADWrapper) {

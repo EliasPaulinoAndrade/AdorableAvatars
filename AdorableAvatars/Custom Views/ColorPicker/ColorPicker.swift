@@ -22,7 +22,6 @@ class ColorPicker: UIView {
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
         
-        
         collectionView.delegate = self
         collectionView.dataSource = self
     }

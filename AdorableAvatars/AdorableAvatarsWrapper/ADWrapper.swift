@@ -13,16 +13,26 @@ class ADWrapper {
     
     public var components: ADFaceComponents?
     public var delegate: ADDelegate?
+
     private var imageCache: NSCache<NSString, UIImage> = NSCache.init()
     
+    private lazy var urlSession: URLSession = {
+        let configuration = URLSessionConfiguration.init()
+//        configuration.timeoutIntervalForRequest = 10
+//        configuration.timeoutIntervalForResource = 10
+        return URLSession.init(configuration: configuration)
+    }()
+    
     public func findTypes() {
-        
         guard let url = URL.init(string: "https://api.adorable.io/avatars/list") else {
             delegate?.avatarTypesLoadDidFail(wrapper: self)
             return
         }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        var request = URLRequest.init(url: url)
+        request.timeoutInterval = 10
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {
                 DispatchQueue.main.async {
                     self.delegate?.avatarTypesLoadDidFail(wrapper: self)
@@ -63,7 +73,10 @@ class ADWrapper {
             self.delegate?.didLoadAvatarImage(wrapper: self, image: cachedImage)
         }
         
-        URLSession.shared.downloadTask(with: url) { (location, response, error) in
+        var request = URLRequest.init(url: url)
+        request.timeoutInterval = 10
+        
+        URLSession.shared.downloadTask(with: request) { (location, response, error) in
             if let _ = error {
                 DispatchQueue.main.async {
                     self.delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
@@ -93,5 +106,4 @@ class ADWrapper {
             
         }.resume()
     }
-    
 }
