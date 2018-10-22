@@ -12,10 +12,20 @@ class AllAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
-    private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
-    private var isEditing_ = false
-    
     public var delegate: FavoriteAvatarDelegate?
+    
+    private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
+    
+    private var isEditing_ = false {
+        didSet {
+            if self.isEditing_{
+                self.navigationItem.rightBarButtonItems?[1].title = "Cancel"
+            }
+            else {
+                self.navigationItem.rightBarButtonItems?[1].title = "Edit"
+            }
+        }
+    }
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController.init(searchResultsController: nil)
@@ -23,7 +33,7 @@ class AllAvatarsViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Avatars"
         searchController.definesPresentationContext = true
-        
+    
         return searchController
     }()
     
@@ -46,11 +56,10 @@ class AllAvatarsViewController: UIViewController {
         }
     }
     
-//    override func viewDidLayoutSubviews() {
-//        avatarsCollectionView.reloadData()
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.isEditing_ = false
+        self.avatarsCollectionView.reloadData()
+        
         if let navigationController = segue.destination as? UINavigationController {
             if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
                 createAvatarController.delegate = self
@@ -61,12 +70,6 @@ class AllAvatarsViewController: UIViewController {
     @IBAction func editTapped(_ sender: Any) {
         self.isEditing_ = !self.isEditing_
         self.avatarsCollectionView.reloadData()
-        
-        if self.isEditing_ {
-            self.navigationItem.rightBarButtonItems?[1].title = "Cancel"
-        } else {
-            self.navigationItem.rightBarButtonItems?[1].title = "Edit"
-        }
     }
 }
 
