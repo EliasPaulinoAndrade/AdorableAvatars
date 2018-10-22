@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
+		E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -71,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		E386AE2B217E351D009A8BF7 /* AlertManagment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagment.swift; sourceTree = "<group>"; };
+		E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdorableAvatars.entitlements; sourceTree = "<group>"; };
+		E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +157,14 @@
 			path = "Alert Managment";
 			sourceTree = "<group>";
 		};
+		E386AE2E217E45B6009A8BF7 /* Notification Managment */ = {
+			isa = PBXGroup;
+			children = (
+				E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */,
+			);
+			path = "Notification Managment";
+			sourceTree = "<group>";
+		};
 		E3AB04C42176072E00B80D74 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +188,8 @@
 		E3AB04CF2176072E00B80D74 /* AdorableAvatars */ = {
 			isa = PBXGroup;
 			children = (
+				E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */,
+				E386AE2E217E45B6009A8BF7 /* Notification Managment */,
 				E386AE28217E3438009A8BF7 /* Alert Managment */,
 				E3AB053E2178E3D000B80D74 /* Core Data Managment */,
 				E3AB05312177E3AD00B80D74 /* File Managment */,
@@ -405,6 +418,14 @@
 				TargetAttributes = {
 					E3AB04CC2176072E00B80D74 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					E3AB04E02176073000B80D74 = {
 						CreatedOnToolsVersion = 10.0;
@@ -491,6 +512,7 @@
 				E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */,
 				E3AB05352177E75A00B80D74 /* FileManager+avatarManager.swift in Sources */,
 				E3AB051D2177749B00B80D74 /* PlistReader.swift in Sources */,
+				E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */,
 				E3AB054F2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift in Sources */,
 				E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */,
 				E3AB054A2178F2F400B80D74 /* Avatar.swift in Sources */,
@@ -680,6 +702,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AdorableAvatars/AdorableAvatars.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8P97P3QB4;
 				INFOPLIST_FILE = AdorableAvatars/Info.plist;
@@ -698,6 +721,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AdorableAvatars/AdorableAvatars.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8P97P3QB4;
 				INFOPLIST_FILE = AdorableAvatars/Info.plist;
