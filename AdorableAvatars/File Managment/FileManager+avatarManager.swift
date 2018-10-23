@@ -39,6 +39,18 @@ extension FileManager {
         return tempURL
     }
     
+    public func deleteAvatarImage(withName name: String) {
+        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            
+            print(getAvatars().count)
+            
+            let imageURL = documentsURL.appendingPathComponent("\(name).png")
+            try? FileManager.default.removeItem(at: imageURL)
+            
+            print(getAvatars().count)
+        }
+    }
+    
     public func getAvatar(withName name: String) -> UIImage? {
         var avatar: UIImage?
         

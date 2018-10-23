@@ -103,8 +103,11 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         if avatar.isFave {
             delegate?.avatarWasDesfavorite(avatar: avatar)
         }
-        coreDataContext.delete(avatar)
-        try? coreDataContext.save()
+        if let avatarName = avatar.name {
+            FileManager.default.deleteAvatarImage(withName: avatarName)
+            coreDataContext.delete(avatar)
+            try? coreDataContext.save()
+        }
     }
     
     func avatarWasFavorite(_ cell: AvatarCollectionViewCell) {

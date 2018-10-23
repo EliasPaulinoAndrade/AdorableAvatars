@@ -34,4 +34,29 @@ class AlertManagment {
         
         return alertError
     }
+    
+    
+    static public func saveAvatarAlert(sucess: @escaping (_ name: String?) -> ()) -> UIAlertController {
+        let alert = UIAlertController.init(title: "Saving", message: "Whats is him name? ", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
+            sucess(alert.textFields?.first?.text)
+        }))
+        
+        alert.addTextField(configurationHandler: { (textField) in
+            
+        })
+        
+        return alert
+    }
+    
+    static public func saveAvatarErrorAlert(name: String) -> UIAlertController{
+        let alertError = UIAlertController.init(title: "Error", message: "Avatar With Name \"\(name)\" Already Exists", preferredStyle: .actionSheet)
+        
+        alertError.addAction(UIAlertAction.init(title: "OK", style: .cancel, handler: nil))
+        
+        return alertError
+    }
 }

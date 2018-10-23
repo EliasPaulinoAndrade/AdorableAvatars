@@ -31,24 +31,6 @@ class CreateAvatarViewController: UIViewController {
         return loadIndicator
     }()
     
-    private lazy var saveAlertController: UIAlertController = {
-        let alert = UIAlertController.init(title: "Saving", message: "Whats is him name? ", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-        
-        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
-            if let image = self.currentAvatarImage, let name = alert.textFields?.first?.text{
-                self.saveAvatar(image: image, withName: name)
-            }
-        }))
-        
-        alert.addTextField(configurationHandler: { (textField) in
-            
-        })
-    
-        return alert
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +47,12 @@ class CreateAvatarViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
         if let _ = self.currentAvatarImage{
-            present(saveAlertController, animated: true, completion: nil)
+            
+            present(AlertManagment.saveAvatarAlert(sucess: { (name) in
+                if let image = self.currentAvatarImage, let name = name{
+                    self.saveAvatar(image: image, withName: name)
+                }
+            }), animated: true, completion: nil)
         }
     }
     
@@ -75,6 +62,11 @@ class CreateAvatarViewController: UIViewController {
     }
     
     private func saveAvatar(image: UIImage, withName name: String) {
+        guard let avatarsWithSameName =  try? CoreDataWrapper.findAvatars(byName: name), avatarsWithSameName.count == 0 else {
+            self.present(AlertManagment.saveAvatarErrorAlert(name: name), animated: true, completion: nil)
+            return
+        }
+        
         FileManager.default.saveAvatarImage(image, withName: name)
         
         let avatar = Avatar.init(name: name, isFave: false)
