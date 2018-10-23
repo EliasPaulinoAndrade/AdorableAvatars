@@ -277,7 +277,7 @@
         <!--Item-->
         <scene sceneID="PQt-0c-vG7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HWw-Sl-dVl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CreateAvatarNavigationControllerID" automaticallyAdjustsScrollViewInsets="NO" id="HWw-Sl-dVl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" selectedImage="faves" id="70v-6N-F7K"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="DAL-6r-srM">

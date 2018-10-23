@@ -18,6 +18,8 @@
 		E386AE46217E6386009A8BF7 /* ADWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050921761C2400B80D74 /* ADWrapper.swift */; };
 		E386AE47217E6386009A8BF7 /* ADDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050E2176310800B80D74 /* ADDelegate.swift */; };
 		E386AE48217E68CE009A8BF7 /* FileManager+avatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */; };
+		E386AE4C217F6280009A8BF7 /* ActionID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4B217F6280009A8BF7 /* ActionID.swift */; };
+		E386AE4E217F629B009A8BF7 /* CategoryID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4D217F629B009A8BF7 /* CategoryID.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -107,6 +109,8 @@
 		E386AE35217E5393009A8BF7 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E386AE37217E5393009A8BF7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E386AE39217E5393009A8BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E386AE4B217F6280009A8BF7 /* ActionID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionID.swift; sourceTree = "<group>"; };
+		E386AE4D217F629B009A8BF7 /* CategoryID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryID.swift; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */,
+				E386AE4B217F6280009A8BF7 /* ActionID.swift */,
+				E386AE4D217F629B009A8BF7 /* CategoryID.swift */,
 			);
 			path = "Notification Managment";
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */,
 				E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */,
 				E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */,
+				E386AE4E217F629B009A8BF7 /* CategoryID.swift in Sources */,
 				E3AB050A21761C2400B80D74 /* ADWrapper.swift in Sources */,
 				E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */,
 				E3AB05352177E75A00B80D74 /* FileManager+avatarManager.swift in Sources */,
@@ -613,6 +620,7 @@
 				E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */,
 				E3AB054A2178F2F400B80D74 /* Avatar.swift in Sources */,
 				E3AB053D2178AA7200B80D74 /* AllAvatarsViewController.swift in Sources */,
+				E386AE4C217F6280009A8BF7 /* ActionID.swift in Sources */,
 				E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */,
 				E3AB05412178E3F600B80D74 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E3AB05272177872D00B80D74 /* ColorCollectionViewCell.swift in Sources */,
