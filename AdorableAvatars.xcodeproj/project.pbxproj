@@ -20,6 +20,9 @@
 		E386AE48217E68CE009A8BF7 /* FileManager+avatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */; };
 		E386AE4C217F6280009A8BF7 /* ActionID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4B217F6280009A8BF7 /* ActionID.swift */; };
 		E386AE4E217F629B009A8BF7 /* CategoryID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4D217F629B009A8BF7 /* CategoryID.swift */; };
+		E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */; };
+		E386AE52217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE51217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift */; };
+		E386AE53217FDE08009A8BF7 /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -111,6 +114,8 @@
 		E386AE39217E5393009A8BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E386AE4B217F6280009A8BF7 /* ActionID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionID.swift; sourceTree = "<group>"; };
 		E386AE4D217F629B009A8BF7 /* CategoryID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryID.swift; sourceTree = "<group>"; };
+		E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+URL.swift"; sourceTree = "<group>"; };
+		E386AE51217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+findByAttachmentIdentifier.swift"; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 				E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */,
 				E386AE4B217F6280009A8BF7 /* ActionID.swift */,
 				E386AE4D217F629B009A8BF7 /* CategoryID.swift */,
+				E386AE51217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift */,
 			);
 			path = "Notification Managment";
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */,
+				E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */,
 			);
 			path = "File Managment";
 			sourceTree = "<group>";
@@ -584,6 +591,7 @@
 				E386AE46217E6386009A8BF7 /* ADWrapper.swift in Sources */,
 				E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */,
 				E386AE48217E68CE009A8BF7 /* FileManager+avatarManager.swift in Sources */,
+				E386AE53217FDE08009A8BF7 /* UIImage+URL.swift in Sources */,
 				E386AE42217E6386009A8BF7 /* ADFaceComponents.swift in Sources */,
 				E386AE45217E6386009A8BF7 /* UIColor+hexa.swift in Sources */,
 				E386AE43217E6386009A8BF7 /* ADAvatar.swift in Sources */,
@@ -607,6 +615,7 @@
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
 				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
+				E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */,
 				E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */,
 				E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */,
 				E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */,
@@ -631,6 +640,7 @@
 				E3AB05432178E47300B80D74 /* CoreDataWrapper.swift in Sources */,
 				E3AB05152176457600B80D74 /* APAvatar.swift in Sources */,
 				E3AB050D217623A400B80D74 /* ADFaceComponents.swift in Sources */,
+				E386AE52217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift in Sources */,
 				E3AB050F2176310800B80D74 /* ADDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

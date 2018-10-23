@@ -11,12 +11,11 @@ import UIKit
 extension FileManager {
     @discardableResult
     public func saveAvatarImage(_ image: UIImage, withName name: String) -> URL?{
-        if let data = image.pngData(),
-           let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
             
             let imageURL = documentsURL.appendingPathComponent("\(name).png")
             
-            try? data.write(to: imageURL)
+            try? image.write(to: imageURL)
             
             return imageURL
         }
@@ -30,11 +29,8 @@ extension FileManager {
         guard let tempURL = URL(string: tmpFile) else {
             return nil
         }
-        guard let imageData = image.pngData() else {
-            return nil
-        }
         
-        try? imageData.write(to: tempURL)
+        try? image.write(to: tempURL)
         
         return tempURL
     }
@@ -42,12 +38,9 @@ extension FileManager {
     public func deleteAvatarImage(withName name: String) {
         if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
             
-            print(getAvatars().count)
-            
             let imageURL = documentsURL.appendingPathComponent("\(name).png")
             try? FileManager.default.removeItem(at: imageURL)
             
-            print(getAvatars().count)
         }
     }
     
@@ -57,8 +50,9 @@ extension FileManager {
         if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false){
             
             let imageURL = documentsURL.appendingPathComponent("\(name).png")
-            if let imageData = try? Data.init(contentsOf: imageURL){
-                avatar = UIImage.init(data: imageData)
+            
+            if let avatarImage = try? UIImage.init(url: imageURL) {
+                avatar = avatarImage
             }
         }
         
@@ -73,9 +67,8 @@ extension FileManager {
            let documentsContent = try? FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil) {
             
             for contentUrl in documentsContent {
-                
-                if let data = try? Data.init(contentsOf: contentUrl), let avatar = UIImage.init(data: data) {
-                    avatars.append(avatar)
+                if let avatarImageOpt = try? UIImage.init(url: contentUrl), let avatarImage = avatarImageOpt {
+                    avatars.append(avatarImage)
                 }
             }
         }

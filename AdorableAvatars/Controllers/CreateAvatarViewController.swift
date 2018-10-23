@@ -12,17 +12,21 @@ public enum CreateAvatarViewControllerAction {
     case push
 }
 
+public struct CreateAvatarViewControllerReceivedData {
+    let initialImage: UIImage?
+}
+
 class CreateAvatarViewController: UIViewController {
     @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
     
     private var currentAvatarImage: UIImage?
-    
     private var adorableAvatars = ADWrapper()
     private var plistReader = PlistReader.init()
     private var avatar = ADAvatar.init()
+   
+    public var data: CreateAvatarViewControllerReceivedData?
     public var action: CreateAvatarViewControllerAction?
-    
     public var delegate: CreateAvatarDelegate?
     
     private lazy var loadIndicator: UIActivityIndicatorView = {
@@ -54,6 +58,10 @@ class CreateAvatarViewController: UIViewController {
             case .push:
                 showAvatarNameAlert()
             }
+        }
+        
+        if let data = self.data {
+            self.picker.image.image = data.initialImage
         }
     }
     

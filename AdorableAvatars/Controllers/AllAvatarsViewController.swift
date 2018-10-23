@@ -13,12 +13,17 @@ public enum AllAvatarsViewControllerAction {
     case push
 }
 
+public struct AllAvatarsViewControllerReceivedData {
+    let initialCreationImage: UIImage?
+}
+
 class AllAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
     public var delegate: FavoriteAvatarDelegate?
     public var action: AllAvatarsViewControllerAction?
+    public var data: AllAvatarsViewControllerReceivedData?
     
     private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
     
@@ -67,6 +72,7 @@ class AllAvatarsViewController: UIViewController {
             switch action {
             case .push:
                 self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+                
             }
         }
     }
@@ -78,7 +84,10 @@ class AllAvatarsViewController: UIViewController {
         if let navigationController = segue.destination as? UINavigationController {
             if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
                 createAvatarController.delegate = self
-                createAvatarController.action = .push
+                if let action = self.action, action == .push {
+                    createAvatarController.action = .push
+                    //createAvatarController.data = CreateAvatarViewControllerReceivedData(initialImage: self.data?.initialCreationImage)
+                }
             }
         }
     }

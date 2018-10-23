@@ -54,7 +54,7 @@ extension NotificationService: ADDelegate {
     
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
         
-        if let imageURL = FileManager.default.saveTemporaryAvatarImage(image: image){
+        if let imageURL = FileManager.default.saveAvatarImage(image, withName: "notification_image"){
             if let attachment = try? UNNotificationAttachment.init(identifier: "notification_image", url: imageURL, options: [:]) {
                 bestAttemptContent?.attachments.append(attachment)
                 

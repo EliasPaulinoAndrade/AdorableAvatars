@@ -20,11 +20,15 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
        
+        
         switch response.actionIdentifier {
         case ActionID.avatarOfDaySave.rawValue:
-            print("eae")
-            openCreateController()
+            let image = FileManager.default.getAvatar(withName: "notification_image")
+            openCreateController(image: image)
+            //if let image = response.notification.request.content.attachments.findByAttachmentIdentifier(identifier: "notification_image") {
             
+            
+            //}
         default:
             print("no one")
         }
@@ -46,7 +50,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 
-    func openCreateController(){
+    func openCreateController(image: UIImage?){
         let appDelegate = UIApplication.shared.delegate
         
         guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
@@ -63,6 +67,11 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         allAvatarsViewController.action = .push
+        allAvatarsViewController.data = AllAvatarsViewControllerReceivedData(initialCreationImage: image)
+        
+        if allAvatarsViewController.isViewLoaded {
+            allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+        }
     }
 
 }
