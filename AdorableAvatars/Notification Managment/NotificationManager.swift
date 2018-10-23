@@ -24,7 +24,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         case ActionID.avatarOfDaySave.rawValue:
             print("eae")
             openCreateController()
-        
+            
         default:
             print("no one")
         }
@@ -48,11 +48,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
 
     func openCreateController(){
         let appDelegate = UIApplication.shared.delegate
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "CreateAvatarNavigationControllerID") as? UINavigationController else {
-            return
-        }
         
         guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
             
@@ -67,8 +62,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             return
         }
         
-        
-        appDelegate?.window??.rootViewController?.present(controller, animated: true, completion: nil)
-        
+        allAvatarsViewController.action = .push
     }
+
 }

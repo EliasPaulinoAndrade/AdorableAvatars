@@ -8,11 +8,18 @@
 
 import UIKit
 
+
+public enum AllAvatarsViewControllerAction {
+    case push
+}
+
 class AllAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
     public var delegate: FavoriteAvatarDelegate?
+    public var action: AllAvatarsViewControllerAction?
+    
     private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
     
     private var isEditing_ = false {
@@ -40,14 +47,6 @@ class AllAvatarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //testando
-        //let nib = UINib.init(nibName: "ColorPicker", bundle: nil)
-        //let view = ColorPicker.init(frame: CGRect.init())
-        //nib.instantiate(withOwner: <#T##Any?#>, options: <#T##[UINib.OptionsKey : Any]?#>)
-        
-        //testnaod
-        
-        
         avatarsCollectionView.register(UINib.init(nibName: "AvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
         
         avatarsCollectionView.dataSource = self
@@ -63,6 +62,13 @@ class AllAvatarsViewController: UIViewController {
                 faveAvatarsController.delegate = self
             }
         }
+        
+        if let action = self.action {
+            switch action {
+            case .push:
+                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,6 +78,7 @@ class AllAvatarsViewController: UIViewController {
         if let navigationController = segue.destination as? UINavigationController {
             if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
                 createAvatarController.delegate = self
+                createAvatarController.action = .push
             }
         }
     }

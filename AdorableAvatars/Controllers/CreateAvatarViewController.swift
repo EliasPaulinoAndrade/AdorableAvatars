@@ -8,6 +8,10 @@
 
 import UIKit
 
+public enum CreateAvatarViewControllerAction {
+    case push
+}
+
 class CreateAvatarViewController: UIViewController {
     @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
@@ -17,6 +21,7 @@ class CreateAvatarViewController: UIViewController {
     private var adorableAvatars = ADWrapper()
     private var plistReader = PlistReader.init()
     private var avatar = ADAvatar.init()
+    public var action: CreateAvatarViewControllerAction?
     
     public var delegate: CreateAvatarDelegate?
     
@@ -43,17 +48,25 @@ class CreateAvatarViewController: UIViewController {
         adorableAvatars.findTypes()
         colorPicker.datasource = self
         colorPicker.delegate = self
+        
+        if let action = self.action {
+            switch action {
+            case .push:
+                showAvatarNameAlert()
+            }
+        }
+    }
+    
+    private func showAvatarNameAlert(){
+        present(AlertManagment.saveAvatarAlert(sucess: { (name) in
+            if let image = self.currentAvatarImage, let name = name{
+                self.saveAvatar(image: image, withName: name)
+            }
+        }), animated: true, completion: nil)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        if let _ = self.currentAvatarImage{
-            
-            present(AlertManagment.saveAvatarAlert(sucess: { (name) in
-                if let image = self.currentAvatarImage, let name = name{
-                    self.saveAvatar(image: image, withName: name)
-                }
-            }), animated: true, completion: nil)
-        }
+        showAvatarNameAlert()
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
