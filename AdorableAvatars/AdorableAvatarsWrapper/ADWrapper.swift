@@ -60,6 +60,7 @@ class ADWrapper {
     }
     
     public func getImage(for avatar: ADAvatar) {
+        
         guard let url = avatar.url else {
             delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
             return

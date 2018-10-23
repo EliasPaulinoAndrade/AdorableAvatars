@@ -45,6 +45,7 @@ class CreateAvatarViewController: UIViewController {
         alert.addTextField(configurationHandler: { (textField) in
             
         })
+    
         return alert
     }()
     

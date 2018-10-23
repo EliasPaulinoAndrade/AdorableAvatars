@@ -21,15 +21,18 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
         if let bestAttemptContent = bestAttemptContent {
-            // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
             
+            guard let formattedContent = bestAttemptContent.userInfo["aps"] as? [String: Any] else {
+                contentHandler(bestAttemptContent)
+                return
+            }
             
             let avatar = ADAvatar.init(
-                eye: bestAttemptContent.userInfo["eye"] as? Int,
-                nose: bestAttemptContent.userInfo["nose"] as? Int,
-                month: bestAttemptContent.userInfo[""] as? Int,
-                color: UIColor.red)
+                eye: formattedContent["eye"] as? Int,
+                nose: formattedContent["nose"] as? Int,
+                month: formattedContent["month"] as? Int,
+                color: UIColor.init(red: (formattedContent["colorR"] as? CGFloat ?? 255)/255, green: (formattedContent["colorG"] as? CGFloat ?? 255)/255, blue: (formattedContent["colorB"] as? CGFloat ?? 255)/255, alpha: 1)
+            )
             
             adWrapper.delegate = self
             adWrapper.getImage(for: avatar)
@@ -37,8 +40,6 @@ class NotificationService: UNNotificationServiceExtension {
     }
     
     override func serviceExtensionTimeWillExpire() {
-        // Called just before the extension will be terminated by the system.
-        // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)
         }
@@ -65,10 +66,16 @@ extension NotificationService: ADDelegate {
     }
     
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) {
-        
+        print("fail")
+        if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
+            contentHandler(bestAttemptContent)
+        }
     }
     
     func avatarTypesLoadDidFail(wrapper: ADWrapper) {
-        
+        print("fail")
+        if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
+            contentHandler(bestAttemptContent)
+        }
     }
 }

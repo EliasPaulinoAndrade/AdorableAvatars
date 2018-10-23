@@ -39,6 +39,15 @@ class AllAvatarsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //testando
+        //let nib = UINib.init(nibName: "ColorPicker", bundle: nil)
+        //let view = ColorPicker.init(frame: CGRect.init())
+        //nib.instantiate(withOwner: <#T##Any?#>, options: <#T##[UINib.OptionsKey : Any]?#>)
+        
+        //testnaod
+        
+        
         avatarsCollectionView.register(UINib.init(nibName: "AvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
         
         avatarsCollectionView.dataSource = self
