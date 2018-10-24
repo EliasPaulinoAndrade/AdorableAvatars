@@ -43,11 +43,9 @@ extension FileManager {
     ///
     /// - Parameter name: the name of avatar image path
     public func deleteAvatarImage(withName name: String) {
-        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            
-            let imageURL = documentsURL.appendingPathComponent("\(name).png")
+        if let adorableGroup = self.adorableAvatarsGroupUrl {
+            let imageURL = adorableGroup.appendingPathComponent("\(name).png")
             try? FileManager.default.removeItem(at: imageURL)
-            
         }
     }
     
@@ -77,10 +75,8 @@ extension FileManager {
     public func getAvatars() -> [UIImage] {
         var avatars: [UIImage] = []
         
-        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
-           let documentsContent = try? FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil) {
-            
-            for contentUrl in documentsContent {
+        if let adorableGroup = self.adorableAvatarsGroupUrl, let groupContent = try? FileManager.default.contentsOfDirectory(at: adorableGroup, includingPropertiesForKeys: nil) {
+            for contentUrl in groupContent {
                 if let avatarImageOpt = try? UIImage.init(url: contentUrl), let avatarImage = avatarImageOpt {
                     avatars.append(avatarImage)
                 }

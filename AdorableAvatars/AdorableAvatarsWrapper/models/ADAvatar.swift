@@ -21,5 +21,15 @@ struct ADAvatar {
             return nil
         }
     }
+    init() {
+        
+    }
+    
+    init(withDictionary dict: [String: Any]) {
+        self.eye = dict["eye"] as? Int
+        self.nose = dict["nose"] as? Int
+        self.month = dict["month"] as? Int
+        self.color = UIColor.init(withDictionary: dict)
+    }
     
 }

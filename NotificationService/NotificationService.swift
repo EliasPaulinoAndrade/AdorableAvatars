@@ -27,12 +27,7 @@ class NotificationService: UNNotificationServiceExtension {
                 return
             }
             
-            let avatar = ADAvatar.init(
-                eye: formattedContent["eye"] as? Int,
-                nose: formattedContent["nose"] as? Int,
-                month: formattedContent["month"] as? Int,
-                color: UIColor.init(red: (formattedContent["colorR"] as? CGFloat ?? 255)/255, green: (formattedContent["colorG"] as? CGFloat ?? 255)/255, blue: (formattedContent["colorB"] as? CGFloat ?? 255)/255, alpha: 1)
-            )
+            let avatar = ADAvatar.init(withDictionary: formattedContent)
             
             adWrapper.delegate = self
             adWrapper.getImage(for: avatar)

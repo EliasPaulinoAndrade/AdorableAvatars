@@ -16,11 +16,7 @@ struct PlistReader {
         if let path = Bundle.main.path(forResource: "avatarColors", ofType: "plist"),
            let colorsArray = NSArray.init(contentsOfFile: path) as? [[String]]{
             for colorRGB in colorsArray {
-                let rPart = CGFloat(Double(colorRGB[0]) ?? 0) / 255
-                let gPart = CGFloat(Double(colorRGB[1]) ?? 0) / 255
-                let bPart = CGFloat(Double(colorRGB[2]) ?? 0) / 255
-                
-                let color = UIColor.init(red: rPart, green: gPart, blue: bPart, alpha: 1)
+                let color = UIColor.init(withArray: colorRGB)
                 colors.append(color)
             }
         }

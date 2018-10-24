@@ -23,6 +23,10 @@
 		E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */; };
 		E386AE52217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE51217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift */; };
 		E386AE53217FDE08009A8BF7 /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */; };
+		E386AE56218070D4009A8BF7 /* UIColor+rgbArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */; };
+		E386AE5721807161009A8BF7 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB051C2177749B00B80D74 /* PlistReader.swift */; };
+		E386AE5821807161009A8BF7 /* avatarColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AB051E2177750500B80D74 /* avatarColors.plist */; };
+		E386AE5921807161009A8BF7 /* UIColor+rgbArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -117,6 +121,7 @@
 		E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+URL.swift"; sourceTree = "<group>"; };
 		E386AE51217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+findByAttachmentIdentifier.swift"; sourceTree = "<group>"; };
 		E386AE54217FE089009A8BF7 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
+		E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbArray.swift"; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +344,7 @@
 			children = (
 				E3AB051C2177749B00B80D74 /* PlistReader.swift */,
 				E3AB051E2177750500B80D74 /* avatarColors.plist */,
+				E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */,
 			);
 			path = "Plist Management";
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E386AE5821807161009A8BF7 /* avatarColors.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +612,8 @@
 				E386AE42217E6386009A8BF7 /* ADFaceComponents.swift in Sources */,
 				E386AE45217E6386009A8BF7 /* UIColor+hexa.swift in Sources */,
 				E386AE43217E6386009A8BF7 /* ADAvatar.swift in Sources */,
+				E386AE5921807161009A8BF7 /* UIColor+rgbArray.swift in Sources */,
+				E386AE5721807161009A8BF7 /* PlistReader.swift in Sources */,
 				E386AE47217E6386009A8BF7 /* ADDelegate.swift in Sources */,
 				E386AE44217E6386009A8BF7 /* String+sub.swift in Sources */,
 			);
@@ -636,6 +645,7 @@
 				E3AB051D2177749B00B80D74 /* PlistReader.swift in Sources */,
 				E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */,
 				E3AB054F2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift in Sources */,
+				E386AE56218070D4009A8BF7 /* UIColor+rgbArray.swift in Sources */,
 				E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */,
 				E3AB054A2178F2F400B80D74 /* Avatar.swift in Sources */,
 				E3AB053D2178AA7200B80D74 /* AllAvatarsViewController.swift in Sources */,

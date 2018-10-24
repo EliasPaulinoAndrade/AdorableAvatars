@@ -13,7 +13,7 @@ public enum CreateAvatarViewControllerAction {
 }
 
 public struct CreateAvatarViewControllerReceivedData {
-    let initialImage: UIImage?
+    let initialAdAvatar: ADAvatar?
 }
 
 class CreateAvatarViewController: UIViewController {
@@ -61,7 +61,13 @@ class CreateAvatarViewController: UIViewController {
         }
         
         if let data = self.data {
-            self.picker.image.image = data.initialImage
+            self.avatar = data.initialAdAvatar ?? self.avatar
+            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
+//                self.picker.currentAvatar.eye = initalEye
+//                self.picker.currentAvatar.nose = initalNose
+//                self.picker.currentAvatar.month = initialMonth
+                
+            }
         }
     }
     
@@ -120,10 +126,14 @@ extension CreateAvatarViewController: ADDelegate {
     func didLoadAvatarTypes(wrapper: ADWrapper) {
         
         if let eye = wrapper.components?.eyesNumbers.first, let nose = wrapper.components?.noseNumbers.first, let month = wrapper.components?.mouthsNumbers.first {
-            avatar.eye = eye
-            avatar.month = month
-            avatar.nose = nose
-            avatar.color = plistReader.colors[0]
+            
+            if (action != nil && action != .push) || action == nil {
+                avatar.eye = eye
+                avatar.month = month
+                avatar.nose = nose
+                avatar.color = plistReader.colors[0]
+            }
+            
             picker.startLoading()
             adorableAvatars.getImage(for: avatar)
         }

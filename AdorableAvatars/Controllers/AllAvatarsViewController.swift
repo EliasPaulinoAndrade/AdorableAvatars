@@ -10,11 +10,11 @@ import UIKit
 
 
 public enum AllAvatarsViewControllerAction {
-    case push
+    case push, normal
 }
 
 public struct AllAvatarsViewControllerReceivedData {
-    let initialCreationImage: UIImage?
+    let adAvatar: ADAvatar?
 }
 
 class AllAvatarsViewController: UIViewController {
@@ -72,12 +72,14 @@ class AllAvatarsViewController: UIViewController {
             switch action {
             case .push:
                 self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
-                
+            case .normal:
+                break
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         self.isEditing_ = false
         self.avatarsCollectionView.reloadData()
         
@@ -85,8 +87,10 @@ class AllAvatarsViewController: UIViewController {
             if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
                 createAvatarController.delegate = self
                 if let action = self.action, action == .push {
+                    
                     createAvatarController.action = .push
-                    //createAvatarController.data = CreateAvatarViewControllerReceivedData(initialImage: self.data?.initialCreationImage)
+                    createAvatarController.data = CreateAvatarViewControllerReceivedData(initialAdAvatar: self.data?.adAvatar)
+                    self.action = .normal
                 }
             }
         }
