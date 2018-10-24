@@ -10,12 +10,23 @@ import UIKit
 import CoreData
 
 class CoreDataWrapper {
+    
+    
+    /// get all avatars saved on coredata
+    ///
+    /// - Returns: the avatars
+    /// - Throws: coredata fetch error
     public static func getAllAvatars() throws -> [Avatar] {
         let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
         
         return try CoreDataStack.persistentContainer.viewContext.fetch(request)
     }
     
+    
+    /// get all favorite avatats on coredata
+    ///
+    /// - Returns: the favorite avatars
+    /// - Throws: coredata fetch error
     public static func getAllFavoriteAvatars() throws -> [Avatar] {
         let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
         let sort = NSSortDescriptor.init(key: "name", ascending: true)
@@ -26,6 +37,12 @@ class CoreDataWrapper {
         return try CoreDataStack.persistentContainer.viewContext.fetch(request)
     }
     
+    
+    /// search by avatars with a name
+    ///
+    /// - Parameter name: the name to search for
+    /// - Returns: the avatars with name composed by the paramenter
+    /// - Throws: coredata fetch error
     public static func findAvatars(byName name: String) throws ->  [Avatar] {
         let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
         let sort = NSSortDescriptor.init(key: "name", ascending: true)

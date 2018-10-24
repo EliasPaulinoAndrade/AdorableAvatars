@@ -9,6 +9,8 @@
 import UIKit
 
 struct PlistReader {
+    
+    /// the colors in the avatarColors plist
     var colors: [UIColor] = {
         var colors:[UIColor] = []
         if let path = Bundle.main.path(forResource: "avatarColors", ofType: "plist"),

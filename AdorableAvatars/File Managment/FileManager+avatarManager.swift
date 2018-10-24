@@ -9,11 +9,27 @@
 import UIKit
 
 extension FileManager {
+    
+    /// the shared group between the notification service extension and the main app targets
+    public var adorableAvatarsGroupUrl : URL? {
+        get {
+            let adorableAvatarsGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.eliaspaulino.adorableavatars")
+            return adorableAvatarsGroupUrl
+        }
+    }
+    
+    
+    /// save a avatar image in the app group
+    ///
+    /// - Parameters:
+    ///   - image: image to save
+    ///   - name: image path name
+    /// - Returns: the url where the image was placed in
     @discardableResult
     public func saveAvatarImage(_ image: UIImage, withName name: String) -> URL?{
-        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            
-            let imageURL = documentsURL.appendingPathComponent("\(name).png")
+        
+        if let adorableGroup = self.adorableAvatarsGroupUrl {
+            let imageURL = adorableGroup.appendingPathComponent("\(name).png")
             
             try? image.write(to: imageURL)
             
@@ -21,20 +37,11 @@ extension FileManager {
         }
         return nil
     }
-    @discardableResult
-    public func saveTemporaryAvatarImage(image: UIImage) -> URL? {
-        let tempDirectory = NSTemporaryDirectory()
-        
-        let tmpFile = "file://".appending(tempDirectory).appending("notification_image.png")
-        guard let tempURL = URL(string: tmpFile) else {
-            return nil
-        }
-        
-        try? image.write(to: tempURL)
-        
-        return tempURL
-    }
     
+    
+    /// delete a avatar image from app group
+    ///
+    /// - Parameter name: the name of avatar image path
     public func deleteAvatarImage(withName name: String) {
         if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
             
@@ -44,12 +51,16 @@ extension FileManager {
         }
     }
     
+    
+    /// get a specific avatar image by name
+    ///
+    /// - Parameter name: the avatar image name
+    /// - Returns: the image
     public func getAvatar(withName name: String) -> UIImage? {
         var avatar: UIImage?
         
-        if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false){
-            
-            let imageURL = documentsURL.appendingPathComponent("\(name).png")
+        if let adorableGroup = self.adorableAvatarsGroupUrl {
+            let imageURL = adorableGroup.appendingPathComponent("\(name).png")
             
             if let avatarImage = try? UIImage.init(url: imageURL) {
                 avatar = avatarImage
@@ -59,8 +70,11 @@ extension FileManager {
         return avatar
     }
     
+    
+    /// get all avatars saved on the app group
+    ///
+    /// - Returns: the avatar images
     public func getAvatars() -> [UIImage] {
-        
         var avatars: [UIImage] = []
         
         if let documentsURL = try? self.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false),
