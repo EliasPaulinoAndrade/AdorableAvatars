@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ColorPicker: UIView {
-
-    @IBOutlet var contentView: UIView!
+class ColorPicker: UIBaseZibView {
+    @IBOutlet var contentView: UIView! {
+        didSet {
+            super.contentViewZib = contentView
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     public var datasource: ColorPickerDatasource?
@@ -36,24 +39,6 @@ class ColorPicker: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = false
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initCommon()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initCommon()
-    }
-    
-    private func initCommon(){
-        Bundle.main.loadNibNamed("ColorPicker", owner: self, options: nil)
-        addSubview(contentView)
-        
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 }
 

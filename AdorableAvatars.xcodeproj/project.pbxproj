@@ -32,6 +32,7 @@
 		E386AE612180CA24009A8BF7 /* AvatarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE602180CA24009A8BF7 /* AvatarContainer.swift */; };
 		E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE622180CB1A009A8BF7 /* Array+avatarContainerArray.swift */; };
 		E386AE652180F0AB009A8BF7 /* UIImage+blurImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE642180F0AB009A8BF7 /* UIImage+blurImage.swift */; };
+		E386AE672181296B009A8BF7 /* UIBaseZibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE662181296B009A8BF7 /* UIBaseZibView.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -39,7 +40,7 @@
 		E3AB04DB2176073000B80D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D92176073000B80D74 /* LaunchScreen.storyboard */; };
 		E3AB04E62176073000B80D74 /* AdorableAvatarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04E52176073000B80D74 /* AdorableAvatarsTests.swift */; };
 		E3AB04F12176073000B80D74 /* AdorableAvatarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04F02176073000B80D74 /* AdorableAvatarsUITests.swift */; };
-		E3AB050021760C0000B80D74 /* AvatarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04FF21760C0000B80D74 /* AvatarPicker.xib */; };
+		E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04FF21760C0000B80D74 /* UIAvatarPicker.xib */; };
 		E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050121760E1000B80D74 /* UIAvatarPicker.swift */; };
 		E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0504217612BE00B80D74 /* APAvatarPickerDelegate.swift */; };
 		E3AB050A21761C2400B80D74 /* ADWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050921761C2400B80D74 /* ADWrapper.swift */; };
@@ -56,7 +57,6 @@
 		E3AB05242177858A00B80D74 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05232177858A00B80D74 /* ColorPicker.swift */; };
 		E3AB05272177872D00B80D74 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05252177872D00B80D74 /* ColorCollectionViewCell.swift */; };
 		E3AB05282177872D00B80D74 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */; };
-		E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052921779C2300B80D74 /* BaseZibView.swift */; };
 		E3AB052C21779FF000B80D74 /* ColorPickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */; };
 		E3AB052E2177A17B00B80D74 /* ColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */; };
 		E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */; };
@@ -132,6 +132,7 @@
 		E386AE602180CA24009A8BF7 /* AvatarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarContainer.swift; sourceTree = "<group>"; };
 		E386AE622180CB1A009A8BF7 /* Array+avatarContainerArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+avatarContainerArray.swift"; sourceTree = "<group>"; };
 		E386AE642180F0AB009A8BF7 /* UIImage+blurImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blurImage.swift"; sourceTree = "<group>"; };
+		E386AE662181296B009A8BF7 /* UIBaseZibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseZibView.swift; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +146,7 @@
 		E3AB04EC2176073000B80D74 /* AdorableAvatarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdorableAvatarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04F02176073000B80D74 /* AdorableAvatarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdorableAvatarsUITests.swift; sourceTree = "<group>"; };
 		E3AB04F22176073000B80D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3AB04FF21760C0000B80D74 /* AvatarPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarPicker.xib; sourceTree = "<group>"; };
+		E3AB04FF21760C0000B80D74 /* UIAvatarPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIAvatarPicker.xib; sourceTree = "<group>"; };
 		E3AB050121760E1000B80D74 /* UIAvatarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAvatarPicker.swift; sourceTree = "<group>"; };
 		E3AB0504217612BE00B80D74 /* APAvatarPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APAvatarPickerDelegate.swift; sourceTree = "<group>"; };
 		E3AB050921761C2400B80D74 /* ADWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADWrapper.swift; sourceTree = "<group>"; };
@@ -162,7 +163,6 @@
 		E3AB05232177858A00B80D74 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		E3AB05252177872D00B80D74 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
-		E3AB052921779C2300B80D74 /* BaseZibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseZibView.swift; sourceTree = "<group>"; };
 		E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDatasource.swift; sourceTree = "<group>"; };
 		E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDelegate.swift; sourceTree = "<group>"; };
 		E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexa.swift"; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 				E3AB05362178A7F100B80D74 /* AvatarCell */,
 				E3AB0520217781DB00B80D74 /* ColorPicker */,
 				E3AB0503217611C200B80D74 /* AvatarPicker */,
-				E3AB052921779C2300B80D74 /* BaseZibView.swift */,
+				E386AE662181296B009A8BF7 /* UIBaseZibView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 		E3AB0503217611C200B80D74 /* AvatarPicker */ = {
 			isa = PBXGroup;
 			children = (
-				E3AB04FF21760C0000B80D74 /* AvatarPicker.xib */,
+				E3AB04FF21760C0000B80D74 /* UIAvatarPicker.xib */,
 				E3AB050121760E1000B80D74 /* UIAvatarPicker.swift */,
 				E3AB0504217612BE00B80D74 /* APAvatarPickerDelegate.swift */,
 				E3AB0510217633F700B80D74 /* APAvatarPickerDatasource.swift */,
@@ -596,7 +596,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3AB050021760C0000B80D74 /* AvatarPicker.xib in Resources */,
+				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
 				E3AB05282177872D00B80D74 /* ColorCollectionViewCell.xib in Resources */,
 				E3AB0522217783B900B80D74 /* ColorPicker.xib in Resources */,
 				E3AB053A2178A80F00B80D74 /* AvatarCollectionViewCell.xib in Resources */,
@@ -661,7 +661,6 @@
 				E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */,
 				E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */,
-				E3AB052A21779C2300B80D74 /* BaseZibView.swift in Sources */,
 				E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */,
 				E386AE4E217F629B009A8BF7 /* CategoryID.swift in Sources */,
 				E386AE652180F0AB009A8BF7 /* UIImage+blurImage.swift in Sources */,
@@ -690,6 +689,7 @@
 				E3AB050D217623A400B80D74 /* ADFaceComponents.swift in Sources */,
 				E386AE52217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift in Sources */,
 				E3AB050F2176310800B80D74 /* ADDelegate.swift in Sources */,
+				E386AE672181296B009A8BF7 /* UIBaseZibView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

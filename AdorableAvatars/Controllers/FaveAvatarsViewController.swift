@@ -32,8 +32,11 @@ class FaveAvatarsViewController: UIViewController {
                 allAvatarsController.delegate = self
             }
         }
-        
     }
+    override func viewDidLayoutSubviews() {
+        self.avatarsCollectionView.reloadData()
+    }
+    
 }
 
 extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -57,11 +60,22 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = collectionView.frame.size.width/2 - 10
-        let height = 1.35 * width
+        let deviceOrientation = UIDevice.current.orientation
+        var size: CGSize?
         
-        let size = CGSize.init(width: width, height: height)
-        return size
+        if deviceOrientation == .landscapeLeft || deviceOrientation == .landscapeRight {
+            let width = collectionView.frame.size.width/4 - 10
+            let height = 1.35 * width
+            
+            size = CGSize.init(width: width, height: height)
+        } else {
+            let width = collectionView.frame.size.width/2 - 10
+            let height = 1.35 * width
+            
+            size = CGSize.init(width: width, height: height)
+        }
+        
+        return size!
     }
 }
 
@@ -116,7 +130,6 @@ extension FaveAvatarsViewController: AvatarPreviewDelegate{
         CoreDataStack.saveContext()
         
         if let avatarIndex = self.avatars?.firstIndex(of: avatar) {
-            
             let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
             self.avatars?.remove(at: avatarIndex)
             self.avatarsCollectionView.deleteItems(at: [avatarIndexPath])
@@ -135,5 +148,4 @@ extension FaveAvatarsViewController: AvatarPreviewDelegate{
         
         self.present(activityController, animated: true, completion: nil)
     }
-    
 }

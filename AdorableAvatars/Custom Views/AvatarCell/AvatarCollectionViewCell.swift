@@ -75,7 +75,7 @@ class AvatarCollectionViewCell: UICollectionViewCell {
     
     public func setup(name: String, image: UIImage?, isFaved: Bool, isShaking: Bool){
         self.avatarImage.image = image
-        self.avatarName.text = name
+        self.avatarName.text = name.capitalized
         
         self.isFaved = isFaved
         self.isShaking = isShaking

@@ -8,10 +8,14 @@
 
 import UIKit
 
-class UIAvatarPicker: UIView {
-    @IBOutlet var containerView: UIView!
-    @IBOutlet weak var image: UIImageView!
+class UIAvatarPicker: UIBaseZibView {
+    @IBOutlet var containerView: UIView! {
+        didSet {
+            super.contentViewZib = containerView
+        }
+    }
     
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nextEyeButton: UIButton!
     @IBOutlet weak var nextNoseButton: UIButton!
     @IBOutlet weak var nextMonthButton: UIButton!
@@ -44,24 +48,6 @@ class UIAvatarPicker: UIView {
         
         return loadIndicator
     }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initCommon()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initCommon()
-    }
-    
-    private func initCommon(){
-        Bundle.main.loadNibNamed("AvatarPicker", owner: self, options: nil)
-        addSubview(containerView)
-        
-        containerView.frame = self.bounds
-        containerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    }
     
     public func startLoading(){
         loadIndicator.startAnimating()
