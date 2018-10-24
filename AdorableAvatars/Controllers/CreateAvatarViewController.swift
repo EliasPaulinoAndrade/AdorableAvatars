@@ -24,6 +24,7 @@ class CreateAvatarViewController: UIViewController {
     private var adorableAvatars = ADWrapper()
     private var plistReader = PlistReader.init()
     private var avatar = ADAvatar.init()
+    private var pickerColors: [PickerColor]?
    
     public var data: CreateAvatarViewControllerReceivedData?
     public var action: CreateAvatarViewControllerAction?
@@ -46,12 +47,14 @@ class CreateAvatarViewController: UIViewController {
         picker.delegate = self
         picker.datasource = self
         adorableAvatars.delegate = self
-        view.addSubview(loadIndicator)
-        loadIndicator.startAnimating()
-        colorPicker.colors = plistReader.colors
-        adorableAvatars.findTypes()
         colorPicker.datasource = self
         colorPicker.delegate = self
+        
+        view.addSubview(loadIndicator)
+        loadIndicator.startAnimating()
+        adorableAvatars.findTypes()
+        
+        self.pickerColors = plistReader.colors.pickerColor()
         
         if let action = self.action {
             switch action {
@@ -199,6 +202,14 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
 }
 
 extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate {
+    func numberOfColors(colorPicker: ColorPicker) -> Int {
+        return self.pickerColors?.count ?? 0
+    }
+    
+    func colorForPosition(colorPicker: ColorPicker, position: Int) -> PickerColor? {
+        return self.pickerColors?[position]
+    }
+    
     func initialColor(colorPicker: ColorPicker) -> Int {
         return 0
     }
@@ -208,7 +219,8 @@ extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate
     }
     
     func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int) {
-        self.avatar.color = plistReader.colors[position]
+        
+        self.avatar.color = pickerColors?[position].color 
         picker.startLoading()
         adorableAvatars.getImage(for: avatar)
     }

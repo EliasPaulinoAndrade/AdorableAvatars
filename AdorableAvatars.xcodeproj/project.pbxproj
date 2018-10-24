@@ -27,6 +27,8 @@
 		E386AE5721807161009A8BF7 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB051C2177749B00B80D74 /* PlistReader.swift */; };
 		E386AE5821807161009A8BF7 /* avatarColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AB051E2177750500B80D74 /* avatarColors.plist */; };
 		E386AE5921807161009A8BF7 /* UIColor+rgbArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */; };
+		E386AE5B218096F0009A8BF7 /* PickerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE5A218096F0009A8BF7 /* PickerColor.swift */; };
+		E386AE5D21809972009A8BF7 /* Array+PickerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE5C21809972009A8BF7 /* Array+PickerColor.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -122,6 +124,8 @@
 		E386AE51217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+findByAttachmentIdentifier.swift"; sourceTree = "<group>"; };
 		E386AE54217FE089009A8BF7 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbArray.swift"; sourceTree = "<group>"; };
+		E386AE5A218096F0009A8BF7 /* PickerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerColor.swift; sourceTree = "<group>"; };
+		E386AE5C21809972009A8BF7 /* Array+PickerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+PickerColor.swift"; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 				E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */,
 				E3AB052B21779FF000B80D74 /* ColorPickerDatasource.swift */,
 				E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */,
+				E386AE5A218096F0009A8BF7 /* PickerColor.swift */,
+				E386AE5C21809972009A8BF7 /* Array+PickerColor.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -632,6 +638,7 @@
 				E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */,
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
+				E386AE5B218096F0009A8BF7 /* PickerColor.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
 				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */,
@@ -655,6 +662,7 @@
 				E3AB05272177872D00B80D74 /* ColorCollectionViewCell.swift in Sources */,
 				E3AB054D2179060300B80D74 /* CreateAvatarDelegate.swift in Sources */,
 				E3AB0555217929E300B80D74 /* PreviewViewController.swift in Sources */,
+				E386AE5D21809972009A8BF7 /* Array+PickerColor.swift in Sources */,
 				E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */,
 				E3AB05452178E49600B80D74 /* CoreDataStack.swift in Sources */,
 				E3AB05432178E47300B80D74 /* CoreDataWrapper.swift in Sources */,
