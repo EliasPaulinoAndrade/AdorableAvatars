@@ -22,7 +22,7 @@ class AvatarCollectionViewCell: UICollectionViewCell {
             if let isShaking = self.isShaking, isShaking == true {
 
                 self.closeImage.alpha = 1
-                self.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
+                self.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
                 
                 let animation = CABasicAnimation.init(keyPath: "transform.rotation")
                 animation.duration = 0.1

@@ -113,17 +113,31 @@ extension CreateAvatarViewController: ADDelegate {
         self.picker.image.image = image
         self.picker.image.layer.opacity = 1
         self.currentAvatarImage = image
+        
+        self.colorPicker.isEnabled = true
+        self.picker.isEnabled = true
+        
         picker.stopLoading()
     }
     
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) {
        
-        self.present(AlertManagment.networkErrorAlert(), animated: true, completion: nil)
+        self.present(AlertManagment.networkErrorAlert {
+            self.picker.startLoading()
+            self.picker.isEnabled = false
+            self.colorPicker.isEnabled = false
+            self.adorableAvatars.getImage(for: self.avatar)
+        }, animated: true, completion: nil)
         self.picker.stopLoading()
     }
     
     func avatarTypesLoadDidFail(wrapper: ADWrapper) {
-        self.present(AlertManagment.networkErrorAlert(), animated: true, completion: nil)
+        self.present(AlertManagment.networkErrorAlert {
+            self.picker.startLoading()
+            self.picker.isEnabled = false
+            self.colorPicker.isEnabled = false
+            self.adorableAvatars.getImage(for: self.avatar)
+        }, animated: true, completion: nil)
         self.picker.stopLoading()
     }
     
@@ -139,6 +153,8 @@ extension CreateAvatarViewController: ADDelegate {
             }
             
             picker.startLoading()
+            self.picker.isEnabled = false
+            self.colorPicker.isEnabled = false
             adorableAvatars.getImage(for: avatar)
         }
         loadIndicator.stopAnimating()
@@ -165,6 +181,8 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
         picker.image.layer.opacity = 0.5
         
         picker.startLoading()
+        self.picker.isEnabled = false
+        self.colorPicker.isEnabled = false
         adorableAvatars.getImage(for: avatar)
     }
     
@@ -187,6 +205,8 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
         picker.image.layer.opacity = 0.5
         
         picker.startLoading()
+        self.picker.isEnabled = false
+        self.colorPicker.isEnabled = false
         adorableAvatars.getImage(for: avatar)
     }
 }
@@ -232,6 +252,8 @@ extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate
         picker.image.layer.opacity = 0.5
         
         picker.startLoading()
+        self.picker.isEnabled = false
+        self.colorPicker.isEnabled = false
         adorableAvatars.getImage(for: avatar)
     }
 }

@@ -13,8 +13,19 @@ class ColorPicker: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var datasource: ColorPickerDatasource?
-    var delegate: ColorPickerDelegate?
+    public var datasource: ColorPickerDatasource?
+    public var delegate: ColorPickerDelegate?
+    public var isEnabled: Bool = true {
+        didSet {
+            if self.isEnabled {
+                self.isUserInteractionEnabled = true
+                self.collectionView.reloadData()
+            } else {
+                self.isUserInteractionEnabled = false
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     private var firstColorWasSet = false
     private var selectedColor: PickerColor?
@@ -59,6 +70,12 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
 
             let image = datasource?.imageForSelectColor(colorPicker: self)
             colorCell.setup(color: color.color, isSelected: color.isSelected, checkImage: image)
+            
+            if !self.isEnabled {
+                colorCell.layer.opacity = 0.7
+            } else {
+                colorCell.layer.opacity = 1
+            }
         }
         
         return cell

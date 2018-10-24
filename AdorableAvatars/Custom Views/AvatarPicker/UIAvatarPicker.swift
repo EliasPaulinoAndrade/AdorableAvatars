@@ -20,6 +20,16 @@ class UIAvatarPicker: UIView {
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var prevNoseButton: UIButton!
     
+    var isEnabled = true {
+        didSet {
+            if self.isEnabled {
+                self.isUserInteractionEnabled = true
+            } else {
+                self.isUserInteractionEnabled = false
+            }
+        }
+    }
+    
     var delegate: APAvatarPickerDelegate?
     var datasource: APAvatarPickerDatasource?
     var currentAvatar = APAvatar.init(eye: 0, nose: 0, month: 0)

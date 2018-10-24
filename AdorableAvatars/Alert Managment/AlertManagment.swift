@@ -41,11 +41,12 @@ class AlertManagment {
     /// make a alert to be showed when a network error happens
     ///
     /// - Returns: the alert
-    static public func networkErrorAlert() -> UIAlertController {
+    static public func networkErrorAlert(completion: @escaping () -> ()) -> UIAlertController {
         let alertError = UIAlertController.init(title: "Error", message: "Network Error", preferredStyle: .actionSheet)
         
-        alertError.addAction(UIAlertAction.init(title: "OK", style: .cancel, handler: nil))
-        
+        alertError.addAction(UIAlertAction.init(title: "Retry", style: .default, handler: { (alert) in
+            completion()
+        }))
         return alertError
     }
     
