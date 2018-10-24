@@ -19,7 +19,8 @@ class AvatarCollectionViewCell: UICollectionViewCell {
     
     public var isShaking: Bool? {
         didSet{
-            if let isShaking = self.isShaking, isShaking == true{
+            if let isShaking = self.isShaking, isShaking == true {
+
                 self.closeImage.alpha = 1
                 self.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
                 
@@ -29,11 +30,12 @@ class AvatarCollectionViewCell: UICollectionViewCell {
                 animation.autoreverses = true
                 animation.fromValue = 0.02
                 animation.toValue = -0.02
-                self.layer.add(animation, forKey: nil)
+                self.layer.removeAnimation(forKey: "avatar_shaking")
+                self.layer.add(animation, forKey: "avatar_shaking")
             } else {
                 self.closeImage.alpha = 0
                 self.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-                self.layer.removeAllAnimations()
+                self.layer.removeAnimation(forKey: "avatar_shaking")
             }
         }
     }

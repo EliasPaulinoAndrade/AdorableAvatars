@@ -54,7 +54,7 @@ class CreateAvatarViewController: UIViewController {
         loadIndicator.startAnimating()
         adorableAvatars.findTypes()
         
-        self.pickerColors = plistReader.colors.pickerColor()
+        self.pickerColors = plistReader.colors.pickerColorArray()
         
         if let action = self.action {
             switch action {
@@ -65,12 +65,12 @@ class CreateAvatarViewController: UIViewController {
         
         if let data = self.data {
             self.avatar = data.initialAdAvatar ?? self.avatar
-            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
-//                self.picker.currentAvatar.eye = initalEye
-//                self.picker.currentAvatar.nose = initalNose
-//                self.picker.currentAvatar.month = initialMonth
-                
-            }
+//            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
+////                self.picker.currentAvatar.eye = initalEye
+////                self.picker.currentAvatar.nose = initalNose
+////                self.picker.currentAvatar.month = initialMonth
+//
+//            }
         }
     }
     
@@ -111,6 +111,7 @@ class CreateAvatarViewController: UIViewController {
 extension CreateAvatarViewController: ADDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
         self.picker.image.image = image
+        self.picker.image.layer.opacity = 1
         self.currentAvatarImage = image
         picker.stopLoading()
     }
@@ -160,6 +161,9 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
                 avatar.nose = nose
             }
         }
+        picker.image.image = picker.image.image?.blurImage(force: 5)
+        picker.image.layer.opacity = 0.5
+        
         picker.startLoading()
         adorableAvatars.getImage(for: avatar)
     }
@@ -179,6 +183,9 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
                 avatar.nose = nose
             }
         }
+        picker.image.image = picker.image.image?.blurImage(force: 5)
+        picker.image.layer.opacity = 0.5
+        
         picker.startLoading()
         adorableAvatars.getImage(for: avatar)
     }
@@ -215,12 +222,15 @@ extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate
     }
     
     func imageForSelectColor(colorPicker: ColorPicker) -> UIImage? {
-        return UIImage.init(named: "checked")
+        return UIImage.init(named: "checkedAvatar")
     }
     
     func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int) {
+        self.avatar.color = pickerColors?[position].color
         
-        self.avatar.color = pickerColors?[position].color 
+        picker.image.image = picker.image.image?.blurImage(force: 5)
+        picker.image.layer.opacity = 0.5
+        
         picker.startLoading()
         adorableAvatars.getImage(for: avatar)
     }

@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="4548" y="474.51274362818594"/>
         </scene>
-        <!--Fave Avatars-->
+        <!--Fav Avatars-->
         <scene sceneID="XMR-hO-YRH">
             <objects>
                 <viewController id="eH0-5b-2O8" customClass="FaveAvatarsViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,7 +114,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J8s-CC-zYS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Fave Avatars" id="uug-6T-cTr"/>
+                    <navigationItem key="navigationItem" title="Fav Avatars" id="uug-6T-cTr"/>
                     <connections>
                         <outlet property="avatarsCollectionView" destination="C5j-8b-6Nx" id="LcK-Bs-mWk"/>
                     </connections>

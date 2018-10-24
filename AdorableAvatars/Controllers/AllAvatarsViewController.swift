@@ -25,9 +25,9 @@ class AllAvatarsViewController: UIViewController {
     public var action: AllAvatarsViewControllerAction?
     public var data: AllAvatarsViewControllerReceivedData?
     
-    private var avatars: [Avatar]? = try? CoreDataWrapper.getAllAvatars()
+    private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
     
-    private var isEditing_ = false {
+    public var isEditing_ = false {
         didSet {
             if self.isEditing_{
                 self.navigationItem.rightBarButtonItems?[1].title = "Cancel"
@@ -35,6 +35,7 @@ class AllAvatarsViewController: UIViewController {
             else {
                 self.navigationItem.rightBarButtonItems?[1].title = "Edit"
             }
+            self.avatarsCollectionView.reloadData()
         }
     }
     
@@ -78,10 +79,13 @@ class AllAvatarsViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.isEditing_ = false
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         self.isEditing_ = false
-        self.avatarsCollectionView.reloadData()
         
         if let navigationController = segue.destination as? UINavigationController {
             if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
@@ -98,28 +102,30 @@ class AllAvatarsViewController: UIViewController {
     
     @IBAction func editTapped(_ sender: Any) {
         self.isEditing_ = !self.isEditing_
-        self.avatarsCollectionView.reloadData()
     }
 }
 
-extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AvatarCollectionViewCellDelegate{
+extension AllAvatarsViewController: AvatarCollectionViewCellDelegate {
     func avatarWasClosed(_ cell: AvatarCollectionViewCell) {
         guard let indexPath = self.avatarsCollectionView.indexPath(for: cell) else {
             return
         }
-        if let avatar = self.avatars?[indexPath.row] {
-            
+        if let avatar = self.containerAvatars?[indexPath.row] {
             present(AlertManagment.alertRemoveAvatar {
-                self.removeAvatar(avatar: avatar, alIndexPath: indexPath)
+                self.removeAvatar(avatarContainer: avatar, alIndexPath: indexPath)
             }, animated: true, completion: nil)
         }
     }
     
-    func removeAvatar(avatar: Avatar, alIndexPath indexPath: IndexPath) {
+    func removeAvatar(avatarContainer: AvatarContainer, alIndexPath indexPath: IndexPath) {
+        let avatar = avatarContainer.avatar
         let coreDataContext = CoreDataStack.persistentContainer.viewContext
         
-        self.avatars?.remove(at: indexPath.row)
+        self.containerAvatars?.remove(at: indexPath.row)
         self.avatarsCollectionView.deleteItems(at: [indexPath])
+        
+        reloadVisibleCells()
+        
         if avatar.isFave {
             delegate?.avatarWasDesfavorite(avatar: avatar)
         }
@@ -130,9 +136,17 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         }
     }
     
+    func reloadVisibleCells() {
+        for visibleCell in self.avatarsCollectionView.visibleCells {
+            if let visibleAvatarCell = visibleCell as? AvatarCollectionViewCell {
+                visibleAvatarCell.isShaking = true
+            }
+        }
+    }
+    
     func avatarWasFavorite(_ cell: AvatarCollectionViewCell) {
-        if let avatarIndex = self.avatarsCollectionView.indexPath(for: cell)?.row, let avatars = self.avatars {
-            let avatar = avatars[avatarIndex]
+        if let avatarIndex = self.avatarsCollectionView.indexPath(for: cell)?.row, let avatarContainers = self.containerAvatars {
+            let avatar = avatarContainers[avatarIndex].avatar
             avatar.isFave = !avatar.isFave
             CoreDataStack.saveContext()
             
@@ -144,22 +158,30 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             }
         }
     }
-    
+}
+
+extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return avatars?.count ?? 0
+        return containerAvatars?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
        
-        if let avatarCell = cell as? AvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
+        if let avatarCell = cell as? AvatarCollectionViewCell,  let avatar = containerAvatars?[indexPath.row].avatar, let avatarName = avatar.name {
             let image = FileManager.default.getAvatar(withName: avatarName)
             
             avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: self.isEditing_)
             avatarCell.delegate = self
+            avatarCell.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(self.avatarCellLongPress(_:))))
         }
         
         return cell
+    }
+    
+    @objc func avatarCellLongPress(_ sender: AvatarCollectionViewCell) {
+        self.isEditing_ = true
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -179,14 +201,14 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
             return
         }
         guard !text.isEmpty else {
-            let avatars = try? CoreDataWrapper.getAllAvatars()
-            self.avatars = avatars
+            let avatarContainers = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
+            self.containerAvatars = avatarContainers
             self.avatarsCollectionView.reloadData()
             return
         }
         do {
-            let avatars = try CoreDataWrapper.findAvatars(byName: text)
-            self.avatars = avatars
+            let avatarContainers = try CoreDataWrapper.findAvatars(byName: text).avatarContainerArray()
+            self.containerAvatars = avatarContainers
             self.avatarsCollectionView.reloadData()
             
         } catch {
@@ -202,12 +224,13 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
 extension AllAvatarsViewController: CreateAvatarDelegate {
     func avatarWasCreated(controller: CreateAvatarViewController, avatar: Avatar) {
         
-        if let avatars = self.avatars{
-            let lastPosition = IndexPath.init(item: avatars.count - 1, section: 0)
+        if let avatarContainers = self.containerAvatars {
+            let lastPosition = IndexPath.init(item: avatarContainers.count - 1, section: 0)
             self.avatarsCollectionView.scrollToItem(at: lastPosition, at: .bottom, animated: false)
             
-            let avatarPosition = IndexPath.init(row: avatars.count, section: 0)
-            self.avatars?.append(avatar)
+            let avatarPosition = IndexPath.init(row: avatarContainers.count, section: 0)
+            let avatarContainer = AvatarContainer.init(isSelected: false, avatar: avatar)
+            self.containerAvatars?.append(avatarContainer)
             self.avatarsCollectionView.insertItems(at: [avatarPosition])
             
             self.avatarsCollectionView.scrollToItem(at: avatarPosition, at: .bottom, animated: true)
@@ -226,10 +249,10 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
             return nil
         }
-        guard let avatar = self.avatars?[indexPath.row] else {
+        guard let avatarContainer = self.containerAvatars?[indexPath.row] else {
             return nil
         }
-        let data = DataToPreviewController.init(image: cell.avatarImage.image, avatar: avatar)
+        let data = DataToPreviewController.init(image: cell.avatarImage.image, avatar: avatarContainer.avatar)
         
         let width = self.avatarsCollectionView.frame.width
         let height = width
@@ -252,8 +275,8 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
         avatar.isFave = !avatar.isFave
         CoreDataStack.saveContext()
         
-        if let avatarIndex = self.avatars?.firstIndex(of: avatar) {
-            let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
+        if let avatarContainerIndex = self.containerAvatars?.firstIndex(of: avatar) {
+            let avatarIndexPath = IndexPath.init(row: avatarContainerIndex, section: 0)
             if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
                 avatarCell.isFaved = avatar.isFave
                 
@@ -267,7 +290,7 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
         avatar.isFave = !avatar.isFave
         CoreDataStack.saveContext()
         
-        if let avatarIndex = self.avatars?.firstIndex(of: avatar) {
+        if let avatarIndex = self.containerAvatars?.firstIndex(of: avatar) {
             let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
             if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
                 avatarCell.isFaved = avatar.isFave
@@ -294,7 +317,7 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
 extension AllAvatarsViewController: FavoriteAvatarDelegate{
     
     func avatarWasDesfavorite(avatar: Avatar){
-        guard let avatarIndex = self.avatars?.firstIndex(of: avatar) else {
+        guard let avatarIndex = self.containerAvatars?.firstIndex(of: avatar) else {
             return
         }
         guard let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? AvatarCollectionViewCell else {

@@ -8,20 +8,15 @@
 		<string>0</string>
 	</array>
 	<array>
-		<string>0</string>
-		<string>0</string>
+		<string>211</string>
+		<string>84</string>
 		<string>0</string>
 	</array>
 	<array>
-		<string>255</string>
-		<string>48</string>
-		<string>0</string>
+		<string>231</string>
+		<string>76</string>
+		<string>60</string>
 	</array>
-    <array>
-        <string>69</string>
-        <string>152</string>
-        <string>0</string>
-    </array>
     <array>
         <string>69</string>
         <string>152</string>
@@ -33,14 +28,24 @@
         <string>180</string>
     </array>
     <array>
-        <string>75</string>
-        <string>0</string>
-        <string>130</string>
+        <string>155</string>
+        <string>89</string>
+        <string>182</string>
     </array>
     <array>
-        <string>255</string>
-        <string>0</string>
-        <string>255</string>
+        <string>149</string>
+        <string>165</string>
+        <string>166</string>
+    </array>
+    <array>
+        <string>221</string>
+        <string>160</string>
+        <string>133</string>
+    </array>
+    <array>
+        <string>22</string>
+        <string>160</string>
+        <string>133</string>
     </array>
 </array>
 </plist>
