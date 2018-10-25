@@ -33,6 +33,7 @@
 		E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE622180CB1A009A8BF7 /* Array+avatarContainerArray.swift */; };
 		E386AE652180F0AB009A8BF7 /* UIImage+blurImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE642180F0AB009A8BF7 /* UIImage+blurImage.swift */; };
 		E386AE672181296B009A8BF7 /* UIBaseZibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE662181296B009A8BF7 /* UIBaseZibView.swift */; };
+		E386AE6A2181699C009A8BF7 /* UIRadiusSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE692181699C009A8BF7 /* UIRadiusSlider.swift */; };
 		E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D02176072E00B80D74 /* AppDelegate.swift */; };
 		E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */; };
 		E3AB04D62176072E00B80D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04D42176072E00B80D74 /* Main.storyboard */; };
@@ -133,6 +134,7 @@
 		E386AE622180CB1A009A8BF7 /* Array+avatarContainerArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+avatarContainerArray.swift"; sourceTree = "<group>"; };
 		E386AE642180F0AB009A8BF7 /* UIImage+blurImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blurImage.swift"; sourceTree = "<group>"; };
 		E386AE662181296B009A8BF7 /* UIBaseZibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseZibView.swift; sourceTree = "<group>"; };
+		E386AE692181699C009A8BF7 /* UIRadiusSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRadiusSlider.swift; sourceTree = "<group>"; };
 		E3AB04CD2176072E00B80D74 /* AdorableAvatars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableAvatars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AB04D02176072E00B80D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AB04D22176072E00B80D74 /* CreateAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E386AE6821816960009A8BF7 /* Radius Slider */ = {
+			isa = PBXGroup;
+			children = (
+				E386AE692181699C009A8BF7 /* UIRadiusSlider.swift */,
+			);
+			path = "Radius Slider";
+			sourceTree = "<group>";
+		};
 		E3AB04C42176072E00B80D74 = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +327,7 @@
 		E3AB04FE21760BF000B80D74 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				E386AE6821816960009A8BF7 /* Radius Slider */,
 				E3AB05362178A7F100B80D74 /* AvatarCell */,
 				E3AB0520217781DB00B80D74 /* ColorPicker */,
 				E3AB0503217611C200B80D74 /* AvatarPicker */,
@@ -657,6 +668,7 @@
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E386AE5B218096F0009A8BF7 /* PickerColor.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
+				E386AE6A2181699C009A8BF7 /* UIRadiusSlider.swift in Sources */,
 				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
 				E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */,

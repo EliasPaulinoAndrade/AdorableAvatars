@@ -20,6 +20,7 @@ class CreateAvatarViewController: UIViewController {
     @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: ColorPicker!
     @IBOutlet weak var colorPickerContainer: UIView!
+    @IBOutlet weak var radiusSlider: UIRadiusSlider!
     
     private var currentAvatarImage: UIImage?
     private var adorableAvatars = ADWrapper()
