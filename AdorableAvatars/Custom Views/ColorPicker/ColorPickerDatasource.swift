@@ -13,4 +13,5 @@ protocol ColorPickerDatasource {
     func initialColor(colorPicker: ColorPicker) -> Int
     func colorForPosition(colorPicker: ColorPicker, position: Int) -> PickerColor?
     func numberOfColors(colorPicker: ColorPicker) -> Int
+    func sizeForColorViews(colorPicker: ColorPicker) -> CGSize
 }

@@ -40,6 +40,10 @@ class ColorPicker: UIBaseZibView {
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = false
     }
+    
+    public func reloadData() {
+        self.collectionView.reloadData()
+    }
 }
 
 extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
@@ -83,8 +87,7 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height = collectionView.frame.size.height
-        return CGSize.init(width: height, height: height)
+        return self.datasource?.sizeForColorViews(colorPicker: self) ?? CGSize.init(width: 50, height: 50)
     }
     
 
