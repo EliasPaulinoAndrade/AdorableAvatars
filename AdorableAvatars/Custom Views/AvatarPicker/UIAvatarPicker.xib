@@ -32,6 +32,7 @@
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f62-Db-Ab3">
                             <rect key="frame" x="0.0" y="0.0" width="92.5" height="22"/>
                             <state key="normal" image="left_arrow"/>
+                            <state key="disabled" image="backDisabledArrow"/>
                             <connections>
                                 <action selector="prevEyeTapped:" destination="-1" eventType="touchUpInside" id="Nhg-K8-3fu"/>
                             </connections>
@@ -39,6 +40,7 @@
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnY-Ds-9VJ">
                             <rect key="frame" x="0.0" y="322.5" width="92.5" height="22"/>
                             <state key="normal" image="left_arrow"/>
+                            <state key="disabled" image="backDisabledArrow"/>
                             <connections>
                                 <action selector="prevNoseTapped:" destination="-1" eventType="touchUpInside" id="uhK-MT-KQO"/>
                             </connections>
@@ -46,6 +48,7 @@
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJt-mN-9OF">
                             <rect key="frame" x="0.0" y="645" width="92.5" height="22"/>
                             <state key="normal" image="left_arrow"/>
+                            <state key="disabled" image="backDisabledArrow"/>
                             <connections>
                                 <action selector="prevMonthTapped:" destination="-1" eventType="touchUpInside" id="6Bf-1P-iIo"/>
                             </connections>
@@ -77,6 +80,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4l-80-PPB">
                             <rect key="frame" x="0.0" y="322.5" width="92.5" height="22"/>
                             <state key="normal" image="right_arrow"/>
+                            <state key="disabled" image="nextDisabledArriw"/>
                             <connections>
                                 <action selector="nextNoseTapped:" destination="-1" eventType="touchUpInside" id="K2l-3v-HYo"/>
                             </connections>
@@ -84,6 +88,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-4O-wdb">
                             <rect key="frame" x="0.0" y="645" width="92.5" height="22"/>
                             <state key="normal" image="right_arrow"/>
+                            <state key="disabled" image="nextDisabledArriw"/>
                             <connections>
                                 <action selector="nextMonthButton:" destination="-1" eventType="touchUpInside" id="E3B-c8-AFx"/>
                             </connections>
@@ -91,6 +96,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4m3-kI-4sG">
                             <rect key="frame" x="0.0" y="0.0" width="92.5" height="22"/>
                             <state key="normal" image="right_arrow"/>
+                            <state key="disabled" image="nextDisabledArriw"/>
                             <connections>
                                 <action selector="nextEyesTapped:" destination="-1" eventType="touchUpInside" id="td0-qt-nDx"/>
                             </connections>
@@ -133,7 +139,9 @@
         </view>
     </objects>
     <resources>
+        <image name="backDisabledArrow" width="12" height="20.5"/>
         <image name="left_arrow" width="12" height="21"/>
+        <image name="nextDisabledArriw" width="12" height="20.5"/>
         <image name="right_arrow" width="12" height="21"/>
     </resources>
 </document>
