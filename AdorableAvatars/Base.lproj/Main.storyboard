@@ -49,7 +49,7 @@
                                                         <color key="textColor" name="text_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2o-hU-kIU" customClass="ColorPicker" customModule="AdorableAvatars" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2o-hU-kIU" customClass="UIColorPicker" customModule="AdorableAvatars" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="38" width="374" height="82"/>
                                                     </view>
                                                 </subviews>

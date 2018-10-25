@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorPicker: UIBaseZibView {
+class UIColorPicker: UIBaseZibView {
     @IBOutlet var contentView: UIView! {
         didSet {
             super.contentViewZib = contentView
@@ -16,8 +16,8 @@ class ColorPicker: UIBaseZibView {
     }
     @IBOutlet weak var collectionView: UICollectionView!
     
-    public var datasource: ColorPickerDatasource?
-    public var delegate: ColorPickerDelegate?
+    public var datasource: UIColorPickerDatasource?
+    public var delegate: UIColorPickerDelegate?
     public var isEnabled: Bool = true {
         didSet {
             if self.isEnabled {
@@ -46,7 +46,7 @@ class ColorPicker: UIBaseZibView {
     }
 }
 
-extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return self.datasource?.numberOfColors(colorPicker: self) ?? 0
@@ -55,7 +55,7 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath)
     
-        if let colorCell = cell as? ColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.item) {
+        if let colorCell = cell as? UIColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.item) {
 
             let image = datasource?.imageForSelectColor(colorPicker: self)
             colorCell.setup(color: color.color, isSelected: color.isSelected, checkImage: image)
@@ -75,7 +75,7 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
         if let initialColor = self.datasource?.initialColor(colorPicker: self), !firstColorWasSet, initialColor == indexPath.row {
             self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
             
-            if let colorCell = cell as? ColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.row) {
+            if let colorCell = cell as? UIColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.row) {
                 colorCell.isSelected = true
                 color.isSelected = true
                 self.selectedColor = color
@@ -94,7 +94,7 @@ extension ColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath)
-        if let colorCell = cell as? ColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.row){
+        if let colorCell = cell as? UIColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.row){
     
             selectedColor?.isSelected = false
             colorCell.isSelected = true

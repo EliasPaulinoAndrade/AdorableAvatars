@@ -18,7 +18,7 @@ public struct CreateAvatarViewControllerReceivedData {
 
 class CreateAvatarViewController: UIViewController {
     @IBOutlet weak var picker: UIAvatarPicker!
-    @IBOutlet weak var colorPicker: ColorPicker!
+    @IBOutlet weak var colorPicker: UIColorPicker!
     @IBOutlet weak var colorPickerContainer: UIView!
     @IBOutlet weak var radiusSlider: UIRadiusSlider!
     
@@ -249,8 +249,8 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
     }
 }
 
-extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate {
-    func sizeForColorViews(colorPicker: ColorPicker) -> CGSize {
+extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDelegate {
+    func sizeForColorViews(colorPicker: UIColorPicker) -> CGSize {
 
         var size: CGSize?
         
@@ -269,23 +269,23 @@ extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate
         return size!
     }
     
-    func numberOfColors(colorPicker: ColorPicker) -> Int {
+    func numberOfColors(colorPicker: UIColorPicker) -> Int {
         return self.pickerColors?.count ?? 0
     }
     
-    func colorForPosition(colorPicker: ColorPicker, position: Int) -> PickerColor? {
+    func colorForPosition(colorPicker: UIColorPicker, position: Int) -> PickerColor? {
         return self.pickerColors?[position]
     }
     
-    func initialColor(colorPicker: ColorPicker) -> Int {
+    func initialColor(colorPicker: UIColorPicker) -> Int {
         return 0
     }
     
-    func imageForSelectColor(colorPicker: ColorPicker) -> UIImage? {
+    func imageForSelectColor(colorPicker: UIColorPicker) -> UIImage? {
         return UIImage.init(named: "checkedAvatar")
     }
     
-    func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int) {
+    func colorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int) {
         self.avatar.color = pickerColors?[position].color
         
         picker.image.image = picker.image.image?.blurImage(force: 5)

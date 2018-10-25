@@ -17,3 +17,4 @@ class PickerColor {
         self.isSelected = false
     }
 }
+

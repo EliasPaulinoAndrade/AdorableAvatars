@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorCollectionViewCell: UICollectionViewCell {
+class UIColorCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var mainColorView: UIView!
     @IBOutlet weak var checkImage: UIImageView!

@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol ColorPickerDelegate {
-    func colorWasSelected(_ colorPicker: ColorPicker, atPosition position: Int)
+protocol UIColorPickerDelegate {
+    func colorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int)
 }
