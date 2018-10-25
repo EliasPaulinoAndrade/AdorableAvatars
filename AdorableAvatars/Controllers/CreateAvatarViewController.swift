@@ -84,6 +84,7 @@ class CreateAvatarViewController: UIViewController {
     }
     
     @objc private func sliderValueDidChange(_ sender: UIRadiusSlider){
+        print(sender.value)
         self.picker.radius = sender.value
     }
     
@@ -110,7 +111,11 @@ class CreateAvatarViewController: UIViewController {
             return
         }
         
-        FileManager.default.saveAvatarImage(image, withName: name)
+        if let roundedImage = image.radiusImage(radius: (image.size.width/2) * CGFloat(self.radiusSlider.value)) {
+            FileManager.default.saveAvatarImage(roundedImage, withName: name)
+        } else {
+            FileManager.default.saveAvatarImage(image, withName: name)
+        }
         
         let avatar = Avatar.init(name: name, isFave: false)
         CoreDataStack.saveContext()

@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImage {
     
-    func blurImage(force: Int) -> UIImage{
+    func blurImage(force: Int) -> UIImage {
         let context = CIContext.init(options: nil)
         
         let currentFilter = CIFilter(name: "CIGaussianBlur")
@@ -29,5 +29,19 @@ extension UIImage {
         
         
         return processedImage
+    }
+    
+    func radiusImage(radius: CGFloat) -> UIImage? {
+        
+        let imageView: UIImageView = UIImageView(image: self)
+        let layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return roundedImage
     }
 }
