@@ -84,7 +84,6 @@ class CreateAvatarViewController: UIViewController {
     }
     
     @objc private func sliderValueDidChange(_ sender: UIRadiusSlider){
-        print(sender.value)
         self.picker.radius = sender.value
     }
     
