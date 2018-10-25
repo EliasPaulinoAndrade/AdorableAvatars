@@ -184,17 +184,16 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let deviceOrientation = UIDevice.current.orientation
+
         var size: CGSize?
         
-        if deviceOrientation == .landscapeLeft || deviceOrientation == .landscapeRight {
-            let width = collectionView.frame.size.width/4 - 10
+        if self.view.isStanding() {
+            let width = collectionView.frame.size.width/2 - 10
             let height = 1.35 * width
             
             size = CGSize.init(width: width, height: height)
         } else {
-            let width = collectionView.frame.size.width/2 - 10
+            let width = collectionView.frame.size.width/4 - 10
             let height = 1.35 * width
             
             size = CGSize.init(width: width, height: height)

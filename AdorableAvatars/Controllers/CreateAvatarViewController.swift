@@ -252,18 +252,16 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
 
 extension CreateAvatarViewController: ColorPickerDatasource, ColorPickerDelegate {
     func sizeForColorViews(colorPicker: ColorPicker) -> CGSize {
-        
-        let deviceOrientation = UIDevice.current.orientation
-        
+
         var size: CGSize?
         
-        if deviceOrientation == .landscapeLeft || deviceOrientation == .landscapeRight {
-            let width = (self.colorPickerContainer.frame.height - 48)/2
+        if self.view.isStanding() {
+            let width = self.colorPickerContainer.frame.height - 48
             let height = width
             
             size = CGSize.init(width: width, height: height)
         } else {
-            let width = self.colorPickerContainer.frame.height - 48
+            let width = (self.colorPickerContainer.frame.height - 48)/2
             let height = width
             
             size = CGSize.init(width: width, height: height)

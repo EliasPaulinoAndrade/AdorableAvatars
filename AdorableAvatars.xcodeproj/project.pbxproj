@@ -75,6 +75,7 @@
 		E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */; };
 		E3AB0555217929E300B80D74 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0554217929E300B80D74 /* PreviewViewController.swift */; };
 		E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */; };
+		E3B6758A2182371B008DB3F0 /* UIView+position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675892182371B008DB3F0 /* UIView+position.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAvatarDelegate.swift; sourceTree = "<group>"; };
 		E3AB0554217929E300B80D74 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPreviewDelegate.swift; sourceTree = "<group>"; };
+		E3B675892182371B008DB3F0 /* UIView+position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+position.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +393,7 @@
 				E3AB052D2177A17B00B80D74 /* ColorPickerDelegate.swift */,
 				E386AE5A218096F0009A8BF7 /* PickerColor.swift */,
 				E386AE5C21809972009A8BF7 /* Array+pickerColor.swift */,
+				E3B675892182371B008DB3F0 /* UIView+position.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
 				E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+URL.swift in Sources */,
+				E3B6758A2182371B008DB3F0 /* UIView+position.swift in Sources */,
 				E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */,
 				E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */,
 				E386AE4E217F629B009A8BF7 /* CategoryID.swift in Sources */,
