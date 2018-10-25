@@ -52,9 +52,14 @@ class CreateAvatarViewController: UIViewController {
         colorPicker.datasource = self
         colorPicker.delegate = self
         
+        self.picker.radius = radiusSlider.value
+        
         view.addSubview(loadIndicator)
         loadIndicator.startAnimating()
         adorableAvatars.findTypes()
+        
+        self.radiusSlider.addTarget(self, action: #selector(self.sliderValueDidChange(_:)), for: .valueChanged)
+
         
         self.pickerColors = plistReader.colors.pickerColorArray()
         
@@ -74,6 +79,12 @@ class CreateAvatarViewController: UIViewController {
 //
 //            }
         }
+        
+        
+    }
+    
+    @objc private func sliderValueDidChange(_ sender: UIRadiusSlider){
+        self.picker.radius = sender.value
     }
     
     private func showAvatarNameAlert(){

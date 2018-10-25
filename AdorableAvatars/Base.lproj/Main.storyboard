@@ -49,7 +49,7 @@
                                                         <color key="textColor" name="text_gray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hok-Dw-rYs" customClass="UIRadiusSlider" customModule="AdorableAvatars" customModuleProvider="target">
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hok-Dw-rYs" customClass="UIRadiusSlider" customModule="AdorableAvatars" customModuleProvider="target">
                                                         <rect key="frame" x="18" y="45.333333333333371" width="358" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="29" id="KB4-aZ-Gc7"/>

@@ -34,6 +34,16 @@ class UIAvatarPicker: UIBaseZibView {
         }
     }
     
+    var radius: Float = 0 {
+        didSet {
+            if radius <= 1 && radius >= 0 {
+                let imageWidth = self.image.frame.size.width/2
+                self.image.layer.cornerRadius = CGFloat(imageWidth * CGFloat(radius))
+                self.image.clipsToBounds = true
+            }
+        }
+    }
+    
     var delegate: APAvatarPickerDelegate?
     var datasource: APAvatarPickerDatasource?
     var currentAvatar = APAvatar.init(eye: 0, nose: 0, month: 0)
