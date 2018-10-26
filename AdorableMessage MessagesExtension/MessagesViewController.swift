@@ -13,7 +13,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet weak var stickersCollectionView: UICollectionView!
     
-    private var containerAvatars: [AvatarContainer]? = [AvatarContainer(isSelected: false, avatar: Avatar.init(name: "Bia", isFave: true))]
+    private var containerAvatars: [AvatarContainer]? = FileManager.default.getAvatars()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class MessagesViewController: MSMessagesAppViewController {
         stickersCollectionView.dataSource = self
         stickersCollectionView.delegate = self
         stickersCollectionView.allowsMultipleSelection = true
-        
         
     }
     
@@ -98,20 +97,58 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var size: CGSize?
+        var cellSize: CGSize?
         
-        if self.view.isStanding() {
-            let width = collectionView.frame.size.width/2 - 10
+        let width = collectionView.frame.size.width/3 - 10
+        let height = 1.35 * width
+        
+        cellSize = CGSize.init(width: width, height: height)
+        
+        if let size = cellSize, size.width > 180 {
+            let width = collectionView.frame.size.width/5 - 10
             let height = 1.35 * width
             
-            size = CGSize.init(width: width, height: height)
-        } else {
-            let width = collectionView.frame.size.width/4 - 10
-            let height = 1.35 * width
-            
-            size = CGSize.init(width: width, height: height)
+            cellSize = CGSize.init(width: width, height: height)
         }
         
-        return size!
+        return cellSize!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let conversetion = self.activeConversation else {
+            return
+        }
+        
+        guard let avatarContainer = self.containerAvatars?[indexPath.row] else {
+            return
+        }
+        
+        let avatar = avatarContainer.avatar
+        
+        guard let avatarName = avatar.name, let image = FileManager.default.getAvatar(withName: avatarName) else {
+            return
+        }
+        
+        guard let message = composeMessage(withImage: image, andName: avatarName, session: conversetion.selectedMessage?.session) else {
+            return
+        }
+        
+        conversetion.insert(message) { (error) in
+            print("error")
+        }
+    }
+    
+    func composeMessage(withImage image: UIImage, andName name: String = "", session: MSSession? = nil) -> MSMessage? {
+
+        let layout = MSMessageTemplateLayout()
+        
+        layout.image = image
+        layout.caption = name
+        
+        let message = MSMessage(session: session ?? MSSession())
+        
+        message.layout = layout
+        
+        return message
     }
 }

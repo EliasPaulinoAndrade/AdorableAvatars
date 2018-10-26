@@ -14,7 +14,12 @@ extension FileManager {
     public var adorableAvatarsGroupUrl : URL? {
         get {
             let adorableAvatarsGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.eliaspaulino.adorableavatars")
-            return adorableAvatarsGroupUrl
+            
+            if let avatarsDirectory = adorableAvatarsGroupUrl?.appendingPathComponent("avatars") {
+                try? createDirectory(at: avatarsDirectory, withIntermediateDirectories: false, attributes: nil)
+                return avatarsDirectory
+            }
+            return nil
         }
     }
     

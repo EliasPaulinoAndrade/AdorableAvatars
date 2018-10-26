@@ -106,6 +106,8 @@
 		E3B676032183732F008DB3F0 /* FileManager+avatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */; };
 		E3B676042183732F008DB3F0 /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */; };
 		E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675892182371B008DB3F0 /* UIView+position.swift */; };
+		E3B6760921838201008DB3F0 /* FileManager+getAvatars.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6760821838201008DB3F0 /* FileManager+getAvatars.swift */; };
+		E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05182176687700B80D74 /* String+sub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +248,7 @@
 		E3B675E8218370C6008DB3F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3B675EA218370C6008DB3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdorableMessage MessagesExtension.entitlements"; sourceTree = "<group>"; };
+		E3B6760821838201008DB3F0 /* FileManager+getAvatars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+getAvatars.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,6 +574,7 @@
 				E3B675E5218370C5008DB3F0 /* MainInterface.storyboard */,
 				E3B675E8218370C6008DB3F0 /* Assets.xcassets */,
 				E3B675EA218370C6008DB3F0 /* Info.plist */,
+				E3B6760821838201008DB3F0 /* FileManager+getAvatars.swift */,
 			);
 			path = "AdorableMessage MessagesExtension";
 			sourceTree = "<group>";
@@ -915,6 +919,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */,
 				E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */,
 				E3B675FA2183727F008DB3F0 /* APAvatarPickerDelegate.swift in Sources */,
 				E3B675FC2183727F008DB3F0 /* APAvatarComponents.swift in Sources */,
@@ -931,6 +936,7 @@
 				E3B676032183732F008DB3F0 /* FileManager+avatarManager.swift in Sources */,
 				E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */,
 				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,
+				E3B6760921838201008DB3F0 /* FileManager+getAvatars.swift in Sources */,
 				E3B675E4218370C5008DB3F0 /* MessagesViewController.swift in Sources */,
 				E3B675FD2183727F008DB3F0 /* APAvatar.swift in Sources */,
 				E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */,
