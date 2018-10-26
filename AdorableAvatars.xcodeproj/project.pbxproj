@@ -56,13 +56,13 @@
 		E3AB051F2177750500B80D74 /* avatarColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AB051E2177750500B80D74 /* avatarColors.plist */; };
 		E3AB0522217783B900B80D74 /* UIColorPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB0521217783B900B80D74 /* UIColorPicker.xib */; };
 		E3AB05242177858A00B80D74 /* UIColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05232177858A00B80D74 /* UIColorPicker.swift */; };
-		E3AB05282177872D00B80D74 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */; };
+		E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05262177872D00B80D74 /* UIColorCollectionViewCell.xib */; };
 		E3AB052C21779FF000B80D74 /* UIColorPickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052B21779FF000B80D74 /* UIColorPickerDatasource.swift */; };
 		E3AB052E2177A17B00B80D74 /* UIColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052D2177A17B00B80D74 /* UIColorPickerDelegate.swift */; };
 		E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */; };
 		E3AB05352177E75A00B80D74 /* FileManager+avatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */; };
-		E3AB05392178A80F00B80D74 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05372178A80F00B80D74 /* AvatarCollectionViewCell.swift */; };
-		E3AB053A2178A80F00B80D74 /* AvatarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05382178A80F00B80D74 /* AvatarCollectionViewCell.xib */; };
+		E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05372178A80F00B80D74 /* UIAvatarCollectionViewCell.swift */; };
+		E3AB053A2178A80F00B80D74 /* UIAvatarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05382178A80F00B80D74 /* UIAvatarCollectionViewCell.xib */; };
 		E3AB053D2178AA7200B80D74 /* AllAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB053C2178AA7200B80D74 /* AllAvatarsViewController.swift */; };
 		E3AB05412178E3F600B80D74 /* AdorableAvatars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3AB053F2178E3F600B80D74 /* AdorableAvatars.xcdatamodeld */; };
 		E3AB05432178E47300B80D74 /* CoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05422178E47300B80D74 /* CoreDataWrapper.swift */; };
@@ -168,13 +168,13 @@
 		E3AB051E2177750500B80D74 /* avatarColors.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = avatarColors.plist; sourceTree = "<group>"; };
 		E3AB0521217783B900B80D74 /* UIColorPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIColorPicker.xib; sourceTree = "<group>"; };
 		E3AB05232177858A00B80D74 /* UIColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorPicker.swift; sourceTree = "<group>"; };
-		E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		E3AB05262177872D00B80D74 /* UIColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		E3AB052B21779FF000B80D74 /* UIColorPickerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorPickerDatasource.swift; sourceTree = "<group>"; };
 		E3AB052D2177A17B00B80D74 /* UIColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorPickerDelegate.swift; sourceTree = "<group>"; };
 		E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexa.swift"; sourceTree = "<group>"; };
 		E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+avatarManager.swift"; sourceTree = "<group>"; };
-		E3AB05372178A80F00B80D74 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
-		E3AB05382178A80F00B80D74 /* AvatarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarCollectionViewCell.xib; sourceTree = "<group>"; };
+		E3AB05372178A80F00B80D74 /* UIAvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAvatarCollectionViewCell.swift; sourceTree = "<group>"; };
+		E3AB05382178A80F00B80D74 /* UIAvatarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIAvatarCollectionViewCell.xib; sourceTree = "<group>"; };
 		E3AB053C2178AA7200B80D74 /* AllAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAvatarsViewController.swift; sourceTree = "<group>"; };
 		E3AB05402178E3F600B80D74 /* AdorableAvatars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdorableAvatars.xcdatamodel; sourceTree = "<group>"; };
 		E3AB05422178E47300B80D74 /* CoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWrapper.swift; sourceTree = "<group>"; };
@@ -395,7 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				E3B67595218246AD008DB3F0 /* UIColorCollectionViewCell.swift */,
-				E3AB05262177872D00B80D74 /* ColorCollectionViewCell.xib */,
+				E3AB05262177872D00B80D74 /* UIColorCollectionViewCell.xib */,
 				E3AB0521217783B900B80D74 /* UIColorPicker.xib */,
 				E3AB05232177858A00B80D74 /* UIColorPicker.swift */,
 				E3AB052B21779FF000B80D74 /* UIColorPickerDatasource.swift */,
@@ -419,8 +419,8 @@
 		E3AB05362178A7F100B80D74 /* AvatarCell */ = {
 			isa = PBXGroup;
 			children = (
-				E3AB05372178A80F00B80D74 /* AvatarCollectionViewCell.swift */,
-				E3AB05382178A80F00B80D74 /* AvatarCollectionViewCell.xib */,
+				E3AB05372178A80F00B80D74 /* UIAvatarCollectionViewCell.swift */,
+				E3AB05382178A80F00B80D74 /* UIAvatarCollectionViewCell.xib */,
 				E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */,
 				E386AE642180F0AB009A8BF7 /* UIImage+blurImage.swift */,
 			);
@@ -631,9 +631,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
-				E3AB05282177872D00B80D74 /* ColorCollectionViewCell.xib in Resources */,
+				E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */,
 				E3AB0522217783B900B80D74 /* UIColorPicker.xib in Resources */,
-				E3AB053A2178A80F00B80D74 /* AvatarCollectionViewCell.xib in Resources */,
+				E3AB053A2178A80F00B80D74 /* UIAvatarCollectionViewCell.xib in Resources */,
 				E3AB051F2177750500B80D74 /* avatarColors.plist in Resources */,
 				E3AB04DB2176073000B80D74 /* LaunchScreen.storyboard in Resources */,
 				E3B67594218244CB008DB3F0 /* UIPropTableViewCell.xib in Resources */,
@@ -687,7 +687,7 @@
 				E3AB05132176410D00B80D74 /* APAvatarComponents.swift in Sources */,
 				E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */,
 				E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */,
-				E3AB05392178A80F00B80D74 /* AvatarCollectionViewCell.swift in Sources */,
+				E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */,
 				E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */,
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AvatarCollectionViewCell: UICollectionViewCell {
+class UIAvatarCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var avatarName: UILabel!

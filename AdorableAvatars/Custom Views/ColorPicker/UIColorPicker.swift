@@ -34,7 +34,7 @@ class UIColorPicker: UIBaseZibView {
     private var selectedColor: PickerColor?
     
     override func layoutSubviews() {
-        collectionView.register(UINib(nibName: "ColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
+        collectionView.register(UINib(nibName: "UIColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
         
         collectionView.delegate = self
         collectionView.dataSource = self

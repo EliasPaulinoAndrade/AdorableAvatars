@@ -53,7 +53,7 @@ class AllAvatarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        avatarsCollectionView.register(UINib.init(nibName: "AvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
+        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
         
         avatarsCollectionView.dataSource = self
         avatarsCollectionView.delegate = self
@@ -105,7 +105,7 @@ class AllAvatarsViewController: UIViewController {
 }
 
 extension AllAvatarsViewController: AvatarCollectionViewCellDelegate {
-    func avatarWasClosed(_ cell: AvatarCollectionViewCell) {
+    func avatarWasClosed(_ cell: UIAvatarCollectionViewCell) {
         guard let indexPath = self.avatarsCollectionView.indexPath(for: cell) else {
             return
         }
@@ -137,13 +137,13 @@ extension AllAvatarsViewController: AvatarCollectionViewCellDelegate {
     
     func reloadVisibleCells() {
         for visibleCell in self.avatarsCollectionView.visibleCells {
-            if let visibleAvatarCell = visibleCell as? AvatarCollectionViewCell {
+            if let visibleAvatarCell = visibleCell as? UIAvatarCollectionViewCell {
                 visibleAvatarCell.isShaking = true
             }
         }
     }
     
-    func avatarWasFavorite(_ cell: AvatarCollectionViewCell) {
+    func avatarWasFavorite(_ cell: UIAvatarCollectionViewCell) {
         if let avatarIndex = self.avatarsCollectionView.indexPath(for: cell)?.row, let avatarContainers = self.containerAvatars {
             let avatar = avatarContainers[avatarIndex].avatar
             avatar.isFave = !avatar.isFave
@@ -167,7 +167,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
        
-        if let avatarCell = cell as? AvatarCollectionViewCell,  let avatar = containerAvatars?[indexPath.row].avatar, let avatarName = avatar.name {
+        if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = containerAvatars?[indexPath.row].avatar, let avatarName = avatar.name {
             let image = FileManager.default.getAvatar(withName: avatarName)
             
             avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: self.isEditing_)
@@ -178,7 +178,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
-    @objc func avatarCellLongPress(_ sender: AvatarCollectionViewCell) {
+    @objc func avatarCellLongPress(_ sender: UIAvatarCollectionViewCell) {
         self.isEditing_ = true
         
     }
@@ -252,7 +252,7 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let indexPath = self.avatarsCollectionView.indexPathForItem(at: location) else {
             return nil
         }
-        guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? AvatarCollectionViewCell else {
+        guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? UIAvatarCollectionViewCell else {
             return nil
         }
         guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
@@ -284,7 +284,7 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
         
         if let avatarContainerIndex = self.containerAvatars?.firstIndex(of: avatar) {
             let avatarIndexPath = IndexPath.init(row: avatarContainerIndex, section: 0)
-            if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
+            if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? UIAvatarCollectionViewCell{
                 avatarCell.isFaved = avatar.isFave
                 
                 delegate?.avatarWasDesfavorite(avatar: avatar)
@@ -299,7 +299,7 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
         
         if let avatarIndex = self.containerAvatars?.firstIndex(of: avatar) {
             let avatarIndexPath = IndexPath.init(row: avatarIndex, section: 0)
-            if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? AvatarCollectionViewCell{
+            if let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarIndexPath) as? UIAvatarCollectionViewCell{
                 avatarCell.isFaved = avatar.isFave
                 
                 delegate?.avatarWasFavorite?(avatar: avatar)
@@ -327,7 +327,7 @@ extension AllAvatarsViewController: FavoriteAvatarDelegate{
         guard let avatarIndex = self.containerAvatars?.firstIndex(of: avatar) else {
             return
         }
-        guard let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? AvatarCollectionViewCell else {
+        guard let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? UIAvatarCollectionViewCell else {
             return
         }
         

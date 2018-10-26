@@ -20,7 +20,7 @@ class FaveAvatarsViewController: UIViewController {
         super.viewDidLoad()
 
         self.avatars = try? CoreDataWrapper.getAllFavoriteAvatars()
-        avatarsCollectionView.register(UINib.init(nibName: "AvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
+        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
         
         self.avatarsCollectionView.delegate = self
         self.avatarsCollectionView.dataSource = self
@@ -48,7 +48,7 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
         
-        if let avatarCell = cell as? AvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
+        if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
             let image = FileManager.default.getAvatar(withName: avatarName)
             avatarCell.avatarImage.image = image
             avatarCell.avatarName.text = avatarName
@@ -97,7 +97,7 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let indexPath = self.avatarsCollectionView.indexPathForItem(at: location) else {
             return nil
         }
-        guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? AvatarCollectionViewCell else {
+        guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? UIAvatarCollectionViewCell else {
             return nil
         }
         guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
