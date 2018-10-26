@@ -80,6 +80,32 @@
 		E3B67593218244CB008DB3F0 /* UIPropTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B67591218244CB008DB3F0 /* UIPropTableViewCell.swift */; };
 		E3B67594218244CB008DB3F0 /* UIPropTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B67592218244CB008DB3F0 /* UIPropTableViewCell.xib */; };
 		E3B67596218246AE008DB3F0 /* UIColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B67595218246AD008DB3F0 /* UIColorCollectionViewCell.swift */; };
+		E3B675D5218370C5008DB3F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B675D4218370C5008DB3F0 /* Assets.xcassets */; };
+		E3B675DC218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E3B675E1218370C5008DB3F0 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B675E0218370C5008DB3F0 /* Messages.framework */; };
+		E3B675E4218370C5008DB3F0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675E3218370C5008DB3F0 /* MessagesViewController.swift */; };
+		E3B675E7218370C5008DB3F0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B675E5218370C5008DB3F0 /* MainInterface.storyboard */; };
+		E3B675E9218370C6008DB3F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B675E8218370C6008DB3F0 /* Assets.xcassets */; };
+		E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05372178A80F00B80D74 /* UIAvatarCollectionViewCell.swift */; };
+		E3B675F3218371C2008DB3F0 /* UIAvatarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB05382178A80F00B80D74 /* UIAvatarCollectionViewCell.xib */; };
+		E3B675F4218371C2008DB3F0 /* AvatarCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */; };
+		E3B675F5218371C2008DB3F0 /* UIImage+blurImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE642180F0AB009A8BF7 /* UIImage+blurImage.swift */; };
+		E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE602180CA24009A8BF7 /* AvatarContainer.swift */; };
+		E3B675F721837277008DB3F0 /* Array+avatarContainerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE622180CB1A009A8BF7 /* Array+avatarContainerArray.swift */; };
+		E3B675F82183727F008DB3F0 /* UIAvatarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AB04FF21760C0000B80D74 /* UIAvatarPicker.xib */; };
+		E3B675F92183727F008DB3F0 /* UIAvatarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050121760E1000B80D74 /* UIAvatarPicker.swift */; };
+		E3B675FA2183727F008DB3F0 /* APAvatarPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0504217612BE00B80D74 /* APAvatarPickerDelegate.swift */; };
+		E3B675FB2183727F008DB3F0 /* APAvatarPickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0510217633F700B80D74 /* APAvatarPickerDatasource.swift */; };
+		E3B675FC2183727F008DB3F0 /* APAvatarComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05122176410D00B80D74 /* APAvatarComponents.swift */; };
+		E3B675FD2183727F008DB3F0 /* APAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05142176457600B80D74 /* APAvatar.swift */; };
+		E3B675FE21837283008DB3F0 /* UIBaseZibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE662181296B009A8BF7 /* UIBaseZibView.swift */; };
+		E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3AB053F2178E3F600B80D74 /* AdorableAvatars.xcdatamodeld */; };
+		E3B67600218372D0008DB3F0 /* CoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05422178E47300B80D74 /* CoreDataWrapper.swift */; };
+		E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05442178E49600B80D74 /* CoreDataStack.swift */; };
+		E3B67602218372D6008DB3F0 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05492178F2F400B80D74 /* Avatar.swift */; };
+		E3B676032183732F008DB3F0 /* FileManager+avatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05342177E75A00B80D74 /* FileManager+avatarManager.swift */; };
+		E3B676042183732F008DB3F0 /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE4F217FA0C3009A8BF7 /* UIImage+URL.swift */; };
+		E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675892182371B008DB3F0 /* UIView+position.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +130,13 @@
 			remoteGlobalIDString = E3AB04CC2176072E00B80D74;
 			remoteInfo = AdorableAvatars;
 		};
+		E3B675DD218370C5008DB3F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3AB04C52176072E00B80D74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3B675DA218370C5008DB3F0;
+			remoteInfo = "AdorableMessage MessagesExtension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +147,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				E386AE3C217E5393009A8BF7 /* NotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3B675EE218370C6008DB3F0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E3B675DC218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +236,16 @@
 		E3B67591218244CB008DB3F0 /* UIPropTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPropTableViewCell.swift; sourceTree = "<group>"; };
 		E3B67592218244CB008DB3F0 /* UIPropTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPropTableViewCell.xib; sourceTree = "<group>"; };
 		E3B67595218246AD008DB3F0 /* UIColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		E3B675D2218370C4008DB3F0 /* AdorableMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdorableMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3B675D4218370C5008DB3F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3B675D6218370C5008DB3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AdorableMessage MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3B675E0218370C5008DB3F0 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		E3B675E3218370C5008DB3F0 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		E3B675E6218370C5008DB3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E3B675E8218370C6008DB3F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3B675EA218370C6008DB3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdorableMessage MessagesExtension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +274,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3B675D8218370C5008DB3F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3B675E1218370C5008DB3F0 /* Messages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +341,9 @@
 				E3AB04E42176073000B80D74 /* AdorableAvatarsTests */,
 				E3AB04EF2176073000B80D74 /* AdorableAvatarsUITests */,
 				E386AE36217E5393009A8BF7 /* NotificationService */,
+				E3B675D3218370C4008DB3F0 /* AdorableMessage */,
+				E3B675E2218370C5008DB3F0 /* AdorableMessage MessagesExtension */,
+				E3B675DF218370C5008DB3F0 /* Frameworks */,
 				E3AB04CE2176072E00B80D74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -290,6 +355,8 @@
 				E3AB04E12176073000B80D74 /* AdorableAvatarsTests.xctest */,
 				E3AB04EC2176073000B80D74 /* AdorableAvatarsUITests.xctest */,
 				E386AE35217E5393009A8BF7 /* NotificationService.appex */,
+				E3B675D2218370C4008DB3F0 /* AdorableMessage.app */,
+				E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -479,6 +546,35 @@
 			path = PropsPicker;
 			sourceTree = "<group>";
 		};
+		E3B675D3218370C4008DB3F0 /* AdorableMessage */ = {
+			isa = PBXGroup;
+			children = (
+				E3B675D4218370C5008DB3F0 /* Assets.xcassets */,
+				E3B675D6218370C5008DB3F0 /* Info.plist */,
+			);
+			path = AdorableMessage;
+			sourceTree = "<group>";
+		};
+		E3B675DF218370C5008DB3F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3B675E0218370C5008DB3F0 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3B675E2218370C5008DB3F0 /* AdorableMessage MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */,
+				E3B675E3218370C5008DB3F0 /* MessagesViewController.swift */,
+				E3B675E5218370C5008DB3F0 /* MainInterface.storyboard */,
+				E3B675E8218370C6008DB3F0 /* Assets.xcassets */,
+				E3B675EA218370C6008DB3F0 /* Info.plist */,
+			);
+			path = "AdorableMessage MessagesExtension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -554,6 +650,40 @@
 			productReference = E3AB04EC2176073000B80D74 /* AdorableAvatarsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E3B675D1218370C4008DB3F0 /* AdorableMessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3B675EF218370C6008DB3F0 /* Build configuration list for PBXNativeTarget "AdorableMessage" */;
+			buildPhases = (
+				E3B675D0218370C4008DB3F0 /* Resources */,
+				E3B675EE218370C6008DB3F0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3B675DE218370C5008DB3F0 /* PBXTargetDependency */,
+			);
+			name = AdorableMessage;
+			productName = AdorableMessage;
+			productReference = E3B675D2218370C4008DB3F0 /* AdorableMessage.app */;
+			productType = "com.apple.product-type.application.messages";
+		};
+		E3B675DA218370C5008DB3F0 /* AdorableMessage MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3B675EB218370C6008DB3F0 /* Build configuration list for PBXNativeTarget "AdorableMessage MessagesExtension" */;
+			buildPhases = (
+				E3B675D7218370C5008DB3F0 /* Sources */,
+				E3B675D8218370C5008DB3F0 /* Frameworks */,
+				E3B675D9218370C5008DB3F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AdorableMessage MessagesExtension";
+			productName = "AdorableMessage MessagesExtension";
+			productReference = E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -594,6 +724,17 @@
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = E3AB04CC2176072E00B80D74;
 					};
+					E3B675D1218370C4008DB3F0 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					E3B675DA218370C5008DB3F0 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = E3AB04C82176072E00B80D74 /* Build configuration list for PBXProject "AdorableAvatars" */;
@@ -613,6 +754,8 @@
 				E3AB04E02176073000B80D74 /* AdorableAvatarsTests */,
 				E3AB04EB2176073000B80D74 /* AdorableAvatarsUITests */,
 				E386AE34217E5393009A8BF7 /* NotificationService */,
+				E3B675D1218370C4008DB3F0 /* AdorableMessage */,
+				E3B675DA218370C5008DB3F0 /* AdorableMessage MessagesExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -654,6 +797,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3B675D0218370C4008DB3F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3B675D5218370C5008DB3F0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3B675D9218370C5008DB3F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3B675E9218370C6008DB3F0 /* Assets.xcassets in Resources */,
+				E3B675E7218370C5008DB3F0 /* MainInterface.storyboard in Resources */,
+				E3B675F82183727F008DB3F0 /* UIAvatarPicker.xib in Resources */,
+				E3B675F3218371C2008DB3F0 /* UIAvatarCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +911,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E3B675D7218370C5008DB3F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */,
+				E3B675FA2183727F008DB3F0 /* APAvatarPickerDelegate.swift in Sources */,
+				E3B675FC2183727F008DB3F0 /* APAvatarComponents.swift in Sources */,
+				E3B676042183732F008DB3F0 /* UIImage+URL.swift in Sources */,
+				E3B675F4218371C2008DB3F0 /* AvatarCollectionViewCellDelegate.swift in Sources */,
+				E3B675FB2183727F008DB3F0 /* APAvatarPickerDatasource.swift in Sources */,
+				E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */,
+				E3B67602218372D6008DB3F0 /* Avatar.swift in Sources */,
+				E3B675F92183727F008DB3F0 /* UIAvatarPicker.swift in Sources */,
+				E3B67600218372D0008DB3F0 /* CoreDataWrapper.swift in Sources */,
+				E3B675F721837277008DB3F0 /* Array+avatarContainerArray.swift in Sources */,
+				E3B675FE21837283008DB3F0 /* UIBaseZibView.swift in Sources */,
+				E3B675F5218371C2008DB3F0 /* UIImage+blurImage.swift in Sources */,
+				E3B676032183732F008DB3F0 /* FileManager+avatarManager.swift in Sources */,
+				E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */,
+				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,
+				E3B675E4218370C5008DB3F0 /* MessagesViewController.swift in Sources */,
+				E3B675FD2183727F008DB3F0 /* APAvatar.swift in Sources */,
+				E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -767,6 +955,11 @@
 			target = E3AB04CC2176072E00B80D74 /* AdorableAvatars */;
 			targetProxy = E3AB04ED2176073000B80D74 /* PBXContainerItemProxy */;
 		};
+		E3B675DE218370C5008DB3F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3B675DA218370C5008DB3F0 /* AdorableMessage MessagesExtension */;
+			targetProxy = E3B675DD218370C5008DB3F0 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -784,6 +977,14 @@
 				E3AB04DA2176073000B80D74 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E3B675E5218370C5008DB3F0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3B675E6218370C5008DB3F0 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1067,6 +1268,78 @@
 			};
 			name = Release;
 		};
+		E3B675EC218370C6008DB3F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "AdorableMessage MessagesExtension/AdorableMessage MessagesExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				INFOPLIST_FILE = "AdorableMessage MessagesExtension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableMessage.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3B675ED218370C6008DB3F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "AdorableMessage MessagesExtension/AdorableMessage MessagesExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				INFOPLIST_FILE = "AdorableMessage MessagesExtension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableMessage.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E3B675F0218370C6008DB3F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				INFOPLIST_FILE = AdorableMessage/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableMessage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3B675F1218370C6008DB3F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				INFOPLIST_FILE = AdorableMessage/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableMessage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1111,6 +1384,24 @@
 			buildConfigurations = (
 				E3AB04FC2176073000B80D74 /* Debug */,
 				E3AB04FD2176073000B80D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3B675EB218370C6008DB3F0 /* Build configuration list for PBXNativeTarget "AdorableMessage MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3B675EC218370C6008DB3F0 /* Debug */,
+				E3B675ED218370C6008DB3F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3B675EF218370C6008DB3F0 /* Build configuration list for PBXNativeTarget "AdorableMessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3B675F0218370C6008DB3F0 /* Debug */,
+				E3B675F1218370C6008DB3F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
