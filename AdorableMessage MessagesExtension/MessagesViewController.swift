@@ -149,40 +149,50 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let conversetion = self.activeConversation,
-              let avatarContainer = self.containerAvatars?[indexPath.row]
-              else {
-            return
+    
+        var avatarContainer: AvatarContainer?
+        
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            avatarContainer = self.containerAvatars?[indexPath.row]
+        case 1:
+            avatarContainer = self.containerFavAvatars?[indexPath.row]
+        default:
+            avatarContainer = nil
         }
         
-        let avatar = avatarContainer.avatar
-        
-        guard let avatarName = avatar.name,
-              let image = FileManager.default.getAvatar(withName: avatarName)
+        guard let avatar = avatarContainer?.avatar,
+              let avatarName = avatar.name,
+              let image = FileManager.default.getAvatar(withName: avatarName),
+              let conversetion = self.activeConversation
               else {
             return
         }
         
         self.present(AlertManagment.sendAvatarAlert(answered: { (includeName) in
-            var messageName: String?
-            if includeName{
-                messageName = avatarName
-                
-            } else {
-                messageName = ""
-            }
-            
-            guard let message = self.composeMessage(withImage: image, andName: messageName ?? "", session: conversetion.selectedMessage?.session) else {
-                return
-            }
-            
-            self.requestPresentationStyle(.compact)
-            
-            conversetion.insert(message) { (error) in
-                print("error")
-            }
+            self.showMessage(avatarName: avatarName, conversetion: conversetion, image: image, includeName: includeName)
         }), animated: true, completion: nil)
 
+    }
+    
+    func showMessage(avatarName: String, conversetion: MSConversation, image: UIImage, includeName: Bool) {
+        var messageName: String?
+        if includeName{
+            messageName = avatarName
+            
+        } else {
+            messageName = ""
+        }
+        
+        guard let message = self.composeMessage(withImage: image, andName: messageName ?? "", session: conversetion.selectedMessage?.session) else {
+            return
+        }
+        
+        self.requestPresentationStyle(.compact)
+        
+        conversetion.insert(message) { (error) in
+            print("error")
+        }
     }
     
     func composeMessage(withImage image: UIImage, andName name: String = "", session: MSSession? = nil) -> MSMessage? {
