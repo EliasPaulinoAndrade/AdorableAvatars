@@ -79,6 +79,10 @@ class AllAvatarsViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.avatarsCollectionView.reloadData()
+    }
+    
     override func viewDidLayoutSubviews() {
         self.avatarsCollectionView.reloadData()
     }

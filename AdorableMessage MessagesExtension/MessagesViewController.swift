@@ -15,6 +15,17 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var diceImageView: UIImageView!
     
+    private lazy var loadIndicator: UIActivityIndicatorView = {
+        let loadIndicator = UIActivityIndicatorView.init()
+        loadIndicator.frame.size = view.frame.size
+        loadIndicator.center = self.view.center
+        loadIndicator.color = UIColor.gray
+        loadIndicator.hidesWhenStopped = true
+        loadIndicator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
+        return loadIndicator
+    }()
+    
     private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
     
     private var containerFavAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllFavoriteAvatars().avatarContainerArray()
@@ -30,6 +41,8 @@ class MessagesViewController: MSMessagesAppViewController {
         stickersCollectionView.delegate = self
         stickersCollectionView.allowsMultipleSelection = true
         adorableWrapper.delegate = self
+        
+        self.view.addSubview(loadIndicator)
      
         segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged(_:)), for: UIControl.Event.valueChanged)
         
@@ -89,6 +102,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     @objc private func diceTapped(_ sender: UIImageView){
         let avatarNumber = Int.random(in: 0..<1000)
+        loadIndicator.startAnimating()
         adorableWrapper.randomAvatar(withBase: avatarNumber)
     }
 }
@@ -224,6 +238,7 @@ extension MessagesViewController: ADDelegate {
     }
     
     func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage) {
+        loadIndicator.stopAnimating()
         guard let conversetion = self.activeConversation else {
                 return
         }
