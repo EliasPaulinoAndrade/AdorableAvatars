@@ -6,35 +6,44 @@
   Copyright © 2018 Elias Paulino. All rights reserved.
 */
 
-"alert_remove_avatar_title" = "Remove Avatar";
-"alert_remove_avatar_description" = "Do You Want Remove It?";
-"alert_remove_avatar_action_yes" = "Yes";
-"alert_remove_avatar_action_no" = "No";
+"alert_remove_avatar_title" = "Remover Avatar";
+"alert_remove_avatar_description" = "Você Quer Removê-lo?";
+"alert_remove_avatar_action_yes" = "Sim";
+"alert_remove_avatar_action_no" = "Não";
 
-"alert_generic_error_title" = "Error";
+"alert_generic_error_title" = "Erro";
 "alert_generic_error_action_ok" = "OK";
 
-"alert_network_error_title" = "Error";
-"alert_network_description" = "Network Error";
-"alert_network_description_action_retry" = "Retry";
+"alert_network_error_title" = "Erro";
+"alert_network_description" = "Erro de Internet";
+"alert_network_description_action_retry" = "Tentar Novamente";
 
-"alert_save_avatar_title" = "Saving";
-"alert_save_avatar_description" = "Whats is him name?";
-"alert_save_avatar_action_cancel" = "Cancel";
-"alert_save_avatar_action_ok" = "Ok";
+"alert_save_avatar_title" = "Salvando";
+"alert_save_avatar_description" = "Qual O Nome Dele?";
+"alert_save_avatar_action_cancel" = "Cancelar";
+"alert_save_avatar_action_ok" = "OK";
 
-"alert_save_avatar_error_title" = "Error";
-"alert_save_avatar_error_description_prefix" = "Avatar With Name";
-"alert_save_avatar_error_description_sufix" = "Already Exists";
+"alert_save_avatar_error_title" = "Erro";
+"alert_save_avatar_error_description_prefix" = "Um Avatar Com Nome";
+"alert_save_avatar_error_description_sufix" = "Já Existe";
 "alert_save_avatar_error_action_ok" = "OK";
 
-"alert_send_avatar_title" = "Sending";
-"alert_send_avatar_description" = "Include Avatar Name?";
-"alert_send_avatar_action_yes" = "Yes";
-"alert_send_avatar_action_no" = "No";
+"alert_send_avatar_title" = "Enviando";
+"alert_send_avatar_description" = "Incluir Nome Do Avatar?";
+"alert_send_avatar_action_yes" = "Sim";
+"alert_send_avatar_action_no" = "Não";
 
-"controller_allavatars_var_isEditing_cancel" = "Cancel";
-"controller_allavatars_var_isEditing_edit" = "Edit";
-"controller_allavatars_var_searchController_placeholder" = "Search Avatars";
-"controller_allavatars_var_isEditing_cancel" = "Cancel";
-"controller_allavatars_func_updateSearchResults_error_description" = "Error While Removing Avatar";
+"controller_allavatars_title" = "Seus Avatares";
+"controller_allavatars_var_isEditing_cancel" = "Cancelar";
+"controller_allavatars_var_isEditing_edit" = "Editar";
+"controller_allavatars_var_searchController_placeholder" = "Procurar Avatares";
+"controller_allavatars_var_isEditing_cancel" = "Cancelar";
+"controller_allavatars_func_updateSearchResults_error_description" = "Erro Durante A Remoção";
+
+"controller_preview_var_previewActionItems_share_action_title" = "Compartilhar Avatar";
+"controller_preview_var_previewActionItems_fave_action_title" = "É Meu Favorito";
+"controller_preview_var_previewActionItems_unfave_action_title" = "Não É Meu Favorito";
+
+"controller_favAvatars_title" = "Avatares Favoritos";
+
+"controller_createAvatar_title" = "Criação De Avatar";

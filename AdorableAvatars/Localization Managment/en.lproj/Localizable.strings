@@ -33,6 +33,7 @@
 "alert_send_avatar_action_yes" = "Yes";
 "alert_send_avatar_action_no" = "No";
 
+"controller_allavatars_title" = "Your Avatars";
 "controller_allavatars_var_isEditing_cancel" = "Cancel";
 "controller_allavatars_var_isEditing_edit" = "Edit";
 "controller_allavatars_var_searchController_placeholder" = "Search Avatars";
@@ -41,5 +42,8 @@
 
 "controller_preview_var_previewActionItems_share_action_title" = "Share Avatar";
 "controller_preview_var_previewActionItems_fave_action_title" = "Its My Favorite";
-"controller_preview_var_previewActionItems_unfave_action_title" = "It`s NOT My Favorite";
+"controller_preview_var_previewActionItems_unfave_action_title" = "It`s Not My Favorite";
 
+"controller_favAvatars_title" = "Fav Avatars";
+
+"controller_createAvatar_title" = "Avatar Creation";

@@ -54,6 +54,9 @@ class AllAvatarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "\(Strings.controller_allavatars_title)"
+        isEditing_  = false
+        
         collectionViewSetup()
         
         navigationItem.searchController = searchController
@@ -359,7 +362,8 @@ extension AllAvatarsViewController: FavoriteAvatarDelegate{
 extension AllAvatarsViewController: LocalizableAllAvatarsController {
     
     enum Strings: String, Localizable {
-        case    controller_allavatars_var_isEditing_cancel,
+        case    controller_allavatars_title,
+                controller_allavatars_var_isEditing_cancel,
                 controller_allavatars_var_isEditing_edit,
                 controller_allavatars_var_searchController_placeholder,
                 controller_allavatars_func_updateSearchResults_error_description

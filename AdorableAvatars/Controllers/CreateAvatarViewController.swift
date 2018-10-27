@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LocalizableCreateAvatarController {
+    associatedtype Strings: Localizable
+}
+
 public enum CreateAvatarViewControllerAction {
     case push
 }
@@ -39,12 +43,15 @@ class CreateAvatarViewController: UIViewController {
         loadIndicator.color = UIColor.gray
         loadIndicator.hidesWhenStopped = true
         loadIndicator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        self.view.addSubview(loadIndicator)
         
         return loadIndicator
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "\(Strings.controller_createAvatar_title)"
         
         picker.delegate = self
         picker.datasource = self
@@ -53,46 +60,21 @@ class CreateAvatarViewController: UIViewController {
         colorPicker.delegate = self
         
         self.picker.radius = radiusSlider.value
-        
-        view.addSubview(loadIndicator)
-        loadIndicator.startAnimating()
-        adorableAvatars.findTypes()
-        
         self.radiusSlider.addTarget(self, action: #selector(self.sliderValueDidChange(_:)), for: .valueChanged)
-
-        
         self.pickerColors = plistReader.colors.pickerColorArray()
         
-        if let action = self.action {
-            switch action {
-            case .push:
-                showAvatarNameAlert()
-            }
-        }
+        treatInput()
         
-        if let data = self.data {
-            self.avatar = data.initialAdAvatar ?? self.avatar
-//            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
-////                self.picker.currentAvatar.eye = initalEye
-////                self.picker.currentAvatar.nose = initalNose
-////                self.picker.currentAvatar.month = initialMonth
-//
-//            }
-        }
-        
-        
+        loadIndicator.startAnimating()
+        adorableAvatars.findTypes()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.colorPicker.reloadData()
     }
     
     @objc private func sliderValueDidChange(_ sender: UIRadiusSlider){
         self.picker.radius = sender.value
-    }
-    
-    private func showAvatarNameAlert(){
-        present(AlertManagment.saveAvatarAlert(sucess: { (name) in
-            if let image = self.currentAvatarImage, let name = name{
-                self.saveAvatar(image: image, withName: name)
-            }
-        }), animated: true, completion: nil)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
@@ -102,6 +84,14 @@ class CreateAvatarViewController: UIViewController {
     @IBAction func cancelTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    private func showAvatarNameAlert(){
+        present(AlertManagment.saveAvatarAlert(sucess: { (name) in
+            if let image = self.currentAvatarImage, let name = name{
+                self.saveAvatar(image: image, withName: name)
+            }
+        }), animated: true, completion: nil)
     }
     
     private func saveAvatar(image: UIImage, withName name: String) {
@@ -124,8 +114,23 @@ class CreateAvatarViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        self.colorPicker.reloadData()
+    private func treatInput() {
+        if let action = self.action {
+            switch action {
+            case .push:
+                showAvatarNameAlert()
+            }
+        }
+        
+        if let data = self.data {
+            self.avatar = data.initialAdAvatar ?? self.avatar
+            //            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
+            ////                self.picker.currentAvatar.eye = initalEye
+            ////                self.picker.currentAvatar.nose = initalNose
+            ////                self.picker.currentAvatar.month = initialMonth
+            //
+            //            }
+        }
     }
 }
 
@@ -302,3 +307,16 @@ extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDele
     }
 }
 
+extension CreateAvatarViewController: LocalizableCreateAvatarController {
+    
+    enum Strings: String, Localizable {
+        case controller_createAvatar_title
+        
+        var comment: String {
+            switch self {
+            default:
+                return "default"
+            }
+        }
+    }
+}

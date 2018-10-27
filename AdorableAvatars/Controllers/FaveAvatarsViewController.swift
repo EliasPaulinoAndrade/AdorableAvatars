@@ -8,35 +8,47 @@
 
 import UIKit
 
+protocol LocalizableFavAvatarsController {
+    associatedtype Strings: Localizable
+}
+
 class FaveAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
     public var delegate: FavoriteAvatarDelegate?
     
-    private var avatars: [Avatar]?
+    private var avatars: [Avatar]? = try? CoreDataWrapper.getAllFavoriteAvatars()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.avatars = try? CoreDataWrapper.getAllFavoriteAvatars()
-        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
         
+        title = "\(Strings.controller_favAvatars_title)"
+
+        collectionViewSetup()
+        
+        treatTabCommunication()
+    }
+    override func viewDidLayoutSubviews() {
+        self.avatarsCollectionView.reloadData()
+    }
+    
+    private func collectionViewSetup() {
+        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
+    
         self.avatarsCollectionView.delegate = self
         self.avatarsCollectionView.dataSource = self
-        
+    
         registerForPreviewing(with: self, sourceView: avatarsCollectionView)
-        
+    }
+    
+    private func treatTabCommunication() {
         if let navigationController = self.tabBarController?.viewControllers?.first as? UINavigationController {
             if let allAvatarsController = navigationController.viewControllers.first as? AllAvatarsViewController {
                 allAvatarsController.delegate = self
             }
         }
     }
-    override func viewDidLayoutSubviews() {
-        self.avatarsCollectionView.reloadData()
-    }
-    
 }
 
 extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -146,5 +158,19 @@ extension FaveAvatarsViewController: AvatarPreviewDelegate{
         }()
         
         self.present(activityController, animated: true, completion: nil)
+    }
+}
+
+extension FaveAvatarsViewController: LocalizableFavAvatarsController {
+    
+    enum Strings: String, Localizable {
+        case controller_favAvatars_title
+        
+        var comment: String {
+            switch self {
+            default:
+                return "default"
+            }
+        }
     }
 }
