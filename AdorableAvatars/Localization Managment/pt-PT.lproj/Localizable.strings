@@ -15,7 +15,7 @@
 "alert_generic_error_action_ok" = "OK";
 
 "alert_network_error_title" = "Error";
-"alert_network_description_title" = "Network Error";
+"alert_network_description" = "Network Error";
 "alert_network_description_action_retry" = "Retry";
 
 "alert_save_avatar_title" = "Saving";
@@ -29,6 +29,12 @@
 "alert_save_avatar_error_action_ok" = "OK";
 
 "alert_send_avatar_title" = "Sending";
-"alert_save_avatar_description" = "Include Avatar Name?";
-"alert_save_avatar_action_yes" = "Yes";
-"alert_save_avatar_action_no" = "No";
+"alert_send_avatar_description" = "Include Avatar Name?";
+"alert_send_avatar_action_yes" = "Yes";
+"alert_send_avatar_action_no" = "No";
+
+"controller_allavatars_var_isEditing_cancel" = "Cancel";
+"controller_allavatars_var_isEditing_edit" = "Edit";
+"controller_allavatars_var_searchController_placeholder" = "Search Avatars";
+"controller_allavatars_var_isEditing_cancel" = "Cancel";
+"controller_allavatars_func_updateSearchResults_error_description" = "Error While Removing Avatar";

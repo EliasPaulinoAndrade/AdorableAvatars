@@ -33,3 +33,8 @@
 "alert_send_avatar_action_yes" = "Yes";
 "alert_send_avatar_action_no" = "No";
 
+"controller_allavatars_var_isEditing_cancel" = "Cancel";
+"controller_allavatars_var_isEditing_edit" = "Edit";
+"controller_allavatars_var_searchController_placeholder" = "Search Avatars";
+"controller_allavatars_var_isEditing_cancel" = "Cancel";
+"controller_allavatars_func_updateSearchResults_error_description" = "Error While Removing Avatar";

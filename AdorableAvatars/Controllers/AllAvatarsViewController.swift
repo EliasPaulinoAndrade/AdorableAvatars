@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LocalizableAllAvatarsController {
+    associatedtype Strings: Localizable
+}
+
 
 public enum AllAvatarsViewControllerAction {
     case push, normal
@@ -21,29 +25,27 @@ class AllAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     
-    public var delegate: FavoriteAvatarDelegate?
-    public var action: AllAvatarsViewControllerAction?
-    public var data: AllAvatarsViewControllerReceivedData?
-    
-    private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
-    
-    public var isEditing_ = false {
+    var delegate: FavoriteAvatarDelegate?
+    var action: AllAvatarsViewControllerAction?
+    var data: AllAvatarsViewControllerReceivedData?
+    var isEditing_ = false {
         didSet {
             if self.isEditing_{
-                self.navigationItem.rightBarButtonItems?[1].title = "Cancel"
+                self.navigationItem.rightBarButtonItems?[1].title = "\(Strings.controller_allavatars_var_isEditing_cancel)"
             }
             else {
-                self.navigationItem.rightBarButtonItems?[1].title = "Edit"
+                self.navigationItem.rightBarButtonItems?[1].title = "\(Strings.controller_allavatars_var_isEditing_edit)"
             }
             self.avatarsCollectionView.reloadData()
         }
     }
     
+    private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController.init(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Avatars"
+        searchController.searchBar.placeholder = "\(Strings.controller_allavatars_var_searchController_placeholder)"
         searchController.definesPresentationContext = true
         searchController.delegate = self
     
@@ -53,30 +55,12 @@ class AllAvatarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
-        
-        avatarsCollectionView.dataSource = self
-        avatarsCollectionView.delegate = self
-        avatarsCollectionView.allowsMultipleSelection = true
-        
-        registerForPreviewing(with: self, sourceView: avatarsCollectionView)
+        collectionViewSetup()
         
         navigationItem.searchController = searchController
         
-        if let navigationController = self.tabBarController?.viewControllers?[1] as? UINavigationController {
-            if let faveAvatarsController = navigationController.viewControllers.first as? FaveAvatarsViewController {
-                faveAvatarsController.delegate = self
-            }
-        }
-        
-        if let action = self.action {
-            switch action {
-            case .push:
-                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
-            case .normal:
-                break
-            }
-        }
+        treatTabCommunication()
+        treatInput()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +83,34 @@ class AllAvatarsViewController: UIViewController {
                     createAvatarController.data = CreateAvatarViewControllerReceivedData(initialAdAvatar: self.data?.adAvatar)
                     self.action = .normal
                 }
+            }
+        }
+    }
+    
+    private func collectionViewSetup() {
+        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
+        
+        avatarsCollectionView.dataSource = self
+        avatarsCollectionView.delegate = self
+        avatarsCollectionView.allowsMultipleSelection = true
+        registerForPreviewing(with: self, sourceView: avatarsCollectionView)
+    }
+    
+    private func treatInput() {
+        if let action = self.action {
+            switch action {
+            case .push:
+                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+            case .normal:
+                break
+            }
+        }
+    }
+    
+    private func treatTabCommunication() {
+        if let navigationController = self.tabBarController?.viewControllers?[1] as? UINavigationController {
+            if let faveAvatarsController = navigationController.viewControllers.first as? FaveAvatarsViewController {
+                faveAvatarsController.delegate = self
             }
         }
     }
@@ -225,7 +237,11 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
             self.avatarsCollectionView.reloadData()
             
         } catch {
-            present(AlertManagment.genericErrorAlert(withDescription: "Error While Removing Avatar"), animated: true, completion: nil)
+            present(AlertManagment.genericErrorAlert(
+                withDescription: "\(Strings.controller_allavatars_func_updateSearchResults_error_description)"),
+                animated: true,
+                completion: nil
+            )
         }
     }
     
@@ -336,5 +352,24 @@ extension AllAvatarsViewController: FavoriteAvatarDelegate{
         }
         
         avatarCell.isFaved = false
+        
+        
+    }
+}
+
+extension AllAvatarsViewController: LocalizableAllAvatarsController {
+    
+    enum Strings: String, Localizable {
+        case    controller_allavatars_var_isEditing_cancel,
+                controller_allavatars_var_isEditing_edit,
+                controller_allavatars_var_searchController_placeholder,
+                controller_allavatars_func_updateSearchResults_error_description
+        
+        var comment: String {
+            switch self {
+            default:
+                return "default"
+            }
+        }
     }
 }

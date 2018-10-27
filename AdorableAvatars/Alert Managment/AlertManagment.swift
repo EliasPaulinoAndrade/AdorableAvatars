@@ -13,7 +13,6 @@ protocol LocalizableAlerts {
 }
 
 class AlertManagment {
-
     
     /// make a alert to be showed when the user id deleting a avatar
     ///
