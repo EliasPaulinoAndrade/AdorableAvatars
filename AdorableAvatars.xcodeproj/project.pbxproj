@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 		E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */; };
 		E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE37217E5393009A8BF7 /* NotificationService.swift */; };
@@ -176,6 +177,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E386AE2B217E351D009A8BF7 /* AlertManagment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagment.swift; sourceTree = "<group>"; };
 		E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdorableAvatars.entitlements; sourceTree = "<group>"; };
 		E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -300,6 +302,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E348BB8921847A6800A905F0 /* Localization Managment */ = {
+			isa = PBXGroup;
+			children = (
+				E348BB902184869700A905F0 /* Localizable.swift */,
+			);
+			path = "Localization Managment";
+			sourceTree = "<group>";
+		};
 		E386AE28217E3438009A8BF7 /* Alert Managment */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */,
+				E348BB8921847A6800A905F0 /* Localization Managment */,
 				E386AE2E217E45B6009A8BF7 /* Notification Managment */,
 				E386AE28217E3438009A8BF7 /* Alert Managment */,
 				E3AB053E2178E3D000B80D74 /* Core Data Managment */,
@@ -866,6 +877,7 @@
 				E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */,
 				E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */,
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
+				E348BB912184869700A905F0 /* Localizable.swift in Sources */,
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E386AE5B218096F0009A8BF7 /* PickerColor.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
@@ -1058,6 +1070,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1119,6 +1132,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
