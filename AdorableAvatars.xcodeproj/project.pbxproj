@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
+		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 		E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */; };
 		E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE37217E5393009A8BF7 /* NotificationService.swift */; };
@@ -178,6 +179,8 @@
 
 /* Begin PBXFileReference section */
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E386AE2B217E351D009A8BF7 /* AlertManagment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagment.swift; sourceTree = "<group>"; };
 		E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdorableAvatars.entitlements; sourceTree = "<group>"; };
 		E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -306,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				E348BB902184869700A905F0 /* Localizable.swift */,
+				E348BB962184881700A905F0 /* Localizable.strings */,
 			);
 			path = "Localization Managment";
 			sourceTree = "<group>";
@@ -768,6 +772,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
+				"pt-PT",
 			);
 			mainGroup = E3AB04C42176072E00B80D74;
 			productRefGroup = E3AB04CE2176072E00B80D74 /* Products */;
@@ -799,6 +805,7 @@
 			files = (
 				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
 				E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */,
+				E348BB942184881700A905F0 /* Localizable.strings in Resources */,
 				E3AB0522217783B900B80D74 /* UIColorPicker.xib in Resources */,
 				E3AB053A2178A80F00B80D74 /* UIAvatarCollectionViewCell.xib in Resources */,
 				E3AB051F2177750500B80D74 /* avatarColors.plist in Resources */,
@@ -999,6 +1006,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E348BB962184881700A905F0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E348BB952184881700A905F0 /* en */,
+				E348BB972184893D00A905F0 /* pt-PT */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E3AB04D42176072E00B80D74 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

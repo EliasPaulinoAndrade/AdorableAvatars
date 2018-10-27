@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LocalizableAlerts {
+    associatedtype Strings: Localizable
+}
+
 class AlertManagment {
 
     
@@ -16,11 +20,25 @@ class AlertManagment {
     /// - Parameter sucess: a completion if the user confirms the deletion
     /// - Returns: the alert
     static public func alertRemoveAvatar(sucess: @escaping () -> ()) -> UIAlertController {
-        let alertRemoveAvatar = UIAlertController.init(title: "Remove Avatar", message: "Do You Want Remove It? ", preferredStyle: .alert)
-        alertRemoveAvatar.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
-            sucess()
-        }))
-        alertRemoveAvatar.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
+        let alertRemoveAvatar = UIAlertController.init(
+            title: Strings.alert_remove_avatar_title.localizable,
+            message: Strings.alert_remove_avatar_description.localizable,
+            preferredStyle: .alert
+        )
+        
+        alertRemoveAvatar.addAction(UIAlertAction.init(
+            title: Strings.alert_remove_avatar_action_yes.localizable,
+            style: .default,
+            handler: { (action) in
+                sucess()
+            }
+        ))
+        
+        alertRemoveAvatar.addAction(UIAlertAction.init(
+            title: Strings.alert_remove_avatar_action_no.localizable,
+            style: .cancel,
+            handler: nil
+        ))
         return alertRemoveAvatar
     }
     
@@ -30,9 +48,17 @@ class AlertManagment {
     /// - Parameter description: the error description
     /// - Returns: the alert
     static public func genericErrorAlert(withDescription description: String) -> UIAlertController {
-        let alertError = UIAlertController.init(title: "Error", message: description, preferredStyle: .actionSheet)
+        let alertError = UIAlertController.init(
+            title: Strings.alert_generic_error_title.localizable,
+            message: description,
+            preferredStyle: .actionSheet
+        )
         
-        alertError.addAction(UIAlertAction.init(title: "OK", style: .cancel, handler: nil))
+        alertError.addAction(UIAlertAction.init(
+            title: Strings.alert_generic_error_action_ok.localizable,
+            style: .cancel,
+            handler: nil
+        ))
         
         return alertError
     }
@@ -42,11 +68,19 @@ class AlertManagment {
     ///
     /// - Returns: the alert
     static public func networkErrorAlert(completion: @escaping () -> ()) -> UIAlertController {
-        let alertError = UIAlertController.init(title: "Error", message: "Network Error", preferredStyle: .actionSheet)
+        let alertError = UIAlertController.init(
+            title: Strings.alert_network_error_title.localizable,
+            message: Strings.alert_network_description.localizable,
+            preferredStyle: .actionSheet
+        )
         
-        alertError.addAction(UIAlertAction.init(title: "Retry", style: .default, handler: { (alert) in
-            completion()
-        }))
+        alertError.addAction(UIAlertAction.init(
+            title: Strings.alert_network_description_action_retry.localizable,
+            style: .default,
+            handler: { (alert) in
+                completion()
+            }
+        ))
         return alertError
     }
     
@@ -56,13 +90,25 @@ class AlertManagment {
     /// - Parameter sucess: completion when the user finish to type
     /// - Returns: the alert
     static public func saveAvatarAlert(sucess: @escaping (_ name: String?) -> ()) -> UIAlertController {
-        let alert = UIAlertController.init(title: "Saving", message: "Whats is him name? ", preferredStyle: .alert)
+        let alert = UIAlertController.init(
+            title: Strings.alert_save_avatar_title.localizable,
+            message: Strings.alert_save_avatar_description.localizable,
+            preferredStyle: .alert
+        )
         
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(
+            title: Strings.alert_save_avatar_action_cancel.localizable,
+            style: .cancel,
+            handler: nil
+        ))
         
-        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
-            sucess(alert.textFields?.first?.text)
-        }))
+        alert.addAction(UIAlertAction.init(
+            title: Strings.alert_save_avatar_action_ok.localizable,
+            style: .default,
+            handler: { (action) in
+                sucess(alert.textFields?.first?.text)
+            }
+        ))
         
         alert.addTextField(configurationHandler: nil)
         
@@ -75,24 +121,81 @@ class AlertManagment {
     /// - Parameter name: name that is repeated
     /// - Returns: the alert
     static public func saveAvatarErrorAlert(name: String) -> UIAlertController{
-        let alertError = UIAlertController.init(title: "Error", message: "Avatar With Name \"\(name)\" Already Exists", preferredStyle: .actionSheet)
+        let alertError = UIAlertController.init(
+            title: Strings.alert_save_avatar_error_title.localizable,
+            message: "\(Strings.alert_save_avatar_error_description_sufix.localizable) \"\(name)\" \(Strings.alert_save_avatar_error_description_sufix.localizable)",
+            preferredStyle: .actionSheet
+        )
         
-        alertError.addAction(UIAlertAction.init(title: "OK", style: .cancel, handler: nil))
+        alertError.addAction(UIAlertAction.init(
+            title: Strings.alert_save_avatar_error_action_ok.localizable,
+            style: .cancel,
+            handler: nil
+        ))
         
         return alertError
     }
     
     static public func sendAvatarAlert(answered: @escaping (_ include: Bool) -> ()) -> UIAlertController {
-        let alert = UIAlertController.init(title: "Sending", message: "Include Avatar Name? ", preferredStyle: .actionSheet)
+        let alert = UIAlertController.init(
+            title: Strings.alert_send_avatar_title.localizable,
+            message: Strings.alert_send_avatar_description.localizable,
+            preferredStyle: .actionSheet
+        )
         
-        alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (action) in
-            answered(false)
-        }))
+        alert.addAction(UIAlertAction.init(
+            title: Strings.alert_send_avatar_action_no.localizable,
+            style: .cancel,
+            handler: { (action) in
+                answered(false)
+            }
+        ))
         
-        alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
-            answered(true)
-        }))
+        alert.addAction(UIAlertAction.init(
+            title: Strings.alert_send_avatar_action_yes.localizable,
+            style: .default,
+            handler: { (action) in
+                answered(true)
+            }
+        ))
         
         return alert
+    }
+}
+
+extension AlertManagment: LocalizableAlerts {
+    enum Strings: String, Localizable {
+        case    alert_remove_avatar_title,
+                alert_remove_avatar_description,
+                alert_remove_avatar_action_yes,
+                alert_remove_avatar_action_no
+        case
+                alert_generic_error_title,
+                alert_generic_error_action_ok
+        case
+                alert_network_error_title,
+                alert_network_description,
+                alert_network_description_action_retry
+        case
+                alert_save_avatar_title,
+                alert_save_avatar_description,
+                alert_save_avatar_action_cancel,
+                alert_save_avatar_action_ok,
+                alert_save_avatar_error_title,
+                alert_save_avatar_error_description_prefix,
+                alert_save_avatar_error_description_sufix,
+                alert_save_avatar_error_action_ok
+        case
+                alert_send_avatar_title,
+                alert_send_avatar_description,
+                alert_send_avatar_action_yes,
+                alert_send_avatar_action_no
+        
+        var comment: String {
+            switch self {
+            default:
+                return "default"
+            }
+        }
     }
 }

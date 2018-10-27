@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol Localizable: RawRepresentable, CustomStringConvertible {
+    var localizable: String { get }
+    var comment: String { get }
+}
+
+extension Localizable where Self.RawValue == String {
+    
+    var localizable: String {
+        return NSLocalizedString(self.rawValue ,comment: self.comment)
+    }
+    
+    var description: String {
+        return localizable
+    }
+}

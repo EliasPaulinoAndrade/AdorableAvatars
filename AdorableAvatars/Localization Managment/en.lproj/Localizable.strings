@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  AdorableAvatars
+
+  Created by Elias Paulino on 27/10/18.
+  Copyright © 2018 Elias Paulino. All rights reserved.
+*/
+
+"alert_remove_avatar_title" = "Remove Avatar";
+"alert_remove_avatar_description" = "Do You Want Remove It?";
+"alert_remove_avatar_action_yes" = "Yes";
+"alert_remove_avatar_action_no" = "No";
+
+"alert_generic_error_title" = "Error";
+"alert_generic_error_action_ok" = "OK";
+
+"alert_network_error_title" = "Error";
+"alert_network_description" = "Network Error";
+"alert_network_description_action_retry" = "Retry";
+
+"alert_save_avatar_title" = "Saving";
+"alert_save_avatar_description" = "Whats is him name?";
+"alert_save_avatar_action_cancel" = "Cancel";
+"alert_save_avatar_action_ok" = "Ok";
+
+"alert_save_avatar_error_title" = "Error";
+"alert_save_avatar_error_description_prefix" = "Avatar With Name";
+"alert_save_avatar_error_description_sufix" = "Already Exists";
+"alert_save_avatar_error_action_ok" = "OK";
+
+"alert_send_avatar_title" = "Sending";
+"alert_send_avatar_description" = "Include Avatar Name?";
+"alert_send_avatar_action_yes" = "Yes";
+"alert_send_avatar_action_no" = "No";
+
