@@ -456,7 +456,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydl-rL-ch5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydl-rL-ch5">
                                 <rect key="frame" x="10" y="160" width="394" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="text_gray"/>
@@ -464,6 +464,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-K2-jTW">
                                 <rect key="frame" x="10" y="150" width="394" height="653"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IN5-Au-TIc">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -477,9 +478,9 @@
                         <constraints>
                             <constraint firstItem="ydl-rL-ch5" firstAttribute="top" secondItem="bDq-A5-urt" secondAttribute="top" constant="20" id="5yY-5h-aRA"/>
                             <constraint firstItem="bDq-A5-urt" firstAttribute="trailing" secondItem="gWO-K2-jTW" secondAttribute="trailing" constant="10" id="98x-nt-04d"/>
-                            <constraint firstItem="ydl-rL-ch5" firstAttribute="trailing" secondItem="bDq-A5-urt" secondAttribute="trailing" constant="-10" id="CFy-cj-SJ0"/>
                             <constraint firstItem="gWO-K2-jTW" firstAttribute="leading" secondItem="bDq-A5-urt" secondAttribute="leading" constant="10" id="QGU-lu-9jU"/>
                             <constraint firstItem="gWO-K2-jTW" firstAttribute="top" secondItem="bDq-A5-urt" secondAttribute="top" constant="10" id="kZT-VO-dI1"/>
+                            <constraint firstItem="bDq-A5-urt" firstAttribute="trailing" secondItem="ydl-rL-ch5" secondAttribute="trailing" constant="10" id="kdf-Ny-Eck"/>
                             <constraint firstItem="bDq-A5-urt" firstAttribute="bottom" secondItem="gWO-K2-jTW" secondAttribute="bottom" constant="10" id="pMv-vl-m5w"/>
                             <constraint firstItem="ydl-rL-ch5" firstAttribute="leading" secondItem="bDq-A5-urt" secondAttribute="leading" constant="10" id="wws-Dg-jCE"/>
                         </constraints>

@@ -126,6 +126,7 @@
             <constraints>
                 <constraint firstItem="Fog-uU-Upe" firstAttribute="leading" secondItem="o1J-nC-Zrq" secondAttribute="trailing" id="4Eo-7l-rjA"/>
                 <constraint firstItem="Fog-uU-Upe" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="5We-6X-Xzb"/>
+                <constraint firstItem="Fog-uU-Upe" firstAttribute="height" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="height" id="GyG-kT-d4Z"/>
                 <constraint firstItem="o1J-nC-Zrq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Mzm-pH-7qM"/>
                 <constraint firstItem="o1J-nC-Zrq" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="hkw-3B-0Y5"/>
                 <constraint firstItem="o1J-nC-Zrq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jF1-Sf-sGz"/>
