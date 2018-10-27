@@ -56,7 +56,6 @@ extension NotificationService: ADAvatarDelegate {
     }
     
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) {
-        print("fail")
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)
         }

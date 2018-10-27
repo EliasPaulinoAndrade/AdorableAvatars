@@ -49,3 +49,5 @@
 "controller_favAvatars_no_avatar_warning" = "You have no favorite avatars. Click the avatar star button to favor one.";
 
 "controller_createAvatar_title" = "Avatar Creation";
+
+"controller_messages_cant_add_message_error" = "Cannot Insert The Message";

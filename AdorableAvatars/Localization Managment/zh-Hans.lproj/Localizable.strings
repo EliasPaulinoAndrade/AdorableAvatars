@@ -49,3 +49,6 @@
 "controller_favAvatars_no_avatar_warning" = "你没有最喜欢的头像。 点击头像明星按钮以赞成一个";
 
 "controller_createAvatar_title" = "头像创作";
+
+
+"controller_messages_cant_add_message_error" = "无法插入消息";
