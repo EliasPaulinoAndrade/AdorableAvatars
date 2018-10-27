@@ -12,7 +12,6 @@ protocol LocalizableAllAvatarsController {
     associatedtype Strings: Localizable
 }
 
-
 public enum AllAvatarsViewControllerAction {
     case push, normal
 }
@@ -281,7 +280,7 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let avatarContainer = self.containerAvatars?[indexPath.row] else {
             return nil
         }
-        let data = DataToPreviewController.init(image: cell.avatarImage.image, avatar: avatarContainer.avatar)
+        let data = PreviewViewControllerReceivedData.init(image: cell.avatarImage.image, avatar: avatarContainer.avatar)
         
         let width = self.avatarsCollectionView.frame.width
         let height = width

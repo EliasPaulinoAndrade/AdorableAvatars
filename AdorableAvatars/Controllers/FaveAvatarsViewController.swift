@@ -106,7 +106,7 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let avatar = self.avatars?[indexPath.row] else {
             return nil
         }
-        let data = DataToPreviewController.init(image: cell.avatarImage.image, avatar: avatar)
+        let data = PreviewViewControllerReceivedData.init(image: cell.avatarImage.image, avatar: avatar)
         
         let width = self.avatarsCollectionView.frame.width
         let height = width

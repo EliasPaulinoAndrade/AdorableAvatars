@@ -38,3 +38,8 @@
 "controller_allavatars_var_searchController_placeholder" = "Search Avatars";
 "controller_allavatars_var_isEditing_cancel" = "Cancel";
 "controller_allavatars_func_updateSearchResults_error_description" = "Error While Removing Avatar";
+
+"controller_preview_var_previewActionItems_share_action_title" = "Share Avatar";
+"controller_preview_var_previewActionItems_fave_action_title" = "Its My Favorite";
+"controller_preview_var_previewActionItems_unfave_action_title" = "It`s NOT My Favorite";
+

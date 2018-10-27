@@ -8,10 +8,19 @@
 
 import UIKit
 
+protocol LocalizablePreviewController {
+    associatedtype Strings: Localizable
+}
+
+struct PreviewViewControllerReceivedData{
+    let image: UIImage?
+    let avatar: Avatar?
+}
+
 class PreviewViewController: UIViewController {
     @IBOutlet weak var previewImageView: UIImageView!
     
-    public var dataReceived: DataToPreviewController?
+    public var dataReceived: PreviewViewControllerReceivedData?
     public var delegate: AvatarPreviewDelegate?
     
     private var avatar: Avatar?
@@ -21,14 +30,17 @@ class PreviewViewController: UIViewController {
             return []
         }
         
-        let shareAction = UIPreviewAction.init(title: "Share Avatar", style: .default) { (action, controller) in
+        let shareAction = UIPreviewAction.init(
+            title: "\(Strings.controller_preview_var_previewActionItems_share_action_title)",
+            style: .default) { (action, controller) in
             if let image = self.previewImageView.image {
                 self.delegate?.avatarShared?(avatar, withImage: image)
             }
         }
     
-        let faveAction = UIPreviewAction.init(title: avatar.isFave ? "It`s NOT My Favorite" : "Its My Favorite", style: .default) { (action, controller) in
-            
+        let faveAction = UIPreviewAction.init(
+            title: avatar.isFave ? "\(Strings.controller_preview_var_previewActionItems_unfave_action_title)" : "\(Strings.controller_preview_var_previewActionItems_fave_action_title)",
+            style: .default) { (action, controller) in
             if avatar.isFave {
                 self.delegate?.avatarWasDesfavorite(avatar)
             } else {
@@ -50,8 +62,18 @@ class PreviewViewController: UIViewController {
     }
 }
 
-//creating data struct
-struct DataToPreviewController{
-    let image: UIImage?
-    let avatar: Avatar?
+extension PreviewViewController: LocalizablePreviewController {
+    
+    enum Strings: String, Localizable {
+        case    controller_preview_var_previewActionItems_share_action_title,
+                controller_preview_var_previewActionItems_fave_action_title,
+                controller_preview_var_previewActionItems_unfave_action_title
+        
+        var comment: String {
+            switch self {
+            default:
+                return "default"
+            }
+        }
+    }
 }
