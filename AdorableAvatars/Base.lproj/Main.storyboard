@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63T-Qm-e0e">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CreateAvatarViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hml-8Z-7oC" customClass="UIAvatarPicker" customModule="AdorableAvatars" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="160" width="414" height="313.5"/>
+                                <rect key="frame" x="0.0" y="136.00000000000003" width="414" height="257.66666666666674"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hml-8Z-7oC" secondAttribute="height" multiplier="1.2:1" id="8fD-L7-ILc"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 </variation>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-gc-Egv">
-                                <rect key="frame" x="10" y="493.5" width="394" height="358.5"/>
+                                <rect key="frame" x="10" y="413.66666666666674" width="394" height="312.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgg-a9-bmX">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="370"/>
@@ -84,7 +84,7 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfc-Ni-Xak">
-                                                <rect key="frame" x="0.0" y="150" width="394" height="100"/>
+                                                <rect key="frame" x="0.0" y="149.99999999999994" width="394" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE THE RADIUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pq-lr-239">
                                                         <rect key="frame" x="10" y="10" width="374" height="18"/>
@@ -93,7 +93,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hok-Dw-rYs" customClass="UIRadiusSlider" customModule="AdorableAvatars" customModuleProvider="target">
-                                                        <rect key="frame" x="18" y="45.5" width="358" height="30"/>
+                                                        <rect key="frame" x="18" y="45.333333333333371" width="358" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="29" id="KB4-aZ-Gc7"/>
                                                             <constraint firstAttribute="height" constant="29" id="Qxm-SU-xQf"/>
@@ -128,13 +128,16 @@
                                                     <constraint firstItem="7pq-lr-239" firstAttribute="leading" secondItem="Kfc-Ni-Xak" secondAttribute="leading" constant="10" id="EjX-EA-EiU"/>
                                                     <constraint firstAttribute="height" constant="100" id="Eza-59-wih"/>
                                                     <constraint firstAttribute="trailing" secondItem="7pq-lr-239" secondAttribute="trailing" constant="10" id="LIZ-wc-v72"/>
+                                                    <constraint firstItem="hok-Dw-rYs" firstAttribute="leading" secondItem="Kfc-Ni-Xak" secondAttribute="leading" constant="20" id="R6X-0P-2IO"/>
                                                     <constraint firstItem="7pq-lr-239" firstAttribute="top" secondItem="Kfc-Ni-Xak" secondAttribute="top" constant="10" id="Rse-fI-FXW"/>
                                                     <constraint firstAttribute="trailing" secondItem="hok-Dw-rYs" secondAttribute="trailing" constant="20" id="UtU-Ta-p0T"/>
                                                     <constraint firstAttribute="trailing" secondItem="hok-Dw-rYs" secondAttribute="trailing" constant="20" id="Wa6-FC-8Yk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hok-Dw-rYs" secondAttribute="trailing" constant="20" id="e7S-oz-S69"/>
                                                     <constraint firstItem="hok-Dw-rYs" firstAttribute="centerY" secondItem="Kfc-Ni-Xak" secondAttribute="centerY" id="ejB-8f-Ohv">
                                                         <variation key="heightClass=compact" constant="10"/>
                                                     </constraint>
                                                     <constraint firstItem="hok-Dw-rYs" firstAttribute="leading" secondItem="Kfc-Ni-Xak" secondAttribute="leading" constant="20" id="gRr-uS-Aiy"/>
+                                                    <constraint firstItem="hok-Dw-rYs" firstAttribute="centerY" secondItem="Kfc-Ni-Xak" secondAttribute="centerY" id="hfe-Oa-T8S"/>
                                                     <constraint firstItem="hok-Dw-rYs" firstAttribute="centerY" secondItem="Kfc-Ni-Xak" secondAttribute="centerY" id="qun-Kd-l9P">
                                                         <variation key="widthClass=compact" constant="10"/>
                                                     </constraint>
@@ -149,10 +152,13 @@
                                                     <mask key="constraints">
                                                         <exclude reference="0SH-9P-apA"/>
                                                         <exclude reference="2Yk-lH-NIw"/>
+                                                        <exclude reference="R6X-0P-2IO"/>
                                                         <exclude reference="UtU-Ta-p0T"/>
                                                         <exclude reference="Wa6-FC-8Yk"/>
+                                                        <exclude reference="e7S-oz-S69"/>
                                                         <exclude reference="ejB-8f-Ohv"/>
                                                         <exclude reference="gRr-uS-Aiy"/>
+                                                        <exclude reference="hfe-Oa-T8S"/>
                                                         <exclude reference="qun-Kd-l9P"/>
                                                         <exclude reference="rwQ-gy-Hlb"/>
                                                     </mask>
@@ -174,9 +180,16 @@
                                                         <include reference="rwQ-gy-Hlb"/>
                                                     </mask>
                                                 </variation>
+                                                <variation key="widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="R6X-0P-2IO"/>
+                                                        <include reference="e7S-oz-S69"/>
+                                                        <include reference="hfe-Oa-T8S"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-1x-iVP">
-                                                <rect key="frame" x="0.0" y="270" width="394" height="100"/>
+                                                <rect key="frame" x="0.0" y="269.99999999999994" width="394" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE THE PROPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-JX-mC5">
                                                         <rect key="frame" x="10" y="10" width="374" height="18"/>
@@ -223,11 +236,15 @@
                                             <constraint firstItem="asf-1x-iVP" firstAttribute="top" secondItem="Kfc-Ni-Xak" secondAttribute="bottom" constant="10" id="1zj-aI-JOn"/>
                                             <constraint firstAttribute="trailing" secondItem="rtq-ci-ovp" secondAttribute="trailing" id="5YZ-Mc-sYR"/>
                                             <constraint firstItem="Kfc-Ni-Xak" firstAttribute="leading" secondItem="Hgg-a9-bmX" secondAttribute="leading" id="7pQ-gB-4Rq"/>
+                                            <constraint firstItem="asf-1x-iVP" firstAttribute="top" secondItem="Kfc-Ni-Xak" secondAttribute="bottom" constant="20" id="BAZ-9U-qbR"/>
                                             <constraint firstAttribute="trailing" secondItem="asf-1x-iVP" secondAttribute="trailing" id="Djt-zd-9nC"/>
                                             <constraint firstItem="asf-1x-iVP" firstAttribute="leading" secondItem="Hgg-a9-bmX" secondAttribute="leading" id="RYh-sc-laG"/>
+                                            <constraint firstAttribute="bottom" secondItem="asf-1x-iVP" secondAttribute="bottom" id="Sw8-uZ-oOL"/>
                                             <constraint firstItem="asf-1x-iVP" firstAttribute="leading" secondItem="Hgg-a9-bmX" secondAttribute="leading" id="aEW-Ud-6lk"/>
+                                            <constraint firstItem="asf-1x-iVP" firstAttribute="leading" secondItem="Hgg-a9-bmX" secondAttribute="leading" id="cBh-0K-Qbg"/>
                                             <constraint firstItem="Kfc-Ni-Xak" firstAttribute="top" secondItem="rtq-ci-ovp" secondAttribute="bottom" constant="20" id="da0-qc-nga"/>
                                             <constraint firstItem="asf-1x-iVP" firstAttribute="top" secondItem="Kfc-Ni-Xak" secondAttribute="bottom" constant="20" id="kLw-w2-klK"/>
+                                            <constraint firstAttribute="trailing" secondItem="asf-1x-iVP" secondAttribute="trailing" id="nGd-Gs-rX2"/>
                                             <constraint firstItem="Kfc-Ni-Xak" firstAttribute="top" secondItem="rtq-ci-ovp" secondAttribute="bottom" constant="17.666666666666657" id="nsR-NK-bRR">
                                                 <variation key="heightClass=compact" constant="10"/>
                                             </constraint>
@@ -249,10 +266,14 @@
                                             <mask key="constraints">
                                                 <exclude reference="nsR-NK-bRR"/>
                                                 <exclude reference="1zj-aI-JOn"/>
+                                                <exclude reference="BAZ-9U-qbR"/>
                                                 <exclude reference="Djt-zd-9nC"/>
                                                 <exclude reference="RYh-sc-laG"/>
+                                                <exclude reference="Sw8-uZ-oOL"/>
                                                 <exclude reference="aEW-Ud-6lk"/>
+                                                <exclude reference="cBh-0K-Qbg"/>
                                                 <exclude reference="kLw-w2-klK"/>
+                                                <exclude reference="nGd-Gs-rX2"/>
                                                 <exclude reference="obb-a0-dw9"/>
                                                 <exclude reference="rsE-Gf-JzT"/>
                                                 <exclude reference="sHi-Su-rZd"/>
@@ -276,6 +297,15 @@
                                                 <include reference="RYh-sc-laG"/>
                                                 <include reference="kLw-w2-klK"/>
                                                 <include reference="obb-a0-dw9"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="rox-7i-IJy"/>
+                                                <include reference="BAZ-9U-qbR"/>
+                                                <include reference="Sw8-uZ-oOL"/>
+                                                <include reference="cBh-0K-Qbg"/>
+                                                <include reference="nGd-Gs-rX2"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -376,17 +406,17 @@
             <objects>
                 <viewController id="eH0-5b-2O8" customClass="FaveAvatarsViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zqe-Lm-Y9e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97Q-31-TFO">
-                                <rect key="frame" x="10" y="160" width="394" height="20.5"/>
+                                <rect key="frame" x="10" y="136" width="394" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="text_gray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C5j-8b-6Nx">
-                                <rect key="frame" x="10" y="150" width="394" height="653"/>
+                                <rect key="frame" x="10" y="126" width="394" height="551"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xTc-gX-UOE">
                                     <size key="itemSize" width="50" height="50"/>
@@ -424,11 +454,11 @@
             <objects>
                 <viewController storyboardIdentifier="previewController" id="88o-I0-1II" customClass="PreviewViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OF9-fJ-lTy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zru-Gs-Pvt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -453,17 +483,17 @@
             <objects>
                 <viewController id="NIp-Ne-dWX" customClass="AllAvatarsViewController" customModule="AdorableAvatars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ef-WT-nCo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydl-rL-ch5">
-                                <rect key="frame" x="10" y="160" width="394" height="20.5"/>
+                                <rect key="frame" x="10" y="136" width="394" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="text_gray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-K2-jTW">
-                                <rect key="frame" x="10" y="150" width="394" height="653"/>
+                                <rect key="frame" x="10" y="126" width="394" height="551"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IN5-Au-TIc">
                                     <size key="itemSize" width="50" height="50"/>
@@ -548,7 +578,7 @@
                     <tabBarItem key="tabBarItem" title="All" image="home" selectedImage="home" id="Knl-Pw-x4N"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="9X3-n0-gcd">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
@@ -568,7 +598,7 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="hhT-yv-G2L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="uBO-Mz-DWH">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
@@ -588,7 +618,7 @@
                     <tabBarItem key="tabBarItem" title="Item" selectedImage="faves" id="70v-6N-F7K"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="DAL-6r-srM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
