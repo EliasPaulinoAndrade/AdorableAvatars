@@ -51,8 +51,6 @@ class CreateAvatarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "\(Strings.controller_createAvatar_title)"
-        
         picker.delegate = self
         picker.datasource = self
         adorableAvatars.delegate = self

@@ -1,0 +1,27 @@
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "70v-6N-F7K"; */
+"70v-6N-F7K.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Avatar Creation"; ObjectID = "7De-vw-tF8"; */
+"7De-vw-tF8.title" = "Avatar Creation";
+
+/* Class = "UILabel"; text = "CHOOSE THE RADIUS"; ObjectID = "7pq-lr-239"; */
+"7pq-lr-239.text" = "CHOOSE THE RADIUS";
+
+/* Class = "UINavigationItem"; title = "Your Avatars"; ObjectID = "GP5-Uz-TJI"; */
+"GP5-Uz-TJI.title" = "Your Avatars";
+
+/* Class = "UITabBarItem"; title = "All"; ObjectID = "Knl-Pw-x4N"; */
+"Knl-Pw-x4N.title" = "All";
+
+/* Class = "UILabel"; text = "CHOOSE THE PROPS"; ObjectID = "R6H-JX-mC5"; */
+"R6H-JX-mC5.text" = "CHOOSE THE PROPS";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "baX-1g-T5j"; */
+"baX-1g-T5j.title" = "Edit";
+
+/* Class = "UILabel"; text = "PICK THE COLOR"; ObjectID = "hDD-sN-vcS"; */
+"hDD-sN-vcS.text" = "PICK THE COLOR";
+
+/* Class = "UINavigationItem"; title = "Fav Avatars"; ObjectID = "uug-6T-cTr"; */
+"uug-6T-cTr.title" = "Fav Avatars";

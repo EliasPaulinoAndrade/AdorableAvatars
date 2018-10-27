@@ -54,9 +54,6 @@ class AllAvatarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "\(Strings.controller_allavatars_title)"
-        isEditing_  = false
-        
         collectionViewSetup()
         
         navigationItem.searchController = searchController

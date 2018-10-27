@@ -23,8 +23,6 @@ class FaveAvatarsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "\(Strings.controller_favAvatars_title)"
-
         collectionViewSetup()
         
         treatTabCommunication()
