@@ -39,11 +39,13 @@
 "controller_allavatars_var_searchController_placeholder" = "搜索头像";
 "controller_allavatars_var_isEditing_cancel" = "取消";
 "controller_allavatars_func_updateSearchResults_error_description" = "删除头像时出错";
+"controller_allavatars_no_avatar_warning" = "你没有头像。 单击“添加”按钮并创建新的“头像”。";
 
 "controller_preview_var_previewActionItems_share_action_title" = "分享头像";
 "controller_preview_var_previewActionItems_fave_action_title" = "这是我最喜欢的";
 "controller_preview_var_previewActionItems_unfave_action_title" = "这不是我最喜欢的";
 
 "controller_favAvatars_title" = "最喜欢的头像";
+"controller_favAvatars_no_avatar_warning" = "你没有最喜欢的头像。 点击头像明星按钮以赞成一个";
 
 "controller_createAvatar_title" = "头像创作";

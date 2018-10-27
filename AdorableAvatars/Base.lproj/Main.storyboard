@@ -379,6 +379,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97Q-31-TFO">
+                                <rect key="frame" x="10" y="160" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="text_gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C5j-8b-6Nx">
                                 <rect key="frame" x="10" y="150" width="394" height="653"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -394,7 +400,10 @@
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="C5j-8b-6Nx" firstAttribute="leading" secondItem="J8s-CC-zYS" secondAttribute="leading" constant="10" id="Ds5-3B-Yjc"/>
+                            <constraint firstItem="97Q-31-TFO" firstAttribute="leading" secondItem="J8s-CC-zYS" secondAttribute="leading" constant="10" id="Rtl-sh-Evk"/>
                             <constraint firstItem="C5j-8b-6Nx" firstAttribute="top" secondItem="J8s-CC-zYS" secondAttribute="top" constant="10" id="WrL-BD-xAe"/>
+                            <constraint firstItem="97Q-31-TFO" firstAttribute="top" secondItem="J8s-CC-zYS" secondAttribute="top" constant="20" id="X94-WM-6Lc"/>
+                            <constraint firstItem="J8s-CC-zYS" firstAttribute="trailing" secondItem="97Q-31-TFO" secondAttribute="trailing" constant="10" id="aog-fO-B3c"/>
                             <constraint firstItem="J8s-CC-zYS" firstAttribute="trailing" secondItem="C5j-8b-6Nx" secondAttribute="trailing" constant="10" id="cqz-1r-xdQ"/>
                             <constraint firstItem="J8s-CC-zYS" firstAttribute="bottom" secondItem="C5j-8b-6Nx" secondAttribute="bottom" constant="10" id="daP-iM-fhk"/>
                         </constraints>
@@ -403,6 +412,7 @@
                     <navigationItem key="navigationItem" title="Fav Avatars" id="uug-6T-cTr"/>
                     <connections>
                         <outlet property="avatarsCollectionView" destination="C5j-8b-6Nx" id="LcK-Bs-mWk"/>
+                        <outlet property="warningLabel" destination="97Q-31-TFO" id="FZB-6H-rZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXI-bh-8lQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,6 +456,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydl-rL-ch5">
+                                <rect key="frame" x="10" y="160" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="text_gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-K2-jTW">
                                 <rect key="frame" x="10" y="150" width="394" height="653"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IN5-Au-TIc">
@@ -459,10 +475,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ydl-rL-ch5" firstAttribute="top" secondItem="bDq-A5-urt" secondAttribute="top" constant="20" id="5yY-5h-aRA"/>
                             <constraint firstItem="bDq-A5-urt" firstAttribute="trailing" secondItem="gWO-K2-jTW" secondAttribute="trailing" constant="10" id="98x-nt-04d"/>
+                            <constraint firstItem="ydl-rL-ch5" firstAttribute="trailing" secondItem="bDq-A5-urt" secondAttribute="trailing" constant="-10" id="CFy-cj-SJ0"/>
                             <constraint firstItem="gWO-K2-jTW" firstAttribute="leading" secondItem="bDq-A5-urt" secondAttribute="leading" constant="10" id="QGU-lu-9jU"/>
                             <constraint firstItem="gWO-K2-jTW" firstAttribute="top" secondItem="bDq-A5-urt" secondAttribute="top" constant="10" id="kZT-VO-dI1"/>
                             <constraint firstItem="bDq-A5-urt" firstAttribute="bottom" secondItem="gWO-K2-jTW" secondAttribute="bottom" constant="10" id="pMv-vl-m5w"/>
+                            <constraint firstItem="ydl-rL-ch5" firstAttribute="leading" secondItem="bDq-A5-urt" secondAttribute="leading" constant="10" id="wws-Dg-jCE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bDq-A5-urt"/>
                     </view>
@@ -485,6 +504,7 @@
                     <connections>
                         <outlet property="avatarsCollectionView" destination="gWO-K2-jTW" id="d51-d3-u9v"/>
                         <outlet property="searchDisplayController" destination="bmT-cC-opb" id="r5K-0V-e7X"/>
+                        <outlet property="warningLabel" destination="ydl-rL-ch5" id="ESK-Mp-XXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Boh-Bh-BCk" userLabel="First Responder" sceneMemberID="firstResponder"/>

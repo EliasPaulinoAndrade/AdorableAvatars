@@ -23,6 +23,7 @@ public struct AllAvatarsViewControllerReceivedData {
 class AllAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
+    @IBOutlet weak var warningLabel: UILabel!
     
     var delegate: FavoriteAvatarDelegate?
     var action: AllAvatarsViewControllerAction?
@@ -114,6 +115,11 @@ class AllAvatarsViewController: UIViewController {
         }
     }
     
+    private func setupWarningLabel(showing show: Bool) {
+        self.warningLabel.alpha = show ? 1:0
+        self.warningLabel.text = "\(Strings.controller_allavatars_no_avatar_warning)"
+    }
+    
     @IBAction func editTapped(_ sender: Any) {
         self.isEditing_ = !self.isEditing_
     }
@@ -176,7 +182,17 @@ extension AllAvatarsViewController: AvatarCollectionViewCellDelegate {
 
 extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return containerAvatars?.count ?? 0
+        if let count = containerAvatars?.count {
+            if count == 0 {
+                setupWarningLabel(showing: true)
+            } else {
+                setupWarningLabel(showing: false)
+            }
+            return count
+        } else {
+            setupWarningLabel(showing: true)
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -363,7 +379,8 @@ extension AllAvatarsViewController: LocalizableAllAvatarsController {
                 controller_allavatars_var_isEditing_cancel,
                 controller_allavatars_var_isEditing_edit,
                 controller_allavatars_var_searchController_placeholder,
-                controller_allavatars_func_updateSearchResults_error_description
+                controller_allavatars_func_updateSearchResults_error_description,
+                controller_allavatars_no_avatar_warning
         
         var comment: String {
             switch self {

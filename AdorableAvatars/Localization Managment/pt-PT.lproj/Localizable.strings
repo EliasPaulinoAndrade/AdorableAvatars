@@ -39,11 +39,13 @@
 "controller_allavatars_var_searchController_placeholder" = "Procurar Avatares";
 "controller_allavatars_var_isEditing_cancel" = "Cancelar";
 "controller_allavatars_func_updateSearchResults_error_description" = "Erro Durante A Remoção";
+"controller_allavatars_no_avatar_warning" = "Você Não Tem Avatares. Clique No Botão De Adicionar Para Criar Um Novo.";
 
 "controller_preview_var_previewActionItems_share_action_title" = "Compartilhar Avatar";
 "controller_preview_var_previewActionItems_fave_action_title" = "É Meu Favorito";
 "controller_preview_var_previewActionItems_unfave_action_title" = "Não É Meu Favorito";
 
 "controller_favAvatars_title" = "Avatares Favoritos";
+"controller_favAvatars_no_avatar_warning" = "Você não têm avatares favoritos. Clique no botão de estrela do avatar para favoritar um.";
 
 "controller_createAvatar_title" = "Criação De Avatar";

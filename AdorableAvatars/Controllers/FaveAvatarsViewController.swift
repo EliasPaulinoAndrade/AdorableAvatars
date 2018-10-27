@@ -15,6 +15,7 @@ protocol LocalizableFavAvatarsController {
 class FaveAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
+    @IBOutlet weak var warningLabel: UILabel!
     
     public var delegate: FavoriteAvatarDelegate?
     
@@ -47,12 +48,27 @@ class FaveAvatarsViewController: UIViewController {
             }
         }
     }
+    
+    private func setupWarningLabel(showing show: Bool) {
+        self.warningLabel.alpha = show ? 1:0
+        self.warningLabel.text = "\(Strings.controller_favAvatars_no_avatar_warning)"
+    }
 }
 
 extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return avatars?.count ?? 0
+        if let count = avatars?.count {
+            if count == 0 {
+                setupWarningLabel(showing: true)
+            } else {
+                setupWarningLabel(showing: false)
+            }
+            return count
+        } else {
+            setupWarningLabel(showing: true)
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,7 +77,7 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
         if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
             let image = FileManager.default.getAvatar(withName: avatarName)
             avatarCell.avatarImage.image = image
-            avatarCell.avatarName.text = avatarName
+            avatarCell.avatarName.text = avatarName.capitalized
             avatarCell.faveImage.layer.opacity = 0
         }
         
@@ -92,6 +108,7 @@ extension FaveAvatarsViewController: FavoriteAvatarDelegate {
     func avatarWasFavorite(avatar: Avatar) {
         self.avatars?.append(avatar)
         self.avatarsCollectionView.reloadData()
+        
     }
     
     func avatarWasDesfavorite(avatar: Avatar) {
@@ -162,7 +179,8 @@ extension FaveAvatarsViewController: AvatarPreviewDelegate{
 extension FaveAvatarsViewController: LocalizableFavAvatarsController {
     
     enum Strings: String, Localizable {
-        case controller_favAvatars_title
+        case    controller_favAvatars_title,
+                controller_favAvatars_no_avatar_warning
         
         var comment: String {
             switch self {
