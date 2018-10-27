@@ -12,8 +12,14 @@ import Messages
 class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet weak var stickersCollectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var diceImageView: UIImageView!
     
-    private var containerAvatars: [AvatarContainer]? = FileManager.default.getAvatars()
+    private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
+    
+    private var containerFavAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllFavoriteAvatars().avatarContainerArray()
+    
+    private var adorableWrapper: ADWrapper = ADWrapper.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,11 @@ class MessagesViewController: MSMessagesAppViewController {
         stickersCollectionView.dataSource = self
         stickersCollectionView.delegate = self
         stickersCollectionView.allowsMultipleSelection = true
+        adorableWrapper.delegate = self
+     
+        segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged(_:)), for: UIControl.Event.valueChanged)
         
+        diceImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.diceTapped(_:))))
     }
     
     // MARK: - Conversation Handling
@@ -73,23 +83,47 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
-
+    @objc private func segmentedControlChanged(_ sender: UISegmentedControl){
+        self.stickersCollectionView.reloadData()
+        print("meucu")
+    }
+    @objc private func diceTapped(_ sender: UIImageView){
+        let avatarNumber = Int.random(in: 0..<1000)
+        adorableWrapper.randomAvatar(withBase: avatarNumber)
+    }
 }
 
 extension MessagesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.containerAvatars?.count ?? 0
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            return self.containerAvatars?.count ?? 0
+        case 1:
+            return self.containerFavAvatars?.count ?? 0
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
         
-        if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = containerAvatars?[indexPath.row].avatar, let avatarName = avatar.name {
+        if let avatarCell = cell as? UIAvatarCollectionViewCell {
+            var avatar: Avatar?
+            switch self.segmentedControl.selectedSegmentIndex {
+            case 0:
+                avatar = self.containerAvatars?[indexPath.row].avatar
+            case 1:
+                avatar = self.containerFavAvatars?[indexPath.row].avatar
+            default:
+                avatar = nil
+            }
             
-            let image = FileManager.default.getAvatar(withName: avatarName)
-            
-            avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: false)
+            if let avatar = avatar, let avatarName = avatar.name {
+                let image = FileManager.default.getAvatar(withName: avatarName)
+                avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: false)
+            }
         }
         
         return cell
@@ -115,27 +149,40 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let conversetion = self.activeConversation else {
-            return
-        }
-        
-        guard let avatarContainer = self.containerAvatars?[indexPath.row] else {
+        guard let conversetion = self.activeConversation,
+              let avatarContainer = self.containerAvatars?[indexPath.row]
+              else {
             return
         }
         
         let avatar = avatarContainer.avatar
         
-        guard let avatarName = avatar.name, let image = FileManager.default.getAvatar(withName: avatarName) else {
+        guard let avatarName = avatar.name,
+              let image = FileManager.default.getAvatar(withName: avatarName)
+              else {
             return
         }
         
-        guard let message = composeMessage(withImage: image, andName: avatarName, session: conversetion.selectedMessage?.session) else {
-            return
-        }
-        
-        conversetion.insert(message) { (error) in
-            print("error")
-        }
+        self.present(AlertManagment.sendAvatarAlert(answered: { (includeName) in
+            var messageName: String?
+            if includeName{
+                messageName = avatarName
+                
+            } else {
+                messageName = ""
+            }
+            
+            guard let message = self.composeMessage(withImage: image, andName: messageName ?? "", session: conversetion.selectedMessage?.session) else {
+                return
+            }
+            
+            self.requestPresentationStyle(.compact)
+            
+            conversetion.insert(message) { (error) in
+                print("error")
+            }
+        }), animated: true, completion: nil)
+
     }
     
     func composeMessage(withImage image: UIImage, andName name: String = "", session: MSSession? = nil) -> MSMessage? {
@@ -150,5 +197,36 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout, UICollecti
         message.layout = layout
         
         return message
+    }
+}
+
+extension MessagesViewController: ADDelegate {
+    func didLoadAvatarTypes(wrapper: ADWrapper) { }
+    
+    func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) { }
+    
+    func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) { }
+    
+    func avatarTypesLoadDidFail(wrapper: ADWrapper) { }
+    
+    func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int) {
+        print("fail")
+    }
+    
+    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage) {
+        guard let conversetion = self.activeConversation else {
+                return
+        }
+        
+        guard let message = composeMessage(withImage: image, andName: "", session: conversetion.selectedMessage?.session)
+            else {
+                return
+        }
+        
+        requestPresentationStyle(.compact)
+        
+        conversetion.insert(message) { (error) in
+            print("error")
+        }
     }
 }

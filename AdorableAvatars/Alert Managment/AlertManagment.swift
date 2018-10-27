@@ -81,4 +81,18 @@ class AlertManagment {
         
         return alertError
     }
+    
+    static public func sendAvatarAlert(answered: @escaping (_ include: Bool) -> ()) -> UIAlertController {
+        let alert = UIAlertController.init(title: "Sending", message: "Include Avatar Name? ", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (action) in
+            answered(false)
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (action) in
+            answered(true)
+        }))
+        
+        return alert
+    }
 }

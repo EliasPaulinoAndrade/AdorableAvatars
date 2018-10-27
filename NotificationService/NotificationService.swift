@@ -43,9 +43,11 @@ class NotificationService: UNNotificationServiceExtension {
 }
 
 extension NotificationService: ADDelegate {
-    func didLoadAvatarTypes(wrapper: ADWrapper) {
-        
-    }
+    func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int) { }
+    
+    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage) { }
+    
+    func didLoadAvatarTypes(wrapper: ADWrapper) { }
     
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
         

@@ -13,4 +13,6 @@ protocol ADDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage)
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar)
     func avatarTypesLoadDidFail(wrapper: ADWrapper)
+    func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int)
+    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage)
 }

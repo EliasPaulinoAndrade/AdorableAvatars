@@ -59,6 +59,46 @@ class ADWrapper {
         }.resume()
     }
     
+    public func randomAvatar(withBase base: Int) {
+        guard let url = URL.init(string: "https://api.adorable.io/avatars/\(base)") else {
+            self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+            return
+        }
+        
+        var request = URLRequest.init(url: url)
+        request.timeoutInterval = 10
+        
+        URLSession.shared.downloadTask(with: request) { (location, response, error) in
+            if let _ = error {
+                DispatchQueue.main.async {
+                    self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+                }
+                return
+            }
+            guard let location = location else {
+                DispatchQueue.main.async {
+                    self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+                }
+                return
+            }
+            do {
+                let data = try Data.init(contentsOf: location)
+                if let image = UIImage.init(data: data){
+                    DispatchQueue.main.async {
+                        self.delegate?.didLoadRandomAvatar(wrapper: self, forNumber: base, image: image)
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+                }
+                return
+            }
+            
+            }.resume()
+        
+    }
+    
     public func getImage(for avatar: ADAvatar) {
         
         guard let url = avatar.url else {

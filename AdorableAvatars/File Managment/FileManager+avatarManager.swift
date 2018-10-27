@@ -89,4 +89,21 @@ extension FileManager {
         }
         return avatars
     }
+    
+    public func deleteAllContentOfGroup() {
+        guard let groupUrl = adorableAvatarsGroupUrl else {
+            return
+        }
+        
+        let urls: [URL]? = try? contentsOfDirectory(at: groupUrl, includingPropertiesForKeys: nil)
+        
+        guard let safeUrls = urls else {
+            return
+        }
+        
+        for url in safeUrls {
+            try? removeItem(at: url)
+        }
+        
+    }
 }

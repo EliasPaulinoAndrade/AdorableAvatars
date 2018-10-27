@@ -210,9 +210,9 @@
                                                 </variation>
                                                 <variation key="heightClass=compact">
                                                     <mask key="constraints">
+                                                        <exclude reference="J1y-RU-lW5"/>
                                                         <exclude reference="Qh3-vo-lcM"/>
                                                         <exclude reference="yCW-1n-9Wy"/>
-                                                        <exclude reference="J1y-RU-lW5"/>
                                                     </mask>
                                                 </variation>
                                             </view>

@@ -130,6 +130,10 @@ class CreateAvatarViewController: UIViewController {
 }
 
 extension CreateAvatarViewController: ADDelegate {
+    func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int) { }
+    
+    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage) { }
+    
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
         self.picker.image.image = image
         self.picker.image.layer.opacity = 1

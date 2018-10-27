@@ -108,6 +108,15 @@
 		E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675892182371B008DB3F0 /* UIView+position.swift */; };
 		E3B6760921838201008DB3F0 /* FileManager+getAvatars.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6760821838201008DB3F0 /* FileManager+getAvatars.swift */; };
 		E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05182176687700B80D74 /* String+sub.swift */; };
+		E3B6760B2183F7FE008DB3F0 /* ADDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050E2176310800B80D74 /* ADDelegate.swift */; };
+		E3B6760C2183F818008DB3F0 /* ADWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050921761C2400B80D74 /* ADWrapper.swift */; };
+		E3B6760D2183F823008DB3F0 /* ADFaceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB050C217623A400B80D74 /* ADFaceComponents.swift */; };
+		E3B6760F2183F82B008DB3F0 /* UIColor+hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB052F2177BD4400B80D74 /* UIColor+hexa.swift */; };
+		E3B676102183F88D008DB3F0 /* ADAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0516217659F700B80D74 /* ADAvatar.swift */; };
+		E3B676112183F896008DB3F0 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB051C2177749B00B80D74 /* PlistReader.swift */; };
+		E3B676122183F896008DB3F0 /* avatarColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AB051E2177750500B80D74 /* avatarColors.plist */; };
+		E3B676132183F896008DB3F0 /* UIColor+rgbArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */; };
+		E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -818,6 +827,7 @@
 			files = (
 				E3B675E9218370C6008DB3F0 /* Assets.xcassets in Resources */,
 				E3B675E7218370C5008DB3F0 /* MainInterface.storyboard in Resources */,
+				E3B676122183F896008DB3F0 /* avatarColors.plist in Resources */,
 				E3B675F82183727F008DB3F0 /* UIAvatarPicker.xib in Resources */,
 				E3B675F3218371C2008DB3F0 /* UIAvatarCollectionViewCell.xib in Resources */,
 			);
@@ -922,20 +932,28 @@
 				E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */,
 				E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */,
 				E3B675FA2183727F008DB3F0 /* APAvatarPickerDelegate.swift in Sources */,
+				E3B6760B2183F7FE008DB3F0 /* ADDelegate.swift in Sources */,
 				E3B675FC2183727F008DB3F0 /* APAvatarComponents.swift in Sources */,
 				E3B676042183732F008DB3F0 /* UIImage+URL.swift in Sources */,
 				E3B675F4218371C2008DB3F0 /* AvatarCollectionViewCellDelegate.swift in Sources */,
+				E3B676132183F896008DB3F0 /* UIColor+rgbArray.swift in Sources */,
+				E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */,
+				E3B676102183F88D008DB3F0 /* ADAvatar.swift in Sources */,
 				E3B675FB2183727F008DB3F0 /* APAvatarPickerDatasource.swift in Sources */,
 				E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */,
 				E3B67602218372D6008DB3F0 /* Avatar.swift in Sources */,
 				E3B675F92183727F008DB3F0 /* UIAvatarPicker.swift in Sources */,
+				E3B676112183F896008DB3F0 /* PlistReader.swift in Sources */,
 				E3B67600218372D0008DB3F0 /* CoreDataWrapper.swift in Sources */,
 				E3B675F721837277008DB3F0 /* Array+avatarContainerArray.swift in Sources */,
 				E3B675FE21837283008DB3F0 /* UIBaseZibView.swift in Sources */,
 				E3B675F5218371C2008DB3F0 /* UIImage+blurImage.swift in Sources */,
+				E3B6760C2183F818008DB3F0 /* ADWrapper.swift in Sources */,
+				E3B6760F2183F82B008DB3F0 /* UIColor+hexa.swift in Sources */,
 				E3B676032183732F008DB3F0 /* FileManager+avatarManager.swift in Sources */,
 				E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */,
 				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,
+				E3B6760D2183F823008DB3F0 /* ADFaceComponents.swift in Sources */,
 				E3B6760921838201008DB3F0 /* FileManager+getAvatars.swift in Sources */,
 				E3B675E4218370C5008DB3F0 /* MessagesViewController.swift in Sources */,
 				E3B675FD2183727F008DB3F0 /* APAvatar.swift in Sources */,

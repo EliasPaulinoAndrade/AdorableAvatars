@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-iJ-gsl">
-                                <rect key="frame" x="10" y="30" width="300" height="488"/>
+                                <rect key="frame" x="10" y="83" width="300" height="435"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c28-yX-XJF">
                                     <size key="itemSize" width="50" height="50"/>
@@ -28,24 +28,52 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Viu-8x-6ZF">
+                                <rect key="frame" x="60" y="35" width="200" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8QW-90-7SX"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice" translatesAutoresizingMaskIntoConstraints="NO" id="kmN-cZ-DLB">
+                                <rect key="frame" x="268" y="35" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kmN-cZ-DLB" secondAttribute="height" id="Sxq-dY-d8r"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="kmN-cZ-DLB" firstAttribute="centerY" secondItem="Viu-8x-6ZF" secondAttribute="centerY" id="1Dn-Bt-o8a"/>
+                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="centerX" secondItem="LDy-ih-0nr" secondAttribute="centerX" id="6h0-ah-mWS"/>
                             <constraint firstItem="LDy-ih-0nr" firstAttribute="bottom" secondItem="u0N-iJ-gsl" secondAttribute="bottom" constant="10" id="a2i-QS-5m9"/>
-                            <constraint firstItem="u0N-iJ-gsl" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="10" id="e6b-Sv-nd1"/>
+                            <constraint firstItem="kmN-cZ-DLB" firstAttribute="leading" secondItem="Viu-8x-6ZF" secondAttribute="trailing" constant="8" id="ccC-8x-lxZ"/>
+                            <constraint firstItem="kmN-cZ-DLB" firstAttribute="height" secondItem="Viu-8x-6ZF" secondAttribute="height" id="csW-5P-5LT"/>
+                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="15" id="r25-hY-xwZ"/>
                             <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="u0N-iJ-gsl" secondAttribute="trailing" constant="10" id="vXk-E8-T2A"/>
                             <constraint firstItem="u0N-iJ-gsl" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" constant="10" id="wDS-QI-9HU"/>
+                            <constraint firstItem="u0N-iJ-gsl" firstAttribute="top" secondItem="Viu-8x-6ZF" secondAttribute="bottom" constant="20" id="xoR-wP-jig"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LDy-ih-0nr"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
+                        <outlet property="diceImageView" destination="kmN-cZ-DLB" id="NV5-7P-UyY"/>
+                        <outlet property="segmentedControl" destination="Viu-8x-6ZF" id="c4f-QF-Nah"/>
                         <outlet property="stickersCollectionView" destination="u0N-iJ-gsl" id="hHF-A5-cIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="54.399999999999999" y="77.361319340329842"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dice" width="27" height="26"/>
+    </resources>
 </document>
