@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  AdorableAvatars
+
+  Created by Elias Paulino on 27/10/18.
+  Copyright © 2018 Elias Paulino. All rights reserved.
+*/
+
+"alert_remove_avatar_title" = "删除头像";
+"alert_remove_avatar_description" = "你想删除吗？";
+"alert_remove_avatar_action_yes" = "是";
+"alert_remove_avatar_action_no" = "没有";
+
+"alert_generic_error_title" = "错误";
+"alert_generic_error_action_ok" = "OK";
+
+"alert_network_error_title" = "错误";
+"alert_network_description" = "网络错误";
+"alert_network_description_action_retry" = "重试";
+
+"alert_save_avatar_title" = "保存";
+"alert_save_avatar_description" = "它叫什么名字？";
+"alert_save_avatar_action_cancel" = "取消";
+"alert_save_avatar_action_ok" = "OK";
+
+"alert_save_avatar_error_title" = "错误";
+"alert_save_avatar_error_description_prefix" = "名字的头像";
+"alert_save_avatar_error_description_sufix" = "已经存在";
+"alert_save_avatar_error_action_ok" = "OK";
+
+"alert_send_avatar_title" = "发出";
+"alert_send_avatar_description" = "包括头像名称";
+"alert_send_avatar_action_yes" = "是";
+"alert_send_avatar_action_no" = "没有";
+
+"controller_allavatars_title" = "你的头像";
+"controller_allavatars_var_isEditing_cancel" = "取消";
+"controller_allavatars_var_isEditing_edit" = "编辑";
+"controller_allavatars_var_searchController_placeholder" = "搜索头像";
+"controller_allavatars_var_isEditing_cancel" = "取消";
+"controller_allavatars_func_updateSearchResults_error_description" = "删除头像时出错";
+
+"controller_preview_var_previewActionItems_share_action_title" = "分享头像";
+"controller_preview_var_previewActionItems_fave_action_title" = "这是我最喜欢的";
+"controller_preview_var_previewActionItems_unfave_action_title" = "这不是我最喜欢的";
+
+"controller_favAvatars_title" = "最喜欢的头像";
+
+"controller_createAvatar_title" = "头像创作";

@@ -182,6 +182,8 @@
 		E301427F2184A418008CA9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E30142812184A455008CA9C6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142832184A45A008CA9C6 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		E30142842184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		E30142852184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 				Base,
 				"pt-BR",
 				"pt-PT",
+				"zh-Hans",
 			);
 			mainGroup = E3AB04C42176072E00B80D74;
 			productRefGroup = E3AB04CE2176072E00B80D74 /* Products */;
@@ -1016,6 +1019,7 @@
 				E348BB952184881700A905F0 /* en */,
 				E348BB972184893D00A905F0 /* pt-PT */,
 				E301427C2184A337008CA9C6 /* pt-BR */,
+				E30142852184A6EF008CA9C6 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1027,6 +1031,7 @@
 				E301427F2184A418008CA9C6 /* en */,
 				E30142812184A455008CA9C6 /* pt-BR */,
 				E30142832184A45A008CA9C6 /* pt-PT */,
+				E30142842184A6EF008CA9C6 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

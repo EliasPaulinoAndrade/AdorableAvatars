@@ -19,9 +19,9 @@
 "alert_network_description_action_retry" = "Retry";
 
 "alert_save_avatar_title" = "Saving";
-"alert_save_avatar_description" = "Whats is him name?";
+"alert_save_avatar_description" = "What's it name?";
 "alert_save_avatar_action_cancel" = "Cancel";
-"alert_save_avatar_action_ok" = "Ok";
+"alert_save_avatar_action_ok" = "OK";
 
 "alert_save_avatar_error_title" = "Error";
 "alert_save_avatar_error_description_prefix" = "Avatar With Name";
@@ -41,8 +41,8 @@
 "controller_allavatars_func_updateSearchResults_error_description" = "Error While Removing Avatar";
 
 "controller_preview_var_previewActionItems_share_action_title" = "Share Avatar";
-"controller_preview_var_previewActionItems_fave_action_title" = "Its My Favorite";
-"controller_preview_var_previewActionItems_unfave_action_title" = "It`s Not My Favorite";
+"controller_preview_var_previewActionItems_fave_action_title" = "It's My Favorite";
+"controller_preview_var_previewActionItems_unfave_action_title" = "It's Not My Favorite";
 
 "controller_favAvatars_title" = "Fav Avatars";
 
