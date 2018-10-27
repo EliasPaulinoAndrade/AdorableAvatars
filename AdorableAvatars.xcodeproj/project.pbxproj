@@ -373,10 +373,10 @@
 			children = (
 				E3AB04CF2176072E00B80D74 /* AdorableAvatars */,
 				E3AB04E42176073000B80D74 /* AdorableAvatarsTests */,
+				E3B675E2218370C5008DB3F0 /* AdorableMessage MessagesExtension */,
 				E3AB04EF2176073000B80D74 /* AdorableAvatarsUITests */,
 				E386AE36217E5393009A8BF7 /* NotificationService */,
 				E3B675D3218370C4008DB3F0 /* AdorableMessage */,
-				E3B675E2218370C5008DB3F0 /* AdorableMessage MessagesExtension */,
 				E3B675DF218370C5008DB3F0 /* Frameworks */,
 				E3AB04CE2176072E00B80D74 /* Products */,
 			);
