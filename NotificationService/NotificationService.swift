@@ -42,15 +42,8 @@ class NotificationService: UNNotificationServiceExtension {
 
 }
 
-extension NotificationService: ADDelegate {
-    func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int) { }
-    
-    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage) { }
-    
-    func didLoadAvatarTypes(wrapper: ADWrapper) { }
-    
+extension NotificationService: ADAvatarDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) {
-        
         if let imageURL = FileManager.default.saveAvatarImage(image, withName: "notification_image"){
             if let attachment = try? UNNotificationAttachment.init(identifier: "notification_image", url: imageURL, options: [:]) {
                 bestAttemptContent?.attachments.append(attachment)
@@ -63,13 +56,6 @@ extension NotificationService: ADDelegate {
     }
     
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) {
-        print("fail")
-        if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
-            contentHandler(bestAttemptContent)
-        }
-    }
-    
-    func avatarTypesLoadDidFail(wrapper: ADWrapper) {
         print("fail")
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)

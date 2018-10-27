@@ -224,15 +224,7 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
 }
 
-extension MessagesViewController: ADDelegate {
-    func didLoadAvatarTypes(wrapper: ADWrapper) { }
-    
-    func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage) { }
-    
-    func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) { }
-    
-    func avatarTypesLoadDidFail(wrapper: ADWrapper) { }
-    
+extension MessagesViewController: ADRandomAvatarDelegate {
     func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int) {
         print("fail")
     }

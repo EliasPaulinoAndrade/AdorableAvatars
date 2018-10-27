@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
+		E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
@@ -851,6 +853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B675E9218370C6008DB3F0 /* Assets.xcassets in Resources */,
+				E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */,
 				E3B675E7218370C5008DB3F0 /* MainInterface.storyboard in Resources */,
 				E3B676122183F896008DB3F0 /* avatarColors.plist in Resources */,
 				E3B675F82183727F008DB3F0 /* UIAvatarPicker.xib in Resources */,
@@ -977,6 +980,7 @@
 				E3B6760C2183F818008DB3F0 /* ADWrapper.swift in Sources */,
 				E3B6760F2183F82B008DB3F0 /* UIColor+hexa.swift in Sources */,
 				E3B676032183732F008DB3F0 /* FileManager+avatarManager.swift in Sources */,
+				E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */,
 				E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */,
 				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E3B6760D2183F823008DB3F0 /* ADFaceComponents.swift in Sources */,

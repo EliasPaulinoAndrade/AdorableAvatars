@@ -23,7 +23,9 @@ class ADWrapper {
     
     public func findTypes() {
         guard let url = URL.init(string: "https://api.adorable.io/avatars/list") else {
-            delegate?.avatarTypesLoadDidFail(wrapper: self)
+            if let delegate = delegate as? ADTypesDelegate {
+                delegate.avatarTypesLoadDidFail(wrapper: self)
+            }
             return
         }
         
@@ -33,13 +35,17 @@ class ADWrapper {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    self.delegate?.avatarTypesLoadDidFail(wrapper: self)
+                    if let delegate = self.delegate as? ADTypesDelegate {
+                        delegate.avatarTypesLoadDidFail(wrapper: self)
+                    }
                 }
                 return
             }
             guard let validData = data else{
                 DispatchQueue.main.async {
-                    self.delegate?.avatarTypesLoadDidFail(wrapper: self)
+                    if let delegate = self.delegate as? ADTypesDelegate {
+                        delegate.avatarTypesLoadDidFail(wrapper: self)
+                    }
                 }
                 return
             }
@@ -49,11 +55,15 @@ class ADWrapper {
                 let face = try decoder.decode(ADFaceComponents.self, from: validData)
                 self.components = face
                 DispatchQueue.main.async {
-                    self.delegate?.didLoadAvatarTypes(wrapper: self)
+                    if let delegate = self.delegate as? ADTypesDelegate {
+                        delegate.didLoadAvatarTypes(wrapper: self)
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
-                    self.delegate?.avatarTypesLoadDidFail(wrapper: self)
+                    if let delegate = self.delegate as? ADTypesDelegate {
+                        delegate.avatarTypesLoadDidFail(wrapper: self)
+                    }
                 }
             }
         }.resume()
@@ -61,7 +71,9 @@ class ADWrapper {
     
     public func randomAvatar(withBase base: Int) {
         guard let url = URL.init(string: "https://api.adorable.io/avatars/\(base)") else {
-            self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+            if let delegate = self.delegate as? ADRandomAvatarDelegate {
+                delegate.randomAvatarDidFail(wrapper: self, forNumber: base)
+            }
             return
         }
         
@@ -71,13 +83,17 @@ class ADWrapper {
         URLSession.shared.downloadTask(with: request) { (location, response, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+                    if let delegate = self.delegate as? ADRandomAvatarDelegate {
+                        delegate.randomAvatarDidFail(wrapper: self, forNumber: base)
+                    }
                 }
                 return
             }
             guard let location = location else {
                 DispatchQueue.main.async {
-                    self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+                    if let delegate = self.delegate as? ADRandomAvatarDelegate {
+                        delegate.randomAvatarDidFail(wrapper: self, forNumber: base)
+                    }
                 }
                 return
             }
@@ -85,12 +101,16 @@ class ADWrapper {
                 let data = try Data.init(contentsOf: location)
                 if let image = UIImage.init(data: data){
                     DispatchQueue.main.async {
-                        self.delegate?.didLoadRandomAvatar(wrapper: self, forNumber: base, image: image)
+                        if let delegate = self.delegate as? ADRandomAvatarDelegate {
+                            delegate.didLoadRandomAvatar(wrapper: self, forNumber: base, image: image)
+                        }
                     }
                 }
             } catch {
                 DispatchQueue.main.async {
-                    self.delegate?.randomAvatarDidFail(wrapper: self, forNumber: base)
+                    if let delegate = self.delegate as? ADRandomAvatarDelegate {
+                        delegate.randomAvatarDidFail(wrapper: self, forNumber: base)
+                    }
                 }
                 return
             }
@@ -102,13 +122,17 @@ class ADWrapper {
     public func getImage(for avatar: ADAvatar) {
         
         guard let url = avatar.url else {
-            delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
+            if let delegate = self.delegate as? ADAvatarDelegate {
+                delegate.avatarLoadDidFail(wrapper: self, for: avatar)
+            }
             return
         }
         
         if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString)  {
             
-            self.delegate?.didLoadAvatarImage(wrapper: self, image: cachedImage)
+            if let delegate = self.delegate as? ADAvatarDelegate {
+                delegate.didLoadAvatarImage(wrapper: self, image: cachedImage)
+            }
         }
         
         var request = URLRequest.init(url: url)
@@ -117,13 +141,17 @@ class ADWrapper {
         URLSession.shared.downloadTask(with: request) { (location, response, error) in
             if let _ = error {
                 DispatchQueue.main.async {
-                    self.delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
+                    if let delegate = self.delegate as? ADAvatarDelegate {
+                        delegate.avatarLoadDidFail(wrapper: self, for: avatar)
+                    }
                 }
                 return
             }
             guard let location = location else {
                 DispatchQueue.main.async {
-                    self.delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
+                    if let delegate = self.delegate as? ADAvatarDelegate {
+                        delegate.avatarLoadDidFail(wrapper: self, for: avatar)
+                    }
                 }
                 return
             }
@@ -132,12 +160,16 @@ class ADWrapper {
                 if let image = UIImage.init(data: data){
                     DispatchQueue.main.async {
                         self.imageCache.setObject(image, forKey: url.absoluteString as NSString)
-                        self.delegate?.didLoadAvatarImage(wrapper: self, image: image)
+                        if let delegate = self.delegate as? ADAvatarDelegate {
+                            delegate.didLoadAvatarImage(wrapper: self, image: image)
+                        }
                     }
                 }
             } catch {
                 DispatchQueue.main.async {
-                    self.delegate?.avatarLoadDidFail(wrapper: self, for: avatar)
+                    if let delegate = self.delegate as? ADAvatarDelegate {
+                        delegate.avatarLoadDidFail(wrapper: self, for: avatar)
+                    }
                 }
                 return
             }

@@ -9,10 +9,20 @@
 import UIKit
 
 protocol ADDelegate {
-    func didLoadAvatarTypes(wrapper: ADWrapper)
+    
+}
+
+protocol ADAvatarDelegate:ADDelegate {
     func didLoadAvatarImage(wrapper: ADWrapper, image: UIImage)
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar)
+}
+
+protocol ADTypesDelegate:ADDelegate {
+    func didLoadAvatarTypes(wrapper: ADWrapper)
     func avatarTypesLoadDidFail(wrapper: ADWrapper)
+}
+
+protocol ADRandomAvatarDelegate:ADDelegate {
     func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int)
     func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage)
 }
