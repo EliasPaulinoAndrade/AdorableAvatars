@@ -42,15 +42,24 @@
                                     <constraint firstAttribute="width" secondItem="kmN-cZ-DLB" secondAttribute="height" id="Sxq-dY-d8r"/>
                                 </constraints>
                             </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addbutton" translatesAutoresizingMaskIntoConstraints="NO" id="jol-cL-DLN">
+                                <rect key="frame" x="28" y="35" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jol-cL-DLN" secondAttribute="height" multiplier="1:1" id="gFn-7L-ieh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kmN-cZ-DLB" firstAttribute="centerY" secondItem="Viu-8x-6ZF" secondAttribute="centerY" id="1Dn-Bt-o8a"/>
                             <constraint firstItem="Viu-8x-6ZF" firstAttribute="centerX" secondItem="LDy-ih-0nr" secondAttribute="centerX" id="6h0-ah-mWS"/>
                             <constraint firstItem="Viu-8x-6ZF" firstAttribute="width" secondItem="zMn-AG-sqS" secondAttribute="width" multiplier="0.6" id="92P-vg-w0b"/>
+                            <constraint firstItem="jol-cL-DLN" firstAttribute="centerY" secondItem="Viu-8x-6ZF" secondAttribute="centerY" id="AyS-n3-Gxy"/>
+                            <constraint firstItem="jol-cL-DLN" firstAttribute="height" secondItem="Viu-8x-6ZF" secondAttribute="height" id="Ves-SE-jo3"/>
                             <constraint firstItem="LDy-ih-0nr" firstAttribute="bottom" secondItem="u0N-iJ-gsl" secondAttribute="bottom" constant="10" id="a2i-QS-5m9"/>
                             <constraint firstItem="kmN-cZ-DLB" firstAttribute="leading" secondItem="Viu-8x-6ZF" secondAttribute="trailing" constant="8" id="ccC-8x-lxZ"/>
                             <constraint firstItem="kmN-cZ-DLB" firstAttribute="height" secondItem="Viu-8x-6ZF" secondAttribute="height" id="csW-5P-5LT"/>
+                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="leading" secondItem="jol-cL-DLN" secondAttribute="trailing" priority="750" constant="8" id="eCA-tp-uwF"/>
                             <constraint firstItem="Viu-8x-6ZF" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="15" id="r25-hY-xwZ"/>
                             <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="u0N-iJ-gsl" secondAttribute="trailing" constant="10" id="vXk-E8-T2A"/>
                             <constraint firstItem="u0N-iJ-gsl" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" constant="10" id="wDS-QI-9HU"/>
@@ -61,6 +70,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
+                        <outlet property="addImageView" destination="jol-cL-DLN" id="eOz-jL-6eQ"/>
                         <outlet property="diceImageView" destination="kmN-cZ-DLB" id="NV5-7P-UyY"/>
                         <outlet property="segmentedControl" destination="Viu-8x-6ZF" id="c4f-QF-Nah"/>
                         <outlet property="stickersCollectionView" destination="u0N-iJ-gsl" id="hHF-A5-cIg"/>
@@ -72,6 +82,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addbutton" width="512" height="512"/>
         <image name="dice" width="27" height="26"/>
     </resources>
 </document>

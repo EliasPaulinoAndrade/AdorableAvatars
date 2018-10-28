@@ -37,7 +37,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         let avatar = ADAvatar.init(withDictionary: formattedContent)
-        openCreateController(adAvatar: avatar)
+        openCreateControllerWithAlert(adAvatar: avatar)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -54,20 +54,9 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 
-    func openCreateController(adAvatar: ADAvatar?){
-        let appDelegate = UIApplication.shared.delegate
-        
-        guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
-            
-            return
-        }
-        
-        guard let selectedNavigationController = tabbarController.viewControllers?.first as? UINavigationController else {
-            
-            return
-        }
-        
-        guard let allAvatarsViewController = selectedNavigationController.viewControllers.first as? AllAvatarsViewController else {
+    func openCreateControllerWithAlert(adAvatar: ADAvatar?){
+
+        guard let allAvatarsViewController = AppDelegate.allAvatarsViewController else {
             return
         }
         

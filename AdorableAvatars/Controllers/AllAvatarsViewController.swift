@@ -13,7 +13,7 @@ protocol LocalizableAllAvatarsController {
 }
 
 public enum AllAvatarsViewControllerAction {
-    case push, normal
+    case push, normal, schema
 }
 
 public struct AllAvatarsViewControllerReceivedData {
@@ -103,6 +103,8 @@ class AllAvatarsViewController: UIViewController {
                 self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
             case .normal:
                 break
+            case .schema:
+                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
             }
         }
     }

@@ -14,6 +14,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    static public var allAvatarsViewController: AllAvatarsViewController? {
+        let appDelegate = UIApplication.shared.delegate
+        guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
+            
+            return nil
+        }
+        
+        guard let selectedNavigationController = tabbarController.viewControllers?.first as? UINavigationController else {
+            
+            return nil
+        }
+        
+        guard let allAvatarsViewController = selectedNavigationController.viewControllers.first as? AllAvatarsViewController else {
+            return nil
+        }
+        
+        return allAvatarsViewController
+    }
+    
     func requestPushAuth() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge]) { (granted, error) in
             if granted {
@@ -36,7 +55,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        let params = NSMutableDictionary()
+//        let kvPairs : [String] = (url.query?.components(separatedBy: "&"))!
+//        for param in  kvPairs{
+//            let keyValuePair : Array = param.components(separatedBy: "=")
+//            if keyValuePair.count == 2{
+//                params.setObject(keyValuePair.last!, forKey: keyValuePair.first! as NSCopying)
+//            }
+//        }
+        
+        openCreateController()
+        
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         
         UNUserNotificationCenter.current().delegate = NotificationManager.shared
         
@@ -96,5 +131,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("error push")
     }
+    func openCreateController(){
+        if let allAvatarsViewController = AppDelegate.allAvatarsViewController {
+            allAvatarsViewController.action = .schema
+            
+            if allAvatarsViewController.isViewLoaded {
+                allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+            }
+        }
+    }
+    
 }
 

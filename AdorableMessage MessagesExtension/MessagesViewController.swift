@@ -18,6 +18,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var stickersCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var diceImageView: UIImageView!
+    @IBOutlet weak var addImageView: UIImageView!
     
     private lazy var loadIndicator: UIActivityIndicatorView = {
         let loadIndicator = UIActivityIndicatorView.init()
@@ -51,6 +52,8 @@ class MessagesViewController: MSMessagesAppViewController {
         segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged(_:)), for: UIControl.Event.valueChanged)
         
         diceImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.diceTapped(_:))))
+        
+        addImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.addTapped(_:))))
     }
     
     @objc private func segmentedControlChanged(_ sender: UISegmentedControl){
@@ -61,6 +64,31 @@ class MessagesViewController: MSMessagesAppViewController {
         let avatarNumber = Int.random(in: 0..<1000)
         loadIndicator.startAnimating()
         adorableWrapper.randomAvatar(withBase: avatarNumber)
+    }
+    
+    @objc private func addTapped(_ sender: UIImageView){
+        
+        if let appUrl = URL.init(string: "adorableAvatarsEliasPaulino://") {
+        
+            try? sharedApplication().open(appUrl, options: [:]) { (sucess) in
+                print(sucess)
+            }
+           
+        }
+    }
+    
+    func sharedApplication() throws -> UIApplication {
+        var responder: UIResponder? = self
+        
+        while responder != nil {
+            if let application = responder as? UIApplication {
+                return application
+            }
+            
+            responder = responder?.next
+        }
+        
+        throw NSError(domain: "UIInputViewController+sharedApplication.swift", code: 1, userInfo: nil)
     }
 }
 
