@@ -102,7 +102,7 @@ class ADWrapper {
                 if let image = UIImage.init(data: data){
                     DispatchQueue.main.async {
                         if let delegate = self.delegate as? ADRandomAvatarDelegate {
-                            delegate.didLoadRandomAvatar(wrapper: self, forNumber: base, image: image)
+                            delegate.didLoadRandomAvatar(wrapper: self, forNumber: base, image: image, inPath: location)
                         }
                     }
                 }

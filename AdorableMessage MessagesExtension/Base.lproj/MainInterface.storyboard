@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qHS-g8-i4n">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,26 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Messages View Controller-->
-        <scene sceneID="7MM-of-jgj">
+        <!--Avatar Message View Controller-->
+        <scene sceneID="Gzm-kL-JgX">
             <objects>
-                <viewController id="ObA-dk-sSI" customClass="MessagesViewController" customModule="AdorableMessage_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                <viewController id="qHS-g8-i4n" customClass="AvatarMessageViewController" customModule="AdorableMessage_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zX7-Kk-1HD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-iJ-gsl">
-                                <rect key="frame" x="10" y="83" width="300" height="435"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c28-yX-XJF">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Viu-8x-6ZF">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w8W-kr-Sba">
                                 <rect key="frame" x="64" y="35" width="192" height="29"/>
                                 <segments>
                                     <segment title="All"/>
@@ -36,49 +25,53 @@
                                 </segments>
                                 <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice" translatesAutoresizingMaskIntoConstraints="NO" id="kmN-cZ-DLB">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice" translatesAutoresizingMaskIntoConstraints="NO" id="KPd-Q4-91m">
                                 <rect key="frame" x="264" y="35" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kmN-cZ-DLB" secondAttribute="height" id="Sxq-dY-d8r"/>
+                                    <constraint firstAttribute="width" secondItem="KPd-Q4-91m" secondAttribute="height" id="qcE-jH-jJw"/>
                                 </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addbutton" translatesAutoresizingMaskIntoConstraints="NO" id="jol-cL-DLN">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addbutton" translatesAutoresizingMaskIntoConstraints="NO" id="Arg-NK-eU7">
                                 <rect key="frame" x="28" y="35" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="jol-cL-DLN" secondAttribute="height" multiplier="1:1" id="gFn-7L-ieh"/>
+                                    <constraint firstAttribute="width" secondItem="Arg-NK-eU7" secondAttribute="height" multiplier="1:1" id="T1v-jS-7Vb"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6Z-V2-Yhq">
+                                <rect key="frame" x="0.0" y="63" width="320" height="465"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kmN-cZ-DLB" firstAttribute="centerY" secondItem="Viu-8x-6ZF" secondAttribute="centerY" id="1Dn-Bt-o8a"/>
-                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="centerX" secondItem="LDy-ih-0nr" secondAttribute="centerX" id="6h0-ah-mWS"/>
-                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="width" secondItem="zMn-AG-sqS" secondAttribute="width" multiplier="0.6" id="92P-vg-w0b"/>
-                            <constraint firstItem="jol-cL-DLN" firstAttribute="centerY" secondItem="Viu-8x-6ZF" secondAttribute="centerY" id="AyS-n3-Gxy"/>
-                            <constraint firstItem="jol-cL-DLN" firstAttribute="height" secondItem="Viu-8x-6ZF" secondAttribute="height" id="Ves-SE-jo3"/>
-                            <constraint firstItem="LDy-ih-0nr" firstAttribute="bottom" secondItem="u0N-iJ-gsl" secondAttribute="bottom" constant="10" id="a2i-QS-5m9"/>
-                            <constraint firstItem="kmN-cZ-DLB" firstAttribute="leading" secondItem="Viu-8x-6ZF" secondAttribute="trailing" constant="8" id="ccC-8x-lxZ"/>
-                            <constraint firstItem="kmN-cZ-DLB" firstAttribute="height" secondItem="Viu-8x-6ZF" secondAttribute="height" id="csW-5P-5LT"/>
-                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="leading" secondItem="jol-cL-DLN" secondAttribute="trailing" priority="750" constant="8" id="eCA-tp-uwF"/>
-                            <constraint firstItem="Viu-8x-6ZF" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="15" id="r25-hY-xwZ"/>
-                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="u0N-iJ-gsl" secondAttribute="trailing" constant="10" id="vXk-E8-T2A"/>
-                            <constraint firstItem="u0N-iJ-gsl" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" constant="10" id="wDS-QI-9HU"/>
-                            <constraint firstItem="u0N-iJ-gsl" firstAttribute="top" secondItem="Viu-8x-6ZF" secondAttribute="bottom" constant="20" id="xoR-wP-jig"/>
+                            <constraint firstItem="w8W-kr-Sba" firstAttribute="width" secondItem="zX7-Kk-1HD" secondAttribute="width" multiplier="0.6" id="44c-Nw-xoe"/>
+                            <constraint firstItem="w8W-kr-Sba" firstAttribute="leading" secondItem="Arg-NK-eU7" secondAttribute="trailing" priority="750" constant="8" id="ADh-0p-ZhQ"/>
+                            <constraint firstItem="KPd-Q4-91m" firstAttribute="centerY" secondItem="w8W-kr-Sba" secondAttribute="centerY" id="ATZ-Ty-iS2"/>
+                            <constraint firstItem="w8W-kr-Sba" firstAttribute="centerX" secondItem="Xxm-e0-PIn" secondAttribute="centerX" id="Auc-xZ-gd5"/>
+                            <constraint firstItem="Xxm-e0-PIn" firstAttribute="trailing" secondItem="p6Z-V2-Yhq" secondAttribute="trailing" id="Ndp-td-fvV"/>
+                            <constraint firstItem="w8W-kr-Sba" firstAttribute="top" secondItem="Xxm-e0-PIn" secondAttribute="top" constant="15" id="PlM-kD-DBY"/>
+                            <constraint firstItem="p6Z-V2-Yhq" firstAttribute="leading" secondItem="Xxm-e0-PIn" secondAttribute="leading" id="Qai-qt-rqd"/>
+                            <constraint firstItem="Xxm-e0-PIn" firstAttribute="bottom" secondItem="p6Z-V2-Yhq" secondAttribute="bottom" id="TdZ-It-3rZ"/>
+                            <constraint firstItem="Arg-NK-eU7" firstAttribute="height" secondItem="w8W-kr-Sba" secondAttribute="height" id="eDg-FR-hOt"/>
+                            <constraint firstItem="p6Z-V2-Yhq" firstAttribute="top" secondItem="w8W-kr-Sba" secondAttribute="bottom" id="j3n-aA-5T1"/>
+                            <constraint firstItem="Arg-NK-eU7" firstAttribute="centerY" secondItem="w8W-kr-Sba" secondAttribute="centerY" id="mMD-B1-Jam"/>
+                            <constraint firstItem="KPd-Q4-91m" firstAttribute="height" secondItem="w8W-kr-Sba" secondAttribute="height" id="sdC-Gk-5bc"/>
+                            <constraint firstItem="KPd-Q4-91m" firstAttribute="leading" secondItem="w8W-kr-Sba" secondAttribute="trailing" constant="8" id="xoV-lf-kKq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LDy-ih-0nr"/>
+                        <viewLayoutGuide key="safeArea" id="Xxm-e0-PIn"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
-                        <outlet property="addImageView" destination="jol-cL-DLN" id="eOz-jL-6eQ"/>
-                        <outlet property="diceImageView" destination="kmN-cZ-DLB" id="NV5-7P-UyY"/>
-                        <outlet property="segmentedControl" destination="Viu-8x-6ZF" id="c4f-QF-Nah"/>
-                        <outlet property="stickersCollectionView" destination="u0N-iJ-gsl" id="hHF-A5-cIg"/>
+                        <outlet property="addImageView" destination="Arg-NK-eU7" id="Ocp-D7-J5Q"/>
+                        <outlet property="diceImageView" destination="KPd-Q4-91m" id="29t-io-FtU"/>
+                        <outlet property="segmentedControl" destination="w8W-kr-Sba" id="icF-qF-5RM"/>
+                        <outlet property="stickersPlaceView" destination="p6Z-V2-Yhq" id="S1p-c0-aL3"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yw7-Rk-nxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54.399999999999999" y="77.361319340329842"/>
+            <point key="canvasLocation" x="746" y="77"/>
         </scene>
     </scenes>
     <resources>

@@ -24,5 +24,5 @@ protocol ADTypesDelegate:ADDelegate {
 
 protocol ADRandomAvatarDelegate:ADDelegate {
     func randomAvatarDidFail(wrapper: ADWrapper, forNumber number: Int)
-    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage)
+    func didLoadRandomAvatar(wrapper: ADWrapper, forNumber number: Int, image: UIImage, inPath path: URL)
 }

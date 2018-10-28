@@ -23,7 +23,6 @@ extension FileManager {
         }
     }
     
-    
     /// save a avatar image in the app group
     ///
     /// - Parameters:
@@ -71,6 +70,16 @@ extension FileManager {
         }
         
         return avatar
+    }
+    
+    public func getAvatar(withName name: String) -> URL? {
+        var avatarURL: URL?
+        
+        if let adorableGroup = self.adorableAvatarsGroupUrl {
+            avatarURL = adorableGroup.appendingPathComponent("\(name).png")
+            
+        }
+        return avatarURL
     }
     
     

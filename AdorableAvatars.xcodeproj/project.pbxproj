@@ -87,7 +87,6 @@
 		E3B675D5218370C5008DB3F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B675D4218370C5008DB3F0 /* Assets.xcassets */; };
 		E3B675DC218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E3B675E1218370C5008DB3F0 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B675E0218370C5008DB3F0 /* Messages.framework */; };
-		E3B675E4218370C5008DB3F0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675E3218370C5008DB3F0 /* MessagesViewController.swift */; };
 		E3B675E7218370C5008DB3F0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B675E5218370C5008DB3F0 /* MainInterface.storyboard */; };
 		E3B675E9218370C6008DB3F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B675E8218370C6008DB3F0 /* Assets.xcassets */; };
 		E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05372178A80F00B80D74 /* UIAvatarCollectionViewCell.swift */; };
@@ -121,6 +120,9 @@
 		E3B676122183F896008DB3F0 /* avatarColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AB051E2177750500B80D74 /* avatarColors.plist */; };
 		E3B676132183F896008DB3F0 /* UIColor+rgbArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+rgbArray.swift */; };
 		E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
+		E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */; };
+		E3D75E8F21866F090034E5A5 /* AvatarMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */; };
+		E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E92218670680034E5A5 /* StickersDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,12 +267,14 @@
 		E3B675D6218370C5008DB3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AdorableMessage MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B675E0218370C5008DB3F0 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		E3B675E3218370C5008DB3F0 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		E3B675E6218370C5008DB3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E3B675E8218370C6008DB3F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3B675EA218370C6008DB3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdorableMessage MessagesExtension.entitlements"; sourceTree = "<group>"; };
 		E3B6760821838201008DB3F0 /* FileManager+getAvatars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+getAvatars.swift"; sourceTree = "<group>"; };
+		E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerAvatarsViewController.swift; sourceTree = "<group>"; };
+		E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarMessageViewController.swift; sourceTree = "<group>"; };
+		E3D75E92218670680034E5A5 /* StickersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,12 +605,14 @@
 		E3B675E2218370C5008DB3F0 /* AdorableMessage MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */,
 				E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */,
-				E3B675E3218370C5008DB3F0 /* MessagesViewController.swift */,
 				E3B675E5218370C5008DB3F0 /* MainInterface.storyboard */,
 				E3B675E8218370C6008DB3F0 /* Assets.xcassets */,
 				E3B675EA218370C6008DB3F0 /* Info.plist */,
 				E3B6760821838201008DB3F0 /* FileManager+getAvatars.swift */,
+				E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */,
+				E3D75E92218670680034E5A5 /* StickersDelegate.swift */,
 			);
 			path = "AdorableMessage MessagesExtension";
 			sourceTree = "<group>";
@@ -969,11 +975,14 @@
 				E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */,
 				E3B676102183F88D008DB3F0 /* ADAvatar.swift in Sources */,
 				E3B675FB2183727F008DB3F0 /* APAvatarPickerDatasource.swift in Sources */,
+				E3D75E8F21866F090034E5A5 /* AvatarMessageViewController.swift in Sources */,
+				E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */,
 				E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */,
 				E3B67602218372D6008DB3F0 /* Avatar.swift in Sources */,
 				E3B675F92183727F008DB3F0 /* UIAvatarPicker.swift in Sources */,
 				E3B676112183F896008DB3F0 /* PlistReader.swift in Sources */,
 				E3B67600218372D0008DB3F0 /* CoreDataWrapper.swift in Sources */,
+				E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */,
 				E3B675F721837277008DB3F0 /* Array+avatarContainerArray.swift in Sources */,
 				E3B675FE21837283008DB3F0 /* UIBaseZibView.swift in Sources */,
 				E3B675F5218371C2008DB3F0 /* UIImage+blurImage.swift in Sources */,
@@ -985,7 +994,6 @@
 				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E3B6760D2183F823008DB3F0 /* ADFaceComponents.swift in Sources */,
 				E3B6760921838201008DB3F0 /* FileManager+getAvatars.swift in Sources */,
-				E3B675E4218370C5008DB3F0 /* MessagesViewController.swift in Sources */,
 				E3B675FD2183727F008DB3F0 /* APAvatar.swift in Sources */,
 				E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */,
 			);
