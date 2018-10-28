@@ -54,6 +54,7 @@ class MessagesViewController: MSMessagesAppViewController {
         diceImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.diceTapped(_:))))
         
         addImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.addTapped(_:))))
+        
     }
     
     @objc private func segmentedControlChanged(_ sender: UISegmentedControl){
