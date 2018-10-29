@@ -9,11 +9,11 @@
 import UIKit
 
 struct PlistReader {
-    
+    private static let avatarsColorsPlistName = "avatarColors"
     /// the colors in the avatarColors plist
     var colors: [UIColor] = {
         var colors:[UIColor] = []
-        if let path = Bundle.main.path(forResource: "avatarColors", ofType: "plist"),
+        if let path = Bundle.main.path(forPlist: PlistReader.avatarsColorsPlistName),
            let colorsArray = NSArray.init(contentsOfFile: path) as? [[String]]{
             for colorRGB in colorsArray {
                 let color = UIColor.init(withArray: colorRGB)

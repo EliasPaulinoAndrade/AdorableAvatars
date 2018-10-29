@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppHelper {
+class NavigationHelper {
     static public var allAvatarsViewController: AllAvatarsViewController? {
         let appDelegate = UIApplication.shared.delegate
         guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
@@ -29,7 +29,7 @@ class AppHelper {
     }
     
     static func openAllAvatarsViewControllerFromPush(adAvatar: ADAvatar?) {
-        guard let allAvatarsViewController = AppHelper.allAvatarsViewController else {
+        guard let allAvatarsViewController = NavigationHelper.allAvatarsViewController else {
             return
         }
         
@@ -42,7 +42,7 @@ class AppHelper {
     }
     
     static func openCreateAvatarViewControllerFromRequest(){
-        if let allAvatarsViewController = AppHelper.allAvatarsViewController {
+        if let allAvatarsViewController = NavigationHelper.allAvatarsViewController {
             allAvatarsViewController.action = .schema
             
             if allAvatarsViewController.isViewLoaded {

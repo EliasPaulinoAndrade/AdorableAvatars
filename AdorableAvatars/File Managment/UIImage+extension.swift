@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIImage {
+extension UIImage {
     
     /// fetch a image from url
     ///
@@ -24,7 +24,7 @@ public extension UIImage {
     ///
     /// - Parameter url: the url to save image
     /// - Throws: data write error
-    public func write(to url: URL) throws {
+    func write(to url: URL) throws {
         let data = self.pngData()
         try data?.write(to: url)
     }

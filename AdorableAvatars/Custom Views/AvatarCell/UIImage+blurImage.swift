@@ -32,7 +32,6 @@ extension UIImage {
     }
     
     func radiusImage(radius: CGFloat) -> UIImage? {
-        
         let imageView: UIImageView = UIImageView(image: self)
         let layer = imageView.layer
         layer.masksToBounds = true

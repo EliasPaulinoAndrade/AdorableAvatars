@@ -10,12 +10,15 @@ import UIKit
 
 extension FileManager {
     
+    static let adorableAvatarsGroupNamePath = "group.eliaspaulino.adorableavatars"
+    private static let avatarFolderName = "avatars"
+    
     /// the shared group between the notification service extension and the main app targets
     public var adorableAvatarsGroupUrl : URL? {
         get {
-            let adorableAvatarsGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.eliaspaulino.adorableavatars")
+            let adorableAvatarsGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: FileManager.adorableAvatarsGroupNamePath)
             
-            if let avatarsDirectory = adorableAvatarsGroupUrl?.appendingPathComponent("avatars") {
+            if let avatarsDirectory = adorableAvatarsGroupUrl?.appendingPathComponent(FileManager.avatarFolderName) {
                 try? createDirectory(at: avatarsDirectory, withIntermediateDirectories: false, attributes: nil)
                 return avatarsDirectory
             }
@@ -33,7 +36,7 @@ extension FileManager {
     public func saveAvatarImage(_ image: UIImage, withName name: String) -> URL?{
         
         if let adorableGroup = self.adorableAvatarsGroupUrl {
-            let imageURL = adorableGroup.appendingPathComponent("\(name).png")
+            let imageURL = adorableGroup.appendingPNGImage(withName: name)
             
             try? image.write(to: imageURL)
             
@@ -48,7 +51,7 @@ extension FileManager {
     /// - Parameter name: the name of avatar image path
     public func deleteAvatarImage(withName name: String) {
         if let adorableGroup = self.adorableAvatarsGroupUrl {
-            let imageURL = adorableGroup.appendingPathComponent("\(name).png")
+            let imageURL = adorableGroup.appendingPNGImage(withName: name)
             try? FileManager.default.removeItem(at: imageURL)
         }
     }
@@ -62,7 +65,7 @@ extension FileManager {
         var avatar: UIImage?
         
         if let adorableGroup = self.adorableAvatarsGroupUrl {
-            let imageURL = adorableGroup.appendingPathComponent("\(name).png")
+            let imageURL = adorableGroup.appendingPNGImage(withName: name)
             
             if let avatarImage = try? UIImage.init(url: imageURL) {
                 avatar = avatarImage
@@ -76,7 +79,7 @@ extension FileManager {
         var avatarURL: URL?
         
         if let adorableGroup = self.adorableAvatarsGroupUrl {
-            avatarURL = adorableGroup.appendingPathComponent("\(name).png")
+            avatarURL = adorableGroup.appendingPNGImage(withName: name)
             
         }
         return avatarURL

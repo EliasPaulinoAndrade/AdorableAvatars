@@ -36,7 +36,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         let avatar = ADAvatar.init(withDictionary: formattedContent)
-        AppHelper.openAllAvatarsViewControllerFromPush(adAvatar: avatar)
+        NavigationHelper.openAllAvatarsViewControllerFromPush(adAvatar: avatar)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
