@@ -58,7 +58,7 @@ extension FileManager {
     ///
     /// - Parameter name: the avatar image name
     /// - Returns: the image
-    public func getAvatar(withName name: String) -> UIImage? {
+    public func getAvatarImage(withName name: String) -> UIImage? {
         var avatar: UIImage?
         
         if let adorableGroup = self.adorableAvatarsGroupUrl {
@@ -72,7 +72,7 @@ extension FileManager {
         return avatar
     }
     
-    public func getAvatar(withName name: String) -> URL? {
+    public func getAvatarURL(withName name: String) -> URL? {
         var avatarURL: URL?
         
         if let adorableGroup = self.adorableAvatarsGroupUrl {

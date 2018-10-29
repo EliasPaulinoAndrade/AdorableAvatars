@@ -201,7 +201,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
        
         if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = containerAvatars?[indexPath.row].avatar, let avatarName = avatar.name {
-            let image: UIImage? = FileManager.default.getAvatar(withName: avatarName)
+            let image: UIImage? = FileManager.default.getAvatarImage(withName: avatarName)
             
             avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: self.isEditing_)
             avatarCell.delegate = self

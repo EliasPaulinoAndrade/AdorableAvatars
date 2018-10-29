@@ -25,7 +25,7 @@ class StickerAvatarsViewController: MSStickerBrowserViewController {
         var stickers: [MSSticker] = []
         for avatar in avatars {
             if let avatarName = avatar.name {
-                let avatarURL: URL? = FileManager.default.getAvatar(withName: avatarName)
+                let avatarURL: URL? = FileManager.default.getAvatarURL(withName: avatarName)
                 if  let safeAvatarURL = avatarURL,
                     let sticker = try? MSSticker.init(contentsOfFileURL: safeAvatarURL, localizedDescription: "") {
                     stickers.append(sticker)

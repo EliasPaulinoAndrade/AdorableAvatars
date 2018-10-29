@@ -75,7 +75,7 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
         
         if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
-            let image: UIImage? = FileManager.default.getAvatar(withName: avatarName)
+            let image: UIImage? = FileManager.default.getAvatarImage(withName: avatarName)
             avatarCell.avatarImage.image = image
             avatarCell.avatarName.text = avatarName.capitalized
             avatarCell.faveImage.layer.opacity = 0

@@ -67,6 +67,5 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
         }
     }
-
 }
 

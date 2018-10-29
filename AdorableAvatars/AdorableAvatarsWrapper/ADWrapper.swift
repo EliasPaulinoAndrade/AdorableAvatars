@@ -98,8 +98,7 @@ class ADWrapper {
                 return
             }
             do {
-                let data = try Data.init(contentsOf: location)
-                if let image = UIImage.init(data: data){
+                if let image = try UIImage.init(url: location){
                     DispatchQueue.main.async {
                         if let delegate = self.delegate as? ADRandomAvatarDelegate {
                             delegate.didLoadRandomAvatar(wrapper: self, forNumber: base, image: image, inPath: location)
@@ -156,8 +155,7 @@ class ADWrapper {
                 return
             }
             do {
-                let data = try Data.init(contentsOf: location)
-                if let image = UIImage.init(data: data){
+                if let image = try UIImage.init(url: location){
                     DispatchQueue.main.async {
                         self.imageCache.setObject(image, forKey: url.absoluteString as NSString)
                         if let delegate = self.delegate as? ADAvatarDelegate {
