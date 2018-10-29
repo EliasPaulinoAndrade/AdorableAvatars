@@ -52,3 +52,7 @@
 
 "controller_messages_cant_add_message_error" = "Não é possível inserir a mensagem";
 "controller_messases_cant_open_adorable_app" = "Não é possivel abrir o aplicativo AdorableAvatars. Verifique a instalação.";
+"controller_messases_open_adorable_app" = "Você Quer Abrir O App AdorableAvatars?";
+"controller_messases_open_adorable_app_title" = "Começar Criação";
+"controller_messases_open_adorable_actio_yes" = "Sim";
+"controller_messases_open_adorable_actio_no" = "Não";

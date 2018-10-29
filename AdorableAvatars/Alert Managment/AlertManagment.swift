@@ -131,30 +131,27 @@ class AlertManagment {
             style: .cancel,
             handler: nil
         ))
-        
         return alertError
     }
     
-    static public func sendAvatarAlert(answered: @escaping (_ include: Bool) -> ()) -> UIAlertController {
+    static public func openAdorableAppAlert(sucess: @escaping () -> ()) -> UIAlertController{
         let alert = UIAlertController.init(
-            title: Strings.alert_send_avatar_title.localizable,
-            message: Strings.alert_send_avatar_description.localizable,
-            preferredStyle: .actionSheet
+            title: Strings.controller_messases_open_adorable_app_title.localizable,
+            message: Strings.controller_messases_open_adorable_app.localizable,
+            preferredStyle: .alert
         )
         
         alert.addAction(UIAlertAction.init(
-            title: Strings.alert_send_avatar_action_no.localizable,
+            title: Strings.controller_messases_open_adorable_actio_no.localizable,
             style: .cancel,
-            handler: { (action) in
-                answered(false)
-            }
+            handler: nil
         ))
         
         alert.addAction(UIAlertAction.init(
-            title: Strings.alert_send_avatar_action_yes.localizable,
+            title: Strings.controller_messases_open_adorable_actio_yes.localizable,
             style: .default,
             handler: { (action) in
-                answered(true)
+                sucess()
             }
         ))
         
@@ -189,6 +186,11 @@ extension AlertManagment: LocalizableAlerts {
                 alert_send_avatar_description,
                 alert_send_avatar_action_yes,
                 alert_send_avatar_action_no
+        case
+                controller_messases_open_adorable_app,
+                controller_messases_open_adorable_actio_yes,
+                controller_messases_open_adorable_actio_no,
+                controller_messases_open_adorable_app_title
         
         var comment: String {
             switch self {
