@@ -51,3 +51,4 @@
 "controller_createAvatar_title" = "Criação De Avatar";
 
 "controller_messages_cant_add_message_error" = "Não é possível inserir a mensagem";
+"controller_messases_cant_open_adorable_app" = "Não é possivel abrir o aplicativo AdorableAvatars. Verifique a instalação.";
