@@ -22,4 +22,11 @@ extension Localizable where Self.RawValue == String {
     var description: String {
         return localizable
     }
+    
+    var comment: String {
+        switch self {
+        default:
+            return "default"
+        }
+    }
 }

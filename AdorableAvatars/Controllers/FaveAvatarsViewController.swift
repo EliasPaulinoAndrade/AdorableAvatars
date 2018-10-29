@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LocalizableFavAvatarsController {
-    associatedtype Strings: Localizable
-}
-
 class FaveAvatarsViewController: UIViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
@@ -176,17 +172,10 @@ extension FaveAvatarsViewController: AvatarPreviewDelegate{
     }
 }
 
-extension FaveAvatarsViewController: LocalizableFavAvatarsController {
+extension FaveAvatarsViewController {
     
     enum Strings: String, Localizable {
         case    controller_favAvatars_title,
                 controller_favAvatars_no_avatar_warning
-        
-        var comment: String {
-            switch self {
-            default:
-                return "default"
-            }
-        }
     }
 }

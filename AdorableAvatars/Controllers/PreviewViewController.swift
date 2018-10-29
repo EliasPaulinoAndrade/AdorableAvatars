@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol LocalizablePreviewController {
-    associatedtype Strings: Localizable
-}
 
 struct PreviewViewControllerReceivedData{
     let image: UIImage?
@@ -62,18 +59,12 @@ class PreviewViewController: UIViewController {
     }
 }
 
-extension PreviewViewController: LocalizablePreviewController {
+extension PreviewViewController {
     
     enum Strings: String, Localizable {
         case    controller_preview_var_previewActionItems_share_action_title,
                 controller_preview_var_previewActionItems_fave_action_title,
                 controller_preview_var_previewActionItems_unfave_action_title
         
-        var comment: String {
-            switch self {
-            default:
-                return "default"
-            }
-        }
     }
 }

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LocalizableCreateAvatarController {
-    associatedtype Strings: Localizable
-}
-
 public enum CreateAvatarViewControllerAction {
     case push
 }
@@ -301,16 +297,9 @@ extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDele
     }
 }
 
-extension CreateAvatarViewController: LocalizableCreateAvatarController {
+extension CreateAvatarViewController {
     
     enum Strings: String, Localizable {
         case controller_createAvatar_title
-        
-        var comment: String {
-            switch self {
-            default:
-                return "default"
-            }
-        }
     }
 }

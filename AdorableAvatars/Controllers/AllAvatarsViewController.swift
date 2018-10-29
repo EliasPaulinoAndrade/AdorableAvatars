@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LocalizableAllAvatarsController {
-    associatedtype Strings: Localizable
-}
-
 public enum AllAvatarsViewControllerAction {
     case push, normal, schema
 }
@@ -374,7 +370,7 @@ extension AllAvatarsViewController: FavoriteAvatarDelegate{
     }
 }
 
-extension AllAvatarsViewController: LocalizableAllAvatarsController {
+extension AllAvatarsViewController {
     
     enum Strings: String, Localizable {
         case    controller_allavatars_title,
@@ -383,12 +379,5 @@ extension AllAvatarsViewController: LocalizableAllAvatarsController {
                 controller_allavatars_var_searchController_placeholder,
                 controller_allavatars_func_updateSearchResults_error_description,
                 controller_allavatars_no_avatar_warning
-        
-        var comment: String {
-            switch self {
-            default:
-                return "default"
-            }
-        }
     }
 }
