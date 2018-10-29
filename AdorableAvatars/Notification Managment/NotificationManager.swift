@@ -23,7 +23,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         switch response.actionIdentifier {
         case ActionID.avatarOfDaySave.rawValue:
             saveAvatarTapped(content: response.notification.request.content)
-            
         default:
             break
         }
@@ -37,7 +36,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
         
         let avatar = ADAvatar.init(withDictionary: formattedContent)
-        openCreateControllerWithAlert(adAvatar: avatar)
+        AppHelper.openAllAvatarsViewControllerFromPush(adAvatar: avatar)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -52,20 +51,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         let category = UNNotificationCategory.init(identifier: CategoryID.avatarOfDay.rawValue, actions: [action], intentIdentifiers: [], options: [UNNotificationCategoryOptions.customDismissAction])
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
-    }
-
-    func openCreateControllerWithAlert(adAvatar: ADAvatar?){
-
-        guard let allAvatarsViewController = AppDelegate.allAvatarsViewController else {
-            return
-        }
-        
-        allAvatarsViewController.action = .push
-        allAvatarsViewController.data = AllAvatarsViewControllerReceivedData(adAvatar: adAvatar)
-        
-        if allAvatarsViewController.isViewLoaded {
-            allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
-        }
     }
 }
 

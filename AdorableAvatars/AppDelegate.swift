@@ -14,25 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    static public var allAvatarsViewController: AllAvatarsViewController? {
-        let appDelegate = UIApplication.shared.delegate
-        guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
-            
-            return nil
-        }
-        
-        guard let selectedNavigationController = tabbarController.viewControllers?.first as? UINavigationController else {
-            
-            return nil
-        }
-        
-        guard let allAvatarsViewController = selectedNavigationController.viewControllers.first as? AllAvatarsViewController else {
-            return nil
-        }
-        
-        return allAvatarsViewController
-    }
-    
     func requestPushAuth() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge]) { (granted, error) in
             if granted {
@@ -51,27 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
         requestPushAuth()
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        let params = NSMutableDictionary()
-//        let kvPairs : [String] = (url.query?.components(separatedBy: "&"))!
-//        for param in  kvPairs{
-//            let keyValuePair : Array = param.components(separatedBy: "=")
-//            if keyValuePair.count == 2{
-//                params.setObject(keyValuePair.last!, forKey: keyValuePair.first! as NSCopying)
-//            }
-//        }
-        
-        openCreateController()
-        
+
+        AppHelper.openCreateAvatarViewControllerFromRequest()
         return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         
         UNUserNotificationCenter.current().delegate = NotificationManager.shared
         
@@ -86,16 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
-        guard let tabbarController = window?.rootViewController as? UITabBarController else {
-            return
-        }
-        
-        guard let selectedNavigationController = tabbarController.viewControllers?.first as? UINavigationController else {
-            return
-        }
-        
-        guard let allAvatarsViewController = selectedNavigationController.viewControllers.first as? AllAvatarsViewController else {
+
+        guard let allAvatarsViewController = AppHelper.allAvatarsViewController else {
             return
         }
         
@@ -131,15 +95,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("error push")
     }
-    func openCreateController(){
-        if let allAvatarsViewController = AppDelegate.allAvatarsViewController {
-            allAvatarsViewController.action = .schema
-            
-            if allAvatarsViewController.isViewLoaded {
-                allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
-            }
-        }
-    }
-    
 }
 

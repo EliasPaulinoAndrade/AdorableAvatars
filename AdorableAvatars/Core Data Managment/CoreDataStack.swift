@@ -10,11 +10,13 @@ import UIKit
 import CoreData
 
 class CoreDataStack {
+    static let adorableAvatarsGroupNamePath = "group.eliaspaulino.adorableavatars"
+    private static let persistenContainerName = "AdorableAvatars"
     
     static var adorableAvatarsGroupUrl : URL? {
         get {
-            let adorableAvatarsGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.eliaspaulino.adorableavatars")
-            if let coreDataFile = adorableAvatarsGroupUrl?.appendingPathComponent("AdorableAvatars") {
+            let adorableAvatarsGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: adorableAvatarsGroupNamePath)
+            if let coreDataFile = adorableAvatarsGroupUrl?.appendingPathComponent(persistenContainerName) {
                 
                 return coreDataFile
             }
@@ -24,7 +26,7 @@ class CoreDataStack {
     }
     
     static var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "AdorableAvatars")
+        let container = NSPersistentContainer(name: persistenContainerName)
         
         if let coreURL = CoreDataStack.adorableAvatarsGroupUrl {
             

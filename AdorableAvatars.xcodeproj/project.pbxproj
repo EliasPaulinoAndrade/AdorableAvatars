@@ -123,6 +123,7 @@
 		E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */; };
 		E3D75E8F21866F090034E5A5 /* AvatarMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */; };
 		E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E92218670680034E5A5 /* StickersDelegate.swift */; };
+		E3D75E97218688E40034E5A5 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E96218688E40034E5A5 /* AppHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 		E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerAvatarsViewController.swift; sourceTree = "<group>"; };
 		E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarMessageViewController.swift; sourceTree = "<group>"; };
 		E3D75E92218670680034E5A5 /* StickersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersDelegate.swift; sourceTree = "<group>"; };
+		E3D75E96218688E40034E5A5 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +416,7 @@
 				E386AE5F2180C9DF009A8BF7 /* Models */,
 				E3AB053B2178AA3F00B80D74 /* Controllers */,
 				E3AB04D02176072E00B80D74 /* AppDelegate.swift */,
+				E3D75E96218688E40034E5A5 /* AppHelper.swift */,
 				E3AB04D42176072E00B80D74 /* Main.storyboard */,
 				E3AB04D72176073000B80D74 /* Assets.xcassets */,
 				E3AB04D92176073000B80D74 /* LaunchScreen.storyboard */,
@@ -923,6 +926,7 @@
 				E386AE6A2181699C009A8BF7 /* UIRadiusSlider.swift in Sources */,
 				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
 				E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */,
+				E3D75E97218688E40034E5A5 /* AppHelper.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+extension.swift in Sources */,
 				E3B6758A2182371B008DB3F0 /* UIView+position.swift in Sources */,
 				E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */,
