@@ -35,6 +35,7 @@ class AllAvatarsViewController: UICommunicableViewController {
     }
     
     private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
+    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController.init(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -52,10 +53,9 @@ class AllAvatarsViewController: UICommunicableViewController {
         collectionViewSetup()
         
         navigationItem.searchController = searchController
-        
         treatTabCommunication()
     }
-    
+
     override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
         if let action = action as? AllAvatarsViewControllerAction{
             switch action {
