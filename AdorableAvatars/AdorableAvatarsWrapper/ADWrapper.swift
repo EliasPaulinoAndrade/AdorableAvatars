@@ -21,6 +21,13 @@ class ADWrapper {
         return URLSession.init(configuration: configuration)
     }()
     
+    public func combination(at: Int, withColor color: UIColor) -> ADAvatar? {
+        if let eye = components?.eyesNumbers.first, let nose = components?.noseNumbers.first, let month = components?.mouthsNumbers.first {
+            return ADAvatar.init(withEye: eye, withNose: nose, withMonth: month, andColor: color)
+        }
+        return nil
+    }
+    
     public func findTypes() {
         let typesDelegate = self.delegate as? ADTypesDelegate
         

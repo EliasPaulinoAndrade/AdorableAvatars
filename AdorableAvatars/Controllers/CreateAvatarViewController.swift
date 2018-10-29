@@ -24,6 +24,7 @@ class CreateAvatarViewController: UICommunicableViewController {
     
     private var currentAvatarImage: UIImage?
     private var adorableAvatars = ADWrapper()
+    private var adorableAvatarsAditional = ADWrapper()
     private var plistReader = PlistReader.init()
     private var avatar = ADAvatar.init()
     private var pickerColors: [PickerColor]?
@@ -159,13 +160,10 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
     
     func didLoadAvatarTypes(wrapper: ADWrapper) {
         
-        if let eye = wrapper.components?.eyesNumbers.first, let nose = wrapper.components?.noseNumbers.first, let month = wrapper.components?.mouthsNumbers.first {
+        if let firstAvatarCombination = wrapper.combination(at: 0, withColor: plistReader.colors[0]) {
             
             guard let action = self.action as? CreateAvatarViewControllerAction, action == .push else {
-                avatar.eye = eye
-                avatar.month = month
-                avatar.nose = nose
-                avatar.color = plistReader.colors[0]
+                self.avatar = firstAvatarCombination
                 
                 picker.startLoading()
                 self.picker.isEnabled = false

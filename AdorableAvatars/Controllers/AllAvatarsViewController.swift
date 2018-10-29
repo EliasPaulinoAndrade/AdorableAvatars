@@ -312,7 +312,6 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
 
 extension AllAvatarsViewController: AvatarPreviewDelegate{
     func avatarWasDesfavorite(_ avatar: Avatar) {
-        
         avatar.isFave = !avatar.isFave
         CoreDataStack.saveContext()
         
@@ -327,7 +326,6 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
     }
     
     func avatarWasFavorite(_ avatar: Avatar) {
-        
         avatar.isFave = !avatar.isFave
         CoreDataStack.saveContext()
         
@@ -340,7 +338,6 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
             }
         }
     }
-    
     
     func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
         let activityController: UIActivityViewController = {
@@ -372,7 +369,6 @@ extension AllAvatarsViewController: FavoriteAvatarDelegate{
 }
 
 extension AllAvatarsViewController {
-    
     enum Strings: String, Localizable {
         case    controller_allavatars_title,
                 controller_allavatars_var_isEditing_cancel,

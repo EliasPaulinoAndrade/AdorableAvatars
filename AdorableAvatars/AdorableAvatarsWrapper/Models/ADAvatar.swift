@@ -25,11 +25,17 @@ struct ADAvatar {
         
     }
     
+    init(withEye eye: Int, withNose nose: Int, withMonth month: Int, andColor color: UIColor) {
+        self.eye = eye
+        self.nose = nose
+        self.month = month
+        self.color = color
+    }
+    
     init(withDictionary dict: [String: Any]) {
         self.eye = dict["eye"] as? Int
         self.nose = dict["nose"] as? Int
         self.month = dict["month"] as? Int
         self.color = UIColor.init(withDictionary: dict)
     }
-    
 }
