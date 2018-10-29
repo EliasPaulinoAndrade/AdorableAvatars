@@ -78,6 +78,9 @@
 		E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */; };
 		E3AB0555217929E300B80D74 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0554217929E300B80D74 /* PreviewViewController.swift */; };
 		E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */; };
+		E3AB917721877CD100AEFFAF /* CacheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB917621877CD100AEFFAF /* CacheCenter.swift */; };
+		E3AB917821877F2200AEFFAF /* CacheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB917621877CD100AEFFAF /* CacheCenter.swift */; };
+		E3AB917921877F2300AEFFAF /* CacheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB917621877CD100AEFFAF /* CacheCenter.swift */; };
 		E3B6758A2182371B008DB3F0 /* UIView+position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B675892182371B008DB3F0 /* UIView+position.swift */; };
 		E3B6758E218242B2008DB3F0 /* UIPropPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B6758D218242B2008DB3F0 /* UIPropPicker.xib */; };
 		E3B6759021824343008DB3F0 /* UIPropPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6758F21824343008DB3F0 /* UIPropPicker.swift */; };
@@ -264,6 +267,7 @@
 		E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAvatarDelegate.swift; sourceTree = "<group>"; };
 		E3AB0554217929E300B80D74 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPreviewDelegate.swift; sourceTree = "<group>"; };
+		E3AB917621877CD100AEFFAF /* CacheCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheCenter.swift; path = "AdorableAvatars/Alert Managment/CacheCenter.swift"; sourceTree = SOURCE_ROOT; };
 		E3B675892182371B008DB3F0 /* UIView+position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+position.swift"; sourceTree = "<group>"; };
 		E3B6758D218242B2008DB3F0 /* UIPropPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPropPicker.xib; sourceTree = "<group>"; };
 		E3B6758F21824343008DB3F0 /* UIPropPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPropPicker.swift; sourceTree = "<group>"; };
@@ -415,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */,
+				E3AB917521877C9900AEFFAF /* Cache Managment */,
 				E348BB8921847A6800A905F0 /* Localization Managment */,
 				E386AE2E217E45B6009A8BF7 /* Notification Managment */,
 				E386AE28217E3438009A8BF7 /* Alert Managment */,
@@ -588,6 +593,14 @@
 				E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */,
 			);
 			path = delegates;
+			sourceTree = "<group>";
+		};
+		E3AB917521877C9900AEFFAF /* Cache Managment */ = {
+			isa = PBXGroup;
+			children = (
+				E3AB917621877CD100AEFFAF /* CacheCenter.swift */,
+			);
+			path = "Cache Managment";
 			sourceTree = "<group>";
 		};
 		E3B6758C218241AD008DB3F0 /* PropsPicker */ = {
@@ -915,6 +928,7 @@
 				E3D75E9F21868F0F0034E5A5 /* Bundle+extension.swift in Sources */,
 				E386AE43217E6386009A8BF7 /* ADAvatar.swift in Sources */,
 				E386AE5921807161009A8BF7 /* UIColor+extension.swift in Sources */,
+				E3AB917821877F2200AEFFAF /* CacheCenter.swift in Sources */,
 				E386AE5721807161009A8BF7 /* PlistReader.swift in Sources */,
 				E3D75E9B21868DC70034E5A5 /* URL+extension.swift in Sources */,
 				E386AE47217E6386009A8BF7 /* ADDelegate.swift in Sources */,
@@ -939,6 +953,7 @@
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E386AE5B218096F0009A8BF7 /* PickerColor.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
+				E3AB917721877CD100AEFFAF /* CacheCenter.swift in Sources */,
 				E386AE6A2181699C009A8BF7 /* UIRadiusSlider.swift in Sources */,
 				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
 				E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */,
@@ -1004,6 +1019,7 @@
 			files = (
 				E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */,
 				E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */,
+				E3AB917921877F2300AEFFAF /* CacheCenter.swift in Sources */,
 				E3B675FA2183727F008DB3F0 /* APAvatarPickerDelegate.swift in Sources */,
 				E3D75E9A21868DB60034E5A5 /* URL+extension.swift in Sources */,
 				E3B6760B2183F7FE008DB3F0 /* ADDelegate.swift in Sources */,

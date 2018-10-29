@@ -30,7 +30,7 @@ class NotificationService: UNNotificationServiceExtension {
             let avatar = ADAvatar.init(withDictionary: formattedContent)
             
             adWrapper.delegate = self
-            adWrapper.getImage(for: avatar)
+            adWrapper.getAvatarImage(for: avatar)
         }
     }
     

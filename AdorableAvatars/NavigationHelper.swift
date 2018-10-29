@@ -11,20 +11,14 @@ import UIKit
 class NavigationHelper {
     static public var allAvatarsViewController: AllAvatarsViewController? {
         let appDelegate = UIApplication.shared.delegate
-        guard let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController else {
+        guard   let tabbarController = appDelegate?.window??.rootViewController as? UITabBarController,
+                let selectedNavigationController = tabbarController.viewControllers?.first as? UINavigationController,
+                let allAvatarsViewController = selectedNavigationController.viewControllers.first as? AllAvatarsViewController
+                else {
             
             return nil
         }
-        
-        guard let selectedNavigationController = tabbarController.viewControllers?.first as? UINavigationController else {
-            
-            return nil
-        }
-        
-        guard let allAvatarsViewController = selectedNavigationController.viewControllers.first as? AllAvatarsViewController else {
-            return nil
-        }
-        
+     
         return allAvatarsViewController
     }
     

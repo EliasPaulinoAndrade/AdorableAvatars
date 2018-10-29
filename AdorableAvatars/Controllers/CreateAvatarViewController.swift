@@ -142,7 +142,7 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
             self.picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
-            self.adorableAvatars.getImage(for: self.avatar)
+            self.adorableAvatars.getAvatarImage(for: self.avatar)
         }, animated: true, completion: nil)
         self.picker.stopLoading()
     }
@@ -152,7 +152,7 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
             self.picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
-            self.adorableAvatars.getImage(for: self.avatar)
+            self.adorableAvatars.getAvatarImage(for: self.avatar)
         }, animated: true, completion: nil)
         self.picker.stopLoading()
     }
@@ -170,7 +170,7 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
                 picker.startLoading()
                 self.picker.isEnabled = false
                 self.colorPicker.isEnabled = false
-                adorableAvatars.getImage(for: avatar)
+                adorableAvatars.getAvatarImage(for: avatar)
                 loadIndicator.stopAnimating()
                 return
             }
@@ -178,7 +178,7 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
             picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
-            adorableAvatars.getImage(for: avatar)
+            adorableAvatars.getAvatarImage(for: avatar)
             loadIndicator.stopAnimating()
         }
     }
@@ -206,7 +206,7 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
         picker.startLoading()
         self.picker.isEnabled = false
         self.colorPicker.isEnabled = false
-        adorableAvatars.getImage(for: avatar)
+        adorableAvatars.getAvatarImage(for: avatar)
     }
     
     func prevTapped(_ picker: UIAvatarPicker, inPart avatarComponent: APAvatarComponents, toNumber number: Int) {
@@ -230,7 +230,7 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
         picker.startLoading()
         self.picker.isEnabled = false
         self.colorPicker.isEnabled = false
-        adorableAvatars.getImage(for: avatar)
+        adorableAvatars.getAvatarImage(for: avatar)
     }
 }
 
@@ -296,7 +296,7 @@ extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDele
         picker.startLoading()
         self.picker.isEnabled = false
         self.colorPicker.isEnabled = false
-        adorableAvatars.getImage(for: avatar)
+        adorableAvatars.getAvatarImage(for: avatar)
     }
 }
 
