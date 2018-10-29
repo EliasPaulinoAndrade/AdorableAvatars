@@ -33,8 +33,8 @@ class NavigationHelper {
             return
         }
         
-        allAvatarsViewController.action = .push
-        allAvatarsViewController.data = AllAvatarsViewControllerReceivedData(adAvatar: adAvatar)
+        allAvatarsViewController.action = AllAvatarsViewControllerAction.push
+        allAvatarsViewController.inputData = AllAvatarsViewControllerReceivedData(adAvatar: adAvatar)
         
         if allAvatarsViewController.isViewLoaded {
             allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
@@ -43,7 +43,7 @@ class NavigationHelper {
     
     static func openCreateAvatarViewControllerFromRequest(){
         if let allAvatarsViewController = NavigationHelper.allAvatarsViewController {
-            allAvatarsViewController.action = .schema
+            allAvatarsViewController.action = AllAvatarsViewControllerAction.schema
             
             if allAvatarsViewController.isViewLoaded {
                 allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)

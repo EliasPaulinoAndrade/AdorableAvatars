@@ -8,22 +8,20 @@
 
 import UIKit
 
-public enum AllAvatarsViewControllerAction {
-    case push, normal, schema
+public enum AllAvatarsViewControllerAction: UIViewControllerAction {
+    case push, schema
 }
 
-public struct AllAvatarsViewControllerReceivedData {
+public struct AllAvatarsViewControllerReceivedData: UIViewControllerInputData {
     let adAvatar: ADAvatar?
 }
 
-class AllAvatarsViewController: UIViewController {
+class AllAvatarsViewController: UICommunicableViewController {
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
     
     var delegate: FavoriteAvatarDelegate?
-    var action: AllAvatarsViewControllerAction?
-    var data: AllAvatarsViewControllerReceivedData?
     var isEditing_ = false {
         didSet {
             if self.isEditing_{
@@ -56,7 +54,33 @@ class AllAvatarsViewController: UIViewController {
         navigationItem.searchController = searchController
         
         treatTabCommunication()
-        treatInput()
+    }
+    
+    override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
+        if let action = action as? AllAvatarsViewControllerAction{
+            switch action {
+            case .push:
+                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+            case .schema:
+                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+            }
+        }
+    }
+    
+    override func sendOrders(destination: UIViewController, action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
+        if let navigationController = destination as? UINavigationController {
+            if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
+                createAvatarController.delegate = self
+                if  let safeAction = action as? AllAvatarsViewControllerAction,
+                    let data = receivedData as? AllAvatarsViewControllerReceivedData,
+                    safeAction == .push {
+                    
+                    createAvatarController.action = CreateAvatarViewControllerAction.push
+                    createAvatarController.inputData = CreateAvatarViewControllerReceivedData(initialAdAvatar: data.adAvatar)
+                    self.action = nil
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,19 +92,9 @@ class AllAvatarsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.isEditing_ = false
+        super.prepare(for: segue, sender: sender)
         
-        if let navigationController = segue.destination as? UINavigationController {
-            if let createAvatarController = navigationController.viewControllers.first as? CreateAvatarViewController{
-                createAvatarController.delegate = self
-                if let action = self.action, action == .push {
-                    
-                    createAvatarController.action = .push
-                    createAvatarController.data = CreateAvatarViewControllerReceivedData(initialAdAvatar: self.data?.adAvatar)
-                    self.action = .normal
-                }
-            }
-        }
+        self.isEditing_ = false
     }
     
     private func collectionViewSetup() {
@@ -90,19 +104,6 @@ class AllAvatarsViewController: UIViewController {
         avatarsCollectionView.delegate = self
         avatarsCollectionView.allowsMultipleSelection = true
         registerForPreviewing(with: self, sourceView: avatarsCollectionView)
-    }
-    
-    private func treatInput() {
-        if let action = self.action {
-            switch action {
-            case .push:
-                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
-            case .normal:
-                break
-            case .schema:
-                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
-            }
-        }
     }
     
     private func treatTabCommunication() {
@@ -299,7 +300,7 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         let width = self.avatarsCollectionView.frame.width
         let height = width
         
-        previewController.dataReceived = data
+        previewController.inputData = data
         previewController.preferredContentSize = CGSize.init(width: width, height: height)
         previewController.delegate = self
         

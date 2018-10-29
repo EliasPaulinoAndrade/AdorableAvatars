@@ -9,15 +9,14 @@
 import UIKit
 
 
-struct PreviewViewControllerReceivedData{
+struct PreviewViewControllerReceivedData: UIViewControllerInputData {
     let image: UIImage?
     let avatar: Avatar?
 }
 
-class PreviewViewController: UIViewController {
+class PreviewViewController: UICommunicableViewController {
     @IBOutlet weak var previewImageView: UIImageView!
     
-    public var dataReceived: PreviewViewControllerReceivedData?
     public var delegate: AvatarPreviewDelegate?
     
     private var avatar: Avatar?
@@ -51,11 +50,15 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if let dataReceived = self.dataReceived {
-            self.previewImageView.image = dataReceived.image
-            self.avatar = dataReceived.avatar
+    }
+    
+    override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
+        guard let safeData = receivedData as? PreviewViewControllerReceivedData else {
+            return
         }
+        
+        self.previewImageView.image = safeData.image
+        self.avatar = safeData.avatar
     }
 }
 

@@ -8,15 +8,15 @@
 
 import UIKit
 
-public enum CreateAvatarViewControllerAction {
+public enum CreateAvatarViewControllerAction: UIViewControllerAction {
     case push
 }
 
-public struct CreateAvatarViewControllerReceivedData {
+public struct CreateAvatarViewControllerReceivedData: UIViewControllerInputData {
     let initialAdAvatar: ADAvatar?
 }
 
-class CreateAvatarViewController: UIViewController {
+class CreateAvatarViewController: UICommunicableViewController {
     @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: UIColorPicker!
     @IBOutlet weak var colorPickerContainer: UIView!
@@ -28,8 +28,6 @@ class CreateAvatarViewController: UIViewController {
     private var avatar = ADAvatar.init()
     private var pickerColors: [PickerColor]?
    
-    public var data: CreateAvatarViewControllerReceivedData?
-    public var action: CreateAvatarViewControllerAction?
     public var delegate: CreateAvatarDelegate?
     
     private lazy var loadIndicator: UIActivityIndicatorView = {
@@ -57,10 +55,27 @@ class CreateAvatarViewController: UIViewController {
         self.radiusSlider.addTarget(self, action: #selector(self.sliderValueDidChange(_:)), for: .valueChanged)
         self.pickerColors = plistReader.colors.pickerColorArray()
         
-        treatInput()
-        
         loadIndicator.startAnimating()
         adorableAvatars.findTypes()
+    }
+    
+    override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
+        if let safeAction = action as? CreateAvatarViewControllerAction {
+            switch safeAction {
+            case .push:
+                showAvatarNameAlert()
+            }
+        }
+        
+        if let data = receivedData as? CreateAvatarViewControllerReceivedData{
+            self.avatar = data.initialAdAvatar ?? self.avatar
+            //            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
+            ////                self.picker.currentAvatar.eye = initalEye
+            ////                self.picker.currentAvatar.nose = initalNose
+            ////                self.picker.currentAvatar.month = initialMonth
+            //
+            //            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -107,25 +122,6 @@ class CreateAvatarViewController: UIViewController {
             self.delegate?.avatarWasCreated(controller: self, avatar: avatar)
         }
     }
-    
-    private func treatInput() {
-        if let action = self.action {
-            switch action {
-            case .push:
-                showAvatarNameAlert()
-            }
-        }
-        
-        if let data = self.data {
-            self.avatar = data.initialAdAvatar ?? self.avatar
-            //            if let initalEye = data.initialAdAvatar?.eye, let initalNose = data.initialAdAvatar?.nose, let initialMonth = data.initialAdAvatar?.month {
-            ////                self.picker.currentAvatar.eye = initalEye
-            ////                self.picker.currentAvatar.nose = initalNose
-            ////                self.picker.currentAvatar.month = initialMonth
-            //
-            //            }
-        }
-    }
 }
 
 extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
@@ -165,19 +161,26 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
         
         if let eye = wrapper.components?.eyesNumbers.first, let nose = wrapper.components?.noseNumbers.first, let month = wrapper.components?.mouthsNumbers.first {
             
-            if (action != nil && action != .push) || action == nil {
+            guard let action = self.action as? CreateAvatarViewControllerAction, action == .push else {
                 avatar.eye = eye
                 avatar.month = month
                 avatar.nose = nose
                 avatar.color = plistReader.colors[0]
+                
+                picker.startLoading()
+                self.picker.isEnabled = false
+                self.colorPicker.isEnabled = false
+                adorableAvatars.getImage(for: avatar)
+                loadIndicator.stopAnimating()
+                return
             }
             
             picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
             adorableAvatars.getImage(for: avatar)
+            loadIndicator.stopAnimating()
         }
-        loadIndicator.stopAnimating()
     }
 }
 

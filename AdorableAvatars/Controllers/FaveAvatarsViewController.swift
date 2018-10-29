@@ -135,7 +135,7 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
         let height = width
         
         
-        previewController.dataReceived = data
+        previewController.inputData = data
         previewController.preferredContentSize = CGSize.init(width: width, height: height)
         previewController.delegate = self
         
