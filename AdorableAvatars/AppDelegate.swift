@@ -46,7 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         UNUserNotificationCenter.current().delegate = NotificationManager.shared
-        
+        ADWrapper.shared.defaultAvatarColor = PlistReader.init().colors.first
+        ADWrapper.shared.findTypes()
         return true
     }
   

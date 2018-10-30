@@ -15,10 +15,12 @@ class FaveAvatarsViewController: UIViewController {
     
     public var delegate: FavoriteAvatarDelegate?
     
-    private var avatars: [Avatar]? = try? CoreDataWrapper.getAllFavoriteAvatars()
+    private var avatars: [Avatar]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        avatars = try? CoreDataWrapper.getAllFavoriteAvatars()
         
         collectionViewSetup()
         

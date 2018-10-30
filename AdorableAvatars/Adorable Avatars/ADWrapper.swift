@@ -10,9 +10,11 @@ import UIKit
 import Foundation
 
 class ADWrapper {
+    public static var shared: ADWrapper = ADWrapper.init()
     
     public var components: ADFaceComponents?
     public var delegate: ADDelegate?
+    public var defaultAvatarColor: UIColor?
 
     private var imageCache: NSCache<NSString, UIImage> = NSCache.init()
     
@@ -21,8 +23,8 @@ class ADWrapper {
         return URLSession.init(configuration: configuration)
     }()
     
-    public func combination(at: Int, withColor color: UIColor) -> ADAvatar? {
-        if let eye = components?.eyesNumbers.first, let nose = components?.noseNumbers.first, let month = components?.mouthsNumbers.first {
+    public func combination(at index: Int, withColor color: UIColor) -> ADAvatar? {
+        if let eye = components?.eyesNumbers[index], let nose = components?.noseNumbers[index], let month = components?.mouthsNumbers[index] {
             return ADAvatar.init(withEye: eye, withNose: nose, withMonth: month, andColor: color)
         }
         return nil
@@ -44,6 +46,10 @@ class ADWrapper {
                     self.components = face
                     DispatchQueue.main.async {
                         typesDelegate?.didLoadAvatarTypes(wrapper: self)
+                    }
+                    if  let possibleColor = self.defaultAvatarColor,
+                        let possibleAvatar = self.combination(at: 0, withColor: possibleColor) {
+                        self.getNextStateAvatar(for: possibleAvatar, includingNextStates: true)
                     }
                 } catch {
                     DispatchQueue.main.async {
@@ -143,20 +149,21 @@ class ADWrapper {
         loadNextStates(avatar: avatar)
     }
     
-    private func getNextStateAvatar(for avatar: ADAvatar) {
+    private func getNextStateAvatar(for avatar: ADAvatar, includingNextStates includeNextStates: Bool = false) {
         
         guard let url = avatar.url else {
             return
         }
         
-        self.getImage(withURL: url) { (sucess, image) in
-            print(avatar)
+        self.getImage(withURL: url) { (sucess, image) in }
+        
+        if includeNextStates {
+            self.loadNextStates(avatar: avatar)
         }
     }
     
     private func loadNextStates(avatar: ADAvatar) {
         let nextStates = avatar.nextStates(wrapper: self)
-        print(avatar)
         for state in nextStates {
             if let nextAvatar = state {
                 getNextStateAvatar(for: nextAvatar)

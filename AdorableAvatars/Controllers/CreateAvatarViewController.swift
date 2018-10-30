@@ -23,8 +23,6 @@ class CreateAvatarViewController: UICommunicableViewController {
     @IBOutlet weak var radiusSlider: UIRadiusSlider!
     
     private var currentAvatarImage: UIImage?
-    private var adorableAvatars = ADWrapper()
-    private var adorableAvatarsAditional = ADWrapper()
     private var plistReader = PlistReader.init()
     private var avatar = ADAvatar.init()
     private var pickerColors: [PickerColor]?
@@ -48,7 +46,7 @@ class CreateAvatarViewController: UICommunicableViewController {
         
         picker.delegate = self
         picker.datasource = self
-        adorableAvatars.delegate = self
+        ADWrapper.shared.delegate = self
         colorPicker.datasource = self
         colorPicker.delegate = self
         
@@ -57,7 +55,12 @@ class CreateAvatarViewController: UICommunicableViewController {
         self.pickerColors = plistReader.colors.pickerColorArray()
         
         loadIndicator.startAnimating()
-        adorableAvatars.findTypes()
+        
+        if ADWrapper.shared.components != nil{
+            setupAvatarWithTypes(wrapper: ADWrapper.shared)
+        } else {
+            ADWrapper.shared.findTypes()
+        }
     }
     
     override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
@@ -143,7 +146,7 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
             self.picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
-            self.adorableAvatars.getAvatarImage(for: self.avatar)
+            ADWrapper.shared.getAvatarImage(for: self.avatar)
         }, animated: true, completion: nil)
         self.picker.stopLoading()
     }
@@ -153,30 +156,33 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
             self.picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
-            self.adorableAvatars.getAvatarImage(for: self.avatar)
+            ADWrapper.shared.getAvatarImage(for: self.avatar)
         }, animated: true, completion: nil)
         self.picker.stopLoading()
     }
     
     func didLoadAvatarTypes(wrapper: ADWrapper) {
-        
+        setupAvatarWithTypes(wrapper: wrapper)
+    }
+    
+    func setupAvatarWithTypes(wrapper: ADWrapper) {
         if let firstAvatarCombination = wrapper.combination(at: 0, withColor: plistReader.colors[0]) {
             
             guard let action = self.action as? CreateAvatarViewControllerAction, action == .push else {
-               
+                
                 self.avatar = firstAvatarCombination
                 
                 picker.startLoading()
                 self.picker.isEnabled = false
                 self.colorPicker.isEnabled = false
-                adorableAvatars.getAvatarImage(for: avatar)
+                ADWrapper.shared.getAvatarImage(for: avatar)
                 loadIndicator.stopAnimating()
                 return
             }
             picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false
-            adorableAvatars.getAvatarImage(for: avatar)
+            ADWrapper.shared.getAvatarImage(for: avatar)
             loadIndicator.stopAnimating()
         }
     }
@@ -186,15 +192,15 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
     func nextTapped(_ picker: UIAvatarPicker, inPart avatarComponent: APAvatarComponents, toNumber number: Int) {
         switch avatarComponent {
         case .eye:
-            if let eye = adorableAvatars.components?.eyesNumbers[number] {
+            if let eye = ADWrapper.shared.components?.eyesNumbers[number] {
                 avatar.eye = eye
             }
         case .month:
-            if let month = adorableAvatars.components?.mouthsNumbers[number] {
+            if let month = ADWrapper.shared.components?.mouthsNumbers[number] {
                 avatar.month = month
             }
         case .nose:
-            if let nose = adorableAvatars.components?.noseNumbers[number] {
+            if let nose = ADWrapper.shared.components?.noseNumbers[number] {
                 avatar.nose = nose
             }
         }
@@ -204,21 +210,21 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
         picker.startLoading()
         self.picker.isEnabled = false
         self.colorPicker.isEnabled = false
-        adorableAvatars.getAvatarImage(for: avatar)
+        ADWrapper.shared.getAvatarImage(for: avatar)
     }
     
     func prevTapped(_ picker: UIAvatarPicker, inPart avatarComponent: APAvatarComponents, toNumber number: Int) {
         switch avatarComponent {
         case .eye:
-            if let eye = adorableAvatars.components?.eyesNumbers[number] {
+            if let eye = ADWrapper.shared.components?.eyesNumbers[number] {
                 avatar.eye = eye
             }
         case .month:
-            if let month = adorableAvatars.components?.mouthsNumbers[number] {
+            if let month = ADWrapper.shared.components?.mouthsNumbers[number] {
                 avatar.month = month
             }
         case .nose:
-            if let nose = adorableAvatars.components?.noseNumbers[number] {
+            if let nose = ADWrapper.shared.components?.noseNumbers[number] {
                 avatar.nose = nose
             }
         }
@@ -228,7 +234,7 @@ extension CreateAvatarViewController: APAvatarPickerDelegate {
         picker.startLoading()
         self.picker.isEnabled = false
         self.colorPicker.isEnabled = false
-        adorableAvatars.getAvatarImage(for: avatar)
+        ADWrapper.shared.getAvatarImage(for: avatar)
     }
 }
 
@@ -240,11 +246,11 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
     func numberOfTypes(picker: UIAvatarPicker, forComponent component: APAvatarComponents) -> Int {
         switch component {
         case .eye:
-            return self.adorableAvatars.components?.eyes.count ?? 0
+            return ADWrapper.shared.components?.eyes.count ?? 0
         case .nose:
-            return self.adorableAvatars.components?.noses.count ?? 0
+            return ADWrapper.shared.components?.noses.count ?? 0
         case .month:
-            return self.adorableAvatars.components?.mouths.count ?? 0
+            return ADWrapper.shared.components?.mouths.count ?? 0
         }
     }
 }
@@ -294,7 +300,7 @@ extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDele
         picker.startLoading()
         self.picker.isEnabled = false
         self.colorPicker.isEnabled = false
-        adorableAvatars.getAvatarImage(for: avatar)
+        ADWrapper.shared.getAvatarImage(for: avatar)
     }
 }
 

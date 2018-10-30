@@ -207,9 +207,10 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
-    @objc func avatarCellLongPress(_ sender: UIAvatarCollectionViewCell) {
-        self.isEditing_ = true
-        
+    @objc func avatarCellLongPress(_ recognizer: UILongPressGestureRecognizer) {
+        if recognizer.state == .began, self.isEditing_ == false {
+            self.isEditing_ = true
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -294,6 +295,8 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let avatarContainer = self.containerAvatars?[indexPath.row] else {
             return nil
         }
+        
+        self.isEditing_ = false
         let data = PreviewViewControllerReceivedData.init(image: cell.avatarImage.image, avatar: avatarContainer.avatar)
         
         let width = self.avatarsCollectionView.frame.width
