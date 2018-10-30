@@ -163,6 +163,7 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
         if let firstAvatarCombination = wrapper.combination(at: 0, withColor: plistReader.colors[0]) {
             
             guard let action = self.action as? CreateAvatarViewControllerAction, action == .push else {
+               
                 self.avatar = firstAvatarCombination
                 
                 picker.startLoading()
@@ -172,7 +173,6 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
                 loadIndicator.stopAnimating()
                 return
             }
-            
             picker.startLoading()
             self.picker.isEnabled = false
             self.colorPicker.isEnabled = false

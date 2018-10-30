@@ -17,7 +17,6 @@ public struct AllAvatarsViewControllerReceivedData: UIViewControllerInputData {
 }
 
 class AllAvatarsViewController: UICommunicableViewController {
-
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
     

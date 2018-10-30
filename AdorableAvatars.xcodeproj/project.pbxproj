@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
+		E31AB8272188BB4200DB3FC0 /* AvatarCacheDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31AB8262188BB4200DB3FC0 /* AvatarCacheDefaults.swift */; };
+		E31AB8282188BD6C00DB3FC0 /* AvatarCacheDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31AB8262188BB4200DB3FC0 /* AvatarCacheDefaults.swift */; };
+		E31AB8292188BD6C00DB3FC0 /* AvatarCacheDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31AB8262188BB4200DB3FC0 /* AvatarCacheDefaults.swift */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
@@ -199,6 +202,7 @@
 		E30142832184A45A008CA9C6 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142842184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142852184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E31AB8262188BB4200DB3FC0 /* AvatarCacheDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCacheDefaults.swift; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -426,7 +430,7 @@
 				E3AB053E2178E3D000B80D74 /* Core Data Managment */,
 				E3AB05312177E3AD00B80D74 /* File Managment */,
 				E3AB051B2177740B00B80D74 /* Plist Management */,
-				E3AB050821761BDF00B80D74 /* AdorableAvatarsWrapper */,
+				E3AB050821761BDF00B80D74 /* Adorable Avatars */,
 				E3AB04FE21760BF000B80D74 /* Custom Views */,
 				E386AE5F2180C9DF009A8BF7 /* Models */,
 				E3AB053B2178AA3F00B80D74 /* Controllers */,
@@ -484,14 +488,15 @@
 			path = AvatarPicker;
 			sourceTree = "<group>";
 		};
-		E3AB050821761BDF00B80D74 /* AdorableAvatarsWrapper */ = {
+		E3AB050821761BDF00B80D74 /* Adorable Avatars */ = {
 			isa = PBXGroup;
 			children = (
 				E3AB050B2176237500B80D74 /* Models */,
 				E3AB050921761C2400B80D74 /* ADWrapper.swift */,
 				E3AB050E2176310800B80D74 /* ADDelegate.swift */,
+				E31AB8262188BB4200DB3FC0 /* AvatarCacheDefaults.swift */,
 			);
-			path = AdorableAvatarsWrapper;
+			path = "Adorable Avatars";
 			sourceTree = "<group>";
 		};
 		E3AB050B2176237500B80D74 /* Models */ = {
@@ -931,6 +936,7 @@
 				E3AB917821877F2200AEFFAF /* CacheCenter.swift in Sources */,
 				E386AE5721807161009A8BF7 /* PlistReader.swift in Sources */,
 				E3D75E9B21868DC70034E5A5 /* URL+extension.swift in Sources */,
+				E31AB8292188BD6C00DB3FC0 /* AvatarCacheDefaults.swift in Sources */,
 				E386AE47217E6386009A8BF7 /* ADDelegate.swift in Sources */,
 				E386AE44217E6386009A8BF7 /* String+sub.swift in Sources */,
 			);
@@ -952,6 +958,7 @@
 				E348BB912184869700A905F0 /* Localizable.swift in Sources */,
 				E3AB0517217659F700B80D74 /* ADAvatar.swift in Sources */,
 				E386AE5B218096F0009A8BF7 /* PickerColor.swift in Sources */,
+				E31AB8272188BB4200DB3FC0 /* AvatarCacheDefaults.swift in Sources */,
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
 				E3AB917721877CD100AEFFAF /* CacheCenter.swift in Sources */,
 				E386AE6A2181699C009A8BF7 /* UIRadiusSlider.swift in Sources */,
@@ -1044,6 +1051,7 @@
 				E3B6760C2183F818008DB3F0 /* ADWrapper.swift in Sources */,
 				E3B6760F2183F82B008DB3F0 /* UIColor+hexa.swift in Sources */,
 				E3B676032183732F008DB3F0 /* FileManager+extension.swift in Sources */,
+				E31AB8282188BD6C00DB3FC0 /* AvatarCacheDefaults.swift in Sources */,
 				E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */,
 				E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */,
 				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,

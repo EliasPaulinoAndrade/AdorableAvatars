@@ -139,6 +139,29 @@ class ADWrapper {
                 avatarDelegate?.avatarLoadDidFail(wrapper: self, for: avatar)
             }
         }
+    
+        loadNextStates(avatar: avatar)
+    }
+    
+    private func getNextStateAvatar(for avatar: ADAvatar) {
+        
+        guard let url = avatar.url else {
+            return
+        }
+        
+        self.getImage(withURL: url) { (sucess, image) in
+            print(avatar)
+        }
+    }
+    
+    private func loadNextStates(avatar: ADAvatar) {
+        let nextStates = avatar.nextStates(wrapper: self)
+        print(avatar)
+        for state in nextStates {
+            if let nextAvatar = state {
+                getNextStateAvatar(for: nextAvatar)
+            }
+        }
     }
     
     public func randomAvatar(withBase base: Int) {
