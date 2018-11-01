@@ -48,6 +48,8 @@ class AllAvatarsViewController: UICommunicableViewController {
         return searchController
     }()
     
+    private var previewingContext: UIViewControllerPreviewing?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -128,7 +130,7 @@ class AllAvatarsViewController: UICommunicableViewController {
         avatarsCollectionView.dataSource = self
         avatarsCollectionView.delegate = self
         avatarsCollectionView.allowsMultipleSelection = true
-        registerForPreviewing(with: self, sourceView: avatarsCollectionView)
+        self.previewingContext = registerForPreviewing(with: self, sourceView: avatarsCollectionView)
     }
     
     private func treatTabCommunication() {
@@ -286,6 +288,20 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
     
     func willPresentSearchController(_ searchController: UISearchController) {
         self.isEditing_ = false
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        if let context = self.previewingContext {
+            unregisterForPreviewing(withContext: context)
+            self.previewingContext = searchController.registerForPreviewing(with: self, sourceView: self.avatarsCollectionView)
+        }
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        if let context = self.previewingContext {
+            unregisterForPreviewing(withContext: context)
+            self.previewingContext = registerForPreviewing(with: self, sourceView: self.avatarsCollectionView)
+        }
     }
 }
 
