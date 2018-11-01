@@ -522,20 +522,18 @@
                         <viewLayoutGuide key="safeArea" id="bDq-A5-urt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Your Avatars" id="GP5-Uz-TJI">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="Gh4-Ff-AAh">
-                                <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Edit" id="baX-1g-T5j">
-                                <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="editTapped:" destination="NIp-Ne-dWX" id="7q2-9m-m7t"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="baX-1g-T5j">
+                            <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editTapped:" destination="NIp-Ne-dWX" id="7q2-9m-m7t"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh4-Ff-AAh">
+                            <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="avatarsCollectionView" destination="gWO-K2-jTW" id="d51-d3-u9v"/>

@@ -25,10 +25,10 @@ class AllAvatarsViewController: UICommunicableViewController {
     var isEditing_ = false {
         didSet {
             if self.isEditing_{
-                self.navigationItem.rightBarButtonItems?[1].title = "\(Strings.controller_allavatars_var_isEditing_cancel)"
+                self.navigationItem.leftBarButtonItems?[0].title = "\(Strings.controller_allavatars_var_isEditing_cancel)"
             }
             else {
-                self.navigationItem.rightBarButtonItems?[1].title = "\(Strings.controller_allavatars_var_isEditing_edit)"
+                self.navigationItem.leftBarButtonItems?[0].title = "\(Strings.controller_allavatars_var_isEditing_edit)"
             }
             self.avatarsCollectionView.reloadData()
         }
@@ -117,7 +117,13 @@ class AllAvatarsViewController: UICommunicableViewController {
     }
     
     private func collectionViewSetup() {
-        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
+        avatarsCollectionView.register(
+            UINib.init(
+                nibName: "UIAvatarCollectionViewCell",
+                bundle: nil
+            ),
+            forCellWithReuseIdentifier: "avatarCell"
+        )
         
         avatarsCollectionView.dataSource = self
         avatarsCollectionView.delegate = self
@@ -269,7 +275,6 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
             let avatarContainers = try CoreDataWrapper.findAvatars(byName: text).avatarContainerArray()
             self.containerAvatars = avatarContainers
             self.avatarsCollectionView.reloadData()
-            
         } catch {
             present(AlertManagment.genericErrorAlert(
                 withDescription: "\(Strings.controller_allavatars_func_updateSearchResults_error_description)"),

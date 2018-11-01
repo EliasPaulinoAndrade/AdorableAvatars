@@ -47,8 +47,8 @@
 "controller_allavatars_no_avatar_warning" = "You Have No Avatars. Click On the Add Button and create a new Avatar.";
 
 "controller_preview_var_previewActionItems_share_action_title" = "Share Avatar";
-"controller_preview_var_previewActionItems_fave_action_title" = "It's My Favorite";
-"controller_preview_var_previewActionItems_unfave_action_title" = "It's Not My Favorite";
+"controller_preview_var_previewActionItems_fave_action_title" = "Add To Favorites";
+"controller_preview_var_previewActionItems_unfave_action_title" = "Remove From Favorites";
 
 "controller_favAvatars_title" = "Fav Avatars";
 "controller_favAvatars_no_avatar_warning" = "You have no favorite avatars. Click the avatar star button to favor one.";
