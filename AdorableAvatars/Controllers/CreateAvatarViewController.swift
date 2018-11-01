@@ -141,24 +141,26 @@ extension CreateAvatarViewController: ADAvatarDelegate, ADTypesDelegate {
     }
     
     func avatarLoadDidFail(wrapper: ADWrapper, for avatar: ADAvatar) {
-       
-        self.present(AlertManagment.networkErrorAlert {
-            self.picker.startLoading()
-            self.picker.isEnabled = false
-            self.colorPicker.isEnabled = false
-            ADWrapper.shared.getAvatarImage(for: self.avatar)
-        }, animated: true, completion: nil)
+        self.present(AlertManagment.networkErrorWithCancelAlert(completion: { (retryTapped) in
+            if retryTapped {
+                self.picker.startLoading()
+                self.picker.isEnabled = false
+                self.colorPicker.isEnabled = false
+                ADWrapper.shared.getAvatarImage(for: self.avatar)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }), animated: true, completion: nil)
+        
         self.picker.stopLoading()
     }
     
     func avatarTypesLoadDidFail(wrapper: ADWrapper) {
         self.present(AlertManagment.networkErrorAlert {
-            self.picker.startLoading()
-            self.picker.isEnabled = false
-            self.colorPicker.isEnabled = false
-            ADWrapper.shared.getAvatarImage(for: self.avatar)
+            self.loadIndicator.startAnimating()
+            ADWrapper.shared.findTypes()
         }, animated: true, completion: nil)
-        self.picker.stopLoading()
+        self.loadIndicator.stopAnimating()
     }
     
     func didLoadAvatarTypes(wrapper: ADWrapper) {

@@ -5,7 +5,7 @@
 //  Created by Elias Paulino on 22/10/18.
 //  Copyright © 2018 Elias Paulino. All rights reserved.
 //
-
+ 
 import UIKit
 
 protocol LocalizableAlerts {
@@ -83,6 +83,32 @@ class AlertManagment {
         return alertError
     }
     
+    static public func networkErrorWithCancelAlert(completion: @escaping (_ sucess: Bool) -> ()) -> UIAlertController {
+        
+        let alertError = UIAlertController.init(
+            title: Strings.alert_network_error_with_cancel_title.localizable,
+            message: Strings.alert_network_with_cancel_description.localizable,
+            preferredStyle: .actionSheet
+        )
+        
+        alertError.addAction(UIAlertAction.init(
+            title: Strings.alert_network_with_cancel_description_action_retry.localizable,
+            style: .default,
+            handler: { (alert) in
+                completion(true)
+            }
+        ))
+        
+        alertError.addAction(UIAlertAction.init(
+            title: Strings.alert_network_with_cancel_description_action_cancel.localizable,
+            style: .cancel,
+            handler: { (alert) in
+                completion(false)
+            }
+        ))
+        
+        return alertError
+    }
     
     /// make a alert to be showed when the user is saving a avatar, it shows a textfield
     ///
@@ -191,6 +217,11 @@ extension AlertManagment: LocalizableAlerts {
                 controller_messases_open_adorable_actio_yes,
                 controller_messases_open_adorable_actio_no,
                 controller_messases_open_adorable_app_title
+        case
+                alert_network_error_with_cancel_title,
+                alert_network_with_cancel_description,
+                alert_network_with_cancel_description_action_retry,
+                alert_network_with_cancel_description_action_cancel
         
         var comment: String {
             switch self {

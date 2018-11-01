@@ -18,6 +18,11 @@
 "alert_network_description" = "Erro de Internet";
 "alert_network_description_action_retry" = "Tentar Novamente";
 
+"alert_network_error_with_cancel_title" = "Erro";
+"alert_network_with_cancel_description" = "Erro de Internet";
+"alert_network_with_cancel_description_action_retry" = "Tentar Novamente";
+"alert_network_with_cancel_description_action_cancel" = "Cancelar";
+
 "alert_save_avatar_title" = "Salvando";
 "alert_save_avatar_description" = "Qual O Nome Dele?";
 "alert_save_avatar_action_cancel" = "Cancelar";

@@ -18,6 +18,11 @@
 "alert_network_description" = "网络错误";
 "alert_network_description_action_retry" = "重试";
 
+"alert_network_error_with_cancel_title" = "Error";
+"alert_network_with_cancel_description" = "Network Error";
+"alert_network_with_cancel_description_action_retry" = "Retry";
+"alert_network_with_cancel_description_action_cancel" = "Cancel";
+
 "alert_save_avatar_title" = "保存";
 "alert_save_avatar_description" = "它叫什么名字？";
 "alert_save_avatar_action_cancel" = "取消";
@@ -49,7 +54,6 @@
 "controller_favAvatars_no_avatar_warning" = "你没有最喜欢的头像。 点击头像明星按钮以赞成一个";
 
 "controller_createAvatar_title" = "头像创作";
-
 
 "controller_messages_cant_add_message_error" = "无法插入消息";
 "controller_messases_cant_open_adorable_app" = "Cannot Open AdorableAvatars app. Verify the installation.";

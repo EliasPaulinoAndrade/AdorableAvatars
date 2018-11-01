@@ -18,6 +18,11 @@
 "alert_network_description" = "Network Error";
 "alert_network_description_action_retry" = "Retry";
 
+"alert_network_error_with_cancel_title" = "Error";
+"alert_network_with_cancel_description" = "Network Error";
+"alert_network_with_cancel_description_action_retry" = "Retry";
+"alert_network_with_cancel_description_action_cancel" = "Cancel";
+
 "alert_save_avatar_title" = "Saving";
 "alert_save_avatar_description" = "What's it name?";
 "alert_save_avatar_action_cancel" = "Cancel";
