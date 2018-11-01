@@ -534,6 +534,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatarsCollectionView" destination="gWO-K2-jTW" id="d51-d3-u9v"/>
+                        <outlet property="collectionbottomContraint" destination="pMv-vl-m5w" id="g7X-qa-fdX"/>
                         <outlet property="searchDisplayController" destination="bmT-cC-opb" id="r5K-0V-e7X"/>
                         <outlet property="warningLabel" destination="ydl-rL-ch5" id="ESK-Mp-XXQ"/>
                     </connections>

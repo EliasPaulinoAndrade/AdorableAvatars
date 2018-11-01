@@ -19,6 +19,7 @@ public struct AllAvatarsViewControllerReceivedData: UIViewControllerInputData {
 class AllAvatarsViewController: UICommunicableViewController {
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var collectionbottomContraint: NSLayoutConstraint!
     
     var delegate: FavoriteAvatarDelegate?
     var isEditing_ = false {
@@ -42,6 +43,7 @@ class AllAvatarsViewController: UICommunicableViewController {
         searchController.searchBar.placeholder = "\(Strings.controller_allavatars_var_searchController_placeholder)"
         searchController.definesPresentationContext = true
         searchController.delegate = self
+        searchController.searchBar.delegate = self
     
         return searchController
     }()
@@ -53,8 +55,23 @@ class AllAvatarsViewController: UICommunicableViewController {
         
         navigationItem.searchController = searchController
         treatTabCommunication()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillAppear(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            
+            collectionbottomContraint.constant = keyboardHeight - 40
+        }
     }
 
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        collectionbottomContraint.constant = 10
+    }
+    
     override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
         if let action = action as? AllAvatarsViewControllerAction{
             switch action {
@@ -233,7 +250,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
     }
 }
 
-extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
         guard let text = searchController.searchBar.text else {
@@ -365,8 +382,6 @@ extension AllAvatarsViewController: FavoriteAvatarDelegate{
         }
         
         avatarCell.isFaved = false
-        
-        
     }
 }
 
