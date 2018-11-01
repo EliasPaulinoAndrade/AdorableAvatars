@@ -58,13 +58,16 @@ class AllAvatarsViewController: UICommunicableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.navigationController?.view.tintColor = #colorLiteral(red: 0.9294117647, green: 0.5411764706, blue: 0.09803921569, alpha: 1)
     }
     
     @objc private func keyboardWillAppear(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            
-            collectionbottomContraint.constant = keyboardHeight - 40
+            let keyboardRect = keyboardFrame.cgRectValue
+            if let tababarSize = self.tabBarController?.tabBar.frame.height {
+                collectionbottomContraint.constant = keyboardRect.size.height - tababarSize + 5
+            }
         }
     }
 

@@ -47,7 +47,7 @@
                                                         <rect key="frame" x="10" y="10" width="374" height="18"/>
                                                         <accessibility key="accessibilityConfiguration" label="ed"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" name="text_gray"/>
+                                                        <color key="textColor" name="text-gray-color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2o-hU-kIU" customClass="UIColorPicker" customModule="AdorableAvatars" customModuleProvider="target">
@@ -89,7 +89,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE THE RADIUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pq-lr-239">
                                                         <rect key="frame" x="10" y="10" width="374" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" name="text_gray"/>
+                                                        <color key="textColor" name="text-gray-color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hok-Dw-rYs" customClass="UIRadiusSlider" customModule="AdorableAvatars" customModuleProvider="target">
@@ -98,9 +98,9 @@
                                                             <constraint firstAttribute="height" constant="29" id="KB4-aZ-Gc7"/>
                                                             <constraint firstAttribute="height" constant="29" id="Qxm-SU-xQf"/>
                                                         </constraints>
-                                                        <color key="minimumTrackTintColor" name="sliderfill"/>
-                                                        <color key="maximumTrackTintColor" name="sliderempty"/>
-                                                        <color key="thumbTintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="minimumTrackTintColor" name="slider-fill-orange"/>
+                                                        <color key="maximumTrackTintColor" name="slider-empty-gray"/>
+                                                        <color key="thumbTintColor" name="action-color"/>
                                                         <variation key="default">
                                                             <mask key="constraints">
                                                                 <exclude reference="KB4-aZ-Gc7"/>
@@ -194,7 +194,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE THE PROPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-JX-mC5">
                                                         <rect key="frame" x="10" y="10" width="374" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" name="text_gray"/>
+                                                        <color key="textColor" name="text-gray-color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -319,7 +319,8 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="background-color"/>
+                        <color key="tintColor" name="action-color"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hml-8Z-7oC" secondAttribute="bottom" constant="156" id="B3C-iY-Wbs">
                                 <variation key="heightClass=compact" constant="20"/>
@@ -422,12 +423,14 @@
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97Q-31-TFO">
                                 <rect key="frame" x="10" y="136" width="394" height="20.333333333333343"/>
+                                <color key="tintColor" name="action-color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="text_gray"/>
+                                <color key="textColor" name="text-gray-color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="background-color"/>
+                        <color key="tintColor" name="action-color"/>
                         <constraints>
                             <constraint firstItem="C5j-8b-6Nx" firstAttribute="leading" secondItem="J8s-CC-zYS" secondAttribute="leading" constant="10" id="Ds5-3B-Yjc"/>
                             <constraint firstItem="97Q-31-TFO" firstAttribute="leading" secondItem="J8s-CC-zYS" secondAttribute="leading" constant="10" id="Rtl-sh-Evk"/>
@@ -497,14 +500,16 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydl-rL-ch5">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydl-rL-ch5">
                                 <rect key="frame" x="10" y="136" width="394" height="20.333333333333343"/>
+                                <color key="tintColor" name="action-color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="text_gray"/>
+                                <color key="textColor" name="text-gray-color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="background-color"/>
+                        <color key="tintColor" name="action-color"/>
                         <constraints>
                             <constraint firstItem="ydl-rL-ch5" firstAttribute="top" secondItem="bDq-A5-urt" secondAttribute="top" constant="20" id="5yY-5h-aRA"/>
                             <constraint firstItem="bDq-A5-urt" firstAttribute="trailing" secondItem="gWO-K2-jTW" secondAttribute="trailing" constant="10" id="98x-nt-04d"/>
@@ -561,7 +566,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.92941176470588238" green="0.54117647058823526" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <color key="selectedImageTintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" name="action-color"/>
                     </tabBar>
                     <connections>
                         <segue destination="KxQ-C6-dhF" kind="relationship" relationship="viewControllers" id="iVt-oN-Cwi"/>
@@ -581,6 +586,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="9X3-n0-gcd">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="action-color"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -601,6 +607,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="uBO-Mz-DWH">
                         <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="action-color"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -637,16 +644,22 @@
     <resources>
         <image name="faves" width="28" height="26"/>
         <image name="home" width="29" height="27"/>
+        <namedColor name="action-color">
+            <color red="0.92941176470588238" green="0.54117647058823526" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="background-color">
+            <color red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="my_gray">
             <color red="0.16862745098039217" green="0.18431372549019609" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="sliderempty">
+        <namedColor name="slider-empty-gray">
             <color red="0.30980392156862746" green="0.32941176470588235" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="sliderfill">
+        <namedColor name="slider-fill-orange">
             <color red="0.48627450980392156" green="0.33333333333333331" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="text_gray">
+        <namedColor name="text-gray-color">
             <color red="0.58823529411764708" green="0.58823529411764708" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
