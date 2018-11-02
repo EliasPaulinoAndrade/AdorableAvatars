@@ -31,7 +31,11 @@ class NavigationHelper {
         allAvatarsViewController.inputData = AllAvatarsViewControllerReceivedData(adAvatar: adAvatar)
         
         if allAvatarsViewController.isViewLoaded {
-            allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+
+            allAvatarsViewController.performSegue(
+                withIdentifier: AllAvatarsViewController.createAvatarSegueIdentifier,
+                sender: nil
+            )
         }
     }
     
@@ -40,7 +44,10 @@ class NavigationHelper {
             allAvatarsViewController.action = AllAvatarsViewControllerAction.schema
             
             if allAvatarsViewController.isViewLoaded {
-                allAvatarsViewController.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+                allAvatarsViewController.performSegue(
+                    withIdentifier: AllAvatarsViewController.createAvatarSegueIdentifier,
+                    sender: nil
+                )
             }
         }
     }

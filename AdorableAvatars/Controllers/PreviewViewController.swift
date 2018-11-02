@@ -50,6 +50,8 @@ class PreviewViewController: UICommunicableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.previewActionItems = []
+        
     }
     
     override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {

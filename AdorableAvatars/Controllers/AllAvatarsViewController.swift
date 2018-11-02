@@ -17,6 +17,14 @@ public struct AllAvatarsViewControllerReceivedData: UIViewControllerInputData {
 }
 
 class AllAvatarsViewController: UICommunicableViewController {
+    private typealias This = AllAvatarsViewController
+    
+    static let collectionViewDefaultBottomConstaintConstant = CGFloat.init(10)
+    static let createAvatarSegueIdentifier = "createAvatarSegue"
+    static let collectionViewCellZibIdentifier = "UIAvatarCollectionViewCell"
+    static let collectionViewCellIdentifier = "avatarCell"
+    static let previewControllerIdentifier = "previewController"
+    
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var collectionbottomContraint: NSLayoutConstraint!
@@ -74,16 +82,16 @@ class AllAvatarsViewController: UICommunicableViewController {
     }
 
     @objc private func keyboardWillHide(notification: NSNotification) {
-        collectionbottomContraint.constant = 10
+        collectionbottomContraint.constant = This.collectionViewDefaultBottomConstaintConstant
     }
     
     override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {
         if let action = action as? AllAvatarsViewControllerAction{
             switch action {
             case .push:
-                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+                self.performSegue(withIdentifier: This.createAvatarSegueIdentifier, sender: nil)
             case .schema:
-                self.performSegue(withIdentifier: "createAvatarSegue", sender: nil)
+                self.performSegue(withIdentifier: This.createAvatarSegueIdentifier, sender: nil)
             }
         }
     }
@@ -121,10 +129,10 @@ class AllAvatarsViewController: UICommunicableViewController {
     private func collectionViewSetup() {
         avatarsCollectionView.register(
             UINib.init(
-                nibName: "UIAvatarCollectionViewCell",
+                nibName: This.collectionViewCellZibIdentifier,
                 bundle: nil
             ),
-            forCellWithReuseIdentifier: "avatarCell"
+            forCellWithReuseIdentifier: This.collectionViewCellIdentifier
         )
         
         avatarsCollectionView.dataSource = self
@@ -222,7 +230,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: This.collectionViewCellIdentifier, for: indexPath)
        
         if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = containerAvatars?[indexPath.row].avatar, let avatarName = avatar.name {
             let image: UIImage? = FileManager.default.getAvatarImage(withName: avatarName)
@@ -330,7 +338,7 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? UIAvatarCollectionViewCell else {
             return nil
         }
-        guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
+        guard let previewController = storyboard?.instantiateViewController(withIdentifier: This.previewControllerIdentifier) as? PreviewViewController else {
             return nil
         }
         guard let avatarContainer = self.containerAvatars?[indexPath.row] else {
@@ -346,6 +354,7 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
         previewController.inputData = data
         previewController.preferredContentSize = CGSize.init(width: width, height: height)
         previewController.delegate = self
+        self.searchController.searchBar.resignFirstResponder()
         
         return previewController
      }

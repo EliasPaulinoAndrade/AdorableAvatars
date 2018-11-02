@@ -17,6 +17,10 @@ public struct CreateAvatarViewControllerReceivedData: UIViewControllerInputData 
 }
 
 class CreateAvatarViewController: UICommunicableViewController {
+    private typealias This = CreateAvatarViewController
+    
+    static let colorPickerImageCheckName = "checkedAvatar"
+    
     @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: UIColorPicker!
     @IBOutlet weak var colorPickerContainer: UIView!
@@ -290,7 +294,7 @@ extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDele
     }
     
     func imageForSelectColor(colorPicker: UIColorPicker) -> UIImage? {
-        return UIImage.init(named: "checkedAvatar")
+        return UIImage.init(named: This.colorPickerImageCheckName)
     }
     
     func colorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int) {

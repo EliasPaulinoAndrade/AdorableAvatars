@@ -9,6 +9,11 @@
 import UIKit
 
 class FaveAvatarsViewController: UIViewController {
+    private typealias This = FaveAvatarsViewController
+    
+    static let collectionViewCellZibIdentifier = "UIAvatarCollectionViewCell"
+    static let collectionViewCellIdentifier = "avatarCell"
+    static let previewControllerIdentifier = "previewController"
 
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
@@ -31,7 +36,12 @@ class FaveAvatarsViewController: UIViewController {
     }
     
     private func collectionViewSetup() {
-        avatarsCollectionView.register(UINib.init(nibName: "UIAvatarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "avatarCell")
+        avatarsCollectionView.register(
+            UINib.init(
+                nibName: This.collectionViewCellZibIdentifier,
+                bundle: nil),
+            forCellWithReuseIdentifier: This.collectionViewCellIdentifier
+        )
     
         self.avatarsCollectionView.delegate = self
         self.avatarsCollectionView.dataSource = self
@@ -70,7 +80,7 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: This.collectionViewCellIdentifier, for: indexPath)
         
         if let avatarCell = cell as? UIAvatarCollectionViewCell,  let avatar = avatars?[indexPath.row], let avatarName = avatar.name {
             let image: UIImage? = FileManager.default.getAvatarImage(withName: avatarName)
@@ -125,7 +135,7 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
         guard let cell = self.avatarsCollectionView.cellForItem(at: indexPath) as? UIAvatarCollectionViewCell else {
             return nil
         }
-        guard let previewController = storyboard?.instantiateViewController(withIdentifier: "previewController") as? PreviewViewController else {
+        guard let previewController = storyboard?.instantiateViewController(withIdentifier: This.previewControllerIdentifier) as? PreviewViewController else {
             return nil
         }
         guard let avatar = self.avatars?[indexPath.row] else {
