@@ -29,19 +29,19 @@ class PreviewViewController: UICommunicableViewController {
         let shareAction = UIPreviewAction.init(
             title: "\(Strings.controller_preview_var_previewActionItems_share_action_title)",
             style: .default) { (action, controller) in
-            if let image = self.previewImageView.image {
-                self.delegate?.avatarShared?(avatar, withImage: image)
-            }
+                if let image = self.previewImageView.image {
+                    self.delegate?.avatarShared?(avatar, withImage: image)
+                }
         }
     
         let faveAction = UIPreviewAction.init(
             title: avatar.isFave ? "\(Strings.controller_preview_var_previewActionItems_unfave_action_title)" : "\(Strings.controller_preview_var_previewActionItems_fave_action_title)",
             style: .default) { (action, controller) in
-            if avatar.isFave {
-                self.delegate?.avatarWasDesfavorite(avatar)
-            } else {
-                self.delegate?.avatarWasFavorite?(avatar)
-            }
+                if avatar.isFave {
+                    self.delegate?.avatarWasDesfavorite(avatar)
+                } else {
+                    self.delegate?.avatarWasFavorite?(avatar)
+                }
         }
         
         return [shareAction, faveAction]
@@ -49,9 +49,6 @@ class PreviewViewController: UICommunicableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.previewActionItems = []
-        
     }
     
     override func orderReceived(action: UIViewControllerAction?, receivedData: UIViewControllerInputData?) {

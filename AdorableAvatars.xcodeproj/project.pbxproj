@@ -134,6 +134,7 @@
 		E3D75E9E21868F0D0034E5A5 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */; };
 		E3D75E9F21868F0F0034E5A5 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */; };
 		E3D75EA12186957F0034E5A5 /* UICommunicableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75EA02186957F0034E5A5 /* UICommunicableViewController.swift */; };
+		E3DF1C73218BE00300D943B8 /* AvatarOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,6 +292,7 @@
 		E3D75E9821868CA40034E5A5 /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
 		E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		E3D75EA02186957F0034E5A5 /* UICommunicableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICommunicableViewController.swift; sourceTree = "<group>"; };
+		E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarOptionsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +430,7 @@
 				E3AB051B2177740B00B80D74 /* Plist Management */,
 				E3AB050821761BDF00B80D74 /* Adorable Avatars */,
 				E3AB04FE21760BF000B80D74 /* Custom Views */,
+				E3DF1C71218BDFE600D943B8 /* Services */,
 				E386AE5F2180C9DF009A8BF7 /* Models */,
 				E3AB053B2178AA3F00B80D74 /* Controllers */,
 				E3AB04D02176072E00B80D74 /* AppDelegate.swift */,
@@ -660,6 +663,14 @@
 				E3D75E92218670680034E5A5 /* StickersDelegate.swift */,
 			);
 			path = delegates;
+			sourceTree = "<group>";
+		};
+		E3DF1C71218BDFE600D943B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -983,6 +994,7 @@
 				E3AB05412178E3F600B80D74 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E3AB054D2179060300B80D74 /* CreateAvatarDelegate.swift in Sources */,
 				E3AB0555217929E300B80D74 /* PreviewViewController.swift in Sources */,
+				E3DF1C73218BE00300D943B8 /* AvatarOptionsService.swift in Sources */,
 				E386AE5D21809972009A8BF7 /* Array+pickerColor.swift in Sources */,
 				E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */,
 				E3D75EA12186957F0034E5A5 /* UICommunicableViewController.swift in Sources */,

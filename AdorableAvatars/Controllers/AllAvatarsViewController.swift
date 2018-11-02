@@ -58,6 +58,10 @@ class AllAvatarsViewController: UICommunicableViewController {
     
     private var previewingContext: UIViewControllerPreviewing?
     
+    private var has3DTouch: Bool {
+        return view.traitCollection.forceTouchCapability == UIForceTouchCapability.available
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -138,7 +142,9 @@ class AllAvatarsViewController: UICommunicableViewController {
         avatarsCollectionView.dataSource = self
         avatarsCollectionView.delegate = self
         avatarsCollectionView.allowsMultipleSelection = true
-        self.previewingContext = registerForPreviewing(with: self, sourceView: avatarsCollectionView)
+        if has3DTouch {
+            self.previewingContext = registerForPreviewing(with: self, sourceView: avatarsCollectionView)
+        }
     }
     
     private func treatTabCommunication() {
@@ -237,6 +243,7 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             
             avatarCell.setup(name: avatarName, image: image, isFaved: avatar.isFave, isShaking: self.isEditing_)
             avatarCell.delegate = self
+            
             avatarCell.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(self.avatarCellLongPress(_:))))
         }
         
@@ -244,11 +251,33 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
     }
     
     @objc func avatarCellLongPress(_ recognizer: UILongPressGestureRecognizer) {
-        if recognizer.state == .began, self.isEditing_ == false {
-            self.isEditing_ = true
+        if recognizer.state == .began {
+            if self.isEditing_ == false, has3DTouch {
+                self.isEditing_ = true
+            } else {
+                let pressLocation = recognizer.location(in: self.avatarsCollectionView)
+                guard   let avatarCellIndex = self.avatarsCollectionView.indexPathForItem(at: pressLocation),
+                        let avatar = self.containerAvatars?[avatarCellIndex.row].avatar,
+                        let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarCellIndex) as? UIAvatarCollectionViewCell,
+                        let avatarImage = avatarCell.avatarImage.image
+                        else {
+                    return
+                }
+                
+                self.present(AlertManagment.avatarOptionsAlert(
+                    share: {
+                        AvatarOptionsService.shared.shareAvatarImage(avatarImage, controller: self)
+                    },
+                    fave: {
+                        avatar.isFave ? self.avatarWasDesfavorite(avatar) :
+                                        self.avatarWasFavorite(avatar)
+                    },
+                    isFave: avatar.isFave
+                ), animated: true, completion: nil)
+            }
         }
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         var size: CGSize?
@@ -299,14 +328,14 @@ extension AllAvatarsViewController: UISearchResultsUpdating, UISearchControllerD
     }
     
     func didPresentSearchController(_ searchController: UISearchController) {
-        if let context = self.previewingContext {
+        if let context = self.previewingContext, has3DTouch{
             unregisterForPreviewing(withContext: context)
             self.previewingContext = searchController.registerForPreviewing(with: self, sourceView: self.avatarsCollectionView)
         }
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
-        if let context = self.previewingContext {
+        if let context = self.previewingContext, has3DTouch{
             unregisterForPreviewing(withContext: context)
             self.previewingContext = registerForPreviewing(with: self, sourceView: self.avatarsCollectionView)
         }
@@ -392,15 +421,7 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
     }
     
     func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
-        let activityController: UIActivityViewController = {
-            
-            let activityController = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
-            activityController.popoverPresentationController?.sourceView = self.view
-            
-            return activityController
-        }()
-        
-        self.present(activityController, animated: true, completion: nil)
+        AvatarOptionsService.shared.shareAvatarImage(image, controller: self)
     }
 }
 

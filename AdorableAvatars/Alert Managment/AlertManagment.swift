@@ -180,6 +180,34 @@ class AlertManagment {
                 sucess()
             }
         ))
+        return alert
+    }
+    
+    static public func avatarOptionsAlert(share: @escaping () -> (), fave: @escaping () -> (), isFave: Bool) -> UIAlertController{
+        let alert = UIAlertController.init(title: "Avatar Options", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction.init(
+            title: "\(Strings.controller_preview_var_previewActionItems_share_action_title)",
+            style: .default,
+            handler: { (action) in
+                share()
+            }
+        ))
+        
+        alert.addAction(UIAlertAction.init(
+            title: isFave ? "\(Strings.controller_preview_var_previewActionItems_unfave_action_title)" :
+                            "\(Strings.controller_preview_var_previewActionItems_fave_action_title)",
+            style: .default,
+            handler: { (action) in
+                fave()
+            }
+        ))
+        
+        alert.addAction(UIAlertAction.init(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
         
         return alert
     }
@@ -222,6 +250,10 @@ extension AlertManagment: LocalizableAlerts {
                 alert_network_with_cancel_description,
                 alert_network_with_cancel_description_action_retry,
                 alert_network_with_cancel_description_action_cancel
+        
+        case    controller_preview_var_previewActionItems_share_action_title,
+                controller_preview_var_previewActionItems_fave_action_title,
+                controller_preview_var_previewActionItems_unfave_action_title
         
         var comment: String {
             switch self {
