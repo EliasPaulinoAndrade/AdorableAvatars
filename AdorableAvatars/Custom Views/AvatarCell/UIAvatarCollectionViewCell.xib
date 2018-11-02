@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -50,6 +53,7 @@
             <color key="backgroundColor" red="0.16862745098039217" green="0.18431372549019609" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <color key="tintColor" red="0.1998429000377655" green="0.20380347967147827" blue="0.21209442615509033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="7u1-vg-WVM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4s4-mN-Scg" secondAttribute="trailing" constant="5" id="0hz-nw-aV7"/>
                 <constraint firstItem="7u1-vg-WVM" firstAttribute="trailing" secondItem="Zry-4B-YAQ" secondAttribute="trailing" id="3AI-fC-dbf"/>
                 <constraint firstItem="m2I-EA-lf7" firstAttribute="top" secondItem="Zry-4B-YAQ" secondAttribute="top" constant="-15" id="9pS-Tz-Kdq"/>
                 <constraint firstItem="m2I-EA-lf7" firstAttribute="trailing" secondItem="Zry-4B-YAQ" secondAttribute="trailing" constant="5" id="DBl-o2-EtH"/>

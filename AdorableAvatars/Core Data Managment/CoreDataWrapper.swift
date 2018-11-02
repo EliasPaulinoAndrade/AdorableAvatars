@@ -18,7 +18,9 @@ class CoreDataWrapper {
     /// - Throws: coredata fetch error
     public static func getAllAvatars() throws -> [Avatar] {
         let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
+        let sort = NSSortDescriptor.init(key: "name", ascending: true)
         
+        request.sortDescriptors = [sort]
         return try CoreDataStack.persistentContainer.viewContext.fetch(request)
     }
     

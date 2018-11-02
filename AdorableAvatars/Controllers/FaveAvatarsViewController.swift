@@ -108,7 +108,8 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
             },
             rename: { (newName) in
                 AvatarOptionsService.shared.renameAvatar(avatar, toName: newName, context: self)
-                avatarCell.avatarName.text = newName.capitalized
+                self.avatarsCollectionView.reloadData()
+                self.delegate?.avatarWasRenamed(avatar: avatar)
             },
             image: avatarImage,
             isFave: avatar.isFave,
@@ -141,7 +142,7 @@ extension FaveAvatarsViewController: TabBarControllersAvatarDelegate {
     func avatarWasRenamed(avatar: Avatar) {
         if let avatarIndex = self.avatars?.firstIndex(of: avatar),
            let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? UIAvatarCollectionViewCell{
-            avatarCell.avatarName.text = avatar.name
+            avatarCell.avatarName.text = avatar.name?.capitalized
         }
     }
     

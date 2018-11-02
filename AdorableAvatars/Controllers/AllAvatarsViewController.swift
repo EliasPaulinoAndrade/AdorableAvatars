@@ -273,7 +273,8 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
             },
             rename: { (newName) in
                 AvatarOptionsService.shared.renameAvatar(avatar, toName: newName, context: self)
-                avatarCell.avatarName.text = newName.capitalized
+                self.avatarsCollectionView.reloadData()
+                self.delegate?.avatarWasRenamed(avatar: avatar)
             },
             image: avatarImage,
             isFave: avatar.isFave,
