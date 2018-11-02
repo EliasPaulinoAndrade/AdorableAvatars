@@ -112,7 +112,7 @@ class CreateAvatarViewController: UICommunicableViewController {
     }
     
     private func saveAvatar(image: UIImage, withName name: String) {
-        guard let avatarsWithSameName =  try? CoreDataWrapper.findAvatars(byName: name), avatarsWithSameName.count == 0 else {
+        if CoreDataWrapper.getAvatar(withName: name) != nil {
             self.present(AlertManagment.saveAvatarErrorAlert(name: name), animated: true, completion: nil)
             return
         }

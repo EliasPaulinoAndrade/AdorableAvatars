@@ -183,7 +183,7 @@ class AlertManagment {
         return alert
     }
     
-    static public func avatarOptionsAlert(share: @escaping () -> (), fave: @escaping () -> (), isFave: Bool) -> UIAlertController{
+    static public func avatarOptionsAlert(avatarName: String, share: @escaping () -> (), rename: @escaping (_ newName: String) -> (), image: UIImage, isFave: Bool, context: UIViewController) -> UIAlertController{
         let alert = UIAlertController.init(title: "Avatar Options", message: "", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction.init(
@@ -195,11 +195,14 @@ class AlertManagment {
         ))
         
         alert.addAction(UIAlertAction.init(
-            title: isFave ? "\(Strings.controller_preview_var_previewActionItems_unfave_action_title)" :
-                            "\(Strings.controller_preview_var_previewActionItems_fave_action_title)",
+            title: "Rename Avatar",
             style: .default,
             handler: { (action) in
-                fave()
+                context.present(AlertManagment.renameAvatarAlert(withName: avatarName, sucess: { (name) in
+                    if let newName = name {
+                        rename(newName)
+                    }
+                }), animated: true, completion: nil)
             }
         ))
         
@@ -208,6 +211,32 @@ class AlertManagment {
             style: .cancel,
             handler: nil
         ))
+        
+        return alert
+    }
+    
+    static public func renameAvatarAlert(withName name: String, sucess: @escaping (_ name: String?) -> ()) -> UIAlertController {
+        let alert = UIAlertController.init(
+            title: "Renaming",
+            message: "What is The New Name of \(name)?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction.init(
+            title: Strings.alert_save_avatar_action_cancel.localizable,
+            style: .cancel,
+            handler: nil
+        ))
+        
+        alert.addAction(UIAlertAction.init(
+            title: Strings.alert_save_avatar_action_ok.localizable,
+            style: .default,
+            handler: { (action) in
+                sucess(alert.textFields?.first?.text)
+        }
+        ))
+        
+        alert.addTextField(configurationHandler: nil)
         
         return alert
     }

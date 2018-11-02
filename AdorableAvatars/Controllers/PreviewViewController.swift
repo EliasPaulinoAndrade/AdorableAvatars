@@ -17,7 +17,7 @@ struct PreviewViewControllerReceivedData: UIViewControllerInputData {
 class PreviewViewController: UICommunicableViewController {
     @IBOutlet weak var previewImageView: UIImageView!
     
-    public var delegate: AvatarPreviewDelegate?
+    public var delegate: AvatarPeekPreviewDelegate?
     
     private var avatar: Avatar?
     
@@ -26,25 +26,17 @@ class PreviewViewController: UICommunicableViewController {
             return []
         }
         
-        let shareAction = UIPreviewAction.init(
-            title: "\(Strings.controller_preview_var_previewActionItems_share_action_title)",
-            style: .default) { (action, controller) in
-                if let image = self.previewImageView.image {
-                    self.delegate?.avatarShared?(avatar, withImage: image)
-                }
-        }
-    
         let faveAction = UIPreviewAction.init(
             title: avatar.isFave ? "\(Strings.controller_preview_var_previewActionItems_unfave_action_title)" : "\(Strings.controller_preview_var_previewActionItems_fave_action_title)",
             style: .default) { (action, controller) in
-                if avatar.isFave {
-                    self.delegate?.avatarWasDesfavorite(avatar)
-                } else {
-                    self.delegate?.avatarWasFavorite?(avatar)
-                }
+            if avatar.isFave {
+                self.delegate?.avatarWasDesfavorite(avatar)
+            } else {
+                self.delegate?.avatarWasFavorite?(avatar)
+            }
         }
-        
-        return [shareAction, faveAction]
+
+        return [faveAction]
     }()
     
     override func viewDidLoad() {

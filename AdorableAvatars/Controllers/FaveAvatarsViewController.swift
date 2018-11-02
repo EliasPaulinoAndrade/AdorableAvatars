@@ -18,7 +18,7 @@ class FaveAvatarsViewController: UIViewController {
     @IBOutlet weak var avatarsCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
     
-    public var delegate: FavoriteAvatarDelegate?
+    public var delegate: TabBarControllersAvatarDelegate?
     
     private var avatars: [Avatar]?
     
@@ -92,6 +92,31 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        guard let avatarCell = cell as? UIAvatarCollectionViewCell,
+              let avatar = avatars?[indexPath.row],
+              let avatarImage = avatarCell.avatarImage.image,
+              let avatarName = avatar.name
+              else {
+                return
+        }
+        self.present(AlertManagment.avatarOptionsAlert(
+            avatarName: avatarName,
+            share: {
+                AvatarOptionsService.shared.shareAvatarImage(avatarImage, controller: self)
+            },
+            rename: { (newName) in
+                AvatarOptionsService.shared.renameAvatar(avatar, toName: newName, context: self)
+                avatarCell.avatarName.text = newName.capitalized
+            },
+            image: avatarImage,
+            isFave: avatar.isFave,
+            context: self
+        ), animated: true, completion: nil)
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var size: CGSize?
@@ -112,7 +137,14 @@ extension FaveAvatarsViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
-extension FaveAvatarsViewController: FavoriteAvatarDelegate {
+extension FaveAvatarsViewController: TabBarControllersAvatarDelegate {
+    func avatarWasRenamed(avatar: Avatar) {
+        if let avatarIndex = self.avatars?.firstIndex(of: avatar),
+           let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? UIAvatarCollectionViewCell{
+            avatarCell.avatarName.text = avatar.name
+        }
+    }
+    
     func avatarWasFavorite(avatar: Avatar) {
         self.avatars?.append(avatar)
         self.avatarsCollectionView.reloadData()
@@ -157,7 +189,7 @@ extension FaveAvatarsViewController: UIViewControllerPreviewingDelegate{
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) { }
 }
 
-extension FaveAvatarsViewController: AvatarPreviewDelegate{
+extension FaveAvatarsViewController: AvatarPeekPreviewDelegate{
     
     func avatarWasDesfavorite(_ avatar: Avatar) {
         avatar.isFave = !avatar.isFave
@@ -169,18 +201,6 @@ extension FaveAvatarsViewController: AvatarPreviewDelegate{
             self.avatarsCollectionView.deleteItems(at: [avatarIndexPath])
             delegate?.avatarWasDesfavorite(avatar: avatar)
         }
-    }
-    
-    func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
-        let activityController: UIActivityViewController = {
-         
-            let activityController = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
-            activityController.popoverPresentationController?.sourceView = self.view
-            
-            return activityController
-        }()
-        
-        self.present(activityController, animated: true, completion: nil)
     }
 }
 

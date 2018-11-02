@@ -116,6 +116,15 @@ extension FileManager {
         for url in safeUrls {
             try? removeItem(at: url)
         }
+    }
+    
+    public func renameAvatarImage(fromName name: String, toName newName: String) {
+        guard let oldFileURL = adorableAvatarsGroupUrl?.appendingPNGImage(withName: name),
+              let newFileName = adorableAvatarsGroupUrl?.appendingPNGImage(withName: newName)
+              else {
+            return
+        }
         
+        try? moveItem(at: oldFileURL, to: newFileName)
     }
 }

@@ -29,7 +29,7 @@ class AllAvatarsViewController: UICommunicableViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var collectionbottomContraint: NSLayoutConstraint!
     
-    var delegate: FavoriteAvatarDelegate?
+    var delegate: TabBarControllersAvatarDelegate?
     var isEditing_ = false {
         didSet {
             if self.isEditing_{
@@ -68,12 +68,13 @@ class AllAvatarsViewController: UICommunicableViewController {
         collectionViewSetup()
         
         navigationItem.searchController = searchController
+        self.navigationController?.view.tintColor = #colorLiteral(red: 0.9294117647, green: 0.5411764706, blue: 0.09803921569, alpha: 1)
         treatTabCommunication()
+        
+        self.tabBarController?.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        self.navigationController?.view.tintColor = #colorLiteral(red: 0.9294117647, green: 0.5411764706, blue: 0.09803921569, alpha: 1)
     }
     
     @objc private func keyboardWillAppear(notification: NSNotification) {
@@ -220,6 +221,12 @@ extension AllAvatarsViewController: AvatarCollectionViewCellDelegate {
     }
 }
 
+extension AllAvatarsViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        self.searchController.isActive = false
+    }
+}
+
 extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = containerAvatars?.count {
@@ -250,30 +257,34 @@ extension AllAvatarsViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        guard let avatarCell = cell as? UIAvatarCollectionViewCell,
+              let avatar = containerAvatars?[indexPath.row].avatar,
+              let avatarImage = avatarCell.avatarImage.image,
+              let avatarName = avatar.name
+              else {
+            return
+        }
+        self.present(AlertManagment.avatarOptionsAlert(
+            avatarName: avatarName,
+            share: {
+                AvatarOptionsService.shared.shareAvatarImage(avatarImage, controller: self)
+            },
+            rename: { (newName) in
+                AvatarOptionsService.shared.renameAvatar(avatar, toName: newName, context: self)
+                avatarCell.avatarName.text = newName.capitalized
+            },
+            image: avatarImage,
+            isFave: avatar.isFave,
+            context: self
+        ), animated: true, completion: nil)
+    }
+    
     @objc func avatarCellLongPress(_ recognizer: UILongPressGestureRecognizer) {
         if recognizer.state == .began {
-            if self.isEditing_ == false, has3DTouch {
+            if self.isEditing_ == false {
                 self.isEditing_ = true
-            } else {
-                let pressLocation = recognizer.location(in: self.avatarsCollectionView)
-                guard   let avatarCellIndex = self.avatarsCollectionView.indexPathForItem(at: pressLocation),
-                        let avatar = self.containerAvatars?[avatarCellIndex.row].avatar,
-                        let avatarCell = self.avatarsCollectionView.cellForItem(at: avatarCellIndex) as? UIAvatarCollectionViewCell,
-                        let avatarImage = avatarCell.avatarImage.image
-                        else {
-                    return
-                }
-                
-                self.present(AlertManagment.avatarOptionsAlert(
-                    share: {
-                        AvatarOptionsService.shared.shareAvatarImage(avatarImage, controller: self)
-                    },
-                    fave: {
-                        avatar.isFave ? self.avatarWasDesfavorite(avatar) :
-                                        self.avatarWasFavorite(avatar)
-                    },
-                    isFave: avatar.isFave
-                ), animated: true, completion: nil)
             }
         }
     }
@@ -391,7 +402,7 @@ extension AllAvatarsViewController: UIViewControllerPreviewingDelegate{
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) { }
 }
 
-extension AllAvatarsViewController: AvatarPreviewDelegate{
+extension AllAvatarsViewController: AvatarPeekPreviewDelegate{
     func avatarWasDesfavorite(_ avatar: Avatar) {
         avatar.isFave = !avatar.isFave
         CoreDataStack.saveContext()
@@ -419,13 +430,15 @@ extension AllAvatarsViewController: AvatarPreviewDelegate{
             }
         }
     }
-    
-    func avatarShared(_ avatar: Avatar, withImage image: UIImage) {
-        AvatarOptionsService.shared.shareAvatarImage(image, controller: self)
-    }
 }
 
-extension AllAvatarsViewController: FavoriteAvatarDelegate{
+extension AllAvatarsViewController: TabBarControllersAvatarDelegate{
+    func avatarWasRenamed(avatar: Avatar) {
+        if let avatarIndex = self.containerAvatars?.firstIndex(of: avatar),
+            let avatarCell = self.avatarsCollectionView.cellForItem(at: IndexPath.init(row: avatarIndex, section: 0)) as? UIAvatarCollectionViewCell{
+            avatarCell.avatarName.text = avatar.name
+        }
+    }
     
     func avatarWasDesfavorite(avatar: Avatar){
         guard let avatarIndex = self.containerAvatars?.firstIndex(of: avatar) else {

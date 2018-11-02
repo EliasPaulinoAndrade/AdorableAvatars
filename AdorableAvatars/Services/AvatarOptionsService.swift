@@ -27,4 +27,22 @@ struct AvatarOptionsService {
     func faveAvatar(_ avatar: Avatar) {
         
     }
+    
+    func renameAvatar(_ avatar: Avatar, toName newName: String, context: UIViewController) {
+        guard let avatarName = avatar.name else {
+            return
+        }
+        
+        if CoreDataWrapper.getAvatar(withName: newName) != nil {
+            context.present(
+                AlertManagment.saveAvatarErrorAlert(name: newName),
+                animated: true, completion: nil
+            )
+            return
+        }
+        
+        FileManager.default.renameAvatarImage(fromName: avatarName, toName: newName)
+        avatar.name = newName
+        CoreDataStack.saveContext()
+    }
 }

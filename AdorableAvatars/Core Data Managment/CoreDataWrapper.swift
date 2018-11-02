@@ -52,4 +52,15 @@ class CoreDataWrapper {
         
         return try CoreDataStack.persistentContainer.viewContext.fetch(request)
     }
+    
+    public static func getAvatar(withName name: String) -> Avatar? {
+        let request: NSFetchRequest<Avatar> = Avatar.fetchRequest()
+        request.predicate = NSPredicate.init(format: "name == [c] %@", name)
+        
+        if let result = try? CoreDataStack.persistentContainer.viewContext.fetch(request) {
+            return result.first
+        }
+        
+        return nil
+    }
 }

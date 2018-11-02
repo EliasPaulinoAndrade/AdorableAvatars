@@ -9,8 +9,7 @@
 import UIKit
 
 @objc
-protocol AvatarPreviewDelegate {
-    @objc optional func avatarShared(_ avatar: Avatar, withImage image: UIImage)
+protocol AvatarPeekPreviewDelegate {
     @objc optional func avatarWasFavorite(_ avatar: Avatar)
     func avatarWasDesfavorite(_ avatar: Avatar)
 }

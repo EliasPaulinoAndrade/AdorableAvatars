@@ -75,9 +75,9 @@
 		E3AB054D2179060300B80D74 /* CreateAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB054C2179060300B80D74 /* CreateAvatarDelegate.swift */; };
 		E3AB054F2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */; };
 		E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB055021791EB500B80D74 /* FaveAvatarsViewController.swift */; };
-		E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */; };
+		E3AB05532179231D00B80D74 /* TabBarControllersAvatarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05522179231D00B80D74 /* TabBarControllersAvatarDelegate.swift */; };
 		E3AB0555217929E300B80D74 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0554217929E300B80D74 /* PreviewViewController.swift */; };
-		E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */; };
+		E3AB0558217A07F100B80D74 /* AvatarPeekPreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB0557217A07F100B80D74 /* AvatarPeekPreviewDelegate.swift */; };
 		E3AB917721877CD100AEFFAF /* CacheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB917621877CD100AEFFAF /* CacheCenter.swift */; };
 		E3AB917821877F2200AEFFAF /* CacheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB917621877CD100AEFFAF /* CacheCenter.swift */; };
 		E3AB917921877F2300AEFFAF /* CacheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB917621877CD100AEFFAF /* CacheCenter.swift */; };
@@ -265,9 +265,9 @@
 		E3AB054C2179060300B80D74 /* CreateAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarDelegate.swift; sourceTree = "<group>"; };
 		E3AB054E2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		E3AB055021791EB500B80D74 /* FaveAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveAvatarsViewController.swift; sourceTree = "<group>"; };
-		E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAvatarDelegate.swift; sourceTree = "<group>"; };
+		E3AB05522179231D00B80D74 /* TabBarControllersAvatarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllersAvatarDelegate.swift; sourceTree = "<group>"; };
 		E3AB0554217929E300B80D74 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPreviewDelegate.swift; sourceTree = "<group>"; };
+		E3AB0557217A07F100B80D74 /* AvatarPeekPreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPeekPreviewDelegate.swift; sourceTree = "<group>"; };
 		E3AB917621877CD100AEFFAF /* CacheCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CacheCenter.swift; path = "AdorableAvatars/Alert Managment/CacheCenter.swift"; sourceTree = SOURCE_ROOT; };
 		E3B675892182371B008DB3F0 /* UIView+position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+position.swift"; sourceTree = "<group>"; };
 		E3B6758D218242B2008DB3F0 /* UIPropPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPropPicker.xib; sourceTree = "<group>"; };
@@ -591,9 +591,9 @@
 		E3AB0556217929E900B80D74 /* delegates */ = {
 			isa = PBXGroup;
 			children = (
-				E3AB05522179231D00B80D74 /* FavoriteAvatarDelegate.swift */,
+				E3AB05522179231D00B80D74 /* TabBarControllersAvatarDelegate.swift */,
 				E3AB054C2179060300B80D74 /* CreateAvatarDelegate.swift */,
-				E3AB0557217A07F100B80D74 /* AvatarPreviewDelegate.swift */,
+				E3AB0557217A07F100B80D74 /* AvatarPeekPreviewDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -957,7 +957,7 @@
 				E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */,
 				E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */,
 				E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */,
-				E3AB0558217A07F100B80D74 /* AvatarPreviewDelegate.swift in Sources */,
+				E3AB0558217A07F100B80D74 /* AvatarPeekPreviewDelegate.swift in Sources */,
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
 				E3D75E9D21868E740034E5A5 /* Bundle+extension.swift in Sources */,
 				E348BB912184869700A905F0 /* Localizable.swift in Sources */,
@@ -966,7 +966,7 @@
 				E3AB050221760E1000B80D74 /* UIAvatarPicker.swift in Sources */,
 				E3AB917721877CD100AEFFAF /* CacheCenter.swift in Sources */,
 				E386AE6A2181699C009A8BF7 /* UIRadiusSlider.swift in Sources */,
-				E3AB05532179231D00B80D74 /* FavoriteAvatarDelegate.swift in Sources */,
+				E3AB05532179231D00B80D74 /* TabBarControllersAvatarDelegate.swift in Sources */,
 				E386AE632180CB1A009A8BF7 /* Array+avatarContainerArray.swift in Sources */,
 				E3D75E97218688E40034E5A5 /* NavigationHelper.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+extension.swift in Sources */,
