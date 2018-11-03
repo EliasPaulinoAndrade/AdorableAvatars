@@ -11,6 +11,7 @@ import Messages
 
 class AvatarMessageViewController: MSMessagesAppViewController {
 
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var diceImage: UIImageView!
     @IBOutlet weak var addAvatarImage: UIImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -36,6 +37,8 @@ class AvatarMessageViewController: MSMessagesAppViewController {
 
         StickerAvatarsViewController.delegate = self
         stickersViewController = StickerAvatarsViewController()
+        stickersViewController.section = .all
+        stickersViewController.warningLabel = self.warningLabel
         
         self.addChild(stickersViewController)
         self.stickersPlace.addSubview(stickersViewController.view)
@@ -131,7 +134,6 @@ extension AvatarMessageViewController: ADRandomAvatarDelegate {
         self.loadIndicator.stopAnimating()
     }
 }
-
 
 extension AvatarMessageViewController {
     

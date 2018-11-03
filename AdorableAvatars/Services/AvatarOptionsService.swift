@@ -24,10 +24,6 @@ struct AvatarOptionsService {
         controller.present(activityController, animated: true, completion: nil)
     }
     
-    func faveAvatar(_ avatar: Avatar) {
-        
-    }
-    
     func renameAvatar(_ avatar: Avatar, toName newName: String, context: UIViewController) {
         guard let avatarName = avatar.name else {
             return

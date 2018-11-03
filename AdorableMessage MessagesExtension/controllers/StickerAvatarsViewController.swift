@@ -12,6 +12,9 @@ import Messages
 class StickerAvatarsViewController: MSStickerBrowserViewController {
     
     static var delegate: StickersDelegate?
+    
+    weak var warningLabel: UILabel!
+    var section: Section?
 
     private var stickers: [MSSticker] = {
         return loadStickers()
@@ -35,6 +38,19 @@ class StickerAvatarsViewController: MSStickerBrowserViewController {
         return stickers
     }
     
+    func setupWarningLabel() {
+        if self.stickers.count == 0 {
+            if self.section == .favorites {
+                self.warningLabel.text = "\(Strings.controller_favAvatars_no_avatar_warning)"
+            } else {
+                self.warningLabel.text = "\(Strings.controller_allavatars_no_avatar_warning)"
+            }
+            self.warningLabel.alpha = 1
+        } else {
+            self.warningLabel.alpha = 0
+        }
+    }
+    
     func reloadStickers() {
         self.stickers = StickerAvatarsViewController.loadStickers()
         self.stickerBrowserView.reloadData()
@@ -45,10 +61,24 @@ class StickerAvatarsViewController: MSStickerBrowserViewController {
     }
     
     override func numberOfStickers(in stickerBrowserView: MSStickerBrowserView) -> Int {
+        setupWarningLabel()
         return self.stickers.count
     }
     
     override func stickerBrowserView(_ stickerBrowserView: MSStickerBrowserView, stickerAt index: Int) -> MSSticker {
         return self.stickers[index]
+    }
+}
+
+extension StickerAvatarsViewController {
+    enum Strings: String, Localizable {
+        case controller_allavatars_no_avatar_warning,
+             controller_favAvatars_no_avatar_warning
+    }
+}
+
+extension StickerAvatarsViewController {
+    enum Section {
+        case favorites, all
     }
 }
