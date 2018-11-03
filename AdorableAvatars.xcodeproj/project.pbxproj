@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
+		E33FCBDA218D13EB003FE996 /* AvatarMessageViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33FCBD9218D13EB003FE996 /* AvatarMessageViewController2.swift */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
@@ -124,7 +125,6 @@
 		E3B676132183F896008DB3F0 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+extension.swift */; };
 		E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 		E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */; };
-		E3D75E8F21866F090034E5A5 /* AvatarMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */; };
 		E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E92218670680034E5A5 /* StickersDelegate.swift */; };
 		E3D75E97218688E40034E5A5 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E96218688E40034E5A5 /* NavigationHelper.swift */; };
 		E3D75E9921868CA40034E5A5 /* URL+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9821868CA40034E5A5 /* URL+extension.swift */; };
@@ -200,6 +200,7 @@
 		E30142832184A45A008CA9C6 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142842184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142852184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E33FCBD9218D13EB003FE996 /* AvatarMessageViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarMessageViewController2.swift; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -286,7 +287,6 @@
 		E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdorableMessage MessagesExtension.entitlements"; sourceTree = "<group>"; };
 		E3B6760821838201008DB3F0 /* FileManager+messagesextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+messagesextension.swift"; sourceTree = "<group>"; };
 		E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerAvatarsViewController.swift; sourceTree = "<group>"; };
-		E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarMessageViewController.swift; sourceTree = "<group>"; };
 		E3D75E92218670680034E5A5 /* StickersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersDelegate.swift; sourceTree = "<group>"; };
 		E3D75E96218688E40034E5A5 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		E3D75E9821868CA40034E5A5 /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
@@ -603,7 +603,7 @@
 			children = (
 				E3AB917621877CD100AEFFAF /* CacheCenter.swift */,
 			);
-			path = "Cache Managment";
+			name = "Cache Managment";
 			sourceTree = "<group>";
 		};
 		E3B6758C218241AD008DB3F0 /* PropsPicker */ = {
@@ -652,7 +652,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */,
-				E3D75E8E21866F080034E5A5 /* AvatarMessageViewController.swift */,
+				E33FCBD9218D13EB003FE996 /* AvatarMessageViewController2.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1042,7 +1042,6 @@
 				E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */,
 				E3B676102183F88D008DB3F0 /* ADAvatar.swift in Sources */,
 				E3B675FB2183727F008DB3F0 /* APAvatarPickerDatasource.swift in Sources */,
-				E3D75E8F21866F090034E5A5 /* AvatarMessageViewController.swift in Sources */,
 				E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */,
 				E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */,
 				E3B67602218372D6008DB3F0 /* Avatar.swift in Sources */,
@@ -1051,6 +1050,7 @@
 				E3B67600218372D0008DB3F0 /* CoreDataWrapper.swift in Sources */,
 				E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */,
 				E3B675F721837277008DB3F0 /* Array+avatarContainerArray.swift in Sources */,
+				E33FCBDA218D13EB003FE996 /* AvatarMessageViewController2.swift in Sources */,
 				E3B675FE21837283008DB3F0 /* UIBaseZibView.swift in Sources */,
 				E3B675F5218371C2008DB3F0 /* UIImage+blurImage.swift in Sources */,
 				E3B6760C2183F818008DB3F0 /* ADWrapper.swift in Sources */,
