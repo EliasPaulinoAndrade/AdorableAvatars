@@ -108,7 +108,9 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath)
-        if let colorCell = cell as? UIColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.row){
+        if let colorCell = cell as? UIColorCollectionViewCell,
+           let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.row),
+           color.isSelected == false {
     
             selectedColor?.isSelected = false
             colorCell.isSelected = true

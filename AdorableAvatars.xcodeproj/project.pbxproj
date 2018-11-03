@@ -530,9 +530,9 @@
 			children = (
 				E3AB051C2177749B00B80D74 /* PlistReader.swift */,
 				E3AB051E2177750500B80D74 /* avatarColors.plist */,
+				E35D622C218DCE4F00524415 /* defaultAvatars.plist */,
 				E386AE55218070D4009A8BF7 /* UIColor+extension.swift */,
 				E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */,
-				E35D622C218DCE4F00524415 /* defaultAvatars.plist */,
 			);
 			path = "Plist Management";
 			sourceTree = "<group>";

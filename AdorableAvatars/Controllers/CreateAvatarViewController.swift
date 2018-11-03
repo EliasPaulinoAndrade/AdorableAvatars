@@ -19,7 +19,7 @@ public struct CreateAvatarViewControllerReceivedData: UIViewControllerInputData 
 class CreateAvatarViewController: UICommunicableViewController {
     private typealias This = CreateAvatarViewController
     
-    static let colorPickerImageCheckName = "checkedAvatar"
+    static let colorPickerImageCheckName = "checkColor"
     
     @IBOutlet weak var picker: UIAvatarPicker!
     @IBOutlet weak var colorPicker: UIColorPicker!
