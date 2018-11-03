@@ -134,6 +134,7 @@
 		E3D75E9F21868F0F0034E5A5 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */; };
 		E3D75EA12186957F0034E5A5 /* UICommunicableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75EA02186957F0034E5A5 /* UICommunicableViewController.swift */; };
 		E3DE55AD218D2D4D00D4AFA6 /* AvatarMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE55AC218D2D4D00D4AFA6 /* AvatarMessageViewController.swift */; };
+		E3DE55AE218D353A00D4AFA6 /* AdorableMessage MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E3DF1C73218BE00300D943B8 /* AvatarOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,13 @@
 			remoteGlobalIDString = E3B675DA218370C5008DB3F0;
 			remoteInfo = "AdorableMessage MessagesExtension";
 		};
+		E3DE55AF218D353A00D4AFA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3AB04C52176072E00B80D74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3B675DA218370C5008DB3F0;
+			remoteInfo = "AdorableMessage MessagesExtension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -176,6 +184,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				E386AE3C217E5393009A8BF7 /* NotificationService.appex in Embed App Extensions */,
+				E3DE55AE218D353A00D4AFA6 /* AdorableMessage MessagesExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,6 +715,7 @@
 			);
 			dependencies = (
 				E386AE3B217E5393009A8BF7 /* PBXTargetDependency */,
+				E3DE55B0218D353A00D4AFA6 /* PBXTargetDependency */,
 			);
 			name = AdorableAvatars;
 			productName = AdorableAvatars;
@@ -1090,6 +1100,11 @@
 			target = E3B675DA218370C5008DB3F0 /* AdorableMessage MessagesExtension */;
 			targetProxy = E3B675DD218370C5008DB3F0 /* PBXContainerItemProxy */;
 		};
+		E3DE55B0218D353A00D4AFA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3B675DA218370C5008DB3F0 /* AdorableMessage MessagesExtension */;
+			targetProxy = E3DE55AF218D353A00D4AFA6 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1428,7 +1443,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableMessage.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableAvatars.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -1449,7 +1464,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableMessage.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableAvatars.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
