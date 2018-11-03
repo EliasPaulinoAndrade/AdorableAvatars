@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Avatar Message View Controller2-->
+        <!--Avatar Message View Controller-->
         <scene sceneID="Gzm-kL-JgX">
             <objects>
-                <viewController id="qHS-g8-i4n" customClass="AvatarMessageViewController2" customModule="AdorableMessage_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qHS-g8-i4n" customClass="AvatarMessageViewController" customModule="AdorableMessage_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zX7-Kk-1HD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,8 +38,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6Z-V2-Yhq">
-                                <rect key="frame" x="0.0" y="63" width="320" height="465"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="73" width="320" height="455"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,7 +52,7 @@
                             <constraint firstItem="p6Z-V2-Yhq" firstAttribute="leading" secondItem="Xxm-e0-PIn" secondAttribute="leading" id="Qai-qt-rqd"/>
                             <constraint firstItem="Xxm-e0-PIn" firstAttribute="bottom" secondItem="p6Z-V2-Yhq" secondAttribute="bottom" id="TdZ-It-3rZ"/>
                             <constraint firstItem="Arg-NK-eU7" firstAttribute="height" secondItem="w8W-kr-Sba" secondAttribute="height" id="eDg-FR-hOt"/>
-                            <constraint firstItem="p6Z-V2-Yhq" firstAttribute="top" secondItem="w8W-kr-Sba" secondAttribute="bottom" id="j3n-aA-5T1"/>
+                            <constraint firstItem="p6Z-V2-Yhq" firstAttribute="top" secondItem="w8W-kr-Sba" secondAttribute="bottom" constant="10" id="j3n-aA-5T1"/>
                             <constraint firstItem="Arg-NK-eU7" firstAttribute="centerY" secondItem="w8W-kr-Sba" secondAttribute="centerY" id="mMD-B1-Jam"/>
                             <constraint firstItem="KPd-Q4-91m" firstAttribute="height" secondItem="w8W-kr-Sba" secondAttribute="height" id="sdC-Gk-5bc"/>
                             <constraint firstItem="KPd-Q4-91m" firstAttribute="leading" secondItem="w8W-kr-Sba" secondAttribute="trailing" constant="8" id="xoV-lf-kKq"/>
