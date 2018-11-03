@@ -262,6 +262,14 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
 }
 
 extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDelegate {
+    func numberOfVariationsPerColor(_ colorPicker: UIColorPicker) -> Int {
+        return 3
+    }
+    
+    func responsibleController(_ colorPicker: UIColorPicker) -> UIViewController {
+        return self
+    }
+    
     func sizeForColorViews(colorPicker: UIColorPicker) -> CGSize {
 
         var size: CGSize?

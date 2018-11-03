@@ -32,6 +32,7 @@ class UIColorPicker: UIBaseZibView {
     
     private var firstColorWasSet = false
     private var selectedColor: PickerColor?
+    private var currentVariations: [UIColorCollectionViewCell]?
     
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "UIColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
@@ -48,18 +49,62 @@ class UIColorPicker: UIBaseZibView {
 
 extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     @objc func cellLongPressHappend(_ gestureRecognizer: UILongPressGestureRecognizer){
+        
+        let pressLocation = gestureRecognizer.location(in: self.collectionView)
+        guard let indexPath = self.collectionView.indexPathForItem(at: pressLocation),
+              let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell
+              else {
+                return
+        }
         if gestureRecognizer.state == .began{
-//            if  let indexPath = self.collectionView.indexPathForItem(at: gestureRecognizer.location(in: self.collectionView)),
-//                let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell{
-//                cellLongPressHappend(atCell: cell, atIndexPath: indexPath)
-//            }
+            cellLongPressHappend(atCell: cell, atIndexPath: indexPath)
+        } else if gestureRecognizer.state == .ended {
+            cellUserRemovedFinger(atCell: cell)
         }
     }
-//
-//    func cellLongPressHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
-//        let cellCopy = cell.copy()
-//        print(cellCopy)
-//    }
+    
+    func cellUserRemovedFinger(atCell cell: UIColorCollectionViewCell) {
+        guard let removingVariations = self.currentVariations else {
+            return
+        }
+        for variation in removingVariations {
+            variation.removeFromSuperview()
+        }
+        self.currentVariations = nil
+    }
+
+    func cellLongPressHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
+        guard let masterView = delegate?.responsibleController(self).view else {
+            return
+        }
+        
+        let frameInMaster = cell.convert(cell.bounds, to: masterView)
+        
+        showSubColorOptions(forCell: cell, atIndexPath: indexPath, withFrame: frameInMaster, inView: masterView)
+    }
+    
+    private func showSubColorOptions(forCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath, withFrame frame: CGRect, inView view: UIView) {
+        
+        guard let cellColor = cell.mainColorView.backgroundColor,
+              let numberOfVariations = delegate?.numberOfVariationsPerColor(self)
+            else {
+                return
+        }
+        let prevVariations = numberOfVariations/2
+        var currentYOrigin = frame.origin.y - frame.height * CGFloat(prevVariations)
+    
+        currentVariations = []
+        for _ in 0..<numberOfVariations {
+            if let colorCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as? UIColorCollectionViewCell {
+                colorCell.setup(color: cellColor, checkImage: nil)
+                let currentOrigin = CGPoint.init(x: frame.origin.x, y: currentYOrigin)
+                colorCell.frame = CGRect(origin: currentOrigin, size: frame.size)
+                currentYOrigin = currentYOrigin + frame.size.height
+                view.addSubview(colorCell)
+                currentVariations?.append(colorCell)
+            }
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.datasource?.numberOfColors(colorPicker: self) ?? 0
