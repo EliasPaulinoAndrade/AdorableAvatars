@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol StickersDelegate {
+protocol StickersAvatarsViewControllerDelegate {
+    func currentSection(_ controller: StickerAvatarsViewController) -> StickerAvatarsViewController.Section
     func avatarsToShow() -> [Avatar]
 }

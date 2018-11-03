@@ -37,7 +37,6 @@ class AvatarMessageViewController: MSMessagesAppViewController {
 
         StickerAvatarsViewController.delegate = self
         stickersViewController = StickerAvatarsViewController()
-        stickersViewController.section = .all
         stickersViewController.warningLabel = self.warningLabel
         
         self.addChild(stickersViewController)
@@ -93,17 +92,26 @@ class AvatarMessageViewController: MSMessagesAppViewController {
     }
 }
 
-extension AvatarMessageViewController: StickersDelegate {
+extension AvatarMessageViewController: StickersAvatarsViewControllerDelegate {
     func avatarsToShow() -> [Avatar] {
         switch self.segmentedControl.selectedSegmentIndex {
-            case 0:
-                let avatars = try? CoreDataWrapper.getAllAvatars()
-                return avatars ?? []
-            case 1:
-                let avatars = try? CoreDataWrapper.getAllFavoriteAvatars()
-                return avatars ?? []
+        case 0:
+            let avatars = try? CoreDataWrapper.getAllAvatars()
+            return avatars ?? []
+        case 1:
+            let avatars = try? CoreDataWrapper.getAllFavoriteAvatars()
+            return avatars ?? []
         default:
-                return []
+            return []
+        }
+    }
+    
+    func currentSection(_ controller: StickerAvatarsViewController) -> StickerAvatarsViewController.Section {
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            return .all
+        default:
+            return .favorites
         }
     }
 }

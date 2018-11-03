@@ -11,10 +11,9 @@ import Messages
 
 class StickerAvatarsViewController: MSStickerBrowserViewController {
     
-    static var delegate: StickersDelegate?
+    static var delegate: StickersAvatarsViewControllerDelegate?
     
     weak var warningLabel: UILabel!
-    var section: Section?
 
     private var stickers: [MSSticker] = {
         return loadStickers()
@@ -40,10 +39,10 @@ class StickerAvatarsViewController: MSStickerBrowserViewController {
     
     func setupWarningLabel() {
         if self.stickers.count == 0 {
-            if self.section == .favorites {
-                self.warningLabel.text = "\(Strings.controller_favAvatars_no_avatar_warning)"
-            } else {
+            if StickerAvatarsViewController.delegate?.currentSection(self) == .all {
                 self.warningLabel.text = "\(Strings.controller_allavatars_no_avatar_warning)"
+            } else {
+                self.warningLabel.text = "\(Strings.controller_favAvatars_no_avatar_warning)"
             }
             self.warningLabel.alpha = 1
         } else {

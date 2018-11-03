@@ -11,6 +11,7 @@
 		E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
+		E35D622B218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35D622A218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift */; };
 		E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 		E386AE30217E45D6009A8BF7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */; };
 		E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE37217E5393009A8BF7 /* NotificationService.swift */; };
@@ -124,7 +125,6 @@
 		E3B676132183F896008DB3F0 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+extension.swift */; };
 		E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
 		E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */; };
-		E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E92218670680034E5A5 /* StickersDelegate.swift */; };
 		E3D75E97218688E40034E5A5 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E96218688E40034E5A5 /* NavigationHelper.swift */; };
 		E3D75E9921868CA40034E5A5 /* URL+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9821868CA40034E5A5 /* URL+extension.swift */; };
 		E3D75E9A21868DB60034E5A5 /* URL+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9821868CA40034E5A5 /* URL+extension.swift */; };
@@ -212,6 +212,7 @@
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E35D622A218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickersAvatarsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E386AE2B217E351D009A8BF7 /* AlertManagment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagment.swift; sourceTree = "<group>"; };
 		E386AE2D217E3E58009A8BF7 /* AdorableAvatars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdorableAvatars.entitlements; sourceTree = "<group>"; };
 		E386AE2F217E45D6009A8BF7 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -295,7 +296,6 @@
 		E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdorableMessage MessagesExtension.entitlements"; sourceTree = "<group>"; };
 		E3B6760821838201008DB3F0 /* FileManager+messagesextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+messagesextension.swift"; sourceTree = "<group>"; };
 		E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerAvatarsViewController.swift; sourceTree = "<group>"; };
-		E3D75E92218670680034E5A5 /* StickersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersDelegate.swift; sourceTree = "<group>"; };
 		E3D75E96218688E40034E5A5 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		E3D75E9821868CA40034E5A5 /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
 		E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
@@ -669,7 +669,7 @@
 		E3D75E952186871D0034E5A5 /* delegates */ = {
 			isa = PBXGroup;
 			children = (
-				E3D75E92218670680034E5A5 /* StickersDelegate.swift */,
+				E35D622A218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -1051,6 +1051,7 @@
 				E3B676132183F896008DB3F0 /* UIColor+extension.swift in Sources */,
 				E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */,
 				E3B676102183F88D008DB3F0 /* ADAvatar.swift in Sources */,
+				E35D622B218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift in Sources */,
 				E3B675FB2183727F008DB3F0 /* APAvatarPickerDatasource.swift in Sources */,
 				E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */,
 				E3B675F2218371C2008DB3F0 /* UIAvatarCollectionViewCell.swift in Sources */,
@@ -1058,7 +1059,6 @@
 				E3B675F92183727F008DB3F0 /* UIAvatarPicker.swift in Sources */,
 				E3B676112183F896008DB3F0 /* PlistReader.swift in Sources */,
 				E3B67600218372D0008DB3F0 /* CoreDataWrapper.swift in Sources */,
-				E3D75E93218670680034E5A5 /* StickersDelegate.swift in Sources */,
 				E3B675F721837277008DB3F0 /* Array+avatarContainerArray.swift in Sources */,
 				E3DE55AD218D2D4D00D4AFA6 /* AvatarMessageViewController.swift in Sources */,
 				E3B675FE21837283008DB3F0 /* UIBaseZibView.swift in Sources */,
