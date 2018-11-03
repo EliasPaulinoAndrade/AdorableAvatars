@@ -43,7 +43,7 @@ struct AvatarOptionsService {
     }
     
     func saveDefaultAvatars() {
-        let userFirstTimeFlag = UserDefaults.standard.string(forKey: "user_first_time_flag")
+        let userFirstTimeFlag = UserDefaults.adorableAvatarsStandard.string(forKey:  "user_first_time_flag")
         if userFirstTimeFlag == nil {
             let plistReader = PlistReader.init()
             let avatarContainers = plistReader.defaultAvatars
@@ -55,7 +55,7 @@ struct AvatarOptionsService {
             
             CoreDataStack.saveContext()
             
-            UserDefaults.standard.set("ok", forKey: "user_first_time_flag")
+            UserDefaults.adorableAvatarsStandard.set("ok", forKey: "user_first_time_flag")
         }
     }
 }

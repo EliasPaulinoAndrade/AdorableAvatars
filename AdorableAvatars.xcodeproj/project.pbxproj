@@ -131,6 +131,17 @@
 		E3B676122183F896008DB3F0 /* avatarColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AB051E2177750500B80D74 /* avatarColors.plist */; };
 		E3B676132183F896008DB3F0 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE55218070D4009A8BF7 /* UIColor+extension.swift */; };
 		E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
+		E3B78D9F218E251800D9F153 /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B78D9E218E251800D9F153 /* UserDefaults+extension.swift */; };
+		E3B78DA0218E25C000D9F153 /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B78D9E218E251800D9F153 /* UserDefaults+extension.swift */; };
+		E3B78DA1218E25C100D9F153 /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B78D9E218E251800D9F153 /* UserDefaults+extension.swift */; };
+		E3B78DA2218E26CD00D9F153 /* AvatarOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */; };
+		E3B78DA3218E26CF00D9F153 /* AvatarOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */; };
+		E3B78DA4218E273900D9F153 /* AlertManagment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE2B217E351D009A8BF7 /* AlertManagment.swift */; };
+		E3B78DA5218E274C00D9F153 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
+		E3B78DA6218E274F00D9F153 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
+		E3B78DA8218E290C00D9F153 /* DefaultAvatarsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */; };
+		E3B78DA9218E298800D9F153 /* DefaultAvatarsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */; };
+		E3B78DAA218E298900D9F153 /* DefaultAvatarsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */; };
 		E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */; };
 		E3D75E97218688E40034E5A5 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E96218688E40034E5A5 /* NavigationHelper.swift */; };
 		E3D75E9921868CA40034E5A5 /* URL+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9821868CA40034E5A5 /* URL+extension.swift */; };
@@ -303,6 +314,8 @@
 		E3B675EA218370C6008DB3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B67605218378F3008DB3F0 /* AdorableMessage MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdorableMessage MessagesExtension.entitlements"; sourceTree = "<group>"; };
 		E3B6760821838201008DB3F0 /* FileManager+messagesextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+messagesextension.swift"; sourceTree = "<group>"; };
+		E3B78D9E218E251800D9F153 /* UserDefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extension.swift"; sourceTree = "<group>"; };
+		E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultAvatarsAssets.xcassets; sourceTree = "<group>"; };
 		E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerAvatarsViewController.swift; sourceTree = "<group>"; };
 		E3D75E96218688E40034E5A5 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		E3D75E9821868CA40034E5A5 /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
@@ -454,6 +467,7 @@
 				E3D75E96218688E40034E5A5 /* NavigationHelper.swift */,
 				E3AB04D42176072E00B80D74 /* Main.storyboard */,
 				E3AB04D72176073000B80D74 /* Assets.xcassets */,
+				E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */,
 				E3AB04D92176073000B80D74 /* LaunchScreen.storyboard */,
 				E3AB04DC2176073000B80D74 /* Info.plist */,
 			);
@@ -559,6 +573,7 @@
 				E3AB05342177E75A00B80D74 /* FileManager+extension.swift */,
 				E386AE4F217FA0C3009A8BF7 /* UIImage+extension.swift */,
 				E3D75E9821868CA40034E5A5 /* URL+extension.swift */,
+				E3B78D9E218E251800D9F153 /* UserDefaults+extension.swift */,
 			);
 			path = "File Managment";
 			sourceTree = "<group>";
@@ -886,7 +901,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E386AE5821807161009A8BF7 /* avatarColors.plist in Resources */,
+				E3B78DA6218E274F00D9F153 /* Localizable.strings in Resources */,
 				E35D622E218DCF0D00524415 /* defaultAvatars.plist in Resources */,
+				E3B78DA9218E298800D9F153 /* DefaultAvatarsAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +913,7 @@
 			files = (
 				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
 				E35D622D218DCE4F00524415 /* defaultAvatars.plist in Resources */,
+				E3B78DA8218E290C00D9F153 /* DefaultAvatarsAssets.xcassets in Resources */,
 				E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */,
 				E348BB942184881700A905F0 /* Localizable.strings in Resources */,
 				E3AB0522217783B900B80D74 /* UIColorPicker.xib in Resources */,
@@ -938,6 +956,7 @@
 				E3B675E9218370C6008DB3F0 /* Assets.xcassets in Resources */,
 				E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */,
 				E35D622F218DCF0E00524415 /* defaultAvatars.plist in Resources */,
+				E3B78DAA218E298900D9F153 /* DefaultAvatarsAssets.xcassets in Resources */,
 				E3B675E7218370C5008DB3F0 /* MainInterface.storyboard in Resources */,
 				E3B676122183F896008DB3F0 /* avatarColors.plist in Resources */,
 				E3B675F82183727F008DB3F0 /* UIAvatarPicker.xib in Resources */,
@@ -952,18 +971,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B78DA5218E274C00D9F153 /* Localizable.swift in Sources */,
 				E35D6231218DCF3C00524415 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E386AE46217E6386009A8BF7 /* ADWrapper.swift in Sources */,
 				E386AE38217E5393009A8BF7 /* NotificationService.swift in Sources */,
 				E35D6233218DCF4200524415 /* CoreDataStack.swift in Sources */,
 				E386AE48217E68CE009A8BF7 /* FileManager+extension.swift in Sources */,
+				E3B78DA0218E25C000D9F153 /* UserDefaults+extension.swift in Sources */,
 				E35D6230218DCF3600524415 /* Avatar.swift in Sources */,
+				E3B78DA4218E273900D9F153 /* AlertManagment.swift in Sources */,
 				E386AE53217FDE08009A8BF7 /* UIImage+extension.swift in Sources */,
 				E35D6232218DCF3F00524415 /* CoreDataWrapper.swift in Sources */,
 				E386AE42217E6386009A8BF7 /* ADFaceComponents.swift in Sources */,
 				E386AE45217E6386009A8BF7 /* UIColor+hexa.swift in Sources */,
 				E3D75E9F21868F0F0034E5A5 /* Bundle+extension.swift in Sources */,
 				E386AE43217E6386009A8BF7 /* ADAvatar.swift in Sources */,
+				E3B78DA2218E26CD00D9F153 /* AvatarOptionsService.swift in Sources */,
 				E386AE5921807161009A8BF7 /* UIColor+extension.swift in Sources */,
 				E3AB917821877F2200AEFFAF /* CacheCenter.swift in Sources */,
 				E386AE5721807161009A8BF7 /* PlistReader.swift in Sources */,
@@ -983,6 +1006,7 @@
 				E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */,
 				E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */,
 				E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */,
+				E3B78D9F218E251800D9F153 /* UserDefaults+extension.swift in Sources */,
 				E3AB0558217A07F100B80D74 /* AvatarPeekPreviewDelegate.swift in Sources */,
 				E3AB05192176687700B80D74 /* String+sub.swift in Sources */,
 				E3D75E9D21868E740034E5A5 /* Bundle+extension.swift in Sources */,
@@ -1056,6 +1080,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */,
+				E3B78DA3218E26CF00D9F153 /* AvatarOptionsService.swift in Sources */,
 				E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */,
 				E3AB917921877F2300AEFFAF /* CacheCenter.swift in Sources */,
 				E3B675FA2183727F008DB3F0 /* APAvatarPickerDelegate.swift in Sources */,
@@ -1065,6 +1090,7 @@
 				E3B676042183732F008DB3F0 /* UIImage+extension.swift in Sources */,
 				E3B675F4218371C2008DB3F0 /* AvatarCollectionViewCellDelegate.swift in Sources */,
 				E3B676132183F896008DB3F0 /* UIColor+extension.swift in Sources */,
+				E3B78DA1218E25C100D9F153 /* UserDefaults+extension.swift in Sources */,
 				E3B676142183FB33008DB3F0 /* AlertManagment.swift in Sources */,
 				E3B676102183F88D008DB3F0 /* ADAvatar.swift in Sources */,
 				E35D622B218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift in Sources */,

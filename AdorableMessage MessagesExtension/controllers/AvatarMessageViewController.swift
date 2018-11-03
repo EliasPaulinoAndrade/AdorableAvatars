@@ -50,6 +50,9 @@ class AvatarMessageViewController: MSMessagesAppViewController {
         addAvatarImage.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(addTapped(_:))))
         segmentedControl.addTarget(self, action: #selector(segmentedChanged(_:)), for: .valueChanged)
         ADWrapper.shared.delegate = self
+        
+        AvatarOptionsService.shared.saveDefaultAvatars()
+        stickersViewController.reloadStickers()
     }
     
     private func setupStickersView() {

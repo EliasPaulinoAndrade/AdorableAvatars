@@ -49,17 +49,17 @@ class UIColorPicker: UIBaseZibView {
 extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     @objc func cellLongPressHappend(_ gestureRecognizer: UILongPressGestureRecognizer){
         if gestureRecognizer.state == .began{
-            if  let indexPath = self.collectionView.indexPathForItem(at: gestureRecognizer.location(in: self.collectionView)),
-                let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell{
-                cellLongPressHappend(atCell: cell, atIndexPath: indexPath)
-            }
+//            if  let indexPath = self.collectionView.indexPathForItem(at: gestureRecognizer.location(in: self.collectionView)),
+//                let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell{
+//                cellLongPressHappend(atCell: cell, atIndexPath: indexPath)
+//            }
         }
     }
-    
-    func cellLongPressHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
-        let cellCopy = cell.copy()
-        print(cellCopy)
-    }
+//
+//    func cellLongPressHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
+//        let cellCopy = cell.copy()
+//        print(cellCopy)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.datasource?.numberOfColors(colorPicker: self) ?? 0
