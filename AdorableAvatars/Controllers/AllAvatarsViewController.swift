@@ -42,7 +42,7 @@ class AllAvatarsViewController: UICommunicableViewController {
         }
     }
     
-    private var containerAvatars: [AvatarContainer]? = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
+    private var containerAvatars: [AvatarContainer]?
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController.init(searchResultsController: nil)
@@ -75,6 +75,10 @@ class AllAvatarsViewController: UICommunicableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        AvatarOptionsService.shared.saveDefaultAvatars()
+        containerAvatars = try? CoreDataWrapper.getAllAvatars().avatarContainerArray()
+        self.avatarsCollectionView.reloadData()
     }
     
     @objc private func keyboardWillAppear(notification: NSNotification) {

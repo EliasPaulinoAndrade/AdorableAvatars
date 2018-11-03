@@ -15,7 +15,7 @@ struct AvatarOptionsService {
     func shareAvatarImage(_ image : UIImage, controller: UIViewController) {
         let activityController: UIActivityViewController = {
             
-            let activityController = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
+            let activityController = UIActivityViewController.init(activityItems: [image.pngData()!], applicationActivities: nil)
             activityController.popoverPresentationController?.sourceView = controller.view
             
             return activityController
@@ -40,5 +40,22 @@ struct AvatarOptionsService {
         FileManager.default.renameAvatarImage(fromName: avatarName, toName: newName)
         avatar.name = newName
         CoreDataStack.saveContext()
+    }
+    
+    func saveDefaultAvatars() {
+        let userFirstTimeFlag = UserDefaults.standard.string(forKey: "user_first_time_flag")
+        if userFirstTimeFlag == nil {
+            let plistReader = PlistReader.init()
+            let avatarContainers = plistReader.defaultAvatars
+            
+            for container in avatarContainers {
+                let _ = Avatar.init(name: container.name, isFave: false)
+                FileManager.default.saveAvatarImage(container.image, withName: container.name)
+            }
+            
+            CoreDataStack.saveContext()
+            
+            UserDefaults.standard.set("ok", forKey: "user_first_time_flag")
+        }
     }
 }
