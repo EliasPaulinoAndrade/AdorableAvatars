@@ -71,14 +71,22 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
             guard let masterView = delegate?.responsibleController(self).view,
                   let pressingCell = self.pressingCell
                   else {
-                cellUserRemovedFinger(atCell: nil)
+                if gestureRecognizer.state == .ended ||
+                   gestureRecognizer.state == .cancelled ||
+                   gestureRecognizer.state == .failed {
+                    cellUserRemovedFinger(atCell: nil)
+                }
                 return
             }
             
             let pressLocationInMasterView = self.collectionView.convert(pressLocation, to: masterView)
             
             guard let variationPostition = variationIndex(atPosition: pressLocationInMasterView) else {
-                cellUserRemovedFinger(atCell: nil)
+                if gestureRecognizer.state == .ended ||
+                    gestureRecognizer.state == .cancelled ||
+                    gestureRecognizer.state == .failed {
+                    cellUserRemovedFinger(atCell: nil)
+                }
                 return
             }
             
@@ -151,15 +159,16 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         
         guard let cellColor = cell.mainColorView.backgroundColor,
               let numberOfVariations = delegate?.numberOfVariationsPerColor(self),
-              let colorHue = cellColor.getHue(),
-              let variationSize = delegate?.saturationVariationForColor(self, atPosition: indexPath.row)
+              let colorHue = cellColor.getHue()
               else {
                 return
         }
+        let variationSize: CGFloat = CGFloat(0.8)/CGFloat(numberOfVariations)
         let prevVariations = numberOfVariations/2
         var currentYOrigin = frame.origin.y - frame.height * CGFloat(prevVariations)
-        var currentSaturation = colorHue.saturation - (CGFloat(prevVariations) * variationSize)
-    
+        var currentSaturation: CGFloat = 0.2
+        var currentBright: CGFloat = 0.8
+        
         currentVariations = []
         for _ in 0..<numberOfVariations {
             if let colorCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as? UIColorCollectionViewCell {
@@ -167,7 +176,7 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
                 let currentColor = UIColor.init(
                     hue: colorHue.hue,
                     saturation: currentSaturation,
-                    brightness: colorHue.brightness,
+                    brightness: currentBright,
                     alpha: colorHue.alpha
                 )
                 
@@ -182,6 +191,7 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
                 
                 currentYOrigin = currentYOrigin + frame.size.height
                 currentSaturation += variationSize
+                currentBright -= variationSize
                 
                 view.addSubview(colorCell)
                 currentVariations?.append(colorCell)
