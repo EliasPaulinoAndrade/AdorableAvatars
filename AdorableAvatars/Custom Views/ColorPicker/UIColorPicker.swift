@@ -33,6 +33,8 @@ class UIColorPicker: UIBaseZibView {
     private var firstColorWasSet = false
     private var selectedColor: PickerColor?
     private var currentVariations: [UIColorCollectionViewCell]?
+    private var overlayView: UIScrollView = UIScrollView.init()
+    private var pressingCell: UIColorCollectionViewCell?
     
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "UIColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
@@ -48,39 +50,84 @@ class UIColorPicker: UIBaseZibView {
 }
 
 extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+    
     @objc func cellLongPressHappend(_ gestureRecognizer: UILongPressGestureRecognizer){
         
         let pressLocation = gestureRecognizer.location(in: self.collectionView)
-        guard let indexPath = self.collectionView.indexPathForItem(at: pressLocation),
-              let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell
-              else {
-                return
+        if let indexPath = self.collectionView.indexPathForItem(at: pressLocation),
+           let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
+         
+            if gestureRecognizer.state == .began{
+                self.pressingCell = cell
+                cellLongPressBeginHappend(atCell: cell, atIndexPath: indexPath)
+            } else if gestureRecognizer.state == .ended ||
+                      gestureRecognizer.state == .cancelled ||
+                      gestureRecognizer.state == .failed {
+                cellUserRemovedFinger(atCell: cell)
+            }
         }
-        if gestureRecognizer.state == .began{
-            cellLongPressHappend(atCell: cell, atIndexPath: indexPath)
-        } else if gestureRecognizer.state == .ended {
-            cellUserRemovedFinger(atCell: cell)
+        else {
+            guard let masterView = delegate?.responsibleController(self).view,
+                  let pressingCell = self.pressingCell
+                  else {
+                return
+            }
+            
+            if gestureRecognizer.state == .ended || gestureRecognizer.state == .cancelled || gestureRecognizer.state == .failed {
+                let pressLocationInMasterView = self.collectionView.convert(pressLocation, to: masterView)
+                print(variationIndex(atPosition: pressLocationInMasterView))
+                cellUserRemovedFinger(atCell: pressingCell)
+            }
         }
     }
     
+    func variationSelected(atPosition position: CGPoint ) {
+        
+    }
+    
+    func variationIndex(atPosition position: CGPoint) -> Int? {
+        guard let variations = self.currentVariations,
+              let masterView = delegate?.responsibleController(self).view
+              else {
+            return nil
+        }
+        
+        var variationIndex: Int?
+        for (index, variation) in variations.enumerated() {
+            let cellFrameInMaster = variation.convert(variation.bounds, to: masterView)
+            if cellFrameInMaster.contains(position) {
+                variationIndex = index
+            }
+        }
+        return variationIndex
+    }
+    
     func cellUserRemovedFinger(atCell cell: UIColorCollectionViewCell) {
-        guard let removingVariations = self.currentVariations else {
-            return
-        }
-        for variation in removingVariations {
-            variation.removeFromSuperview()
-        }
+        self.overlayView.removeFromSuperview()
+        self.overlayView = UIScrollView.init()
+        
         self.currentVariations = nil
     }
 
-    func cellLongPressHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
+    func cellLongPressBeginHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
         guard let masterView = delegate?.responsibleController(self).view else {
             return
         }
         
         let frameInMaster = cell.convert(cell.bounds, to: masterView)
         
-        showSubColorOptions(forCell: cell, atIndexPath: indexPath, withFrame: frameInMaster, inView: masterView)
+        overlayView.frame = masterView.frame
+        let variationsContainerView = UIView.init(frame: masterView.frame)
+        let backgroundView = UIView.init(frame: masterView.frame)
+        
+        backgroundView.backgroundColor = UIColor.black
+        backgroundView.layer.opacity = 0.7
+        
+        overlayView.addSubview(backgroundView)
+        overlayView.addSubview(variationsContainerView)
+        masterView.addSubview(overlayView)
+        
+        showSubColorOptions(forCell: cell, atIndexPath: indexPath, withFrame: frameInMaster, inView: variationsContainerView)
     }
     
     private func showSubColorOptions(forCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath, withFrame frame: CGRect, inView view: UIView) {
