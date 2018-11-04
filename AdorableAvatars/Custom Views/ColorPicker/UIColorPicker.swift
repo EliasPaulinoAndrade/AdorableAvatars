@@ -35,6 +35,7 @@ class UIColorPicker: UIBaseZibView {
     private var currentVariations: [UIColorCollectionViewCell]?
     private var overlayView: UIScrollView = UIScrollView.init()
     private var pressingCell: UIColorCollectionViewCell?
+    private var currentHoldingVariation: UIColorCollectionViewCell?
     
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "UIColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
@@ -70,18 +71,33 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
             guard let masterView = delegate?.responsibleController(self).view,
                   let pressingCell = self.pressingCell
                   else {
+                cellUserRemovedFinger(atCell: nil)
+                return
+            }
+            
+            let pressLocationInMasterView = self.collectionView.convert(pressLocation, to: masterView)
+            
+            guard let variationPostition = variationIndex(atPosition: pressLocationInMasterView) else {
+                cellUserRemovedFinger(atCell: nil)
                 return
             }
             
             if gestureRecognizer.state == .ended || gestureRecognizer.state == .cancelled || gestureRecognizer.state == .failed {
-                let pressLocationInMasterView = self.collectionView.convert(pressLocation, to: masterView)
-                print(variationIndex(atPosition: pressLocationInMasterView))
+                variationSelected(atPosition: variationPostition)
                 cellUserRemovedFinger(atCell: pressingCell)
+            } else if gestureRecognizer.state == .changed {
+                if let variation = self.currentVariations?[variationPostition] {
+                    self.currentHoldingVariation?.layer.borderWidth = 0
+                    variation.layer.borderWidth = 2
+                    variation.layer.borderColor = UIColor.white.cgColor
+                    variation.layer.cornerRadius = 10
+                    self.currentHoldingVariation = variation
+                }
             }
         }
     }
     
-    func variationSelected(atPosition position: CGPoint ) {
+    func variationSelected(atPosition position: Int) {
         
     }
     
@@ -102,7 +118,8 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         return variationIndex
     }
     
-    func cellUserRemovedFinger(atCell cell: UIColorCollectionViewCell) {
+    func cellUserRemovedFinger(atCell cell: UIColorCollectionViewCell?) {
+        
         self.overlayView.removeFromSuperview()
         self.overlayView = UIScrollView.init()
         
@@ -133,20 +150,39 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     private func showSubColorOptions(forCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath, withFrame frame: CGRect, inView view: UIView) {
         
         guard let cellColor = cell.mainColorView.backgroundColor,
-              let numberOfVariations = delegate?.numberOfVariationsPerColor(self)
-            else {
+              let numberOfVariations = delegate?.numberOfVariationsPerColor(self),
+              let colorHue = cellColor.getHue(),
+              let variationSize = delegate?.saturationVariationForColor(self, atPosition: indexPath.row)
+              else {
                 return
         }
         let prevVariations = numberOfVariations/2
         var currentYOrigin = frame.origin.y - frame.height * CGFloat(prevVariations)
+        var currentSaturation = colorHue.saturation - (CGFloat(prevVariations) * variationSize)
     
         currentVariations = []
         for _ in 0..<numberOfVariations {
             if let colorCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as? UIColorCollectionViewCell {
-                colorCell.setup(color: cellColor, checkImage: nil)
+                
+                let currentColor = UIColor.init(
+                    hue: colorHue.hue,
+                    saturation: currentSaturation,
+                    brightness: colorHue.brightness,
+                    alpha: colorHue.alpha
+                )
+                
+                colorCell.setup(color: currentColor, checkImage: nil, showShadowView: false)
+                
                 let currentOrigin = CGPoint.init(x: frame.origin.x, y: currentYOrigin)
-                colorCell.frame = CGRect(origin: currentOrigin, size: frame.size)
+                colorCell.frame = CGRect(origin: frame.origin, size: frame.size)
+                
+                UIView.animate(withDuration: 0.3) {
+                    colorCell.frame.origin = currentOrigin
+                }
+                
                 currentYOrigin = currentYOrigin + frame.size.height
+                currentSaturation += variationSize
+                
                 view.addSubview(colorCell)
                 currentVariations?.append(colorCell)
             }

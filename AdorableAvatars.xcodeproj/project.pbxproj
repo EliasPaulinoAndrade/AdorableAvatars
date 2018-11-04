@@ -142,6 +142,7 @@
 		E3B78DA8218E290C00D9F153 /* DefaultAvatarsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */; };
 		E3B78DA9218E298800D9F153 /* DefaultAvatarsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */; };
 		E3B78DAA218E298900D9F153 /* DefaultAvatarsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */; };
+		E3B78DAE218E897F00D9F153 /* UIColor+saturation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B78DAD218E897F00D9F153 /* UIColor+saturation.swift */; };
 		E3D75E8B21865A8C0034E5A5 /* StickerAvatarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */; };
 		E3D75E97218688E40034E5A5 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E96218688E40034E5A5 /* NavigationHelper.swift */; };
 		E3D75E9921868CA40034E5A5 /* URL+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9821868CA40034E5A5 /* URL+extension.swift */; };
@@ -316,6 +317,7 @@
 		E3B6760821838201008DB3F0 /* FileManager+messagesextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+messagesextension.swift"; sourceTree = "<group>"; };
 		E3B78D9E218E251800D9F153 /* UserDefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extension.swift"; sourceTree = "<group>"; };
 		E3B78DA7218E290C00D9F153 /* DefaultAvatarsAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultAvatarsAssets.xcassets; sourceTree = "<group>"; };
+		E3B78DAD218E897F00D9F153 /* UIColor+saturation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+saturation.swift"; sourceTree = "<group>"; };
 		E3D75E8A21865A8C0034E5A5 /* StickerAvatarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerAvatarsViewController.swift; sourceTree = "<group>"; };
 		E3D75E96218688E40034E5A5 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		E3D75E9821868CA40034E5A5 /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				E386AE5A218096F0009A8BF7 /* PickerColor.swift */,
 				E386AE5C21809972009A8BF7 /* Array+pickerColor.swift */,
 				E3B675892182371B008DB3F0 /* UIView+position.swift */,
+				E3B78DAD218E897F00D9F153 /* UIColor+saturation.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 				E3AB0511217633F700B80D74 /* APAvatarPickerDatasource.swift in Sources */,
 				E3AB05132176410D00B80D74 /* APAvatarComponents.swift in Sources */,
 				E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */,
+				E3B78DAE218E897F00D9F153 /* UIColor+saturation.swift in Sources */,
 				E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */,
 				E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */,
 				E3B78D9F218E251800D9F153 /* UserDefaults+extension.swift in Sources */,

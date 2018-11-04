@@ -24,10 +24,14 @@ class UIColorCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setup(color: UIColor, isSelected selected: Bool = false, checkImage: UIImage?) {
+    func setup(color: UIColor, isSelected selected: Bool = false, checkImage: UIImage?, showShadowView: Bool = true) {
         self.mainColorView.backgroundColor = color
         self.shadowColorView.backgroundColor = color
-        self.shadowColorView.layer.opacity = 0.3
+        if showShadowView {
+            self.shadowColorView.layer.opacity = 0.3
+        } else {
+            self.shadowColorView.layer.opacity = 0
+        }
         self.checkImage.image = checkImage
         self.isSelected = selected
     }

@@ -262,6 +262,10 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
 }
 
 extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDelegate {
+    func saturationVariationForColor(_ colorPicker: UIColorPicker, atPosition position: Int) -> CGFloat {
+        return 0.2
+    }
+    
     func numberOfVariationsPerColor(_ colorPicker: UIColorPicker) -> Int {
         return 4
     }
