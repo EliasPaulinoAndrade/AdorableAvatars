@@ -37,6 +37,12 @@ class UIColorPicker: UIBaseZibView {
     private var pressingCell: UIColorCollectionViewCell?
     private var currentHoldingVariation: UIColorCollectionViewCell?
     
+    
+    /*refatorando vars*/
+    private var colorVariations: [Int: ColorVariation] = [:]
+    private var variationCells: [UIColorCollectionViewCell]?
+    /**/
+    
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "UIColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "colorCell")
         
@@ -59,6 +65,7 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
            let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
          
             if gestureRecognizer.state == .began{
+                print(colorVariations[indexPath.row])
                 self.pressingCell = cell
                 cellLongPressBeginHappend(atCell: cell, atIndexPath: indexPath)
             } else if gestureRecognizer.state == .ended ||
@@ -206,11 +213,16 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath)
     
-        if let colorCell = cell as? UIColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.item) {
+        if  let colorCell = cell as? UIColorCollectionViewCell,
+            let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.item),
+            let numberOfVariations = self.delegate?.numberOfVariationsPerColor(self){
 
             let image = datasource?.imageForSelectColor(colorPicker: self)
             colorCell.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(self.cellLongPressHappend(_:))))
             colorCell.setup(color: color.color, isSelected: color.isSelected, checkImage: image)
+            
+            let colorVariation = ColorVariation(mainColor: color, withNumberOfVariations: numberOfVariations)
+            self.colorVariations[indexPath.row] = colorVariation
             
             if !self.isEnabled {
                 colorCell.layer.opacity = 0.7

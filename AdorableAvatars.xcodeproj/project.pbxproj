@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
+		E327CCC62190A9D6000C695E /* Array+pickerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE5C21809972009A8BF7 /* Array+pickerColor.swift */; };
+		E327CCC72190A9D9000C695E /* UIColor+saturation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B78DAD218E897F00D9F153 /* UIColor+saturation.swift */; };
+		E327CCCB2190AA68000C695E /* ColorVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E327CCCA2190AA68000C695E /* ColorVariation.swift */; };
+		E327CCCC2190AB4E000C695E /* PickerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E386AE5A218096F0009A8BF7 /* PickerColor.swift */; };
+		E327CCCD2190AB57000C695E /* ColorVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E327CCCA2190AA68000C695E /* ColorVariation.swift */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E35D622B218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35D622A218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift */; };
@@ -228,6 +233,7 @@
 		E30142832184A45A008CA9C6 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142842184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142852184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E327CCCA2190AA68000C695E /* ColorVariation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorVariation.swift; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -367,6 +373,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E327CCC32190A95E000C695E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E386AE5A218096F0009A8BF7 /* PickerColor.swift */,
+				E327CCCA2190AA68000C695E /* ColorVariation.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		E327CCC42190A9B3000C695E /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E3AB052B21779FF000B80D74 /* UIColorPickerDatasource.swift */,
+				E3AB052D2177A17B00B80D74 /* UIColorPickerDelegate.swift */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		E327CCC52190A9CD000C695E /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E3B78DAD218E897F00D9F153 /* UIColor+saturation.swift */,
+				E386AE5C21809972009A8BF7 /* Array+pickerColor.swift */,
+				E3B675892182371B008DB3F0 /* UIView+position.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		E327CCC82190A9E3000C695E /* XIB Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3AB05262177872D00B80D74 /* UIColorCollectionViewCell.xib */,
+				E3AB0521217783B900B80D74 /* UIColorPicker.xib */,
+			);
+			path = "XIB Views";
+			sourceTree = "<group>";
+		};
+		E327CCC92190AA0E000C695E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3AB05232177858A00B80D74 /* UIColorPicker.swift */,
+				E3B67595218246AD008DB3F0 /* UIColorCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E348BB8921847A6800A905F0 /* Localization Managment */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,16 +608,11 @@
 		E3AB0520217781DB00B80D74 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				E3B67595218246AD008DB3F0 /* UIColorCollectionViewCell.swift */,
-				E3AB05262177872D00B80D74 /* UIColorCollectionViewCell.xib */,
-				E3AB0521217783B900B80D74 /* UIColorPicker.xib */,
-				E3AB05232177858A00B80D74 /* UIColorPicker.swift */,
-				E3AB052B21779FF000B80D74 /* UIColorPickerDatasource.swift */,
-				E3AB052D2177A17B00B80D74 /* UIColorPickerDelegate.swift */,
-				E386AE5A218096F0009A8BF7 /* PickerColor.swift */,
-				E386AE5C21809972009A8BF7 /* Array+pickerColor.swift */,
-				E3B675892182371B008DB3F0 /* UIView+position.swift */,
-				E3B78DAD218E897F00D9F153 /* UIColor+saturation.swift */,
+				E327CCC92190AA0E000C695E /* Views */,
+				E327CCC82190A9E3000C695E /* XIB Views */,
+				E327CCC52190A9CD000C695E /* extensions */,
+				E327CCC42190A9B3000C695E /* delegates */,
+				E327CCC32190A95E000C695E /* models */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -1058,6 +1105,7 @@
 				E3B6759021824343008DB3F0 /* UIPropPicker.swift in Sources */,
 				E3AB050D217623A400B80D74 /* ADFaceComponents.swift in Sources */,
 				E386AE52217FA2AA009A8BF7 /* Array+findByAttachmentIdentifier.swift in Sources */,
+				E327CCCB2190AA68000C695E /* ColorVariation.swift in Sources */,
 				E3AB050F2176310800B80D74 /* ADDelegate.swift in Sources */,
 				E386AE672181296B009A8BF7 /* UIBaseZibView.swift in Sources */,
 			);
@@ -1084,6 +1132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B6760A21838605008DB3F0 /* String+sub.swift in Sources */,
+				E327CCCD2190AB57000C695E /* ColorVariation.swift in Sources */,
 				E3B78DA3218E26CF00D9F153 /* AvatarOptionsService.swift in Sources */,
 				E3B67601218372D2008DB3F0 /* CoreDataStack.swift in Sources */,
 				E3AB917921877F2300AEFFAF /* CacheCenter.swift in Sources */,
@@ -1092,6 +1141,7 @@
 				E3B6760B2183F7FE008DB3F0 /* ADDelegate.swift in Sources */,
 				E3B675FC2183727F008DB3F0 /* APAvatarComponents.swift in Sources */,
 				E3B676042183732F008DB3F0 /* UIImage+extension.swift in Sources */,
+				E327CCCC2190AB4E000C695E /* PickerColor.swift in Sources */,
 				E3B675F4218371C2008DB3F0 /* AvatarCollectionViewCellDelegate.swift in Sources */,
 				E3B676132183F896008DB3F0 /* UIColor+extension.swift in Sources */,
 				E3B78DA1218E25C100D9F153 /* UserDefaults+extension.swift in Sources */,
@@ -1116,9 +1166,11 @@
 				E3B675F621837277008DB3F0 /* AvatarContainer.swift in Sources */,
 				E3B675FF218372CD008DB3F0 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E3B6760D2183F823008DB3F0 /* ADFaceComponents.swift in Sources */,
+				E327CCC62190A9D6000C695E /* Array+pickerColor.swift in Sources */,
 				E3B6760921838201008DB3F0 /* FileManager+messagesextension.swift in Sources */,
 				E3D75E9E21868F0D0034E5A5 /* Bundle+extension.swift in Sources */,
 				E3B675FD2183727F008DB3F0 /* APAvatar.swift in Sources */,
+				E327CCC72190A9D9000C695E /* UIColor+saturation.swift in Sources */,
 				E3B6760621837985008DB3F0 /* UIView+position.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
