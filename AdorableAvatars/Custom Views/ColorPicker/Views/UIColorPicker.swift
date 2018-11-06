@@ -39,8 +39,8 @@ class UIColorPicker: UIBaseZibView {
     
     
     /*refatorando vars*/
-    private var colorVariations: [Int: ColorVariation] = [:]
-    private var variationCells: [UIColorCollectionViewCell]?
+    private var colorVariations: [Int: ColorVariationGroup] = [:]
+    private var variationCells: [UIColorCollectionViewCell?]?
     /**/
     
     override func layoutSubviews() {
@@ -65,7 +65,6 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
            let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
          
             if gestureRecognizer.state == .began{
-                print(colorVariations[indexPath.row])
                 self.pressingCell = cell
                 cellLongPressBeginHappend(atCell: cell, atIndexPath: indexPath)
             } else if gestureRecognizer.state == .ended ||
@@ -164,46 +163,81 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     
     private func showSubColorOptions(forCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath, withFrame frame: CGRect, inView view: UIView) {
         
-        guard let cellColor = cell.mainColorView.backgroundColor,
-              let numberOfVariations = delegate?.numberOfVariationsPerColor(self),
-              let colorHue = cellColor.getHue()
-              else {
+        guard let numberOfVariations = delegate?.numberOfVariationsPerColor(self),
+              let colorVariationGroup = self.colorVariations[indexPath.row] else {
                 return
         }
-        let variationSize: CGFloat = CGFloat(0.8)/CGFloat(numberOfVariations)
-        let prevVariations = numberOfVariations/2
-        var currentYOrigin = frame.origin.y - frame.height * CGFloat(prevVariations)
-        var currentSaturation: CGFloat = 0.2
-        var currentBright: CGFloat = 0.8
+        let colorVariations = colorVariationGroup.variations
         
-        currentVariations = []
-        for _ in 0..<numberOfVariations {
-            if let colorCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as? UIColorCollectionViewCell {
-                
-                let currentColor = UIColor.init(
-                    hue: colorHue.hue,
-                    saturation: currentSaturation,
-                    brightness: currentBright,
-                    alpha: colorHue.alpha
-                )
-                
-                colorCell.setup(color: currentColor, checkImage: nil, showShadowView: false)
-                
-                let currentOrigin = CGPoint.init(x: frame.origin.x, y: currentYOrigin)
-                colorCell.frame = CGRect(origin: frame.origin, size: frame.size)
-                
-                UIView.animate(withDuration: 0.3) {
-                    colorCell.frame.origin = currentOrigin
-                }
-                
-                currentYOrigin = currentYOrigin + frame.size.height
-                currentSaturation += variationSize
-                currentBright -= variationSize
-                
-                view.addSubview(colorCell)
-                currentVariations?.append(colorCell)
+        let prevVariations = colorVariationGroup.mainColorPosition
+        var currentYOrigin = frame.origin.y - frame.height * CGFloat(prevVariations)
+        
+        let variationCells = dequeueVariationCells(numberOfVariations: numberOfVariations, forIndexPath: indexPath)
+        guard let colorCellHeight = variationCells.first??.frame.height else {
+            return
+        }
+        
+        for variationIndex in 0..<prevVariations {
+            currentYOrigin = showSubColor(variationIndex: variationIndex,
+                                          colorIndex: variationIndex,
+                                          initialYOrigin: currentYOrigin,
+                                          colorVariations: colorVariations,
+                                          cellVariations: variationCells,
+                                          masterView: view,
+                                          baseFrame: frame)
+        }
+        if let mainColorVariationCell = variationCells[prevVariations] {
+            showSubColor(initialYOrigin: currentYOrigin,
+                         colorVariation: colorVariationGroup.mainColor,
+                         cellVariations: mainColorVariationCell,
+                         masterView: view,
+                         baseFrame: frame)
+            currentYOrigin += colorCellHeight
+        }
+        for variationIndex in (prevVariations + 1)...numberOfVariations {
+            currentYOrigin = showSubColor(variationIndex: variationIndex,
+                                          colorIndex: variationIndex - 1,
+                                          initialYOrigin: currentYOrigin,
+                                          colorVariations: colorVariations,
+                                          cellVariations: variationCells,
+                                          masterView: view,
+                                          baseFrame: frame)
+        }
+    }
+    
+    func showSubColor(variationIndex: Int, colorIndex: Int, initialYOrigin: CGFloat, colorVariations: [PickerColor], cellVariations: [UIColorCollectionViewCell?], masterView: UIView, baseFrame: CGRect) -> CGFloat {
+        if let colorCell = cellVariations[variationIndex] {
+            let currentColor = colorVariations[colorIndex]
+           
+            showSubColor(initialYOrigin: initialYOrigin, colorVariation: currentColor, cellVariations: colorCell, masterView: masterView, baseFrame: baseFrame)
+            
+            return initialYOrigin + colorCell.frame.height
+        }
+        return initialYOrigin
+    }
+    
+    func showSubColor(initialYOrigin: CGFloat, colorVariation: PickerColor, cellVariations: UIColorCollectionViewCell, masterView: UIView, baseFrame: CGRect) {
+        cellVariations.setup(color: colorVariation.color, checkImage: nil, showShadowView: false)
+        
+        let currentOrigin = CGPoint.init(x: baseFrame.origin.x, y: initialYOrigin)
+        cellVariations.frame = CGRect(origin: baseFrame.origin, size: baseFrame.size)
+        
+        UIView.animate(withDuration: 0.3) {
+            cellVariations.frame.origin = currentOrigin
+        }
+        
+        masterView.addSubview(cellVariations)
+        currentVariations?.append(cellVariations)
+    }
+    
+    func dequeueVariationCells(numberOfVariations: Int, forIndexPath indexPath: IndexPath) -> [UIColorCollectionViewCell?]{
+        if variationCells == nil {
+            self.variationCells = (0..<(numberOfVariations + 1)).map { (_) -> UIColorCollectionViewCell? in
+                return self.collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as? UIColorCollectionViewCell
             }
         }
+        
+        return variationCells!
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -221,7 +255,7 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
             colorCell.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(self.cellLongPressHappend(_:))))
             colorCell.setup(color: color.color, isSelected: color.isSelected, checkImage: image)
             
-            let colorVariation = ColorVariation(mainColor: color, withNumberOfVariations: numberOfVariations)
+            let colorVariation = ColorVariationGroup(mainColor: color, withNumberOfVariations: numberOfVariations)
             self.colorVariations[indexPath.row] = colorVariation
             
             if !self.isEnabled {
