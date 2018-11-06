@@ -9,7 +9,8 @@
 import UIKit
 
 protocol UIColorPickerDelegate {
-    func colorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int)
+    func mainColorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int)
+    func variationColorWasSelected(_ colorPicker: UIColorPicker, atPosition: Int, variation: UIColor)
     func responsibleController(_ colorPicker: UIColorPicker) -> UIViewController
     func numberOfVariationsPerColor(_ colorPicker: UIColorPicker) -> Int
     func saturationVariationForColor(_ colorPicker: UIColorPicker, atPosition position: Int) -> CGFloat

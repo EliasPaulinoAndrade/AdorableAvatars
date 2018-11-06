@@ -25,13 +25,13 @@ struct ColorVariationGroup {
     }
     
     static private func calculateVariations(forMainColor mainColor: PickerColor, numberOfVariations: Int) -> (variations: [PickerColor], mainColorPosition: Int) {
-        var mainColorPosition = numberOfVariations - 1
+        var mainColorPosition = 0
 
         guard let colorHue = mainColor.color.getHue() else {
             return ([], mainColorPosition)
         }
         
-        let colorVariationSize: CGFloat = CGFloat(0.9)/CGFloat(numberOfVariations)
+        let colorVariationSize: CGFloat = CGFloat(saturationAndBrightMaxValue - colorMargin)/CGFloat(numberOfVariations)
         var currentSaturation: CGFloat = This.colorMargin
         var currentBright: CGFloat = This.saturationAndBrightMaxValue - This.colorMargin
         

@@ -32,15 +32,13 @@ class UIColorPicker: UIBaseZibView {
     
     private var firstColorWasSet = false
     private var selectedColor: PickerColor?
-    private var currentVariations: [UIColorCollectionViewCell]?
     private var overlayView: UIScrollView = UIScrollView.init()
-    private var pressingCell: UIColorCollectionViewCell?
     private var currentHoldingVariation: UIColorCollectionViewCell?
-    
     
     /*refatorando vars*/
     private var colorVariations: [Int: ColorVariationGroup] = [:]
     private var variationCells: [UIColorCollectionViewCell?]?
+    private var pressingColor: (cell: UIColorCollectionViewCell?, index: Int?)
     /**/
     
     override func layoutSubviews() {
@@ -65,7 +63,7 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
            let cell = self.collectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
          
             if gestureRecognizer.state == .began{
-                self.pressingCell = cell
+                self.pressingColor = (cell: cell, index: indexPath.row)
                 cellLongPressBeginHappend(atCell: cell, atIndexPath: indexPath)
             } else if gestureRecognizer.state == .ended ||
                       gestureRecognizer.state == .cancelled ||
@@ -75,13 +73,8 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         }
         else {
             guard let masterView = delegate?.responsibleController(self).view,
-                  let pressingCell = self.pressingCell
+                  let pressingCell = self.pressingColor.cell
                   else {
-                if gestureRecognizer.state == .ended ||
-                   gestureRecognizer.state == .cancelled ||
-                   gestureRecognizer.state == .failed {
-                    cellUserRemovedFinger(atCell: nil)
-                }
                 return
             }
             
@@ -97,10 +90,10 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
             }
             
             if gestureRecognizer.state == .ended || gestureRecognizer.state == .cancelled || gestureRecognizer.state == .failed {
-                variationSelected(atPosition: variationPostition)
+                variationSelected(atVariationIndex: variationPostition, atColorIndex: self.pressingColor.index)
                 cellUserRemovedFinger(atCell: pressingCell)
             } else if gestureRecognizer.state == .changed {
-                if let variation = self.currentVariations?[variationPostition] {
+                if let variation = self.variationCells?[variationPostition] {
                     self.currentHoldingVariation?.layer.borderWidth = 0
                     variation.layer.borderWidth = 2
                     variation.layer.borderColor = UIColor.white.cgColor
@@ -111,12 +104,20 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         }
     }
     
-    func variationSelected(atPosition position: Int) {
-        
+    func variationSelected(atVariationIndex variationIndex: Int, atColorIndex colorIndex: Int?) {
+        if let colorPosition = colorIndex, let pressingGroup = self.colorVariations[colorPosition] {
+            if pressingGroup.mainColorPosition > variationIndex {
+                let variationColor = pressingGroup.variations[variationIndex].color
+                self.delegate?.variationColorWasSelected(self, atPosition: colorPosition, variation: variationColor)
+            } else {
+                let variationColor = pressingGroup.variations[variationIndex - 1].color
+                self.delegate?.variationColorWasSelected(self, atPosition: colorPosition, variation: variationColor)
+            }
+        }
     }
     
     func variationIndex(atPosition position: CGPoint) -> Int? {
-        guard let variations = self.currentVariations,
+        guard let variations = self.variationCells,
               let masterView = delegate?.responsibleController(self).view
               else {
             return nil
@@ -124,9 +125,11 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         
         var variationIndex: Int?
         for (index, variation) in variations.enumerated() {
-            let cellFrameInMaster = variation.convert(variation.bounds, to: masterView)
-            if cellFrameInMaster.contains(position) {
-                variationIndex = index
+            if let safeVariation = variation {
+                let cellFrameInMaster = safeVariation.convert(safeVariation.bounds, to: masterView)
+                if cellFrameInMaster.contains(position) {
+                    variationIndex = index
+                }
             }
         }
         return variationIndex
@@ -136,8 +139,6 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         
         self.overlayView.removeFromSuperview()
         self.overlayView = UIScrollView.init()
-        
-        self.currentVariations = nil
     }
 
     func cellLongPressBeginHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
@@ -227,7 +228,6 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         }
         
         masterView.addSubview(cellVariations)
-        currentVariations?.append(cellVariations)
     }
     
     func dequeueVariationCells(numberOfVariations: Int, forIndexPath indexPath: IndexPath) -> [UIColorCollectionViewCell?]{
@@ -299,11 +299,10 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
             selectedColor?.isSelected = false
             colorCell.isSelected = true
             color.isSelected = true
-            delegate?.colorWasSelected(self, atPosition: indexPath.row)
+            delegate?.mainColorWasSelected(self, atPosition: indexPath.row)
             selectedColor = color
         }
         collectionView.reloadData()
     }
-
 }
 

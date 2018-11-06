@@ -23,7 +23,7 @@ class PickerColor {
             return false
         }
         
-        if selfHue.brightness < otherHue.brightness {
+        if (selfHue.brightness + 1 - selfHue.saturation) > (otherHue.brightness + 1 - otherHue.saturation) {
             return true
         }
         return false

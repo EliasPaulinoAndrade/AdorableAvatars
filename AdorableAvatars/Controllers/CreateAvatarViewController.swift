@@ -262,6 +262,10 @@ extension CreateAvatarViewController: APAvatarPickerDatasource {
 }
 
 extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDelegate {
+    func variationColorWasSelected(_ colorPicker: UIColorPicker, atPosition: Int, variation: UIColor) {
+        print(variation)
+    }
+    
     func saturationVariationForColor(_ colorPicker: UIColorPicker, atPosition position: Int) -> CGFloat {
         return 0.4
     }
@@ -309,7 +313,7 @@ extension CreateAvatarViewController: UIColorPickerDatasource, UIColorPickerDele
         return UIImage.init(named: This.colorPickerImageCheckName)
     }
     
-    func colorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int) {
+    func mainColorWasSelected(_ colorPicker: UIColorPicker, atPosition position: Int) {
         self.avatar.color = pickerColors?[position].color
         
         picker.image.image = picker.image.image?.blurImage(force: 5)
