@@ -12,16 +12,26 @@ import UIKit
 struct ColorVariationGroup {
     typealias This = ColorVariationGroup
     
-    static var colorMargin: CGFloat = 0.1
+    static var colorMargin: CGFloat = 0.3
     static let saturationAndBrightMaxValue: CGFloat = 1
     
     private(set) var variations: [PickerColor]
     var mainColor: PickerColor
     var mainColorPosition: Int
+    var selectedVariation: Int?
     
     init(mainColor: PickerColor, withNumberOfVariations numberOfVariations: Int) {
         self.mainColor = mainColor
         (self.variations, self.mainColorPosition) = This.calculateVariations(forMainColor: mainColor, numberOfVariations: numberOfVariations)
+    }
+    
+    func variationsIncludingMainColor() -> [PickerColor] {
+        
+        var variationsIncludingMainColor =  Array(variations[0..<mainColorPosition])
+        variationsIncludingMainColor += [mainColor]
+        variationsIncludingMainColor += Array(self.variations[mainColorPosition..<variations.count])
+        
+        return variationsIncludingMainColor
     }
     
     static private func calculateVariations(forMainColor mainColor: PickerColor, numberOfVariations: Int) -> (variations: [PickerColor], mainColorPosition: Int) {
