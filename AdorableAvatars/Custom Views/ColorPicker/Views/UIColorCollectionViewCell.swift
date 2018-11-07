@@ -24,13 +24,15 @@ class UIColorCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setup(color: UIColor, isSelected selected: Bool = false, checkImage: UIImage?, showShadowView: Bool = true) {
+    func setup(color: UIColor, checkImage: UIImage?, isSelected selected: Bool = false, showShadowView: Bool = true, showDropShadow: Bool = false) {
         self.mainColorView.backgroundColor = color
         self.shadowColorView.backgroundColor = color
-        if showShadowView {
-            self.shadowColorView.layer.opacity = 0.3
-        } else {
-            self.shadowColorView.layer.opacity = 0
+        shadowColorView.layer.opacity = showShadowView ? 0.3 : 0
+        if showDropShadow {
+            mainColorView.layer.masksToBounds = false
+            mainColorView.layer.shadowColor = UIColor.black.cgColor
+            mainColorView.layer.shadowOpacity = 0.8
+            mainColorView.layer.shadowRadius = 5
         }
         self.checkImage.image = checkImage
         self.isSelected = selected
@@ -41,6 +43,4 @@ class UIColorCollectionViewCell: UICollectionViewCell {
         self.shadowColorView.layer.cornerRadius = 5
         
     }
-    
-    
 }

@@ -64,12 +64,12 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
          
             if gestureRecognizer.state == .began{
                 self.pressingColor = (cell: cell, index: indexPath.row)
-                cellLongPressBeginHappend(atCell: cell, atIndexPath: indexPath)
+                showVariationCellsAndOverlay(atCell: cell, atIndexPath: indexPath)
             } else if gestureRecognizer.state == .ended ||
                       gestureRecognizer.state == .cancelled ||
                       gestureRecognizer.state == .failed {
                 
-                cellUserRemovedFinger(atCell: cell)
+                removeVariationCells(atCell: cell)
             }
         }
         else {
@@ -85,14 +85,14 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
                 if gestureRecognizer.state == .ended ||
                     gestureRecognizer.state == .cancelled ||
                     gestureRecognizer.state == .failed {
-                    cellUserRemovedFinger(atCell: nil)
+                    removeVariationCells(atCell: nil)
                 }
                 return
             }
             
             if gestureRecognizer.state == .ended || gestureRecognizer.state == .cancelled || gestureRecognizer.state == .failed {
                 variationSelected(atVariationIndex: variationPostition, atColorIndex: self.pressingColor.index)
-                cellUserRemovedFinger(atCell: pressingCell)
+                removeVariationCells(atCell: pressingCell)
             } else if gestureRecognizer.state == .changed {
                 if let variation = self.variationCells?[variationPostition] {
                     self.currentHoldingVariation?.layer.borderWidth = 0
@@ -143,13 +143,13 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         return variationIndex
     }
     
-    func cellUserRemovedFinger(atCell cell: UIColorCollectionViewCell?) {
+    func removeVariationCells(atCell cell: UIColorCollectionViewCell?) {
         
         self.overlayView.removeFromSuperview()
         self.overlayView = UIScrollView.init()
     }
 
-    func cellLongPressBeginHappend(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
+    func showVariationCellsAndOverlay(atCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath) {
         guard let masterView = delegate?.responsibleController(self).view else {
             return
         }
@@ -167,10 +167,10 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         overlayView.addSubview(variationsContainerView)
         masterView.addSubview(overlayView)
         
-        showSubColorOptions(forCell: cell, atIndexPath: indexPath, withFrame: frameInMaster, inView: variationsContainerView)
+        showVariationCells(forCell: cell, atIndexPath: indexPath, withFrame: frameInMaster, inView: variationsContainerView)
     }
     
-    private func showSubColorOptions(forCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath, withFrame frame: CGRect, inView view: UIView) {
+    private func showVariationCells(forCell cell: UIColorCollectionViewCell, atIndexPath indexPath: IndexPath, withFrame frame: CGRect, inView view: UIView) {
         
         guard let numberOfVariations = delegate?.numberOfVariationsPerColor(self),
               let colorVariationGroup = self.colorVariations[indexPath.row] else {
@@ -185,9 +185,9 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         var currentYOrigin = frame.origin.y - frame.height * CGFloat(prevVariations)
     
         for variationIndex in 0..<colorVariations.count {
-            currentYOrigin = showSubColor(variationIndex: variationIndex,
+            currentYOrigin = showVariationCell(initialYOrigin: currentYOrigin,
+                                          variationIndex: variationIndex,
                                           colorIndex: variationIndex,
-                                          initialYOrigin: currentYOrigin,
                                           colorVariations: colorVariations,
                                           cellVariations: variationCells,
                                           masterView: view,
@@ -195,19 +195,19 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         }
     }
     
-    func showSubColor(variationIndex: Int, colorIndex: Int, initialYOrigin: CGFloat, colorVariations: [PickerColor], cellVariations: [UIColorCollectionViewCell?], masterView: UIView, baseFrame: CGRect) -> CGFloat {
+    func showVariationCell(initialYOrigin: CGFloat, variationIndex: Int, colorIndex: Int, colorVariations: [PickerColor], cellVariations: [UIColorCollectionViewCell?], masterView: UIView, baseFrame: CGRect) -> CGFloat {
         if let colorCell = cellVariations[variationIndex] {
             let currentColor = colorVariations[colorIndex]
            
-            showSubColor(initialYOrigin: initialYOrigin, colorVariation: currentColor, cellVariations: colorCell, masterView: masterView, baseFrame: baseFrame)
+            showVariationCell(initialYOrigin: initialYOrigin, colorVariation: currentColor, cellVariations: colorCell, masterView: masterView, baseFrame: baseFrame)
             
             return initialYOrigin + colorCell.frame.height
         }
         return initialYOrigin
     }
     
-    func showSubColor(initialYOrigin: CGFloat, colorVariation: PickerColor, cellVariations: UIColorCollectionViewCell, masterView: UIView, baseFrame: CGRect) {
-        cellVariations.setup(color: colorVariation.color, checkImage: nil, showShadowView: false)
+    func showVariationCell(initialYOrigin: CGFloat, colorVariation: PickerColor, cellVariations: UIColorCollectionViewCell, masterView: UIView, baseFrame: CGRect) {
+        cellVariations.setup(color: colorVariation.color, checkImage: nil, showShadowView: false, showDropShadow: true)
         
         let currentOrigin = CGPoint.init(x: baseFrame.origin.x, y: initialYOrigin)
         cellVariations.frame = CGRect(origin: baseFrame.origin, size: baseFrame.size)
@@ -259,9 +259,9 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         if let variationSelectedIndex = self.colorVariations[indexPath.row]?.selectedVariation {
            let selectedVariation = variationGroup.variations[variationSelectedIndex]
             
-            colorCell.setup(color: selectedVariation.color, isSelected: variationGroup.mainColor.isSelected, checkImage: image)
+            colorCell.setup(color: selectedVariation.color, checkImage: image, isSelected: variationGroup.mainColor.isSelected)
         } else {
-            colorCell.setup(color: variationGroup.mainColor.color, isSelected: variationGroup.mainColor.isSelected, checkImage: image)
+            colorCell.setup(color: variationGroup.mainColor.color, checkImage: image, isSelected: variationGroup.mainColor.isSelected)
         }
         
         if !self.isEnabled {

@@ -50,7 +50,7 @@ struct ColorVariationGroup {
             return ([], mainColorPosition)
         }
         
-        let colorVariationSize: CGFloat = CGFloat(saturationAndBrightMaxValue - colorMargin)/CGFloat(numberOfVariations)
+        let colorVariationSize: CGFloat = CGFloat(saturationAndBrightMaxValue - 2*colorMargin)/CGFloat(numberOfVariations)
         var currentSaturation: CGFloat = This.colorMargin
         var currentBright: CGFloat = This.saturationAndBrightMaxValue - This.colorMargin
         
