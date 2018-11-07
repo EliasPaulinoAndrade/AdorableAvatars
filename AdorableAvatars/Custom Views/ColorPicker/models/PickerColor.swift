@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickerColor {
+class PickerColor: NSObject{
     var color: UIColor
     var isSelected: Bool
     
