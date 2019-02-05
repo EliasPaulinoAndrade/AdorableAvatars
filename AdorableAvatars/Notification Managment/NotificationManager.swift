@@ -8,6 +8,7 @@
 
 import UserNotifications
 import UIKit
+import CloudKit
 
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     static public var shared = NotificationManager.init()
@@ -40,6 +41,12 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        
+        
+        
+        
+        
         
         return completionHandler([.alert, .badge, .sound])
     }

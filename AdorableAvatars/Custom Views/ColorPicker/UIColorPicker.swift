@@ -71,7 +71,7 @@ extension UIColorPicker: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         if let colorCell = cell as? UIColorCollectionViewCell, let color = self.datasource?.colorForPosition(colorPicker: self, position: indexPath.item) {
 
             let image = datasource?.imageForSelectColor(colorPicker: self)
-            colorCell.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(self.cellLongPressHappend(_:))))
+            //colorCell.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(self.cellLongPressHappend(_:))))
             colorCell.setup(color: color.color, isSelected: color.isSelected, checkImage: image)
             
             if !self.isEnabled {
