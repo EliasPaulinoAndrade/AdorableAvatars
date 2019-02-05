@@ -175,7 +175,11 @@ class AllAvatarsViewController: UICommunicableViewController {
         
         let alertController = AlertManagment.alertSendAsSticker {
             if let allAvatars = try? CoreDataWrapper.getAllAvatars() {
-                service.sendStickers(fromAvatars: allAvatars)
+                do {
+                    try service.sendStickers(fromAvatars: allAvatars)
+                } catch {
+                    self.present(AlertManagment.genericErrorAlert(withDescription: "Fail"), animated: true, completion: nil)
+                }
             }
         }
         

@@ -18,7 +18,7 @@ class WhatsAppService {
                                       privacyPolicyWebsite: nil,
                                       licenseAgreementWebsite: nil)
     
-    func sendStickers(fromAvatars avatars: [Avatar]){
+    func sendStickers(fromAvatars avatars: [Avatar]) throws {
         
         for avatar in avatars {
             if let avatarName = avatar.name,
@@ -26,11 +26,7 @@ class WhatsAppService {
                let resizedAvatarImage = avatarImage.resized(toSize: self.stickerDefaultSize),
                let resizedAvatarImageData = resizedAvatarImage.pngData() {
                 
-                do {
-                    try stickerPack?.addSticker(imageData: resizedAvatarImageData, type: .png, emojis: nil)
-                } catch {
-                    print(error)
-                }
+                try stickerPack?.addSticker(imageData: resizedAvatarImageData, type: .png, emojis: nil)
             }
         }
         
