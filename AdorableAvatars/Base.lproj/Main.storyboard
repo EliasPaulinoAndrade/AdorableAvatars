@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -535,7 +536,7 @@
                                     <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Send Stickers" id="t0I-np-y0H">
+                            <barButtonItem title="Use Stickers" image="sticker" id="t0I-np-y0H">
                                 <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="whatsSendTapped:" destination="NIp-Ne-dWX" id="BpH-B4-kZs"/>
@@ -650,6 +651,7 @@
     <resources>
         <image name="faves" width="28" height="26"/>
         <image name="home" width="29" height="27"/>
+        <image name="sticker" width="36" height="36"/>
         <namedColor name="action-color">
             <color red="0.92941176470588238" green="0.54117647058823526" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
