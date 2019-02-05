@@ -535,7 +535,7 @@
                                     <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Send" id="t0I-np-y0H">
+                            <barButtonItem title="Send Stickers" id="t0I-np-y0H">
                                 <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="whatsSendTapped:" destination="NIp-Ne-dWX" id="BpH-B4-kZs"/>

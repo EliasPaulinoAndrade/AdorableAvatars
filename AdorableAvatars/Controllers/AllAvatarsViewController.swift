@@ -173,10 +173,13 @@ class AllAvatarsViewController: UICommunicableViewController {
         
         let service = WhatsAppService.init()
         
-        
-        if let allAvatars = try? CoreDataWrapper.getAllAvatars() {
-            service.sendStickers(fromAvatars: allAvatars)
+        let alertController = AlertManagment.alertSendAsSticker {
+            if let allAvatars = try? CoreDataWrapper.getAllAvatars() {
+                service.sendStickers(fromAvatars: allAvatars)
+            }
         }
+        
+        self.present(alertController, animated: true, completion: nil)
         
     }
 }

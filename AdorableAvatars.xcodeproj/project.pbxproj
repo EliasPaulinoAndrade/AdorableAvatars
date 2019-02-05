@@ -24,7 +24,6 @@
 		E3187FCB220916790076B9B1 /* WebPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5C22090FAD0076B9B1 /* WebPManager.swift */; };
 		E3187FCE220916C40076B9B1 /* WhatsAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187FCD220916C40076B9B1 /* WhatsAppService.swift */; };
 		E3187FD0220918140076B9B1 /* tray_adorable.png in Resources */ = {isa = PBXBuildFile; fileRef = E3187FCF220918130076B9B1 /* tray_adorable.png */; };
-		E3187FD222091B0E0076B9B1 /* bla.png in Resources */ = {isa = PBXBuildFile; fileRef = E3187FD122091B0E0076B9B1 /* bla.png */; };
 		E3187FD422091EDF0076B9B1 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
@@ -254,7 +253,6 @@
 		E3187FBF220914D90076B9B1 /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFrameImage.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYFrameImage.m"; sourceTree = "<group>"; };
 		E3187FCD220916C40076B9B1 /* WhatsAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppService.swift; sourceTree = "<group>"; };
 		E3187FCF220918130076B9B1 /* tray_adorable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tray_adorable.png; path = ../../../../tray_adorable.png; sourceTree = "<group>"; };
-		E3187FD122091B0E0076B9B1 /* bla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bla.png; path = ../../../../bla.png; sourceTree = "<group>"; };
 		E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -528,7 +526,6 @@
 				E3AB053B2178AA3F00B80D74 /* Controllers */,
 				E3AB04D02176072E00B80D74 /* AppDelegate.swift */,
 				E3187FCF220918130076B9B1 /* tray_adorable.png */,
-				E3187FD122091B0E0076B9B1 /* bla.png */,
 				E3D75E96218688E40034E5A5 /* NavigationHelper.swift */,
 				E3AB04D42176072E00B80D74 /* Main.storyboard */,
 				E3AB04D72176073000B80D74 /* Assets.xcassets */,
@@ -976,7 +973,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
-				E3187FD222091B0E0076B9B1 /* bla.png in Resources */,
 				E35D622D218DCE4F00524415 /* defaultAvatars.plist in Resources */,
 				E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */,
 				E348BB942184881700A905F0 /* Localizable.strings in Resources */,

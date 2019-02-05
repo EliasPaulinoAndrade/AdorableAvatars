@@ -61,3 +61,7 @@
 "controller_messases_open_adorable_app_title" = "Begin Creation";
 "controller_messases_open_adorable_actio_yes" = "Yes";
 "controller_messases_open_adorable_actio_no" = "No";
+
+"send_stickers_alert_title" = "Do Your Want To Add Your Avatars as Whatsapp Stickers?";
+"send_stickers_alert_title_yes" = "Yes";
+"send_stickers_alert_title_no" = "No";

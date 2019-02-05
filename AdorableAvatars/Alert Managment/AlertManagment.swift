@@ -41,7 +41,29 @@ class AlertManagment {
         return alertRemoveAvatar
     }
     
-    
+    static public func alertSendAsSticker(sucess: @escaping () -> ()) -> UIAlertController {
+        let alertSendAsSticker = UIAlertController.init(
+            title: "Sending",
+            message: Strings.send_stickers_alert_title.localizable,
+            preferredStyle: .alert
+        )
+        
+        alertSendAsSticker.addAction(UIAlertAction.init(
+            title: Strings.send_stickers_alert_title_yes.localizable,
+            style: .default,
+            handler: { (action) in
+                sucess()
+        }
+        ))
+        
+        alertSendAsSticker.addAction(UIAlertAction.init(
+            title: Strings.send_stickers_alert_title_no.localizable,
+            style: .cancel,
+            handler: nil
+        ))
+        
+        return alertSendAsSticker
+    }
     
     
     /// make a alert to be showerd when a error happens
@@ -285,6 +307,10 @@ extension AlertManagment: LocalizableAlerts {
         case    controller_preview_var_previewActionItems_share_action_title,
                 controller_preview_var_previewActionItems_fave_action_title,
                 controller_preview_var_previewActionItems_unfave_action_title
+        
+        case    send_stickers_alert_title,
+                send_stickers_alert_title_yes,
+                send_stickers_alert_title_no
         
         var comment: String {
             switch self {
