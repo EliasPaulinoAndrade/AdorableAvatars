@@ -168,6 +168,17 @@ class AllAvatarsViewController: UICommunicableViewController {
     @IBAction func editTapped(_ sender: Any) {
         self.isEditing_ = !self.isEditing_
     }
+    
+    @IBAction func whatsSendTapped(_ sender: Any) {
+        
+        let service = WhatsAppService.init()
+        
+        
+        if let allAvatars = try? CoreDataWrapper.getAllAvatars() {
+            service.sendStickers(fromAvatars: allAvatars)
+        }
+        
+    }
 }
 
 extension AllAvatarsViewController: AvatarCollectionViewCellDelegate {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63T-Qm-e0e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63T-Qm-e0e">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -528,12 +528,20 @@
                                 <action selector="editTapped:" destination="NIp-Ne-dWX" id="7q2-9m-m7t"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh4-Ff-AAh">
-                            <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Gh4-Ff-AAh">
+                                <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="HWw-Sl-dVl" kind="presentation" identifier="createAvatarSegue" id="It7-43-ugh"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Send" id="t0I-np-y0H">
+                                <color key="tintColor" red="0.92941176469999998" green="0.54117647059999996" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="whatsSendTapped:" destination="NIp-Ne-dWX" id="BpH-B4-kZs"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="avatarsCollectionView" destination="gWO-K2-jTW" id="d51-d3-u9v"/>

@@ -9,6 +9,23 @@
 /* Begin PBXBuildFile section */
 		E30142862184B8BD008CA9C6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E30142872184B8C1008CA9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
+		E3187F71220914810076B9B1 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3187F70220914610076B9B1 /* WebP.framework */; };
+		E3187FC0220914D90076B9B1 /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E3187FB7220914D80076B9B1 /* YYSpriteSheetImage.m */; };
+		E3187FC1220914D90076B9B1 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3187FB8220914D80076B9B1 /* YYAnimatedImageView.m */; };
+		E3187FC2220914D90076B9B1 /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3187FB9220914D80076B9B1 /* YYImageCoder.m */; };
+		E3187FC3220914D90076B9B1 /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E3187FBC220914D90076B9B1 /* YYImage.m */; };
+		E3187FC4220914D90076B9B1 /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E3187FBF220914D90076B9B1 /* YYFrameImage.m */; };
+		E3187FC5220916690076B9B1 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5E22090FAD0076B9B1 /* StickerPack.swift */; };
+		E3187FC6220916790076B9B1 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5D22090FAD0076B9B1 /* ImageData.swift */; };
+		E3187FC7220916790076B9B1 /* Interoperability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5922090FAD0076B9B1 /* Interoperability.swift */; };
+		E3187FC8220916790076B9B1 /* Limits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5F22090FAD0076B9B1 /* Limits.swift */; };
+		E3187FC9220916790076B9B1 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5A22090FAD0076B9B1 /* Sticker.swift */; };
+		E3187FCA220916790076B9B1 /* StickerPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5B22090FAD0076B9B1 /* StickerPackManager.swift */; };
+		E3187FCB220916790076B9B1 /* WebPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5C22090FAD0076B9B1 /* WebPManager.swift */; };
+		E3187FCE220916C40076B9B1 /* WhatsAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187FCD220916C40076B9B1 /* WhatsAppService.swift */; };
+		E3187FD0220918140076B9B1 /* tray_adorable.png in Resources */ = {isa = PBXBuildFile; fileRef = E3187FCF220918130076B9B1 /* tray_adorable.png */; };
+		E3187FD222091B0E0076B9B1 /* bla.png in Resources */ = {isa = PBXBuildFile; fileRef = E3187FD122091B0E0076B9B1 /* bla.png */; };
+		E3187FD422091EDF0076B9B1 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
 		E35D622B218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35D622A218DC8E900524415 /* StickersAvatarsViewControllerDelegate.swift */; };
@@ -216,6 +233,29 @@
 		E30142832184A45A008CA9C6 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142842184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E30142852184A6EF008CA9C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E3187F5922090FAD0076B9B1 /* Interoperability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interoperability.swift; sourceTree = "<group>"; };
+		E3187F5A22090FAD0076B9B1 /* Sticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
+		E3187F5B22090FAD0076B9B1 /* StickerPackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPackManager.swift; sourceTree = "<group>"; };
+		E3187F5C22090FAD0076B9B1 /* WebPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPManager.swift; sourceTree = "<group>"; };
+		E3187F5D22090FAD0076B9B1 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		E3187F5E22090FAD0076B9B1 /* StickerPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPack.swift; sourceTree = "<group>"; };
+		E3187F5F22090FAD0076B9B1 /* Limits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Limits.swift; sourceTree = "<group>"; };
+		E3187F70220914610076B9B1 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		E3187FB5220914D60076B9B1 /* AdorableAvatars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdorableAvatars-Bridging-Header.h"; sourceTree = "<group>"; };
+		E3187FB6220914D70076B9B1 /* YYFrameImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYFrameImage.h; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYFrameImage.h"; sourceTree = "<group>"; };
+		E3187FB7220914D80076B9B1 /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYSpriteSheetImage.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYSpriteSheetImage.m"; sourceTree = "<group>"; };
+		E3187FB8220914D80076B9B1 /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYAnimatedImageView.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYAnimatedImageView.m"; sourceTree = "<group>"; };
+		E3187FB9220914D80076B9B1 /* YYImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYImageCoder.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYImageCoder.m"; sourceTree = "<group>"; };
+		E3187FBA220914D80076B9B1 /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYSpriteSheetImage.h; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYSpriteSheetImage.h"; sourceTree = "<group>"; };
+		E3187FBB220914D80076B9B1 /* YYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYImage.h; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYImage.h"; sourceTree = "<group>"; };
+		E3187FBC220914D90076B9B1 /* YYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYImage.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYImage.m"; sourceTree = "<group>"; };
+		E3187FBD220914D90076B9B1 /* YYImageCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYImageCoder.h; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYImageCoder.h"; sourceTree = "<group>"; };
+		E3187FBE220914D90076B9B1 /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYAnimatedImageView.h; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYAnimatedImageView.h"; sourceTree = "<group>"; };
+		E3187FBF220914D90076B9B1 /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFrameImage.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYFrameImage.m"; sourceTree = "<group>"; };
+		E3187FCD220916C40076B9B1 /* WhatsAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppService.swift; sourceTree = "<group>"; };
+		E3187FCF220918130076B9B1 /* tray_adorable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tray_adorable.png; path = ../../../../tray_adorable.png; sourceTree = "<group>"; };
+		E3187FD122091B0E0076B9B1 /* bla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bla.png; path = ../../../../bla.png; sourceTree = "<group>"; };
+		E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E348BB972184893D00A905F0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -324,6 +364,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3187F71220914810076B9B1 /* WebP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +393,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3187F5822090F910076B9B1 /* WhatsApp  */ = {
+			isa = PBXGroup;
+			children = (
+				E3187FB4220914BA0076B9B1 /* WebP */,
+				E3187F5D22090FAD0076B9B1 /* ImageData.swift */,
+				E3187F5922090FAD0076B9B1 /* Interoperability.swift */,
+				E3187F5F22090FAD0076B9B1 /* Limits.swift */,
+				E3187F5A22090FAD0076B9B1 /* Sticker.swift */,
+				E3187F5E22090FAD0076B9B1 /* StickerPack.swift */,
+				E3187F5B22090FAD0076B9B1 /* StickerPackManager.swift */,
+				E3187F5C22090FAD0076B9B1 /* WebPManager.swift */,
+				E3187FCD220916C40076B9B1 /* WhatsAppService.swift */,
+				E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */,
+			);
+			path = "WhatsApp ";
+			sourceTree = "<group>";
+		};
+		E3187FB4220914BA0076B9B1 /* WebP */ = {
+			isa = PBXGroup;
+			children = (
+				E3187FBE220914D90076B9B1 /* YYAnimatedImageView.h */,
+				E3187FB8220914D80076B9B1 /* YYAnimatedImageView.m */,
+				E3187FB6220914D70076B9B1 /* YYFrameImage.h */,
+				E3187FBF220914D90076B9B1 /* YYFrameImage.m */,
+				E3187FBB220914D80076B9B1 /* YYImage.h */,
+				E3187FBC220914D90076B9B1 /* YYImage.m */,
+				E3187FBD220914D90076B9B1 /* YYImageCoder.h */,
+				E3187FB9220914D80076B9B1 /* YYImageCoder.m */,
+				E3187FBA220914D80076B9B1 /* YYSpriteSheetImage.h */,
+				E3187FB7220914D80076B9B1 /* YYSpriteSheetImage.m */,
+				E3187FB5220914D60076B9B1 /* AdorableAvatars-Bridging-Header.h */,
+			);
+			path = WebP;
+			sourceTree = "<group>";
+		};
 		E348BB8921847A6800A905F0 /* Localization Managment */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +527,8 @@
 				E386AE5F2180C9DF009A8BF7 /* Models */,
 				E3AB053B2178AA3F00B80D74 /* Controllers */,
 				E3AB04D02176072E00B80D74 /* AppDelegate.swift */,
+				E3187FCF220918130076B9B1 /* tray_adorable.png */,
+				E3187FD122091B0E0076B9B1 /* bla.png */,
 				E3D75E96218688E40034E5A5 /* NavigationHelper.swift */,
 				E3AB04D42176072E00B80D74 /* Main.storyboard */,
 				E3AB04D72176073000B80D74 /* Assets.xcassets */,
@@ -647,6 +725,7 @@
 		E3B675DF218370C5008DB3F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3187F70220914610076B9B1 /* WebP.framework */,
 				E3B675E0218370C5008DB3F0 /* Messages.framework */,
 			);
 			name = Frameworks;
@@ -686,6 +765,7 @@
 		E3DF1C71218BDFE600D943B8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E3187F5822090F910076B9B1 /* WhatsApp  */,
 				E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */,
 			);
 			path = Services;
@@ -821,6 +901,7 @@
 					};
 					E3AB04CC2176072E00B80D74 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -895,6 +976,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
+				E3187FD222091B0E0076B9B1 /* bla.png in Resources */,
 				E35D622D218DCE4F00524415 /* defaultAvatars.plist in Resources */,
 				E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */,
 				E348BB942184881700A905F0 /* Localizable.strings in Resources */,
@@ -902,6 +984,7 @@
 				E3AB053A2178A80F00B80D74 /* UIAvatarCollectionViewCell.xib in Resources */,
 				E3AB051F2177750500B80D74 /* avatarColors.plist in Resources */,
 				E3AB04DB2176073000B80D74 /* LaunchScreen.storyboard in Resources */,
+				E3187FD0220918140076B9B1 /* tray_adorable.png in Resources */,
 				E3B67594218244CB008DB3F0 /* UIPropTableViewCell.xib in Resources */,
 				E3AB04D82176073000B80D74 /* Assets.xcassets in Resources */,
 				E3B6758E218242B2008DB3F0 /* UIPropPicker.xib in Resources */,
@@ -980,6 +1063,8 @@
 				E3AB052E2177A17B00B80D74 /* UIColorPickerDelegate.swift in Sources */,
 				E3AB0511217633F700B80D74 /* APAvatarPickerDatasource.swift in Sources */,
 				E3AB05132176410D00B80D74 /* APAvatarComponents.swift in Sources */,
+				E3187FC5220916690076B9B1 /* StickerPack.swift in Sources */,
+				E3187FC1220914D90076B9B1 /* YYAnimatedImageView.m in Sources */,
 				E3AB04D32176072E00B80D74 /* CreateAvatarViewController.swift in Sources */,
 				E3AB0505217612BE00B80D74 /* APAvatarPickerDelegate.swift in Sources */,
 				E3AB05392178A80F00B80D74 /* UIAvatarCollectionViewCell.swift in Sources */,
@@ -997,8 +1082,10 @@
 				E3D75E97218688E40034E5A5 /* NavigationHelper.swift in Sources */,
 				E386AE50217FA0C3009A8BF7 /* UIImage+extension.swift in Sources */,
 				E3B6758A2182371B008DB3F0 /* UIView+position.swift in Sources */,
+				E3187FC4220914D90076B9B1 /* YYFrameImage.m in Sources */,
 				E386AE2C217E351D009A8BF7 /* AlertManagment.swift in Sources */,
 				E3AB055121791EB500B80D74 /* FaveAvatarsViewController.swift in Sources */,
+				E3187FC8220916790076B9B1 /* Limits.swift in Sources */,
 				E386AE4E217F629B009A8BF7 /* CategoryID.swift in Sources */,
 				E386AE652180F0AB009A8BF7 /* UIImage+blurImage.swift in Sources */,
 				E3AB050A21761C2400B80D74 /* ADWrapper.swift in Sources */,
@@ -1011,11 +1098,20 @@
 				E3AB054F2179179000B80D74 /* AvatarCollectionViewCellDelegate.swift in Sources */,
 				E386AE56218070D4009A8BF7 /* UIColor+extension.swift in Sources */,
 				E3AB05242177858A00B80D74 /* UIColorPicker.swift in Sources */,
+				E3187FC3220914D90076B9B1 /* YYImage.m in Sources */,
 				E3AB054A2178F2F400B80D74 /* Avatar.swift in Sources */,
 				E3D75E9921868CA40034E5A5 /* URL+extension.swift in Sources */,
+				E3187FD422091EDF0076B9B1 /* UIImage+resize.swift in Sources */,
+				E3187FCE220916C40076B9B1 /* WhatsAppService.swift in Sources */,
+				E3187FC0220914D90076B9B1 /* YYSpriteSheetImage.m in Sources */,
+				E3187FC6220916790076B9B1 /* ImageData.swift in Sources */,
 				E3AB053D2178AA7200B80D74 /* AllAvatarsViewController.swift in Sources */,
+				E3187FC9220916790076B9B1 /* Sticker.swift in Sources */,
 				E386AE4C217F6280009A8BF7 /* ActionID.swift in Sources */,
+				E3187FCA220916790076B9B1 /* StickerPackManager.swift in Sources */,
 				E3AB04D12176072E00B80D74 /* AppDelegate.swift in Sources */,
+				E3187FC2220914D90076B9B1 /* YYImageCoder.m in Sources */,
+				E3187FC7220916790076B9B1 /* Interoperability.swift in Sources */,
 				E3B67596218246AE008DB3F0 /* UIColorCollectionViewCell.swift in Sources */,
 				E3AB05412178E3F600B80D74 /* AdorableAvatars.xcdatamodeld in Sources */,
 				E3AB054D2179060300B80D74 /* CreateAvatarDelegate.swift in Sources */,
@@ -1025,6 +1121,7 @@
 				E3AB05302177BD4400B80D74 /* UIColor+hexa.swift in Sources */,
 				E3D75EA12186957F0034E5A5 /* UICommunicableViewController.swift in Sources */,
 				E3AB05452178E49600B80D74 /* CoreDataStack.swift in Sources */,
+				E3187FCB220916790076B9B1 /* WebPManager.swift in Sources */,
 				E3AB05432178E47300B80D74 /* CoreDataWrapper.swift in Sources */,
 				E3AB05152176457600B80D74 /* APAvatar.swift in Sources */,
 				E3B6759021824343008DB3F0 /* UIPropPicker.swift in Sources */,
@@ -1329,9 +1426,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AdorableAvatars/AdorableAvatars.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AdorableAvatars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1339,6 +1441,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableAvatars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdorableAvatars/Services/WhatsApp /WebP/AdorableAvatars-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1349,9 +1453,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AdorableAvatars/AdorableAvatars.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8P97P3QB4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AdorableAvatars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1359,6 +1468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = paulino.elias.AdorableAvatars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdorableAvatars/Services/WhatsApp /WebP/AdorableAvatars-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

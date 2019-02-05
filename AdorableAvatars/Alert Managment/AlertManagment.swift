@@ -42,6 +42,8 @@ class AlertManagment {
     }
     
     
+    
+    
     /// make a alert to be showerd when a error happens
     ///
     /// - Parameter description: the error description
