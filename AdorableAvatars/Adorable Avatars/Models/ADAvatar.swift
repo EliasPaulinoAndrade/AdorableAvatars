@@ -16,7 +16,7 @@ struct ADAvatar {
     
     var url: URL? {
         if let eye = eye, let nose = nose, let month = month, let color = color {
-            return URL.init(string: "https://api.adorable.io/avatars/face/eyes\(eye)/nose\(nose)/mouth\(month)/\(color.hexa())")
+            return URL.init(string: "https://api.adorable.io/avatars/face/eyes\(eye)/nose\(nose)/mouth\(month)/\(color.hexa())/250")
         } else {
             return nil
         }

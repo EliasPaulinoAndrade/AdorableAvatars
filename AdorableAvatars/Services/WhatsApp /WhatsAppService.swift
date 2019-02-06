@@ -26,7 +26,15 @@ class WhatsAppService {
                let resizedAvatarImage = avatarImage.resized(toSize: self.stickerDefaultSize),
                let resizedAvatarImageData = resizedAvatarImage.pngData() {
                 
-                try stickerPack?.addSticker(imageData: resizedAvatarImageData, type: .png, emojis: nil)
+                do {
+                    try stickerPack?.addSticker(imageData: resizedAvatarImageData, type: .png, emojis: nil)
+                } catch {
+                    if let resizedAvatarImageJPEGData = resizedAvatarImage.jpegData(compressionQuality: 0) {
+                        
+                        try stickerPack?.addSticker(imageData: resizedAvatarImageJPEGData, type: .png, emojis: nil)
+                    }
+                }
+                
             }
         }
         
