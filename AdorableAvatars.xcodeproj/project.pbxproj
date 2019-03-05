@@ -23,7 +23,6 @@
 		E3187FCA220916790076B9B1 /* StickerPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5B22090FAD0076B9B1 /* StickerPackManager.swift */; };
 		E3187FCB220916790076B9B1 /* WebPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187F5C22090FAD0076B9B1 /* WebPManager.swift */; };
 		E3187FCE220916C40076B9B1 /* WhatsAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187FCD220916C40076B9B1 /* WhatsAppService.swift */; };
-		E3187FD0220918140076B9B1 /* tray_adorable.png in Resources */ = {isa = PBXBuildFile; fileRef = E3187FCF220918130076B9B1 /* tray_adorable.png */; };
 		E3187FD422091EDF0076B9B1 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */; };
 		E348BB912184869700A905F0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348BB902184869700A905F0 /* Localizable.swift */; };
 		E348BB942184881700A905F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E348BB962184881700A905F0 /* Localizable.strings */; };
@@ -156,6 +155,7 @@
 		E3D75E9E21868F0D0034E5A5 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */; };
 		E3D75E9F21868F0F0034E5A5 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */; };
 		E3D75EA12186957F0034E5A5 /* UICommunicableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D75EA02186957F0034E5A5 /* UICommunicableViewController.swift */; };
+		E3DD0911222EBC8400C0867A /* tray_adorable.png in Resources */ = {isa = PBXBuildFile; fileRef = E3DD0910222EBC8400C0867A /* tray_adorable.png */; };
 		E3DE55AD218D2D4D00D4AFA6 /* AvatarMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE55AC218D2D4D00D4AFA6 /* AvatarMessageViewController.swift */; };
 		E3DE55AE218D353A00D4AFA6 /* AdorableMessage MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E3B675DB218370C5008DB3F0 /* AdorableMessage MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E3DF1C73218BE00300D943B8 /* AvatarOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */; };
@@ -252,7 +252,6 @@
 		E3187FBE220914D90076B9B1 /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYAnimatedImageView.h; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYAnimatedImageView.h"; sourceTree = "<group>"; };
 		E3187FBF220914D90076B9B1 /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFrameImage.m; path = "../../../../../../../../Downloads/stickers-master/iOS/WAStickersThirdParty/YYFrameImage.m"; sourceTree = "<group>"; };
 		E3187FCD220916C40076B9B1 /* WhatsAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppService.swift; sourceTree = "<group>"; };
-		E3187FCF220918130076B9B1 /* tray_adorable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tray_adorable.png; path = ../../../../tray_adorable.png; sourceTree = "<group>"; };
 		E3187FD322091EDF0076B9B1 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		E348BB902184869700A905F0 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		E348BB952184881700A905F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -346,6 +345,7 @@
 		E3D75E9821868CA40034E5A5 /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
 		E3D75E9C21868E740034E5A5 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		E3D75EA02186957F0034E5A5 /* UICommunicableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICommunicableViewController.swift; sourceTree = "<group>"; };
+		E3DD0910222EBC8400C0867A /* tray_adorable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tray_adorable.png; path = ../../../../../Downloads/tray_adorable.png; sourceTree = "<group>"; };
 		E3DE55AC218D2D4D00D4AFA6 /* AvatarMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarMessageViewController.swift; sourceTree = "<group>"; };
 		E3DF1C72218BE00300D943B8 /* AvatarOptionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarOptionsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -525,7 +525,7 @@
 				E386AE5F2180C9DF009A8BF7 /* Models */,
 				E3AB053B2178AA3F00B80D74 /* Controllers */,
 				E3AB04D02176072E00B80D74 /* AppDelegate.swift */,
-				E3187FCF220918130076B9B1 /* tray_adorable.png */,
+				E3DD0910222EBC8400C0867A /* tray_adorable.png */,
 				E3D75E96218688E40034E5A5 /* NavigationHelper.swift */,
 				E3AB04D42176072E00B80D74 /* Main.storyboard */,
 				E3AB04D72176073000B80D74 /* Assets.xcassets */,
@@ -974,13 +974,13 @@
 			files = (
 				E3AB050021760C0000B80D74 /* UIAvatarPicker.xib in Resources */,
 				E35D622D218DCE4F00524415 /* defaultAvatars.plist in Resources */,
+				E3DD0911222EBC8400C0867A /* tray_adorable.png in Resources */,
 				E3AB05282177872D00B80D74 /* UIColorCollectionViewCell.xib in Resources */,
 				E348BB942184881700A905F0 /* Localizable.strings in Resources */,
 				E3AB0522217783B900B80D74 /* UIColorPicker.xib in Resources */,
 				E3AB053A2178A80F00B80D74 /* UIAvatarCollectionViewCell.xib in Resources */,
 				E3AB051F2177750500B80D74 /* avatarColors.plist in Resources */,
 				E3AB04DB2176073000B80D74 /* LaunchScreen.storyboard in Resources */,
-				E3187FD0220918140076B9B1 /* tray_adorable.png in Resources */,
 				E3B67594218244CB008DB3F0 /* UIPropTableViewCell.xib in Resources */,
 				E3AB04D82176073000B80D74 /* Assets.xcassets in Resources */,
 				E3B6758E218242B2008DB3F0 /* UIPropPicker.xib in Resources */,
