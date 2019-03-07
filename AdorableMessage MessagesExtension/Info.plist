@@ -17,12 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>4.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>0</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>adorableAvatarsEliasPaulino</string>
+	</array>
+	<key>MSSupportedPresentationContexts</key>
+	<array>
+		<string>MSMessagesAppPresentationContextMessages</string>
+		<string>MSMessagesAppPresentationContextMedia</string>
 	</array>
 	<key>NSExtension</key>
 	<dict>
@@ -31,10 +36,5 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.message-payload-provider</string>
 	</dict>
-    <key>MSSupportedPresentationContexts</key>
-    <array>
-        <string>MSMessagesAppPresentationContextMessages</string>
-        <string>MSMessagesAppPresentationContextMedia</string>
-    </array>
 </dict>
 </plist>

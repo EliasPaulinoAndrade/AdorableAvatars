@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    @objc func requestReview() {
+        SKStoreReviewController.requestReview()
+    }
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
@@ -44,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        Timer.scheduledTimer(timeInterval: 120, target: self, selector: #selector(requestReview), userInfo: nil, repeats: false)
         
         UNUserNotificationCenter.current().delegate = NotificationManager.shared
         ADWrapper.shared.defaultAvatarColor = PlistReader.init().colors.first
